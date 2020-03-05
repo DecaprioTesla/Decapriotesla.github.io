@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2020-03-05T02:55:17.311Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/reading/index.html</loc>
+    
+    <lastmod>2020-03-05T02:41:02.094Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/Album/index.html</loc>
     
     <lastmod>2020-03-04T13:58:00.137Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/movies/index.html</loc>
     
     <lastmod>2020-03-04T13:52:53.780Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/reading/index.html</loc>
-    
-    <lastmod>2020-03-04T13:52:26.379Z</lastmod>
     
   </url>
   
@@ -103,13 +110,6 @@
     <loc>http://yoursite.com/daily/%E9%9A%8F%E7%AC%94%E4%B8%8E%E8%AE%A1%E5%88%92/%E9%9A%8F%E7%AC%941.html</loc>
     
     <lastmod>2020-03-02T09:49:31.032Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2020-03-02T09:10:34.148Z</lastmod>
     
   </url>
   
