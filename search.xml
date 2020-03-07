@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>反向传播网络</title>
+    <url>/2020/03/05/006%E7%A5%9E%E7%BB%8F%E7%BD%91%E8%B7%AF/</url>
+    <content><![CDATA[<h1 id="反向传播网络"><a href="#反向传播网络" class="headerlink" title="反向传播网络"></a>反向传播网络</h1><p>&emsp;&emsp;反向传播网络（Back-Propagation Network,简称BP网络）是对非线性可微分函数进行权值训练的多层前向网络。在人工神经网络的实现应用过程中，80%-90%的采用BP网络或它的变化形式</p>
+<a id="more"></a>
+<h2 id="1-反向传播网络的模型与结构"><a href="#1-反向传播网络的模型与结构" class="headerlink" title="1.反向传播网络的模型与结构"></a>1.反向传播网络的模型与结构</h2><p>&emsp;&emsp;BP网络是前向网络的核心内容，体现了神经网络的最精华的一部分。一个具有r个输入和一个隐含层的神经网络模型结构如图所示<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84.JPG" alt="图"></p>
+<center>网络模型结构</center>
+
+<p>&emsp;&emsp;在人们掌握反向传播网络设计之前，感知器和自适应线性元件都只能适应于单层的网络模型训练，二者的差别主要在激活函数上，前者是二值型的，后者是线性的。反向传播网络具有一个或多个隐含层，除了在多层网络结构上与之前介绍的模型有不同外，其主要差别在激活函数上。反向传播网络要求激活函数是处处可微的，所以其就不可以采用二值型阈值函数{0，1}或有符号函数{-1，1}，反向传播网络经常使用的是S型激活函数，此激活函数常用对数或双曲正切等一类S形状的曲线表示，如对数S型激活函数关系为：<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F1.JPG" alt="图"><br>&emsp;&emsp;双曲正切S型激活函数输入输出函数关系为：<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F2.JPG" alt="图"><br>&emsp;&emsp;下图是是对数S型激活函数和带有偏差的双曲正切S型激活函数的图形<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%AF%B9%E6%95%B0%E5%9E%8B.JPG" alt="图"></p>
+<center>对数型</center>
+
+<p><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%81%8F%E5%B7%AE%E5%9E%8B.JPG" alt="图"></p>
+<center>双曲正切型</center>
+
+<h2 id="2-BP算法（误差反向传播法：Back-Propergation）"><a href="#2-BP算法（误差反向传播法：Back-Propergation）" class="headerlink" title="2.BP算法（误差反向传播法：Back-Propergation）"></a>2.BP算法（误差反向传播法：Back-Propergation）</h2><p><img src="http://q6q6hf6hf.bkt.clouddn.com/BP%E8%92%9C%E8%B4%A9.JPG" alt="图"></p>
+<center>具有一个隐含层的简化网络图</center>
+
+<p>&emsp;&emsp;设输入为P，输入神经元有r个，隐含层内有s1个神经元，激活函数为F1，输出层内有s2个神经元，对应的激活函数为F2，输出为A，目标矢量为T 。</p>
+<h3 id="2-1信息的正向传递"><a href="#2-1信息的正向传递" class="headerlink" title="2.1信息的正向传递"></a>2.1信息的正向传递</h3><h4 id="1-隐含层中第i个神经元的输出为："><a href="#1-隐含层中第i个神经元的输出为：" class="headerlink" title="(1) 隐含层中第i个神经元的输出为："></a>(1) 隐含层中第i个神经元的输出为：</h4><p><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F3.JPG" alt="图"></p>
+<h4 id="2-输出层第k个神经元的输出为："><a href="#2-输出层第k个神经元的输出为：" class="headerlink" title="(2) 输出层第k个神经元的输出为："></a>(2) 输出层第k个神经元的输出为：</h4><p><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F4.JPG" alt="图"></p>
+<h4 id="3-定义误差函数为："><a href="#3-定义误差函数为：" class="headerlink" title="(3) 定义误差函数为："></a>(3) 定义误差函数为：</h4><p><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F5.JPG" alt="图"></p>
+<h3 id="2-2利用梯度下降法求权值变化及误差的反向传播"><a href="#2-2利用梯度下降法求权值变化及误差的反向传播" class="headerlink" title="2.2利用梯度下降法求权值变化及误差的反向传播"></a>2.2利用梯度下降法求权值变化及误差的反向传播</h3><h4 id="1-输出层的权值变化"><a href="#1-输出层的权值变化" class="headerlink" title="(1) 输出层的权值变化"></a>(1) 输出层的权值变化</h4><p>&emsp;&emsp;对从第i个输入到第k个输出的权值有：<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F6.JPG" alt="图"><br>&emsp;&emsp;其中：<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F7.JPG" alt="图"><br>&emsp;&emsp;同理可得：<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F8.JPG" alt="图"></p>
+<h4 id="2-隐含层权值变化"><a href="#2-隐含层权值变化" class="headerlink" title="(2) 隐含层权值变化"></a>(2) 隐含层权值变化</h4><p>&emsp;&emsp;对从第j个输入到第i个输出的权值，有：<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F9.JPG" alt="图"><br>&emsp;&emsp;其中：<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F10.JPG" alt="图"><br>&emsp;&emsp;同理可得：<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%85%AC%E5%BC%8F11.JPG" alt="图"></p>
+<h3 id="2-3误差反向传播的流程"><a href="#2-3误差反向传播的流程" class="headerlink" title="2.3误差反向传播的流程"></a>2.3误差反向传播的流程</h3><p><img src="http://q6q6hf6hf.bkt.clouddn.com/%E8%AF%AF%E5%B7%AE%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E5%9B%BE%E8%A7%A3.JPG" alt="图"></p>
+<center>反向传播网络工作流程</center>
+
+<h2 id="3-BP网络的设计"><a href="#3-BP网络的设计" class="headerlink" title="3.BP网络的设计"></a>3.BP网络的设计</h2><p>&emsp;&emsp;在进行BP网络的设计时，一般应从网络的层数、每层网络中的神经元个数和激活函数、初始值以及学习速率等几个方面考虑。下面讨论一下各自速率选区的原则。</p>
+<h3 id="3-1网络的层数"><a href="#3-1网络的层数" class="headerlink" title="3.1网络的层数"></a>3.1网络的层数</h3><p>&emsp;&emsp;理论上已经证明：具有偏差和至少一个S型隐含层加上一个线性输出层的网络，能够逼近任何有理函数。增加层数可以进一步降低误差提高精度，但同时也使网络复杂化，从而增加了网络权值的训练时间。而误差精度的提高也可以通过增加隐含层神经元的数目来获得，其训练效果也比增加层数更容易观察和调整。<br>考虑两个单元输入的联想问题。其输入和输出矢量分别为：</p>
+<p>&emsp;&emsp;P= [ 3 2 ], T = [ 0.4 0.8]</p>
+<p>&emsp;&emsp;当采用含有一个对数S 型单层网络求解时，可求得解为：</p>
+<p>&emsp;&emsp;w= 0.3350</p>
+<p>&emsp;&emsp;b= 0.5497</p>
+<p>&emsp;&emsp;此时所达到的误差平方和err_goal &lt; 0.001 。若将这个误差转换成输出误差时，其绝对误差约为 0.02</p>
+<p>&emsp;&emsp;若采用自适应线性网络来实现此联想，得解为：</p>
+<p>&emsp;&emsp;w= 0.08</p>
+<p>&emsp;&emsp;b= 0.64</p>
+<p>&emsp;&emsp;此网络误差为：e = T Y = 0 。<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E4%B8%A4%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%BD%91%E7%BB%9C.JPG" alt="图"></p>
+<center>两种结构比较</center>
+
+<h3 id="3-2隐含层的神经元数"><a href="#3-2隐含层的神经元数" class="headerlink" title="3.2隐含层的神经元数"></a>3.2隐含层的神经元数</h3><p>&emsp;&emsp;网络训练精度的提高可以通过采用增加隐含层神经元的数目来提高，其在结构实现上要比增加神经元层数要简单的多。具体的数是多少要综合考虑精度和复杂度的要求。<br>&emsp;&emsp;用两层BP网络实现“异或”功能。</p>
+<p><img src="http://q6q6hf6hf.bkt.clouddn.com/%E4%B8%8D%E5%90%8C%E5%B1%82%E6%95%B0.JPG" alt="图"></p>
+<center>每层不同神经元数结构</center>
+
+<h3 id="3-3初始权值的选取"><a href="#3-3初始权值的选取" class="headerlink" title="3.3初始权值的选取"></a>3.3初始权值的选取</h3><p>&emsp;&emsp;较好的初始值时的训练效果的观察。以前面的实例为例，当改用下列初始值：net = initnw(net,1);在这个初始值函数下，获得的一组初始值为：</p>
+<p>&emsp;&emsp;W1 = [7 ; 7 ;7 ; 7 ; 7];B1 = [7.0000; 3.5000; 0; 3.5000; 7.0000];</p>
+<p>&emsp;&emsp;W2 = [0.2698 0.2135 0.1831 0.7605 0.9237];B2 = [0.0828];</p>
+<p>&emsp;&emsp;重新训练网络后，相对于原先随机初始值时的6801 次的训练，仅用了 410 次，就达到了同样的目标误差。这比标准的反向传播法的训练次数少了 15 倍。</p>
+<h3 id="3-4学习速率的影响"><a href="#3-4学习速率的影响" class="headerlink" title="3.4学习速率的影响"></a>3.4学习速率的影响</h3><p>&emsp;&emsp;观察不同学习速率的影响<br><img src="http://q6q6hf6hf.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0%E9%80%9F%E7%8E%87.JPG" alt="图"></p>
+<center>研究不同学习速率影响</center>
+
+<h2 id="4-BP网络的应用"><a href="#4-BP网络的应用" class="headerlink" title="4.BP网络的应用"></a>4.BP网络的应用</h2><p>&emsp;&emsp;1.<strong>函数逼近</strong>：用输入矢量和相应的输出矢量训练一个网络逼近一个函数；<br>&emsp;&emsp;2.<strong>模式识别</strong>：用一个特定的输出矢量将它与输入矢量联系起来；<br>&emsp;&emsp;3.<strong>分类</strong>：把输入矢量以所定义的合适方式进行分类；<br>&emsp;&emsp;4.<strong>数据压缩</strong>：减少输出矢量维数以便于传输或存储。</p>
+<h2 id="5-BP网络的限制与不足"><a href="#5-BP网络的限制与不足" class="headerlink" title="5.BP网络的限制与不足"></a>5.BP网络的限制与不足</h2><p>&emsp;&emsp;<strong>1.需要较长的训练时间</strong></p>
+<p>&emsp;&emsp;<strong>2.某些情况下完全不能训练</strong></p>
+<p>&emsp;&emsp;<strong>3.可能陷入局部极小值</strong></p>
+]]></content>
+      <categories>
+        <category>控制理论</category>
+      </categories>
+      <tags>
+        <tag>反向传播网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自适应控制（一）</title>
+    <url>/2020/03/02/005%E8%87%AA%E9%80%82%E5%BA%94%E6%8E%A7%E5%88%B6%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="自适应控制"><a href="#自适应控制" class="headerlink" title="自适应控制"></a>自适应控制</h1><p>&emsp;&emsp;实际控制系统中，绝大多数被控对象具有不确定性，即其动力学模型和所处的环境不是完全已知的，表现为事先难以确定被控对象的模型参数，或者模型参数是时变的，或者被控对象本身的特性发生变化，此时就需要引入自适应控制。</p>
+<a id="more"></a>
+<h2 id="1自适应控制的引入"><a href="#1自适应控制的引入" class="headerlink" title="1自适应控制的引入"></a>1自适应控制的引入</h2><h3 id="1-1传统控制理论的局限性"><a href="#1-1传统控制理论的局限性" class="headerlink" title="1.1传统控制理论的局限性"></a>1.1传统控制理论的局限性</h3><p>&emsp;&emsp;现代控制理论通常研究的对象是多输入多输出的线性系统以及一般的非线性系统，当其状态空间运动方程已知，即可借助最优控制理论设计最优控制器，使得控制系统的某一性能指标达到最优（运行时间最短、能耗最小等）。在研究前需要获得系统动力学的数学模型（参数结构），也就是说系统的模型是已知的。但在实际中，绝大多数被控对象具有不确定性，即其动力学模型和所处的环境不是完全已知的，表现为事先难以确定被控对象的模型参数，或者模型参数是时变的，或者被控对象本身的特性发生变化。</p>
+<h3 id="1-2自适应控制的发展历史"><a href="#1-2自适应控制的发展历史" class="headerlink" title="1.2自适应控制的发展历史"></a>1.2自适应控制的发展历史</h3><p>&emsp;&emsp;1958年，美国麻省理工学院(MIT)的Whitaker教授首先提出了飞机自动驾驶仪的模型参考自适应控制方案，称为MIT方案。在该方案中采用局部参数优化理论设计自适应控制律，但保证不了系统的稳定性。</p>
+<p>&emsp;&emsp;为解决稳定性问题，1965年前后，Shackcloth和Butchar、Parks等人独立引进Lyapunov方法进行模型参考自适应控制律的设计，可保证系统的稳定性。</p>
+<p>&emsp;&emsp;1974年，美国的Monopoli提出了一种广义误差信号法，只要采用对象的输入和输出就可以完成设计，避免了微分运算。Monopoli的工作具有里程碑性的意义，他使得模型参考自适应方法变得实用，去掉了求微分运算、增加了稳定性，更适合工程应用。</p>
+<p>&emsp;&emsp;1973年，瑞典学者K.J.Åström和B.Wittenmark首先提出最小方差自校正调节器，很容易实现，可以在生产中应用。</p>
+<h3 id="1-3自适应控制的特点"><a href="#1-3自适应控制的特点" class="headerlink" title="1.3自适应控制的特点"></a>1.3自适应控制的特点</h3><ul>
+<li>能够检测到对象的（性能或模型参数）变化</li>
+<li>能够产生基于这种变化的自适应控制率</li>
+<li>具有实现可变控制律的可调控制器<h3 id="1-4自适应控制系统基本结构"><a href="#1-4自适应控制系统基本结构" class="headerlink" title="1.4自适应控制系统基本结构"></a>1.4自适应控制系统基本结构</h3>&emsp;&emsp;在经典控制系统的基础之上加入对象的变化检测环节与自适应机构（下图1），对象的变化检测环节是根据系统或对象的输入、输出、可能检测到的干扰来确定出对象本身的变化，例如性能指标值的变化、对象数学模型中某些参数值的变化等，此外也有信息积累的功能。自适应机构根据检测到的对象变化按预先制定的规则产生自适应调节方案，以调整控制器并逐渐实现期望的控制目标。其中，自适应调节方案分参数调节和结构调节两大类，前者只改变控制器的参数，如PID参数整定；后者则会改变控制律的形式。</li>
+</ul>
+<p><img src="http://q6o2z8cws.bkt.clouddn.com/%E8%87%AA%E9%80%82%E5%BA%94%E7%BB%93%E6%9E%84.JPG" alt="图"></p>
+<h3 id="1-5-自适应控制系统中控制器设计的方法"><a href="#1-5-自适应控制系统中控制器设计的方法" class="headerlink" title="1.5 自适应控制系统中控制器设计的方法"></a>1.5 自适应控制系统中控制器设计的方法</h3><blockquote>
+<ul>
+<li>基于优化策略的自校正控制器</li>
+</ul>
+</blockquote>
+<p>&lt;divalign=center&gt;<img src="http://q6o2z8cws.bkt.clouddn.com/04.JPG" divalign="center"></p>
+<p>基于优化策略的自校正控制器主要有如下三种方法：</p>
+<p>&emsp;&emsp;1. 最小方差控制</p>
+<img src="http://q6o2z8cws.bkt.clouddn.com/01.JPG">
+
+<p>&emsp;&emsp;2. 广义最小方差控制</p>
+<img src="http://q6o2z8cws.bkt.clouddn.com/02.JPG">
+
+<p>&emsp;&emsp;3. LQG(先行二次高斯)控制</p>
+<img src="http://q6o2z8cws.bkt.clouddn.com/03.JPG">
+
+<blockquote>
+<ul>
+<li>基于常规控制策略的自校正器</li>
+</ul>
+</blockquote>
+<p>&emsp;&emsp;1. 极点配置法：</p>
+<p>&emsp;&emsp;把期望的闭环系统的行为用期望传递函数的（零）极点的位置表示，设计自校正控制器的目的是，保证控制器作用下闭环系统的（零）极点等于或收敛于期望的（零）极点。</p>
+<p>&emsp;&emsp;2. PID控制器</p>
+<p>&emsp;&emsp;讨论在常规PID控制器作用下如何消除干扰的特殊问题。</p>
+<blockquote>
+<ul>
+<li>模型参考自适应控制</li>
+</ul>
+</blockquote>
+<p>&emsp;&emsp;通过使参考模型输出与对象输出的偏差按一个确定的动态过程趋于零来设计控制律。</p>
+<h3 id="1-6自适应控制控制系统主要研究问题"><a href="#1-6自适应控制控制系统主要研究问题" class="headerlink" title="1.6自适应控制控制系统主要研究问题"></a>1.6自适应控制控制系统主要研究问题</h3><p>&emsp;&emsp;自适应控制针对对象和其所处的环境的变化而言，因此需要分析对象的不确定性，其理论涉及概率论、随机过程和系统控制理论。其根本在于设计一个能适应对象和环境变化的自适应控制律。根据对控制系统的基本要求，与自适应律相关的问题有稳定性、收敛性和鲁棒性。</p>
+<blockquote>
+<ul>
+<li>稳定性</li>
+</ul>
+</blockquote>
+<p>&emsp;&emsp;在模型参考自适应控制中，目的是使𝑒⟶0，即要求误差满足Lyapunov渐近稳定性，故稳定性理论是模型参考自适应控制的理论基础。在设计模型参考自适应控制中，Lyapunov稳定性理论和Popov超稳定性理论还是重要的设计工具。</p>
+<blockquote>
+<ul>
+<li>收敛性</li>
+</ul>
+</blockquote>
+<p>&emsp;&emsp;在自适应控制中，收敛性多指算法的收敛性。自适应机构修正控制器从而形成的控制算法、或自校正的参数辨识算法，一般都会出现递推形式，即根据前一步的结果来计算这一步的控制律和参数值。有效的控制结果要求算法必须在有限步后满足要求。收敛算法意味着，参数值最终会收敛到一个确定值。数学上，收敛指一个无限过程。实际使用时，可以指定一个递进误差界，当两步计算所得的参数值之差小于这个误差界时就认为算法已收敛到极限值，停止计算。</p>
+<blockquote>
+<ul>
+<li>鲁棒性</li>
+</ul>
+</blockquote>
+<p>&emsp;&emsp;鲁棒控制和自适应控制的兼容形成鲁棒自适应控制，即自适应控制律具有鲁棒性。鲁棒自适应控制的动机：对于对象或环境的细小变化就引起自适应控制的动作，很多时候是没有必要的，而且过于频繁的启停会大大缩短设备的寿命，甚至导致系统不稳定。</p>
+]]></content>
+      <categories>
+        <category>控制理论</category>
+      </categories>
+      <tags>
+        <tag>自适应控制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>上海1943</title>
+    <url>/2020/03/01/%E9%9A%8F%E7%AC%941/</url>
+    <content><![CDATA[<p>&emsp;&emsp;一场突如其来的疫情，给流动的人类社会按下了暂停键。《人类简史》中就曾提到过人类在过去百年面临的三大问题：饥荒、传染病、战争，现在看来其中两个仍然与我们息息相关：战争随时可能会卷土重来，传染病正在爆发。</p>
+<a id="more"></a>
+<h1 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h1><h2 id="01-世间万物发展之道"><a href="#01-世间万物发展之道" class="headerlink" title="01 世间万物发展之道"></a>01 世间万物发展之道</h2><p>&emsp;&emsp;水溢则慢，月盈而亏，事物的发展也是如此，人类社会不可能始终处于发展前进的阶段，总会在前进的道路上出现一些差错。这次疫情的爆发可以说是事物发展过程中的必然事件，这不仅与病毒本身有关，诚然也与人类的社会结构与性质相联系。对当下生活的人而言其可谓一场灾难，但就事件发展之道或历史进程而言，其可能就是“2020年，新冠病毒在中国爆发并在全球蔓延”一句话这么简单。</p>
+<h2 id="02-人类生存之本"><a href="#02-人类生存之本" class="headerlink" title="02 人类生存之本"></a>02 人类生存之本</h2><p>&emsp;&emsp;直立行走加上制造和使用工具完成了对人类的定义，直立行走改变了大脑结构，制造和使用工具促使人类改造和探索自然，前后两者亦即想法的诞生和行为的执行，也就是理论和时间相结合。不得不说人类的进步不得不依赖于提出那些拥有里程碑意义想法的人：神秘东方的孔子、老子，西方的亚里士多德、柏拉图、康德等，当然还有我们的马克思。也有一些诸如牛顿，达尔文，爱因斯坦之类。思想本身是一种抽象化的东西，但大思想家就能将抽象的思想转化成人们心中潜在的意识，可能这就是神奇的所在之处。同时有些思想抽象成理论并能在现实中体现出来并发挥出功用，使得人类足以生存甚至去挑战自然。</p>
+<h2 id="03-全局与整体"><a href="#03-全局与整体" class="headerlink" title="03 全局与整体"></a>03 全局与整体</h2><p>&emsp;&emsp;个体与周围的个体加上生活空间可谓社会，所以个体与个体，个体与生活空间的关系是社会的关键，上述两者之间的交集是思想和行为。</p>
+<h2 id="04-结语"><a href="#04-结语" class="headerlink" title="04 结语"></a>04 结语</h2><p>&emsp;&emsp;说人话：就是盼着：疫情尽快结束，万物长新！</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>博客域名更改</title>
+    <url>/2020/02/29/004%E6%9B%B4%E6%94%B9%E5%9F%9F%E5%90%8D/</url>
+    <content><![CDATA[<p>&emsp;&emsp;利用hexo和Github搭建完博客后默认的域名是以.github.io结尾的，依托于github的服务器，除非利用国外的IP去访问否则在国内博客加载的速度非常慢因此下面介绍如何购买阿里云的域名来重新部署自己的博客</p>
+<h1 id="域名更改步骤总结"><a href="#域名更改步骤总结" class="headerlink" title="域名更改步骤总结"></a>域名更改步骤总结</h1><a id="more"></a>
+<h2 id="1-购买域名"><a href="#1-购买域名" class="headerlink" title="1 购买域名"></a>1 购买域名</h2><p>&emsp;&emsp;首先注册一个阿里云账号（建议支付宝快捷方式注册）注册完后登录进入阿里云。在域名搜索栏中输入自己想要购买的域名，阿里云会根据域名的流行度推荐不同后缀的域名当然他们的价位也大不相同，根据自己的需要选择购买域名的时间然后加入购物车</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582992536696&di=e93f6201a2f40cd28e19553968fea5cf&imgtype=0&src=http%3A%2F%2Fimg.cndesign.com%2Fupload%2Fnews%2F20190322%2F6368885998231690521778966.png" alt="aliyun"></p>
+<p>&emsp;&emsp;在进行支付之前需要完善自己的信息包括邮箱身份证以及上传身份证正面图片，然后提交审核，审核时间大概在五分钟左右（赚钱的行当当然效率高）。接着完成支付，然后就恭喜你你可以有自己的域名了。</p>
+<h2 id="2-解析域名并在Github中添加域名信息"><a href="#2-解析域名并在Github中添加域名信息" class="headerlink" title="2 解析域名并在Github中添加域名信息"></a>2 解析域名并在Github中添加域名信息</h2><p>&emsp;&emsp;在新购买的域名右侧点击解析，然后去填写里面的内容：主机记录–@ ；记录类型选择–CNAME；解析线路默认；记录值–username.github.io;(最关键)</p>
+<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=655537167,4042667359&fm=26&gp=0.jpg" alt="avatar"></p>
+<p>&emsp;&emsp;然后回到Github中博客的仓库，进入最右侧的Settings，下拉进入到GithubPages，在custom domain中填入自己购买的域名然后点击save</p>
+<p><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2710692682,3036501525&fm=15&gp=0.jpg" alt="avatar"></p>
+<p>&emsp;&emsp;这时再次输入username.github.io网址栏中会自动变为购买的域名，但刚开始可能加载不出来任何东西，建议等待一段时间后再次尝试</p>
+<h2 id="3-完结"><a href="#3-完结" class="headerlink" title="3 完结"></a>3 完结</h2><p>&emsp;&emsp;等待一段时间后再次尝试，发现已经正常加载，而且速度快了很多，但是现阶段存在一个问题，自己刚刚生效的域名在QQ中分享时会出现骚扰网站警告⚠，Chrome浏览器中也有拦截，目前还在申诉中，但继续使用usemane.github.io去访问博客不会有警告，网址栏会自动转换为自己购买的域名，加载速度也比较快。</p>
+<p><img src="/2020/02/29/004%E6%9B%B4%E6%94%B9%E5%9F%9F%E5%90%8D/02.jpg" alt="02"></p>
+]]></content>
+      <tags>
+        <tag>域名 速度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用Hexo搭建自己的博客</title>
+    <url>/2020/02/28/003%E7%AC%AC%E4%B8%80%E7%AF%87%E6%AD%A3%E5%BC%8F%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="Hexo博客搭建"><a href="#Hexo博客搭建" class="headerlink" title="Hexo博客搭建"></a>Hexo博客搭建</h1><a id="more"></a>
+<p>今天在刷b站的时候无意中看到一位up主在自己的简介介绍了自己的个人博客，瞬时间我就萌生了搭建个人博客的年头，加之天气阴冷无事可做，当前手头上没有特别紧急的事情，于是一顿操作就搭起来了。</p>
+<h2 id="1-搭建博客的方法"><a href="#1-搭建博客的方法" class="headerlink" title="1. 搭建博客的方法"></a>1. 搭建博客的方法</h2><p>主要是在跟着B站的一位UP主学着做的，详情可见链接<a href="https://www.bilibili.com/video/av44544186?t=1156" target="_blank" rel="noopener">搭建博客</a>基本上可以说按照着他的步骤一步一步来就可以成功。下面简要回顾一下搭建的基本步骤：</p>
+<h3 id="1-1安装git"><a href="#1-1安装git" class="headerlink" title="1.1安装git"></a>1.1安装git</h3><p>之前只知道有github这个网站，实际上还有一个git软件，git可以用来托管自己的文件或代码方面分布式的交流,搭建hexo博客中对自己的博客设计都是通过git来提交的。<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582913056223&di=1dc371b81afdf0748a5064ffa13fe66c&imgtype=0&src=http%3A%2F%2Fblog.lihaocheng.cn%2Fwp-content%2Fuploads%2F2019%2F03%2F19c3ae1c30f4c948e3de8c2c4226cebc.jpg" alt="git"></p>
+<h3 id="1-2配置git"><a href="#1-2配置git" class="headerlink" title="1.2配置git"></a>1.2配置git</h3><h3 id="1-3安装Node-js软件"><a href="#1-3安装Node-js软件" class="headerlink" title="1.3安装Node.js软件"></a>1.3安装Node.js软件</h3><h3 id="1-4将网站部署到Github"><a href="#1-4将网站部署到Github" class="headerlink" title="1.4将网站部署到Github"></a>1.4将网站部署到Github</h3><p>这个步骤要注意自己的博客的网址名称必须要和自己的github账户username保持一致，即username.guithub.io</p>
+<h3 id="1-5更换Blog主题"><a href="#1-5更换Blog主题" class="headerlink" title="1.5更换Blog主题"></a>1.5更换Blog主题</h3><p>默认的Blog不够简洁美观，可以按照推荐的yilia主题进行更换</p>
+<h3 id="1-6丰富博客的功能和外观"><a href="#1-6丰富博客的功能和外观" class="headerlink" title="1.6丰富博客的功能和外观"></a>1.6丰富博客的功能和外观</h3><p>虽然yilia主题相较于默认的主题有很大改进，但其内部的细节仍有一些需要改进与细化的地方<br>。可以搜索一些大佬们总结的经验和模仿他们的设计风格。其实修改的过程也比较简单，进本是一些代码和参数的<br>ctrl C和ctrl V。</p>
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS:"></a>PS:</h2><p>在功能预览网站local那个域名下博客加载速度很快，但真实域名的博客加载速度比较慢，毕竟人家是免费的，尤其是改动较大后首次进入。</p>
+<h2 id="2-Markdown格式书写练习"><a href="#2-Markdown格式书写练习" class="headerlink" title="2. Markdown格式书写练习"></a>2. Markdown格式书写练习</h2><p>其实写博客的方式和CSDN基本上是相同的格式，渐渐的熟悉这种格式写起博客来<br>十分方便，戍边也能提升一下盲打的速度</p>
+<h2 id="3-搭建完博客后今后的打算"><a href="#3-搭建完博客后今后的打算" class="headerlink" title="3. 搭建完博客后今后的打算"></a>3. 搭建完博客后今后的打算</h2><p>其实很多平台（CSDN，知乎，微博等）也提供了类似博客平台而且功能特别丰富，但是自己动手搭建的感觉是不同的。一个是知道博客的各个功能模块具体是怎样实现的，另外一个是可以直接利用自己的址去分享自己的博客（虽然大平台也可以分享自己的主页地址，但是感觉还是不一样，而且后期可以买个域名）</p>
+<p>以后有了这个博客，平时可以写一些技术分享然后传上去，也可写一下个人的感悟和思考，自我的探索以及写一些小文章等等。加入生活没有诗意，那可还行！<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582913205025&di=d28b5f55d7bf3ee903d23edf6c60afeb&imgtype=0&src=http%3A%2F%2F03.imgmini.eastday.com%2Fmobile%2F20180207%2F20180207070834_6d868feb7894e5a33a8f487af4f31e60_1.jpeg" alt="musk"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown格式测试</title>
+    <url>/2020/02/28/002%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%9B%98%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h1 id="博文格式测试"><a href="#博文格式测试" class="headerlink" title="博文格式测试"></a>博文格式测试</h1><a id="more"></a>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>这是我的第一篇文章</p>
+<p>这是第一段的内容</p>
+<h2 id="段落之间间隔显示"><a href="#段落之间间隔显示" class="headerlink" title="段落之间间隔显示"></a>段落之间间隔显示</h2><p>中间间隔一行空行就是段落之间的间隔</p>
+<h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><blockquote>
+<p>这是将会被高亮显示的内容</p>
+</blockquote>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>[百度]（<a href="https://www.baidu.com/index.php?tn=monline_3_dg）" target="_blank" rel="noopener">https://www.baidu.com/index.php?tn=monline_3_dg）</a></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582896568401&di=732f42da7677c2fd4b61e10e1c7e1c97&imgtype=0&src=http%3A%2F%2Fimg.ewebweb.com%2Fuploads%2F20190403%2F15%2F1554275984-CghfBeMolO.jpg" alt="风景"></p>
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
+<li>无序列表</li>
+</ul>
+<ul>
+<li><p>无序列表</p>
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2></li>
+</ul>
+<ol>
+<li>有序列表</li>
+<li>有序列表</li>
+<li>有序列表<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2></li>
+</ol>
+<hr>
+<hr>
+<hr>
+ <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=517554564&auto=1&height=66"></iframe>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/02/28/001hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. </p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><a id="more"></a>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+  </entry>
+</search>
