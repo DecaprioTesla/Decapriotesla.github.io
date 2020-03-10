@@ -3,23 +3,23 @@
   <entry>
     <title>Git将本地文件上传至Github仓库</title>
     <url>/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/</url>
-    <content><![CDATA[<p>使用git工具将本地文件上传至项目托管平台，方便自己对项目进行日常的更新管理以及实现项目的共享，下面简要介绍一些步骤：</p>
+    <content><![CDATA[<p>🖨️使用git工具将本地文件上传至项目托管平台，方便自己对项目进行日常的更新管理以及实现项目的共享，下面简要介绍一些步骤：</p>
 <a id="more"></a>
-<h1 id="git工具上传本地文件项目至github远程仓库"><a href="#git工具上传本地文件项目至github远程仓库" class="headerlink" title="git工具上传本地文件项目至github远程仓库"></a>git工具上传本地文件项目至github远程仓库</h1><ol>
-<li>在Github上新建一个仓库，并命名</li>
-<li>在本地文件下下右键，选择GitBash Here打开git工具</li>
-<li>命令行中首先输入：git init  (然后可以利用ls语句来检查一下项目文件下的所有文件)</li>
-<li>输入：git add .   然后回车</li>
-<li>输入：git commit -m’对项目的说明’</li>
-<li>然后输入：git remote add origin <a href="https://github.com/DecaprioTesla/Tempure_measure.git" target="_blank" rel="noopener">https://github.com/DecaprioTesla/Tempure_measure.git</a>  （网址为Github仓库分配的网页）</li>
-<li>最后输入： git push -u origin master (首次使用可能需要输入用户名和密码)</li>
+<h1 id="📌git工具上传本地文件项目至github远程仓库"><a href="#📌git工具上传本地文件项目至github远程仓库" class="headerlink" title="📌git工具上传本地文件项目至github远程仓库"></a>📌git工具上传本地文件项目至github远程仓库</h1><ol>
+<li>📎在Github上新建一个仓库，并命名</li>
+<li>📎在本地文件下下右键，选择GitBash Here打开git工具</li>
+<li>📎命令行中首先输入：git init  (然后可以利用ls语句来检查一下项目文件下的所有文件)</li>
+<li>📎输入：git add .   然后回车</li>
+<li>📎输入：git commit -m’对项目的说明’</li>
+<li>📎然后输入：git remote add origin <a href="https://github.com/DecaprioTesla/Tempure_measure.git" target="_blank" rel="noopener">https://github.com/DecaprioTesla/Tempure_measure.git</a>  （网址为Github仓库分配的网页）</li>
+<li>📎最后输入： git push -u origin master (首次使用可能需要输入用户名和密码)</li>
 </ol>
-<h1 id="本地项目做修改后重新上传至github远程仓库"><a href="#本地项目做修改后重新上传至github远程仓库" class="headerlink" title="本地项目做修改后重新上传至github远程仓库"></a>本地项目做修改后重新上传至github远程仓库</h1><ol>
-<li>对本地文件做一定的修改，加入新的文件等等</li>
-<li>记住所作修改或添加的文件，然后：git add 修改的文件名称.格式</li>
-<li>输入：git commit -m’添加修改说明’</li>
-<li>输入：git pull –rebase origin master</li>
-<li>最后输入 git push -u origin master上传修改或添加的文件的文件</li>
+<h1 id="📌本地项目做修改后重新上传至github远程仓库"><a href="#📌本地项目做修改后重新上传至github远程仓库" class="headerlink" title="📌本地项目做修改后重新上传至github远程仓库"></a>📌本地项目做修改后重新上传至github远程仓库</h1><ol>
+<li>📎对本地文件做一定的修改，加入新的文件等等</li>
+<li>📎记住所作修改或添加的文件，然后：git add 修改的文件名称.格式</li>
+<li>📎输入：git commit -m’添加修改说明’</li>
+<li>📎输入：git pull –rebase origin master</li>
+<li>📎最后输入 git push -u origin master上传修改或添加的文件的文件</li>
 </ol>
 ]]></content>
       <categories>
