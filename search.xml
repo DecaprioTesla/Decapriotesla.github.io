@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git将本地文件上传至Github仓库</title>
+    <url>/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/</url>
+    <content><![CDATA[<p>使用git工具将本地文件上传至项目托管平台，方便自己对项目进行日常的更新管理以及实现项目的共享，下面简要介绍一些步骤：</p>
+<a id="more"></a>
+<h1 id="git工具上传本地文件项目至github远程仓库"><a href="#git工具上传本地文件项目至github远程仓库" class="headerlink" title="git工具上传本地文件项目至github远程仓库"></a>git工具上传本地文件项目至github远程仓库</h1><ol>
+<li>在Github上新建一个仓库，并命名</li>
+<li>在本地文件下下右键，选择GitBash Here打开git工具</li>
+<li>命令行中首先输入：git init  (然后可以利用ls语句来检查一下项目文件下的所有文件)</li>
+<li>输入：git add .   然后回车</li>
+<li>输入：git commit -m’对项目的说明’</li>
+<li>然后输入：git remote add origin <a href="https://github.com/DecaprioTesla/Tempure_measure.git" target="_blank" rel="noopener">https://github.com/DecaprioTesla/Tempure_measure.git</a>  （网址为Github仓库分配的网页）</li>
+<li>最后输入： git push -u origin master (首次使用可能需要输入用户名和密码)</li>
+</ol>
+<h1 id="本地项目做修改后重新上传至github远程仓库"><a href="#本地项目做修改后重新上传至github远程仓库" class="headerlink" title="本地项目做修改后重新上传至github远程仓库"></a>本地项目做修改后重新上传至github远程仓库</h1><ol>
+<li>对本地文件做一定的修改，加入新的文件等等</li>
+<li>记住所作修改或添加的文件，然后：git add 修改的文件名称.格式</li>
+<li>输入：git commit -m’添加修改说明’</li>
+<li>输入：git pull –rebase origin master</li>
+<li>最后输入 git push -u origin master上传修改或添加的文件的文件</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>上传仓库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>胡适日记</title>
     <url>/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<center><font face="黑体" color="black" size="5">颓废日记全篇</font></center>
@@ -304,30 +331,48 @@
   <entry>
     <title>Markdown格式测试</title>
     <url>/2020/02/28/002%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%9B%98%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h1 id="博文格式测试"><a href="#博文格式测试" class="headerlink" title="博文格式测试"></a>博文格式测试</h1><a id="more"></a>
+    <content><![CDATA[<h1 id="博文格式测试"><a href="#博文格式测试" class="headerlink" title="博文格式测试"></a>博文格式测试</h1><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p>内容显示到此行</p>
+<a id="more"></a>
+<p><font face="黑体" color="green" size="5">我是黑体，绿色，尺寸为5</font><br><font size="4">我是四号字体</font></p>
+<h1 id="居中显示举实例"><a href="#居中显示举实例" class="headerlink" title="居中显示举实例"></a>居中显示举实例</h1><center>
+
+
 <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>这是我的第一篇文章</p>
+</center>
+
+<h1 id="段落之间间隔显示"><a href="#段落之间间隔显示" class="headerlink" title="段落之间间隔显示"></a>段落之间间隔显示</h1><p>中间间隔一行空行就是段落之间的间隔</p>
 <p>这是第一段的内容</p>
-<h2 id="段落之间间隔显示"><a href="#段落之间间隔显示" class="headerlink" title="段落之间间隔显示"></a>段落之间间隔显示</h2><p>中间间隔一行空行就是段落之间的间隔</p>
-<h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><blockquote>
+<h1 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h1><blockquote>
 <p>这是将会被高亮显示的内容</p>
 </blockquote>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>[百度]（<a href="https://www.baidu.com/index.php?tn=monline_3_dg）" target="_blank" rel="noopener">https://www.baidu.com/index.php?tn=monline_3_dg）</a></p>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582896568401&di=732f42da7677c2fd4b61e10e1c7e1c97&imgtype=0&src=http%3A%2F%2Fimg.ewebweb.com%2Fuploads%2F20190403%2F15%2F1554275984-CghfBeMolO.jpg" alt="风景"></p>
-<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
+<h1 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h1><p>[百度]（<a href="https://www.baidu.com/index.php?tn=monline_3_dg）" target="_blank" rel="noopener">https://www.baidu.com/index.php?tn=monline_3_dg）</a></p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><center>
+
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582896568401&di=732f42da7677c2fd4b61e10e1c7e1c97&imgtype=0&src=http%3A%2F%2Fimg.ewebweb.com%2Fuploads%2F20190403%2F15%2F1554275984-CghfBeMolO.jpg" alt="风景"></p>
+</center>
+
+<h1 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h1><div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"autoplay":true,"hotkey":true,"preload":"metadata","video":{"url":"https://bestzuo.cn/dreamitpossible.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script> 
+
+<h1 id="空格展示"><a href="#空格展示" class="headerlink" title="空格展示"></a>空格展示</h1><p>&ensp;&ensp;&ensp;&ensp;&ensp;空格展示</p>
+<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><hr>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">smallerNumbersThanCurrent</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">     <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">cnt</span><span class="params">(<span class="number">102</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> num : nums)</span><br><span class="line">            ++cnt[num + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; cnt.size(); ++i)</span><br><span class="line">            cnt[i] += cnt[i - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">            nums[i] = cnt[nums[i]];</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>+++++++++++++</p>
+<h1 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h1><ul>
 <li>无序列表</li>
 </ul>
 <ul>
 <li><p>无序列表</p>
-<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2></li>
+<h1 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h1></li>
 </ul>
 <ol>
 <li>有序列表</li>
 <li>有序列表</li>
-<li>有序列表<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2></li>
+<li>有序列表<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1></li>
 </ol>
 <hr>
 <hr>
 <hr>
+<p> 红色的分割线：<br> <hr style="background-color : red;"></p>
  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=517554564&auto=1&height=66"></iframe>]]></content>
       <categories>
         <category>技术</category>
