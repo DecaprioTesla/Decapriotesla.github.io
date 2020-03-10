@@ -22,6 +22,9 @@
 <li>最后输入 git push -u origin master上传修改或添加的文件的文件</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术理论</category>
+      </categories>
       <tags>
         <tag>git</tag>
         <tag>上传仓库</tag>
