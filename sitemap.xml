@@ -4,7 +4,7 @@
   <url>
     <loc>http://yoursite.com/schedule/urgent/index.html</loc>
     
-    <lastmod>2020-03-11T14:27:49.715Z</lastmod>
+    <lastmod>2020-03-12T13:43:32.412Z</lastmod>
     
   </url>
   
@@ -149,13 +149,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/life/album03/index.html</loc>
-    
-    <lastmod>2020-03-05T09:22:09.061Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/life/album02/index.html</loc>
     
     <lastmod>2020-03-05T09:22:09.061Z</lastmod>
@@ -163,7 +156,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/life/index/album02/index.html</loc>
+    <loc>http://yoursite.com/life/album03/index.html</loc>
     
     <lastmod>2020-03-05T09:22:09.061Z</lastmod>
     
@@ -171,6 +164,13 @@
   
   <url>
     <loc>http://yoursite.com/life/index/album03/index.html</loc>
+    
+    <lastmod>2020-03-05T09:22:09.061Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/life/index/album02/index.html</loc>
     
     <lastmod>2020-03-05T09:22:09.061Z</lastmod>
     
