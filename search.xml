@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Windows系统下基于putty+VNC与树莓派4B连接</title>
+    <url>/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/</url>
+    <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584371094015&di=f0d8c4fd96aee78cbf386c55e872a9fe&imgtype=0&src=http%3A%2F%2Fmp.ofweek.com%2Fdata%2Fimages%2Fpchome%2F2020-02-28%2F7d77ace6438ab259e5c897ba265229f4.png" alt="image.png"></p>
+<a id="more"></a>
+<p>&ensp;&ensp;去年12月份花了500多大洋入手了一个树莓派4B，顶配的4GB RAM.当时想着是学习一下Linux系统，并基于树莓派进行一些DIY开发。这块板子刚取到后我就去听了学校的大师论坛讲座，那天的汇报人是数学界大佬丘成桐，讲座结束之后有幸要到了大佬在我的包装盒上的签名。</p>
+<p><img src="https://i.loli.net/2020/03/16/IVSyBa5tXJpmfWj.png" alt="image.png"></p>
+<p>&ensp;&ensp;但是，自从买回来之后这块树莓派就一直放在那里吃灰，期间试着在无显示屏的情况下进行连接。今天整理物品时将其找了出来，想着干脆学学这玩意儿。下面就先介绍无显示屏情况下进入树莓派系统的方法。</p>
+<h2 id="00准备工作"><a href="#00准备工作" class="headerlink" title="00准备工作"></a>00准备工作</h2><blockquote>
+<p>设备：<strong>树莓派裸板</strong>、<strong>网线</strong>、<strong>笔记本</strong></p>
+</blockquote>
+<blockquote>
+<p>软件：</p>
+</blockquote>
+<blockquote>
+<p><strong>putty</strong>(<a href="https://putty.en.softonic.com/" target="_blank" rel="noopener">https://putty.en.softonic.com/</a>)<br><strong>VNCViewer</strong>(<a href="https://www.realvnc.com/en/connect/download/viewer/)。" target="_blank" rel="noopener">https://www.realvnc.com/en/connect/download/viewer/)。</a></p>
+</blockquote>
+<p>&ensp;&ensp;两款软件均为开源免费，下载后无脑安装。</p>
+<h2 id="01、将WLAN设置为共享模式"><a href="#01、将WLAN设置为共享模式" class="headerlink" title="01、将WLAN设置为共享模式"></a>01、将WLAN设置为共享模式</h2><p>&ensp;&ensp;首先将利用网线将树莓派和笔记本的网口连接起来,然后进入WIndows的设置中心,选择进入网络和Internet设置.左边选择WLAN右边选择更改适配器选项<img src="https://i.loli.net/2020/03/16/pjkzNIStJoOPcmf.png" alt="image.png"></p>
+<p>&ensp;&ensp;接着进入网络连接设置选项,右键WALN,选择属性,进入属性设置界面.</p>
+<p><img src="https://i.loli.net/2020/03/16/qaRXFCD36Z2WpkT.png" alt="image.png"></p>
+<p>&ensp;&ensp;然后选择上方的共享,勾选两个选框,家庭网络连接选择以太网,点击确定,此时会发现WLAN的名称后面多了:”共享的”三个字。</p>
+<p><img src="https://i.loli.net/2020/03/16/E25NJFjiTfQGZzq.png" alt="image.png"></p>
+<h2 id="02-利用命令提示符查询树莓派的IP"><a href="#02-利用命令提示符查询树莓派的IP" class="headerlink" title="02 利用命令提示符查询树莓派的IP"></a>02 利用命令提示符查询树莓派的IP</h2><p>&ensp;&ensp;Win+R 快捷方式进入命令提示符窗口,然后输入:arp -a,找到192.168.137.1IP地址下的第一个IP,(我的为192.168.137.9)此IP为主机为树莓派分配的一个IP,然后打开Putty,输入刚才的IP地址后点击Open既可以。</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YZ1m9.png" alt="8YZ1m9.png"></p>
+<h2 id="03-Putty连接至树莓派"><a href="#03-Putty连接至树莓派" class="headerlink" title="03 Putty连接至树莓派"></a>03 Putty连接至树莓派</h2><p>&ensp;&ensp;putty中输入树莓派分配到的IP:</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YQ9Nd.png" alt="8YQ9Nd.png"></p>
+<p>&ensp;&ensp;接着就会进入到树莓派的登录界面:用户名默认是:pi,默认的密码是:raspberry.在输入密码时不会显示密码,输入完成后点击Enter键即可,如下图所示:</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YMkmF.png" alt="8YMkmF.png"></p>
+<p>&ensp;&ensp;熟悉Linux的童鞋们到此步就可以在树莓派的Linux系统下尽情徜徉了,但对于我等刚入门者还需要一个UI界面比较容易接收和学习,下面介绍如何利用VNC来实现树莓派系统的UI界面.</p>
+<h2 id="04开启VNC功能-实现树莓派的UI界面"><a href="#04开启VNC功能-实现树莓派的UI界面" class="headerlink" title="04开启VNC功能,实现树莓派的UI界面"></a>04开启VNC功能,实现树莓派的UI界面</h2><p>&ensp;&ensp;在上图的命令窗口中输入vncserver,开启VNC功能</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">vncserver</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s1.ax1x.com/2020/03/16/8YMClV.png" alt="8YMClV.png"></p>
+<p>&ensp;&ensp;然后打开VNCViewer,再次输入主机为树莓派分配的IP然后弹出如下界面就代表连接成功</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YKoWt.png" alt="8YKoWt.png"></p>
+<p>&ensp;&ensp;点击Continue,默认的登录密码是raspberry,输入密码后点击OK</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YMtfI.png" alt="8YMtfI.png"></p>
+<p>&ensp;&ensp;Congratulations!,现在你可以开启你的树莓派的学习之旅了</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YMXjK.png" alt="8YMXjK.png"></p>
+<h2 id="05写在后面"><a href="#05写在后面" class="headerlink" title="05写在后面"></a>05写在后面</h2><p>&ensp;&ensp;虽然网上可以买到树莓派的显示屏,或者直接找一台显示屏通过HDMI接口即可作为树莓派的显示屏,但上述两种选择对我来说完全没有必要,单独购买显示屏需要另外花钱不说,给其配一台显示器导致其便携性下降.所以,直接利用自己的笔记本来当显示屏是一个非常好的选择.</p>
+<p>&ensp;&ensp;作为卡片电脑,树莓派的功能十分强大,学习其GPIO口基本上可以将其当做一块微控制器来玩.另外其具有无线模块,在油管上看到有将树莓派当作软路由的教程,呵呵,搭一个路由器,全宿舍,全家科学上网,岂不美哉!!!</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>树莓派 VNC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git将本地文件上传至Github仓库</title>
     <url>/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/</url>
     <content><![CDATA[<p>🖨️使用git工具将本地文件上传至项目托管平台，方便自己对项目进行日常的更新管理以及实现项目的共享，下面简要介绍一些步骤：</p>

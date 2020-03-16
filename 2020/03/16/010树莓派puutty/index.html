@@ -20,23 +20,31 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="颓废日记全篇">
-<meta property="og:type" content="article">
-<meta property="og:title" content="胡适日记">
-<meta property="og:url" content="http://yoursite.com/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Windows系统下基于putty+VNC与树莓派4B连接">
+<meta property="og:url" content="http://yoursite.com/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/index.html">
 <meta property="og:site_name" content="Decaprio Lee">
-<meta property="og:description" content="颓废日记全篇">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583688617647&di=679b46139e9339467bbb1e2d28603249&imgtype=0&src=http%253A%252F%252Fimg1.gtimg.com%252Fninja%252F1%252F2019%252F05%252Fninja155694486387376.png">
-<meta property="og:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2933670769,1198485342&fm=26&gp=0.jpg">
-<meta property="article:published_time" content="2020-03-08T14:55:51.000Z">
-<meta property="article:modified_time" content="2020-03-08T14:43:20.746Z">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584371094015&di=f0d8c4fd96aee78cbf386c55e872a9fe&imgtype=0&src=http%253A%252F%252Fmp.ofweek.com%252Fdata%252Fimages%252Fpchome%252F2020-02-28%252F7d77ace6438ab259e5c897ba265229f4.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/16/IVSyBa5tXJpmfWj.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/16/pjkzNIStJoOPcmf.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/16/qaRXFCD36Z2WpkT.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/16/E25NJFjiTfQGZzq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/16/8YZ1m9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/16/8YQ9Nd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/16/8YMkmF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/16/8YMClV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/16/8YKoWt.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/16/8YMtfI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/16/8YMXjK.png">
+<meta property="article:published_time" content="2020-03-16T11:31:57.000Z">
+<meta property="article:modified_time" content="2020-03-16T12:29:47.376Z">
 <meta property="article:author" content="Decaprio Lee">
-<meta property="article:tag" content="划水">
+<meta property="article:tag" content="树莓派 VNC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583688617647&di=679b46139e9339467bbb1e2d28603249&imgtype=0&src=http%253A%252F%252Fimg1.gtimg.com%252Fninja%252F1%252F2019%252F05%252Fninja155694486387376.png">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584371094015&di=f0d8c4fd96aee78cbf386c55e872a9fe&imgtype=0&src=http%253A%252F%252Fmp.ofweek.com%252Fdata%252Fimages%252Fpchome%252F2020-02-28%252F7d77ace6438ab259e5c897ba265229f4.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://yoursite.com/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/">
 
 
 <script id="page-configurations">
@@ -48,7 +56,7 @@
   };
 </script>
 
-  <title>胡适日记 | Decaprio Lee</title>
+  <title>Windows系统下基于putty+VNC与树莓派4B连接 | Decaprio Lee</title>
   
 
 
@@ -188,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -201,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          胡适日记
+          Windows系统下基于putty+VNC与树莓派4B连接
         </h1>
 
         <div class="post-meta">
@@ -212,7 +220,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-08 22:55:51 / 修改时间：22:43:20" itemprop="dateCreated datePublished" datetime="2020-03-08T22:55:51+08:00">2020-03-08</time>
+              <time title="创建时间：2020-03-16 19:31:57 / 修改时间：20:29:47" itemprop="dateCreated datePublished" datetime="2020-03-16T19:31:57+08:00">2020-03-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,12 +228,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="胡适日记" title="阅读次数">
+            <span id="/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/" class="post-meta-item leancloud_visitors" data-flag-title="Windows系统下基于putty+VNC与树莓派4B连接" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -241,8 +249,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -252,14 +260,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>184</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -271,43 +279,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <center><font face="黑体" color="black" size="5">颓废日记全篇</font></center>
-
-<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583688617647&di=679b46139e9339467bbb1e2d28603249&imgtype=0&src=http%3A%2F%2Fimg1.gtimg.com%2Fninja%2F1%2F2019%2F05%2Fninja155694486387376.png" alt="图"></p>
+        <p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584371094015&di=f0d8c4fd96aee78cbf386c55e872a9fe&imgtype=0&src=http%3A%2F%2Fmp.ofweek.com%2Fdata%2Fimages%2Fpchome%2F2020-02-28%2F7d77ace6438ab259e5c897ba265229f4.png" alt="image.png"></p>
 <a id="more"></a>
-<center><font face="黑体" color="black" size="4">打牌日记</font></center>
+<p>&ensp;&ensp;去年12月份花了500多大洋入手了一个树莓派4B，顶配的4GB RAM.当时想着是学习一下Linux系统，并基于树莓派进行一些DIY开发。这块板子刚取到后我就去听了学校的大师论坛讲座，那天的汇报人是数学界大佬丘成桐，讲座结束之后有幸要到了大佬在我的包装盒上的签名。</p>
+<p><img src="https://i.loli.net/2020/03/16/IVSyBa5tXJpmfWj.png" alt="image.png"></p>
+<p>&ensp;&ensp;但是，自从买回来之后这块树莓派就一直放在那里吃灰，期间试着在无显示屏的情况下进行连接。今天整理物品时将其找了出来，想着干脆学学这玩意儿。下面就先介绍无显示屏情况下进入树莓派系统的方法。</p>
+<h2 id="00准备工作"><a href="#00准备工作" class="headerlink" title="00准备工作"></a>00准备工作</h2><blockquote>
+<p>设备：<strong>树莓派裸板</strong>、<strong>网线</strong>、<strong>笔记本</strong></p>
+</blockquote>
+<blockquote>
+<p>软件：</p>
+</blockquote>
+<blockquote>
+<p><strong>putty</strong>(<a href="https://putty.en.softonic.com/" target="_blank" rel="noopener">https://putty.en.softonic.com/</a>)<br><strong>VNCViewer</strong>(<a href="https://www.realvnc.com/en/connect/download/viewer/)。" target="_blank" rel="noopener">https://www.realvnc.com/en/connect/download/viewer/)。</a></p>
+</blockquote>
+<p>&ensp;&ensp;两款软件均为开源免费，下载后无脑安装。</p>
+<h2 id="01、将WLAN设置为共享模式"><a href="#01、将WLAN设置为共享模式" class="headerlink" title="01、将WLAN设置为共享模式"></a>01、将WLAN设置为共享模式</h2><p>&ensp;&ensp;首先将利用网线将树莓派和笔记本的网口连接起来,然后进入WIndows的设置中心,选择进入网络和Internet设置.左边选择WLAN右边选择更改适配器选项<img src="https://i.loli.net/2020/03/16/pjkzNIStJoOPcmf.png" alt="image.png"></p>
+<p>&ensp;&ensp;接着进入网络连接设置选项,右键WALN,选择属性,进入属性设置界面.</p>
+<p><img src="https://i.loli.net/2020/03/16/qaRXFCD36Z2WpkT.png" alt="image.png"></p>
+<p>&ensp;&ensp;然后选择上方的共享,勾选两个选框,家庭网络连接选择以太网,点击确定,此时会发现WLAN的名称后面多了:”共享的”三个字。</p>
+<p><img src="https://i.loli.net/2020/03/16/E25NJFjiTfQGZzq.png" alt="image.png"></p>
+<h2 id="02-利用命令提示符查询树莓派的IP"><a href="#02-利用命令提示符查询树莓派的IP" class="headerlink" title="02 利用命令提示符查询树莓派的IP"></a>02 利用命令提示符查询树莓派的IP</h2><p>&ensp;&ensp;Win+R 快捷方式进入命令提示符窗口,然后输入:arp -a,找到192.168.137.1IP地址下的第一个IP,(我的为192.168.137.9)此IP为主机为树莓派分配的一个IP,然后打开Putty,输入刚才的IP地址后点击Open既可以。</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YZ1m9.png" alt="8YZ1m9.png"></p>
+<h2 id="03-Putty连接至树莓派"><a href="#03-Putty连接至树莓派" class="headerlink" title="03 Putty连接至树莓派"></a>03 Putty连接至树莓派</h2><p>&ensp;&ensp;putty中输入树莓派分配到的IP:</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YQ9Nd.png" alt="8YQ9Nd.png"></p>
+<p>&ensp;&ensp;接着就会进入到树莓派的登录界面:用户名默认是:pi,默认的密码是:raspberry.在输入密码时不会显示密码,输入完成后点击Enter键即可,如下图所示:</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YMkmF.png" alt="8YMkmF.png"></p>
+<p>&ensp;&ensp;熟悉Linux的童鞋们到此步就可以在树莓派的Linux系统下尽情徜徉了,但对于我等刚入门者还需要一个UI界面比较容易接收和学习,下面介绍如何利用VNC来实现树莓派系统的UI界面.</p>
+<h2 id="04开启VNC功能-实现树莓派的UI界面"><a href="#04开启VNC功能-实现树莓派的UI界面" class="headerlink" title="04开启VNC功能,实现树莓派的UI界面"></a>04开启VNC功能,实现树莓派的UI界面</h2><p>&ensp;&ensp;在上图的命令窗口中输入vncserver,开启VNC功能</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">vncserver</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>七月二日：天热不能作事，打牌消遣；</p>
-</blockquote>
-<blockquote>
-<p>七月三日：今日天气百一十度。打牌。</p>
-</blockquote>
-<blockquote>
-<p>七月五日：往暑期学校注册。打牌。</p>
-</blockquote>
-<blockquote>
-<p>七月六日：暑期学校注册，化学。打牌。</p>
-</blockquote>
-<blockquote>
-<p>七月七日：上课，打牌。</p>
-</blockquote>
-<blockquote>
-<p>七月八日：无课，打牌，天作稍凉矣。</p>
-</blockquote>
-<blockquote>
-<p>七月廿一日：化学第二小测试……打牌。</p>
-</blockquote>
-<blockquote>
-<p>七月廿二日：打牌，读美国短篇名著数种。</p>
-</blockquote>
-<blockquote>
-<p>七月廿四日：上课，得意争一书，打牌，演化学算题</p>
-</blockquote>
-<blockquote>
-<p>七月廿五日：上课，作书复德争。打牌。</p>
-</blockquote>
-<p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2933670769,1198485342&fm=26&gp=0.jpg" alt="图"></p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YMClV.png" alt="8YMClV.png"></p>
+<p>&ensp;&ensp;然后打开VNCViewer,再次输入主机为树莓派分配的IP然后弹出如下界面就代表连接成功</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YKoWt.png" alt="8YKoWt.png"></p>
+<p>&ensp;&ensp;点击Continue,默认的登录密码是raspberry,输入密码后点击OK</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YMtfI.png" alt="8YMtfI.png"></p>
+<p>&ensp;&ensp;Congratulations!,现在你可以开启你的树莓派的学习之旅了</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8YMXjK.png" alt="8YMXjK.png"></p>
+<h2 id="05写在后面"><a href="#05写在后面" class="headerlink" title="05写在后面"></a>05写在后面</h2><p>&ensp;&ensp;虽然网上可以买到树莓派的显示屏,或者直接找一台显示屏通过HDMI接口即可作为树莓派的显示屏,但上述两种选择对我来说完全没有必要,单独购买显示屏需要另外花钱不说,给其配一台显示器导致其便携性下降.所以,直接利用自己的笔记本来当显示屏是一个非常好的选择.</p>
+<p>&ensp;&ensp;作为卡片电脑,树莓派的功能十分强大,学习其GPIO口基本上可以将其当做一块微控制器来玩.另外其具有无线模块,在油管上看到有将树莓派当作软路由的教程,呵呵,搭一个路由器,全宿舍,全家科学上网,岂不美哉!!!</p>
 
     </div>
 
@@ -323,12 +333,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/">胡适日记</a></p>
+  <p><span>本文标题:</span><a href="/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/">Windows系统下基于putty+VNC与树莓派4B连接</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Decaprio Lee 的个人博客">Decaprio Lee</a></p>
-  <p><span>发布时间:</span>2020年03月08日 - 22:03</p>
-  <p><span>最后更新:</span>2020年03月08日 - 22:03</p>
-  <p><span>原始链接:</span><a href="/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/" title="胡适日记">http://yoursite.com/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年03月16日 - 19:03</p>
+  <p><span>最后更新:</span>2020年03月16日 - 20:03</p>
+  <p><span>原始链接:</span><a href="/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/" title="Windows系统下基于putty+VNC与树莓派4B连接">http://yoursite.com/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -399,7 +409,7 @@
 <footer class="post-footer">
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%88%92%E6%B0%B4/" rel="tag"><i class="fa fa-tag"></i> 划水</a>
+              <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE-VNC/" rel="tag"><i class="fa fa-tag"></i> 树莓派 VNC</a>
           </div>
 
         
@@ -413,13 +423,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/07/007%E5%9F%BA%E4%BA%8E%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5%E8%87%AA%E6%A0%A1%E6%AD%A3%E6%8E%A7%E5%88%B6%E5%99%A8/" rel="prev" title="自适应控制（二）">
-      <i class="fa fa-chevron-left"></i> 自适应控制（二）
+    <a href="/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/" rel="prev" title="Git将本地文件上传至Github仓库">
+      <i class="fa fa-chevron-left"></i> Git将本地文件上传至Github仓库
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/" rel="next" title="Git将本地文件上传至Github仓库">
-      Git将本地文件上传至Github仓库 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -480,6 +487,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#00准备工作"><span class="nav-number">1.</span> <span class="nav-text">00准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#01、将WLAN设置为共享模式"><span class="nav-number">2.</span> <span class="nav-text">01、将WLAN设置为共享模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-利用命令提示符查询树莓派的IP"><span class="nav-number">3.</span> <span class="nav-text">02 利用命令提示符查询树莓派的IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-Putty连接至树莓派"><span class="nav-number">4.</span> <span class="nav-text">03 Putty连接至树莓派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04开启VNC功能-实现树莓派的UI界面"><span class="nav-number">5.</span> <span class="nav-text">04开启VNC功能,实现树莓派的UI界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05写在后面"><span class="nav-number">6.</span> <span class="nav-text">05写在后面</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
