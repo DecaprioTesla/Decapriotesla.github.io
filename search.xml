@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C++中argc与argv的作用</title>
+    <url>/2020/03/31/011C++%E4%B8%ADargc%E5%92%8Cargv%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>在研究别人写的代码时，经常会发现在main函数中加入了两个定义：int argc,int *argv</p>
+<a id="more"></a>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通常在旧版本的IDE中新建一个C/C++源文件，通常也会见到上述mian函数括号中的定义，下面就介绍一下这种使用方法的作用。</p>
+<h2 id="细节分析"><a href="#细节分析" class="headerlink" title="细节分析"></a>细节分析</h2><p>根据函数参数传递的特性和，main()函数中传递了两个形式参数，int类型的argc以及字符类型的数组指针argv。下面研究一下，两个形参的默认值：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"argc: "</span>&lt;&lt;argc&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"argv: "</span>&lt;&lt;argv[<span class="number">0</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后再输出窗口中看到如下结果：<br><img src="https://pic.downk.cc/item/5e834329504f4bcb04439dec.jpg" alt="110"></p>
+<p>可见，argc的默认值为1，argv首元素为程序的位置路径。 看到这里你肯定明白了，argc是argv中存放string的数量，有了这个我们就可以遍历这个数组了。</p>
+<h2 id="最后说明"><a href="#最后说明" class="headerlink" title="最后说明"></a>最后说明</h2><ol>
+<li><p>argc 是 argument count的缩写，表示传入main函数的参数个数；</p>
+</li>
+<li><p>argv 是 argument vector的缩写，表示传入main函数的参数序列或指针，并且第一个参数argv[0]一定是程序的名称，并且包含了程序所在的完整路径，所以确切的说需要我们输入的main函数的参数个数应该是argc-1个；</p>
+<ol start="3">
+<li>如果程序要读取某文件的信息，而该文件的名称不是在程序中给定，而是由用户确定，那么给main传参数就是一个很好的方法.</li>
+</ol>
+</li>
+<li><p>argc,argv可以使程序接受命令行参数，更方便的IO</p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>Windows系统下基于putty+VNC与树莓派4B连接</title>
     <url>/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/</url>
     <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584371094015&di=f0d8c4fd96aee78cbf386c55e872a9fe&imgtype=0&src=http%3A%2F%2Fmp.ofweek.com%2Fdata%2Fimages%2Fpchome%2F2020-02-28%2F7d77ace6438ab259e5c897ba265229f4.png" alt="image.png"></p>
