@@ -1,6 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode做题总结(updating)</title>
+    <url>/2020/04/26/014LeetCode%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p> LeetCode刷题总结（Updating…）</p>
+<p>为了强化做题的效果，完成一些题目之后将题解进行总结回顾，加深印象，持续更新中…</p>
+<a id="more"></a>
+<p>目前已经完成的题目编号：1、7、9、13、14、27、28、35、53、58、66、67、69、70、83、88、100、101、104、111、121、122、141、461、728、942、1281、1295、1304、1309、1313、1342、1365、1385、LCP01</p>
+<h2 id="Chapt-00准备资料"><a href="#Chapt-00准备资料" class="headerlink" title="Chapt-00准备资料"></a><strong>Chapt-00准备资料</strong></h2><p><strong>0000资料</strong></p>
+<p><a herf="https://github.com/azl397985856/leetcode">LeetCode学习资料</a></p>
+<p><a herf="https://github.com/OUCMachineLearning/OUCML/tree/master/%E4%BB%A3%E7%A0%81%E9%80%9F%E6%9F%A5%E8%A1%A8">代码速查表</a></p>
+<p><a herf="https://github.com/MisterBooo/LeetCodeAnimation">图解LeetCode</a></p>
+<h2 id="Chapt-01链表"><a href="#Chapt-01链表" class="headerlink" title="Chapt-01链表"></a><strong>Chapt-01链表</strong></h2><p> <strong>0141 Link list Circle <a herf="https://leetcode-cn.com/problems/linked-list-cycle/">环形链表</a></strong></p>
+<ul>
+<li><p>当一个链表有环时，快慢指针都会陷入环中进行无限次移动，然后变成了追及问题。想象一下在操场跑步的场景，只要一直跑下去，快的总会追上慢的。当两个指针都进入环后，每轮移动使得慢指针到快指针的距离增加一，同时快指针到慢指针的距离也减少一，只要一直移动下去，快指针总会追上慢指针。</p>
+<center>
+
+<p><img src="https://pic.leetcode-cn.com/d1ac82780e5189d7d58406504c3b7b56c35165997bfbb4c325677af92ee2d483.gif" alt="avatar"></p>
+</center>
+根据上述表述得出，如果一个链表存在环，那么快慢指针必然会相遇。实现代码如下
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode *fast,*slow;</span><br><span class="line">        fast=head;</span><br><span class="line">        slow=head;</span><br><span class="line">        <span class="keyword">while</span>(fast!=<span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            fast=fast-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(fast!=<span class="literal">nullptr</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                fast=fast-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(fast==slow) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            slow=slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>面试0203 <a herf="https://leetcode-cn.com/problems/delete-middle-node-lcci/">删除中间节点</a></strong></p>
+<ul>
+<li>实现一种算法，删除单向链表中间的某个节点（除了第一个和最后一个节点，不一定是中间节点），假定你只能访问该节点。下面就是删除地址为node的节点。</li>
+</ul>
+<blockquote>
+<p>因为通过当前节点，我们只能知道后面节点的地址和内容，所以可以将当前要删除节点后面的那一个节点完全拷贝到当前节点，然后在将其删除。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode* node)</span> </span>&#123;</span><br><span class="line">        ListNode *p=node-&gt;next;<span class="comment">//定义一个node后面的节点</span></span><br><span class="line"></span><br><span class="line">        node-&gt;val=p-&gt;val;<span class="comment">//将node后面的节点的值赋给当前</span></span><br><span class="line">        node-&gt;next=p-&gt;next;<span class="comment">//将p节点指针区也拷给node</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">delete</span>(p);<span class="comment">//将p进行删除</span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>0021  Merge Two Sorted Lists <a herf="https://leetcode-cn.com/problems/merge-two-sorted-lists/">合并两个有序链表</a></strong></p>
+<h3 id="解法1（递归法）"><a href="#解法1（递归法）" class="headerlink" title="解法1（递归法）:"></a>解法1（递归法）:</h3><ul>
+<li>解决此道题目的有效方法为递归法，因为给出的函数的目的就是希望将两个链表进行合并。</li>
+<li>合并结束的标志为：其中一个链表到达最后一个节点，指针去指向NULL。<blockquote>
+<p>解决此题的主要思路：首先比较两个链表的第一个数据区域的大小，哪个小，哪个就保留住，然后其下一个，就是从两个链表中各在找出一个节点继续比较大小。<br>&emsp;递归法的程序实现：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1==<span class="literal">NULL</span>) <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l2==<span class="literal">NULL</span>) <span class="keyword">return</span> l1;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l1-&gt;val&lt;l2-&gt;val)</span><br><span class="line">        &#123;</span><br><span class="line">            l1-&gt;next=mergeTwoLists(l1-&gt;next,l2);</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            l2-&gt;next=mergeTwoLists(l1,l2-&gt;next);</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="解法2（迭代法）："><a href="#解法2（迭代法）：" class="headerlink" title="解法2（迭代法）："></a>解法2（迭代法）：</h3></li>
+<li>定义一个新的头节点</li>
+<li>比较l1节点数值和l2节点数值的大小，将小的放在头节点的后面</li>
+<li>循环执行，直至二者其中一个为NULL</li>
+<li>最后，将l2或者l1中剩余的部分链接到头节点后面<blockquote>
+<p>程序如下：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        ListNode* head = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">        ListNode* ret = head;</span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="literal">NULL</span> &amp;&amp; l2 != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1-&gt;val &lt; l2-&gt;val) &#123;</span><br><span class="line">                head-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                head-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = l1 == <span class="literal">NULL</span> ? l2 : l1;</span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>面试题.0202  Kth Node From End of List LCCI <a herf="https://leetcode-cn.com/problems/kth-node-from-end-of-list-lcci/">链表中倒数第K个节点的值</a></strong></p>
+<ul>
+<li>关键思想：快慢指针</li>
+<li>先让快指针走k次，然后一块走，当快指针走到NULL时，慢指针恰好处在倒数第K个位置<br><img src="https://pic.leetcode-cn.com/b6e913997ffa01167ac3c89fef7172a14fb46d22f20c8eb5db3c663b0523cc3e.png" alt="快慢指针实现图解"><center>快慢指针实现过程</center>
+
+</li>
+</ul>
+<blockquote>
+<p>编程代码如下：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">kthToLast</span><span class="params">(ListNode* head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        ListNode *p=head;</span><br><span class="line">        ListNode *q=head;</span><br><span class="line">        <span class="keyword">while</span>(k--)</span><br><span class="line">        &#123;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">            q=q-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> q-&gt;val;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Chapt-02数组"><a href="#Chapt-02数组" class="headerlink" title="Chapt-02数组"></a><strong>Chapt-02数组</strong></h2><p><strong>1010  song can be divided by 60 <a herf="https://leetcode-cn.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/">总持续时间可被60整除的歌曲</a></strong></p>
+<ul>
+<li>解决此题的关键之处在于算法的优化，当然使用暴力法当然可以，但数组长度过长时容易因为时间限制而不能通过，下面简单介绍一下优秀的遍历方法</li>
+<li>首先遍历一遍数组，将所有元素对60取余数，生成一个新的数组，并且将这些余数进行排序，sort()函数实现。</li>
+<li>通过一个新定义的数组来记录各个余数出现的次数，余数作为下标，下标对应的数值为该余数出现的次数。</li>
+<li>然后就是开启第二次循环，将0-30的之间的余数对应的30-60的数目加起来，最后在单独处理一些0与30这两种情况，根据两两结合的原理公式计算。<br>&emsp;&emsp;程序实现的方法如下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="keyword">int</span> count[<span class="number">61</span>],res = <span class="number">0</span>;<span class="comment">//用来存储各个余数出现的次数的数组</span></span><br><span class="line">     <span class="function"><span class="keyword">int</span> <span class="title">numPairsDivisibleBy60</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; time)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(time.empty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(count,<span class="number">0</span>,<span class="keyword">sizeof</span> count);<span class="comment">//将里面的元素初始化为0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; time.size(); i++)&#123;</span><br><span class="line">            time[i] %= <span class="number">60</span>;<span class="comment">//将时间转化为6o的余数</span></span><br><span class="line">            count[time[i]]++;<span class="comment">//记录各个余数出现的次数，没有出现则默认为0</span></span><br><span class="line">        &#125;</span><br><span class="line">        sort(time.begin(),time.end());<span class="comment">//将余数进行排序</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; time.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(time[i] &gt;= <span class="number">30</span>) <span class="keyword">break</span>;<span class="comment">//超过或者等于30就跳出循环</span></span><br><span class="line">            <span class="keyword">if</span>(time[i] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            res += count[<span class="number">60</span> - time[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        res += (count[<span class="number">0</span>]*(count[<span class="number">0</span>]<span class="number">-1</span>))/<span class="number">2</span>;</span><br><span class="line">        res += (count[<span class="number">30</span>]*(count[<span class="number">30</span>]<span class="number">-1</span>))/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Chapt-03递归"><a href="#Chapt-03递归" class="headerlink" title="Chapt-03递归"></a><strong>Chapt-03递归</strong></h2></li>
+</ul>
+<h2 id="Chapt-04树"><a href="#Chapt-04树" class="headerlink" title="Chapt-04树"></a><strong>Chapt-04树</strong></h2><h2 id="Chapt-05栈和队列"><a href="#Chapt-05栈和队列" class="headerlink" title="Chapt-05栈和队列"></a><strong>Chapt-05栈和队列</strong></h2><h2 id="Chapt-06查找"><a href="#Chapt-06查找" class="headerlink" title="Chapt-06查找"></a><strong>Chapt-06查找</strong></h2><h2 id="Chapt-07排序"><a href="#Chapt-07排序" class="headerlink" title="Chapt-07排序"></a><strong>Chapt-07排序</strong></h2>]]></content>
+      <tags>
+        <tag>LeetCode 笔记 算法 数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习笔记(updating)</title>
+    <url>/2020/04/01/013C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<center><font size="4">记录学习过程中遇到的问题以及十分重要的知识点</font></center>
+<a id="more"></a>
+
+<h2 id="宏定义与条件编译"><a href="#宏定义与条件编译" class="headerlink" title="宏定义与条件编译"></a><strong>宏定义与条件编译</strong></h2><blockquote>
+<p><strong>宏定义：</strong></p>
+</blockquote>
+<ul>
+<li>定义形式：</li>
+</ul>
+<p>用一个指定的标志符来代表一个字符串，其定义为：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415926</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>功能用途：</li>
+</ul>
+<ol>
+<li>可以减少程序中重复性输入某些重用字符串的工作量。</li>
+<li>一改全改<blockquote>
+<p><strong>条件编译</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>定义：</li>
+</ul>
+<p>一般情况下，源程序中所有的行都要参加编译，但有时候需要对程序中某一部分在满足一定的情况下才进行编译，也就是对部分程序限定编译条件；另外，我们希望当满足某一条件时对一组程序进行编译，当满足另外一种情况时则编译另外一组程序。</p>
+<ul>
+<li>使用方法：</li>
+</ul>
+<p>主要由两种形式，类似于判断语句，宏定义相当于编译的开关：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> COMPUTER</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LANGUAGE</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    ''''</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> COMPUTER</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 16</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 32</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// </span></span></span><br><span class="line">	<span class="keyword">int</span> size = SIZE;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"size="</span> &lt;&lt; size &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"这是一个条件编译指令的测试"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// DEBUG</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//与ifdef相反的因素是ifndef,理解起来方法是完全相同的</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LANGUAGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CHINA <span class="meta-string">"Chinese"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// !LANGUAGE</span></span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"添加CHINA的定义后："</span> &lt;&lt; CHINA &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结构体与类的定义与区别"><a href="#结构体与类的定义与区别" class="headerlink" title="结构体与类的定义与区别"></a><strong>结构体与类的定义与区别</strong></h2><blockquote>
+<p> C结构体、C++结构体基本相同，C++类主要是方法的实现。</p>
+</blockquote>
+<p><strong>结构体是数据类型的集合</strong></p>
+<p><strong>类是数据类型加方法的集合，基本如此，更注重方法。</strong></p>
+<h2 id="malloc"><a href="#malloc" class="headerlink" title="malloc"></a><strong>malloc</strong></h2><ul>
+<li><strong>在链表中插入新的结点时可能会用的到</strong></li>
+<li>头文件#include&lt;malloc.h&gt;</li>
+<li>功能：分配长度为num_bytes字节的内存块 </li>
+<li>说明：如果分配成功则返回指向被分配内存的指针，否则返回空指针NULL。 </li>
+<li>当内存不再使用时，应使用free()函数将内存块释放</li>
+<li>malloc()函数其实就在内存中找一片指定大小的空间，然后将这个空间的首地址范围给一个指针变量，这里的指针变量可以是一个单独的指针，也可以是一个数组的首地址，这要看malloc()函数中参数size的具体内容。我们这里malloc分配的内存空间在逻辑上连续的，而在物理上可以连续也可以不连续。对于我们程序员来说，我们关注的是逻辑上的连续，因为操作系统会帮我们安排内存分配，所以我们使用起来就可以当做是连续的。</li>
+<li>注意的地方：由于malloc函数返回的是void 类型。对于C++，如果你写成：p = malloc (sizeof(int));则程序无法通过编译，报错：“不能将void*赋值给int *类型变量”。所以必须通过(int *)来将强制转换。而对于C，没有这个要求，但为了使C程序更方便的移植到C++中来，建议养成强制转换的习惯<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* p;</span><br><span class="line"><span class="comment">//分配128个（可根据实际需要替换该数值）整型存储单元，并将这128个连续的整型存储单元的首地址存储到指针变量p中</span></span><br><span class="line">p = (<span class="keyword">int</span> *) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">128</span>);</span><br><span class="line"><span class="comment">//分配12个double型存储单元，并将首地址存储到指针变量pd中</span></span><br><span class="line"><span class="keyword">double</span> *pd=(<span class="keyword">double</span> *) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(<span class="keyword">double</span>)*<span class="number">12</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">char</span> *p;  </span><br><span class="line"> </span><br><span class="line">    p=(<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">100</span>);  </span><br><span class="line">    <span class="keyword">if</span>(p)  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Memory Allocated at: %x/n"</span>,p);  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Not Enough Memory!/n"</span>);  </span><br><span class="line">    <span class="built_in">free</span>(p);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="typedef的用法"><a href="#typedef的用法" class="headerlink" title="typedef的用法"></a><strong>typedef的用法</strong></h2><ul>
+<li>typedef主要是用来自定义数据类型，可以对所有现存的数据类型进行个性化的重新定义，增加所对应类型变量的个性化程度与单一性，便于在众多变量中将某一大类具有相似关系的变量统一定义。</li>
+<li>用在旧的C的代码中（具体多旧没有查），帮助struct。以前的代码中，声明struct新对象时，必须要带上struct，即形式为： struct 结构名 对象名，如：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tagPOINT1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tagPOINT1</span> <span class="title">p1</span>;</span></span><br></pre></td></tr></table></figure></li>
+<li>可能现在在C++中没有那么明显，可以直接写 结构名 对象名，或许，在C++中，typedef的这种用途二不是很大，但是理解了它，对掌握以前的旧代码还是有帮助的，毕竟我们在项目中有可能会遇到较早些年代遗留下来的代码。</li>
+<li>但在C中估计某人觉得经常多写一个struct太麻烦了，于是就发明了：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagPOINT</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line">&#125;POINT;</span><br><span class="line"></span><br><span class="line">POINT p1; <span class="comment">// 这样就比原来的方式少写了一个struct，比较省事，尤其在大量使用的时候</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="z-x-gt-y-x-y"><a href="#z-x-gt-y-x-y" class="headerlink" title="z=x&gt;y? x : y"></a><strong>z=x&gt;y? x : y</strong></h2><p>&emsp;其实，这是一个非常基本的知识点，但是有些时候突然见到会想不起来，翻译一下就相当于：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(x&gt;y)</span><br><span class="line">&#123;</span><br><span class="line">    z=x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    z=y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;也就是可以理解为<strong>result=条件 ? 结果1 : 结果2</strong> 里面的？号是格式要求。也可以理解为条件是否成立，条件成立为结果1，否则为结果2。</p>
+<h2 id="memset-函数"><a href="#memset-函数" class="headerlink" title="memset()函数"></a><strong>memset()函数</strong></h2><p> &emsp;&emsp;这个函数在socket中多用于清空数组.如:原型是memset(buffer, 0, sizeof(buffer))。简言之，就是用来将数组进行初始化的函数。</p>
+<ul>
+<li>这个函数有三个参数，前两个为初始化数组对象及其初始化的值，最后一个通常使用sizeof()函数来写，也可以直接写具体大小n。</li>
+<li>注意，如果是对指针变量所指向的内存单元进行清零初始化，那么一定要先对这个指针变量进行初始化，即一定要先让它指向某个有效的地址。而且用memset给指针变量如p所指向的内存单元进行初始化时，n 千万别写成 sizeof(p)，这是新手经常会犯的错误。因为 p 是指针变量，不管 p 指向什么类型的变量，sizeof(p) 的值都是 4。<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"> <span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;  <span class="comment">//循环变量</span></span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">10</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> *p = str;</span><br><span class="line">    <span class="built_in">memset</span>(str, <span class="number">0</span>, <span class="keyword">sizeof</span>(str));  <span class="comment">//只能写sizeof(str), 不能写sizeof(p)</span></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\x20"</span>, str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="vector的使用"><a href="#vector的使用" class="headerlink" title="vector的使用"></a><strong>vector的使用</strong></h2>&emsp;&emsp;vector在C++的功能与数组类似，不过其优点在于其大小长度为动态的，在进行初始化定义的时候并不需要像数组那样去初始化其长度。同时，其特殊之处又决定了vector具体在使用时需要注意的细节：<ul>
+<li>往其中加入新元素时需要用 数组名.push_back(加入的元素)&emsp;来实现，<strong>而不能直接访问为初始化或者未定义的下标</strong>。</li>
+<li>同时也可以对其进行初始化n个元素。<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums;<span class="comment">//定义动态数组nums</span></span><br><span class="line"><span class="comment">//nums.[0]=0     //不可以对未定义下标直接赋值</span></span><br><span class="line">nums.psuh_back(<span class="number">1</span>)<span class="comment">//相当于数组中的nums[0]=1;</span></span><br><span class="line">nums[<span class="number">0</span>]=<span class="number">100</span>;     <span class="comment">//可以修改已定义的下标</span></span><br></pre></td></tr></table></figure>
+<h2 id="getchar-和system-“puse”-函数"><a href="#getchar-和system-“puse”-函数" class="headerlink" title="getchar()和system(“puse”)函数"></a><strong>getchar()和system(“puse”)函数</strong></h2>这两个可以用在VScode的最后面，用于终端窗口的保持，防止其弹出瞬间就突然消失。</li>
+<li>有时，我们不希望终端窗口弹出，因为只需要在下面的终端栏中也可现实。关闭窗口的弹出可以修改.vscode文件下的lanunch.json，将下面的 “externalConsole” 初始设置为false即可。(可根据个人喜好更改)<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="string">"externalConsole"</span>: <span class="literal">false</span>,</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="枚举类型menu的用法"><a href="#枚举类型menu的用法" class="headerlink" title="枚举类型menu的用法"></a><strong>枚举类型menu的用法</strong></h2><p>众所周知，C/C++语言可以使用#define和const创建符号常量，而使用enum工具不仅能够创建符号常量，还能定义新的数据类型，但是必须按照一定的规则进行，下面我们一起看下enum的使用方法</p>
+<ul>
+<li>(1)以下代码定义了这种新的数据类型 - 枚举型<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=<span class="number">1</span>, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+(1) 枚举型是一个集合，集合中的元素(枚举成员)是一些命名的整型常量，元素之间用逗号,隔开。</li>
+</ul>
+<p>(2) DAY是一个标识符，可以看成这个集合的名字，是一个可选项，即是可有可无的项。</p>
+<p>(3) 第一个枚举成员的默认值为整型的0，后续枚举成员的值在前一个成员上加1。</p>
+<p>(4) 可以人为设定枚举成员的值，从而自定义某个范围内的整数。</p>
+<p>(5) 枚举型是预处理指令#define的替代。</p>
+<p>(6) 类型定义以分号;结束。</p>
+<ul>
+<li>(2)用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = <span class="number">0</span>,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; <span class="comment">//此处的workday为枚举型enum workday的别名</span></span><br></pre></td></tr></table></figure>
+后面就可以直接使用workday来定义枚举类型了，比如<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">workday today, tomorrow; <span class="comment">//变量today和tomorrow的类型为枚举型workday，也即enum workday</span></span><br></pre></td></tr></table></figure>
+具体使用参考示例（C语言）：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> Season</span><br><span class="line">&#123;</span><br><span class="line">    spring, summer=<span class="number">100</span>, fall=<span class="number">96</span>, winter</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span></span><br><span class="line">&#123;</span><br><span class="line">    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</span><br><span class="line">&#125;</span><br><span class="line">Weekday;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Season */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, spring); <span class="comment">// 0</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %c \n"</span>, summer, summer); <span class="comment">// 100, d</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, fall+winter); <span class="comment">// 193</span></span><br><span class="line"></span><br><span class="line">    Season mySeason=winter;</span><br><span class="line">    <span class="keyword">if</span>(winter==mySeason)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"mySeason is winter \n"</span>); <span class="comment">// mySeason is winter</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==summer)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x is equal to summer\n"</span>); <span class="comment">// x is equal to summer</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes\n"</span>, <span class="keyword">sizeof</span>(spring)); <span class="comment">// 4 bytes</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Weekday */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof Weekday is: %d \n"</span>, <span class="keyword">sizeof</span>(Weekday)); <span class="comment">//sizeof Weekday is: 4</span></span><br><span class="line"></span><br><span class="line">    Weekday today = Saturday;</span><br><span class="line">    Weekday tomorrow;</span><br><span class="line">    <span class="keyword">if</span>(today == Monday)</span><br><span class="line">        tomorrow = Tuesday;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        tomorrow = (Weekday) (today + <span class="number">1</span>); <span class="comment">//remember to convert from int to Weekday</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="二重指针"><a href="#二重指针" class="headerlink" title="二重指针"></a><strong>二重指针</strong></h2><p>&emsp;&emsp;所谓的二重指针，就是一种指向指针变量类型的指针。首先对于一个指针变量而言，它需要占用内存空间，即它本身是具有地址的，只不过对应内存空间中存放的是指针变量所指向变量的地址。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> b=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"整形数据"</span>&lt;&lt;a&lt;&lt;<span class="string">"的地址为："</span>&lt;&lt;&amp;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"整形数据"</span>&lt;&lt;b&lt;&lt;<span class="string">"的地址为："</span>&lt;&lt;&amp;b&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">int</span> *p1=&amp;a;<span class="comment">//定义了默认指向整型变量a的地址的指针变量p1</span></span><br><span class="line"><span class="keyword">int</span> *p2=&amp;b;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p1中存放的地址为："</span>&lt;&lt;p1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p2中存放的地址为："</span>&lt;&lt;p2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//指针变量本身也具有地址：</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p1本身的地址为："</span>&lt;&lt;&amp;p1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p2本身的地址为："</span>&lt;&lt;&amp;p2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> **q=&amp;p1;<span class="comment">//q是一个指向（指向int数据类型指针）变量p1的指针，注意括号里面的描述，p1本身又是一个指向int数据类型的指针。也就是说，q里面存放的其实是p1的地址，那么*q表示的就是p1本身。所以有**q=*p1=a=1。</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;程序的输出为：</p>
+<p><img src="https://s1.ax1x.com/2020/05/04/YCPQW8.png" alt="YCPQW8.png"></p>
+]]></content>
+      <tags>
+        <tag>C++ 笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Visual Stdio 2017软件功能分析</title>
+    <url>/2020/04/01/%E6%9C%AA%E5%8F%91%E9%80%81/012visual%20stdio%E8%BD%AF%E4%BB%B6%E7%A0%94%E7%A9%B6/</url>
+    <content><![CDATA[<center><font size="5" face="黑体">Visual Stdio 2017使用细则</font></center>
+本科时程序设计所使用的软件为Codeblocks，体积量相对较小，使用起来也比较简单，但当时主要是进行C语言程序设计。最近正在进行C++的学习，就C++开发来说，在我的Windows下最强大最好用的开发工具那必然是visualstdio。刚开始上手这款开发工具，不定期地记录一些使用过程中的功能细则。
+
+<h3 id="1-新建项目时包含默认的头文件-include”pch-h”"><a href="#1-新建项目时包含默认的头文件-include”pch-h”" class="headerlink" title="1.新建项目时包含默认的头文件#include”pch.h”"></a>1.新建项目时包含默认的头文件#include”pch.h”</h3><blockquote>
+<p><strong>解释</strong></p>
+</blockquote>
+<p><em>pch*是</em>“precomplied headfile”*的缩写,可以使用不同的名称,或者不使用。（在项目 - 属性 - C/C++ - 预编译头 可以关闭）<br><img src="https://pic.downk.cc/item/5e83ecae504f4bcb04c3e33c.jpg" alt></p>
+<blockquote>
+<p><strong>作用</strong></p>
+</blockquote>
+<p>一般是用在操作量大的工程里，可以预编译较稳定的代码（不经常修改的），可以<strong>加速后续的编译过程</strong>（因为有些代码已经编译过了）</p>
+<h3 id="快捷键的使用和操作"><a href="#快捷键的使用和操作" class="headerlink" title="快捷键的使用和操作"></a>快捷键的使用和操作</h3>]]></content>
+      <tags>
+        <tag>VisualStdio 软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++中argc与argv的作用</title>
     <url>/2020/03/31/011C++%E4%B8%ADargc%E5%92%8Cargv%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
     <content><![CDATA[<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>在研究别人写的代码时，经常会发现在main函数中加入了两个定义：int argc,int *argv</p>
@@ -413,7 +606,7 @@
 <p><font face="黑体" color="green" size="5">我是黑体，绿色，尺寸为5</font><br><font size="4">我是四号字体</font></p>
 <h1 id="居中显示举实例"><a href="#居中显示举实例" class="headerlink" title="居中显示举实例"></a>居中显示举实例</h1><center>
 
-
+<h1 id="斜体显示"><a href="#斜体显示" class="headerlink" title="斜体显示"></a>斜体显示</h1><p><font size="6"><em>斜斜斜斜斜斜</em></font></p>
 <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>这是我的第一篇文章</p>
 </center>
 
