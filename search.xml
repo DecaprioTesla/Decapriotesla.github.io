@@ -175,25 +175,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Visual Stdio 2017软件功能分析</title>
-    <url>/2020/04/01/%E6%9C%AA%E5%8F%91%E9%80%81/012visual%20stdio%E8%BD%AF%E4%BB%B6%E7%A0%94%E7%A9%B6/</url>
-    <content><![CDATA[<center><font size="5" face="黑体">Visual Stdio 2017使用细则</font></center>
-本科时程序设计所使用的软件为Codeblocks，体积量相对较小，使用起来也比较简单，但当时主要是进行C语言程序设计。最近正在进行C++的学习，就C++开发来说，在我的Windows下最强大最好用的开发工具那必然是visualstdio。刚开始上手这款开发工具，不定期地记录一些使用过程中的功能细则。
-
-<h3 id="1-新建项目时包含默认的头文件-include”pch-h”"><a href="#1-新建项目时包含默认的头文件-include”pch-h”" class="headerlink" title="1.新建项目时包含默认的头文件#include”pch.h”"></a>1.新建项目时包含默认的头文件#include”pch.h”</h3><blockquote>
-<p><strong>解释</strong></p>
-</blockquote>
-<p><em>pch*是</em>“precomplied headfile”*的缩写,可以使用不同的名称,或者不使用。（在项目 - 属性 - C/C++ - 预编译头 可以关闭）<br><img src="https://pic.downk.cc/item/5e83ecae504f4bcb04c3e33c.jpg" alt></p>
-<blockquote>
-<p><strong>作用</strong></p>
-</blockquote>
-<p>一般是用在操作量大的工程里，可以预编译较稳定的代码（不经常修改的），可以<strong>加速后续的编译过程</strong>（因为有些代码已经编译过了）</p>
-<h3 id="快捷键的使用和操作"><a href="#快捷键的使用和操作" class="headerlink" title="快捷键的使用和操作"></a>快捷键的使用和操作</h3>]]></content>
-      <tags>
-        <tag>VisualStdio 软件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++中argc与argv的作用</title>
     <url>/2020/03/31/011C++%E4%B8%ADargc%E5%92%8Cargv%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
     <content><![CDATA[<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>在研究别人写的代码时，经常会发现在main函数中加入了两个定义：int argc,int *argv</p>
