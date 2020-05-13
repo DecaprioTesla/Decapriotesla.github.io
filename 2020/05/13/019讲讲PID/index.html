@@ -20,21 +20,34 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="🖨️使用git工具将本地文件上传至项目托管平台，方便自己对项目进行日常的更新管理以及实现项目的共享，下面简要介绍一些步骤：">
+  <meta name="description" content="PID控制应该算是应用非常广泛的控制算法了。小到控制一个元件的温度，大到控制无人机的飞行姿态和飞行速度等等，都可以使用PID控制。这里我们从原理上来理解PID控制。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git将本地文件上传至Github仓库">
-<meta property="og:url" content="http://yoursite.com/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/index.html">
+<meta property="og:title" content="讲讲PID控制">
+<meta property="og:url" content="http://yoursite.com/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/index.html">
 <meta property="og:site_name" content="Decaprio Lee">
-<meta property="og:description" content="🖨️使用git工具将本地文件上传至项目托管平台，方便自己对项目进行日常的更新管理以及实现项目的共享，下面简要介绍一些步骤：">
+<meta property="og:description" content="PID控制应该算是应用非常广泛的控制算法了。小到控制一个元件的温度，大到控制无人机的飞行姿态和飞行速度等等，都可以使用PID控制。这里我们从原理上来理解PID控制。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-10T06:11:16.000Z">
-<meta property="article:modified_time" content="2020-05-05T12:55:38.330Z">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388237123&di=5d1be6f7217713811f8b5edaffe08aea&imgtype=0&src=http%253A%252F%252Feeskill.com%252FUploads%252F2014_06%252Farticle%252Fc53875ec9a.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388473322&di=3738c6b03b14e6b9606957fcedd105e4&imgtype=0&src=http%253A%252F%252Fimg002.hc360.cn%252Fk3%252FM03%252F6C%252F7A%252FwKhQv1eQo5iEQGXRAAAAAIKey-s745.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388560122&di=22500c1b177219cba812c89f8e96df07&imgtype=0&src=http%253A%252F%252Fimage.bitautoimg.com%252Fappimage-630-w0%252Fappimage%252Fmedia%252F20160819%252Fw507_h203_4f1fb584594948aab81c2f3c55fabde2.jpeg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbf661c2a9a83be56e20e8.jpg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbf5d4c2a9a83be56da35a.jpg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbf690c2a9a83be56e4d32.jpg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbf6bac2a9a83be56e7ab8.jpg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbf6fcc2a9a83be56ec39f.jpg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbf8f5c2a9a83be570c528.jpg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbf972c2a9a83be5714732.jpg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbfa24c2a9a83be57208a6.jpg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbfa7dc2a9a83be5726f78.jpg">
+<meta property="og:image" content="https://pic.downk.cc/item/5ebbfaf2c2a9a83be572f251.jpg">
+<meta property="article:published_time" content="2020-05-13T12:44:57.148Z">
+<meta property="article:modified_time" content="2020-05-13T14:18:49.282Z">
 <meta property="article:author" content="Decaprio Lee">
-<meta property="article:tag" content="git">
-<meta property="article:tag" content="仓库">
+<meta property="article:tag" content="Stay hungry Stay foolish">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388237123&di=5d1be6f7217713811f8b5edaffe08aea&imgtype=0&src=http%253A%252F%252Feeskill.com%252FUploads%252F2014_06%252Farticle%252Fc53875ec9a.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/">
+<link rel="canonical" href="http://yoursite.com/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/">
 
 
 <script id="page-configurations">
@@ -46,7 +59,7 @@
   };
 </script>
 
-  <title>Git将本地文件上传至Github仓库 | Decaprio Lee</title>
+  <title>讲讲PID控制 | Decaprio Lee</title>
   
 
 
@@ -186,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -199,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Git将本地文件上传至Github仓库
+          讲讲PID控制
         </h1>
 
         <div class="post-meta">
@@ -208,28 +221,22 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-10 14:11:16" itemprop="dateCreated datePublished" datetime="2020-03-10T14:11:16+08:00">2020-03-10</time>
+              <time title="创建时间：2020-05-13 20:44:57 / 修改时间：22:18:49" itemprop="dateCreated datePublished" datetime="2020-05-13T20:44:57+08:00">2020-05-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-05 20:55:38" itemprop="dateModified" datetime="2020-05-05T20:55:38+08:00">2020-05-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%90%86%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">技术理论</span></a>
+                  <a href="/categories/%E6%8E%A7%E5%88%B6/" itemprop="url" rel="index"><span itemprop="name">控制</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/" class="post-meta-item leancloud_visitors" data-flag-title="Git将本地文件上传至Github仓库" title="阅读次数">
+            <span id="/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/" class="post-meta-item leancloud_visitors" data-flag-title="讲讲PID控制" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -245,8 +252,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,24 +268,106 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>🖨️使用git工具将本地文件上传至项目托管平台，方便自己对项目进行日常的更新管理以及实现项目的共享，下面简要介绍一些步骤：</p>
+        <p>PID控制应该算是应用非常广泛的控制算法了。小到控制一个元件的温度，大到控制无人机的飞行姿态和飞行速度等等，都可以使用PID控制。这里我们从原理上来理解PID控制。<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388237123&di=5d1be6f7217713811f8b5edaffe08aea&imgtype=0&src=http%3A%2F%2Feeskill.com%2FUploads%2F2014_06%2Farticle%2Fc53875ec9a.jpg" alt></p>
 <a id="more"></a>
-<h1 id="📌git工具上传本地文件项目至github远程仓库"><a href="#📌git工具上传本地文件项目至github远程仓库" class="headerlink" title="📌git工具上传本地文件项目至github远程仓库"></a>📌git工具上传本地文件项目至github远程仓库</h1><ol>
-<li>📎在Github上新建一个仓库，并命名</li>
-<li>📎在本地文件下下右键，选择GitBash Here打开git工具</li>
-<li>📎命令行中首先输入：git init  (然后可以利用ls语句来检查一下项目文件下的所有文件)</li>
-<li>📎输入：git add .   然后回车</li>
-<li>📎输入：git commit -m’对项目的说明’</li>
-<li>📎然后输入：git remote add origin <a href="https://github.com/DecaprioTesla/Tempure_measure.git" target="_blank" rel="noopener">https://github.com/DecaprioTesla/Tempure_measure.git</a>  （网址为Github仓库分配的网页）</li>
-<li>📎最后输入： git push -u origin master (首次使用可能需要输入用户名和密码)</li>
+<h2 id="00什么是PID控制"><a href="#00什么是PID控制" class="headerlink" title="00什么是PID控制"></a>00什么是PID控制</h2><p>PID是proportion integration differentiation三个英文单词的简称，也即是我们翻译过来的比例、积分、微分控制。控制的原理图如开头的封面图片所示。我们都知道控制系统的最理想效果为是系统的实际输出与期望达到的输出完全相同，但实际情况来说输入与输出之间总存在一定的偏差，所以我们就要采用控制方法来实现更优的控制</p>
+<h2 id="01大白话PID控制"><a href="#01大白话PID控制" class="headerlink" title="01大白话PID控制"></a>01大白话PID控制</h2><h3 id="1-1比例控制算法（比例因子Kp）"><a href="#1-1比例控制算法（比例因子Kp）" class="headerlink" title="1.1比例控制算法（比例因子Kp）"></a>1.1比例控制算法（比例因子Kp）</h3><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388473322&di=3738c6b03b14e6b9606957fcedd105e4&imgtype=0&src=http%3A%2F%2Fimg002.hc360.cn%2Fk3%2FM03%2F6C%2F7A%2FwKhQv1eQo5iEQGXRAAAAAIKey-s745.jpg" alt><br>我们先说PID中最简单的比例控制，抛开其他两个不谈，用一个经典的例子吧。假设我有一个水缸，最终的控制目的是要保证水缸里的水位永远的维持在1米的高度。假设初试时刻，水缸里的水位是0.2米，那么当前时刻的水位和目标水位之间是存在一个误差的error，且error为0.8.这个时候，假设旁边站着一个人，这个人通过往缸里加水的方式来控制水位。如果单纯的用比例控制算法，就是指加入的水量u和误差error是成正比的。即</p>
+<center>u=kp*error</center>
+
+<p><strong>假设kp取0.5</strong></p>
+<ol>
+<li>那么t=1时（表示第1次加水，也就是第一次对系统施加控制），那么u=0.5*0.8=0.4，所以这一次加入的水量会使水位在0.2的基础上上升0.4，达到0.6.</li>
+<li>接着，t=2时刻（第2次施加控制），当前水位是0.6，所以error是0.4。u=0.5*0.4=0.2，会使水位再次上升0.2，达到0.8.</li>
+<li>如此这么循环下去，水位最终会达到一米。就是比例控制算法的运行方法。</li>
 </ol>
-<h1 id="📌本地项目做修改后重新上传至github远程仓库"><a href="#📌本地项目做修改后重新上传至github远程仓库" class="headerlink" title="📌本地项目做修改后重新上传至github远程仓库"></a>📌本地项目做修改后重新上传至github远程仓库</h1><ol>
-<li>📎对本地文件做一定的修改，加入新的文件等等</li>
-<li>📎记住所作修改或添加的文件，然后：git add 修改的文件名称.格式</li>
-<li>📎输入：git commit -m’添加修改说明’</li>
-<li>📎输入：git pull –rebase origin master</li>
-<li>📎最后输入 git push -u origin master上传修改或添加的文件的文件</li>
+<p>但是，单单的比例控制存在着一些不足，其中一点就是 –稳态误差！像上述的例子，根据kp取值不同，系统最后都会达到1米，不会有稳态误差。但是，考虑另外一种情况，假设这个水缸在加水的过程中，存在漏水的情况，假设每次加水的过程，都会漏掉0.1米高度的水。仍然假设kp取0.5，那么会存在着某种情况，假设经过几次加水，水缸中的水位到0.8时，水位将不会再变换！！！因为，水位为0.8，则误差error=0.2. 所以每次往水缸中加水的量为u=0.5*0.2=0.1.同时，每次加水缸里又会流出去0.1米的水！！！加入的水和流出的水相抵消，水位将不再变化！！</p>
+<p>也就是说，我的目标是1米，但是最后系统达到0.8米的水位就不在变化了，且系统已经达到稳定。由此产生的误差就是稳态误差了。（在实际情况中，这种类似水缸漏水的情况往往更加常见，比如控制汽车运动，摩擦阻力就相当于是“漏水”，控制机械臂、无人机的飞行，各类阻力和消耗都可以理解为本例中的“漏水”）</p>
+<p>所以，单独的比例控制，在很多时候并不能满足要求。</p>
+<h3 id="1-2积分控制算法（积分因子Ki）"><a href="#1-2积分控制算法（积分因子Ki）" class="headerlink" title="1.2积分控制算法（积分因子Ki）"></a>1.2积分控制算法（积分因子Ki）</h3><p>还是用上面的例子，如果仅仅用比例，可以发现存在暂态误差，最后的水位就卡在0.8了。于是，在控制中，我们再引入一个分量，该分量和误差的积分是正比关系。所以，比例+积分控制算法为：</p>
+<center>u=kp*error+ ki∗∫ error</center>
+
+<p>还是用上面的例子来说明，第一次的误差error是0.8，第二次的误差是0.4，至此，误差的积分（离散情况下积分其实就是做累加），∫∫error=0.8+0.4=1.2. 这个时候的控制量，除了比例的那一部分，还有一部分就是一个系数ki乘以这个积分项。由于这个积分项会将前面若干次的误差进行累计，所以可以很好的消除稳态误差（假设在仅有比例项的情况下，系统卡在稳态误差了，即上例中的0.8，由于加入了积分项的存在，会让输入增大，从而使得水缸的水位可以大于0.8，渐渐到达目标的1.0.）这就是积分项的作用。</p>
+<h3 id="1-3微分控制算法（微分因子Kd）"><a href="#1-3微分控制算法（微分因子Kd）" class="headerlink" title="1.3微分控制算法（微分因子Kd）"></a>1.3微分控制算法（微分因子Kd）</h3><p>换一个另外的例子，考虑刹车情况。平稳的驾驶车辆，当发现前面有红灯时，为了使得行车平稳，基本上提前几十米就放松油门并踩刹车了。当车辆离停车线非常近的时候，则使劲踩刹车，使车辆停下来。整个过程可以看做一个加入微分的控制策略。<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388560122&di=22500c1b177219cba812c89f8e96df07&imgtype=0&src=http%3A%2F%2Fimage.bitautoimg.com%2Fappimage-630-w0%2Fappimage%2Fmedia%2F20160819%2Fw507_h203_4f1fb584594948aab81c2f3c55fabde2.jpeg" alt><br>微分，说白了在离散情况下，就是error的差值，就是t时刻和t-1时刻error的差,即：</p>
+<center>u=kd*（error（t）-error（t-1））</center>
+
+<p>其中的kd是一个系数项。可以看到，在刹车过程中，因为error是越来越小的，所以这个微分控制项一定是负数，在控制中加入一个负数项，他存在的作用就是为了防止汽车由于刹车不及时而闯过了线。从常识上可以理解，越是靠近停车线，越是应该注意踩刹车，不能让车过线，所以这个微分项的作用，就可以理解为刹车，当车离停车线很近并且车速还很快时，这个微分项的绝对值（实际上是一个负数）就会很大，从而表示应该用力踩刹车才能让车停下来。</p>
+<p>切换到上面给水缸加水的例子，就是当发现水缸里的水快要接近1的时候，加入微分项，可以防止给水缸里的水加到超过1米的高度，说白了就是减少控制过程中的震荡。</p>
+<h2 id="02照本宣科谈PID"><a href="#02照本宣科谈PID" class="headerlink" title="02照本宣科谈PID"></a>02照本宣科谈PID</h2><h3 id="2-1-PID算法的前提"><a href="#2-1-PID算法的前提" class="headerlink" title="2.1 PID算法的前提"></a>2.1 PID算法的前提</h3><p>PID是一个闭环控制算法。因此要实现PID算法，必须在硬件上具有闭环控制，就是得有反馈。</p>
+<h3 id="2-2-使用现状"><a href="#2-2-使用现状" class="headerlink" title="2.2 使用现状"></a>2.2 使用现状</h3><p>PID是比例(P)、积分(I)、微分(D)控制算法。但并不是必须同时具备这三种算法，也可以是PD,PI,甚至只有P算法控制。我以前对于闭环控制的一个最朴素的想法就只有P控制，将当前结果反馈回来，再与目标相减，为正的话，就减速，为负的话就加速。现在知道这只是最简单的闭环控制算法。</p>
+<h3 id="2-3三个环节的作用"><a href="#2-3三个环节的作用" class="headerlink" title="2.3三个环节的作用"></a>2.3三个环节的作用</h3><ol>
+<li><p>比例，反应系统的基本（当前）偏差e(t)，系数大，可以加快调节，减小误差，但过大的比例使系统稳定性下降，甚至造成系统不稳定；</p>
+</li>
+<li><p>积分，反应系统的累计偏差，使系统消除稳态误差，提高无差度，因为有误差，积分调节就进行，直至无误差。</p>
+</li>
+<li><p>微分，反映系统偏差信号的变化率e(t)-e(t-1)，具有预见性，能预见偏差变化的趋势，产生超前的控制作用，在偏差还没有形成之前，已被微分调节作用消除，因此可以改善系统的动态性能。但是微分对噪声干扰有放大作用，加强微分对系统抗干扰不利。</p>
+<h3 id="2-4常用的调参经验-使用规律"><a href="#2-4常用的调参经验-使用规律" class="headerlink" title="2.4常用的调参经验(使用规律)"></a>2.4常用的调参经验(使用规律)</h3></li>
+<li><p>比例控制规律P：采用P控制规律能较快地克服扰动的影响，它的作用于输出值较快，但不能很好稳定在一个理想的数值，不良的结果是虽较能有效的克服扰动的影响，但有余差出现。它适用于控制通道滞后较小、负荷变化不大、控制要求不高、被控参数允许在一定范围内有余差的场合。</p>
+</li>
 </ol>
+<ol start="2">
+<li><p>比例积分控制规律(PI)：在工程中比例积分控制规律是应用最广泛的一种控制规律。积分能在比例的基础上消除余差，它适用于控制通道滞后较小、负荷变化不大、被控参数不允许有余差的场合。</p>
+</li>
+<li><p>比例微分控制规律(PD)：微分具有超前作用，对于具有容量滞后的控制通道，引入微分参与控制，在微分项设置得当的情况下，对于提高系统的动态性能指标，有着显著效果。因此，对于控制通道的时间常数或容量滞后较大的场合，为了提高系统的稳定性，减小动态偏差等可选用比例微分控制规律。如：加热型温度控制、成分控制。需要说明一点，对于那些纯滞后较大的区域里，微分项是无能为力，而在测量信号有噪声或周期性振动的系统，则也不宜采用微分控制。</p>
+</li>
+<li><p>例积分微分控制规律(PID)：PID控制规律是一种较理想的控制规律，它在比例的基础上引入积分，可以消除余差，再加入微分作用，又能提高系统的稳定性。</p>
+</li>
+</ol>
+<p>总之，控制规律的选用要根据过程特性和工艺要求来选取，决不是说PID控制规律在任何情况下都具有较好的控制性能，不分场合都采用是不明智的。如果这样做，只会给其它工作增加复杂性，并给参数整定带来困难。当采用PID控制器还达不到工艺要求，则需要考虑其它的控制方案。如串级控制、前馈控制、大滞后控制等。</p>
+<h2 id="03PID-控制器的设计与实现"><a href="#03PID-控制器的设计与实现" class="headerlink" title="03PID 控制器的设计与实现"></a>03PID 控制器的设计与实现</h2><h3 id="3-1PID算法的推导"><a href="#3-1PID算法的推导" class="headerlink" title="3.1PID算法的推导"></a>3.1PID算法的推导</h3><p>连续时间PID控制系统图如下图所示。其中D(s)为PID控制器部分，其输入与输出的的关系可按照下面的微分方程表示：</p>
+<p><a href="https://pic.downk.cc/item/5ebbf661c2a9a83be56e20e8.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf661c2a9a83be56e20e8.jpg" alt></a></p>
+<p><a href="https://pic.downk.cc/item/5ebbf5d4c2a9a83be56da35a.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf5d4c2a9a83be56da35a.jpg" alt></a></p>
+<p>在数字控制器中，当采样周期足够短时，以求和代替积分，以差分代替微分。则k时刻与k-1时刻的微分方程可分别表达为下面形式</p>
+<p><a href="https://pic.downk.cc/item/5ebbf690c2a9a83be56e4d32.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf690c2a9a83be56e4d32.jpg" alt></a></p>
+<p>两式相减</p>
+<p><a href="https://pic.downk.cc/item/5ebbf6bac2a9a83be56e7ab8.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf6bac2a9a83be56e7ab8.jpg" alt></a></p>
+<p><strong>这就是数字PID控制器的增量式算法。</strong></p>
+<p>假设需要辨识的被控对象模型为</p>
+<p><a href="https://pic.downk.cc/item/5ebbf6fcc2a9a83be56ec39f.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf6fcc2a9a83be56ec39f.jpg" alt></a></p>
+<h3 id="3-2Matlab编程实现"><a href="#3-2Matlab编程实现" class="headerlink" title="3.2Matlab编程实现"></a>3.2Matlab编程实现</h3><ol>
+<li>因为要建立起系统离散差分模型，先用matlab确定系统的离散模型<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">clear</span>;</span><br><span class="line">clc;</span><br><span class="line">ts=<span class="number">0.5</span>; </span><br><span class="line">sys=tf(<span class="number">4</span>,[<span class="number">1</span> <span class="number">2</span> <span class="number">0</span>]);%系统的传递函数</span><br><span class="line">dsys=c2d(sys,ts,<span class="string">'z'</span>);%离散化</span><br><span class="line">[num,den]=tfdata(dsys,<span class="string">'v'</span>);%得到离散化后的z传递函数分子分母系数</span><br></pre></td></tr></table></figure></li>
+<li>程序运行的结果如下：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sys =</span><br><span class="line">      <span class="number">4</span></span><br><span class="line">  ---------</span><br><span class="line">  s^<span class="number">2</span> + <span class="number">2</span> s</span><br><span class="line">Continuous-time <span class="built_in">transfer</span> function.</span><br><span class="line">dsys =</span><br><span class="line">    <span class="number">0.3679</span> z + <span class="number">0.2642</span></span><br><span class="line">  ----------------------</span><br><span class="line">  z^<span class="number">2</span> - <span class="number">1.368</span> z + <span class="number">0.3679</span></span><br><span class="line">Sample time: <span class="number">0.5</span> seconds</span><br><span class="line">Discrete-time <span class="built_in">transfer</span> function.</span><br></pre></td></tr></table></figure></li>
+<li>系统的差分方程如下</li>
+</ol>
+<center>y(k)=-1*den(3)*y_2-den(2)*y_1+num(3)*u_2+num(2)*u_1+num(1)*u(k)</center>
+
+<ol start="4">
+<li>完整的程序实现<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">%&#123;</span><br><span class="line">title:PID 控制算法实现</span><br><span class="line">date: <span class="number">2020.05</span><span class="number">.10</span></span><br><span class="line">author:Decaplee</span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">clear</span>;</span><br><span class="line">clc;</span><br><span class="line">ts=<span class="number">0.5</span>;  %采样时间=<span class="number">0.5</span>s</span><br><span class="line">sys=tf(<span class="number">4</span>,[<span class="number">1</span> <span class="number">2</span> <span class="number">0</span>]);%建立被控对象传递函数</span><br><span class="line">dsys=c2d(sys,ts,<span class="string">'z'</span>);%离散化,表示为z传递函数的形式</span><br><span class="line">[num,den]=tfdata(dsys,<span class="string">'v'</span>);%输出num和den，分别代表差分方程分子与分母的系数</span><br><span class="line">e_1=<span class="number">0</span>;      %初始化k<span class="number">-1</span>、k<span class="number">-2</span>时刻的偏差</span><br><span class="line">e_2=<span class="number">0</span>;</span><br><span class="line">u_1=<span class="number">0.0</span>;    %初始化k<span class="number">-1</span>、k<span class="number">-2</span>时刻时刻的输入量</span><br><span class="line">u_2=<span class="number">0.0</span>;</span><br><span class="line">y_1=<span class="number">0</span>;      %初始化k<span class="number">-1</span>、k<span class="number">-2</span>时刻时刻的输出量</span><br><span class="line">y_2=<span class="number">0</span>;</span><br><span class="line">Esum=<span class="number">0</span>;</span><br><span class="line">%PID参数</span><br><span class="line">kp=<span class="number">2.1</span>;    </span><br><span class="line">ki=<span class="number">0.3</span></span><br><span class="line">kd=<span class="number">0.12</span>;</span><br><span class="line">u=zeros(<span class="number">1</span>,<span class="number">100</span>);%数组的大小</span><br><span class="line">time=zeros(<span class="number">1</span>,<span class="number">100</span>);%初始化数组的大小</span><br><span class="line">ts=<span class="number">0.5</span>;</span><br><span class="line"><span class="keyword">for</span> k=<span class="number">1</span>:<span class="number">1</span>:<span class="number">100</span></span><br><span class="line">    time(k)=k*ts;   %时间参数由 <span class="number">1</span> 时刻开始</span><br><span class="line">    r(k)=<span class="number">1</span>;      %期望值</span><br><span class="line">    y(k)=<span class="number">-1</span>*den(<span class="number">3</span>)*y_2-den(<span class="number">2</span>)*y_1+num(<span class="number">3</span>)*u_2+num(<span class="number">2</span>)*u_1+num(<span class="number">1</span>)*u(k);% 初始化系统响应输出序列，与前一时刻的输出有关（这就是差分方程）</span><br><span class="line">    e(k)=r(k)-y(k);   %期望输出与实际输出之间的差值，代表误差信号</span><br><span class="line">    u(k)=kp*(e(k)-e_1)+ki*e(k)+kd*(e(k)<span class="number">-2</span>*e_1+e_2); %系统PID控制器输出序列</span><br><span class="line">    u_2=u_1;</span><br><span class="line">    y_2=y_1;</span><br><span class="line">    e_2=e_1;</span><br><span class="line">    u_1=u(k);    	%前一个的控制器输出值</span><br><span class="line">    y_1=y(k);    	%前一个的系统响应输出值</span><br><span class="line">    e_1=e(k);      %前一个误差信号的值</span><br><span class="line"><span class="built_in">end</span></span><br><span class="line">p1=plot(time,r,'-.');xlim([0,50]);hold on;%指令信号的曲线（即期望输入）</span><br><span class="line">p2=plot(time,y,'b--');xlim([0,50]);hold on;%</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>当Kp=2.1、Ki=0.3、Kd=0.12时，输出的控制曲线如下<br><a href="https://pic.downk.cc/item/5ebbf8f5c2a9a83be570c528.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf8f5c2a9a83be570c528.jpg" alt></a></p>
+<h2 id="04-PID控制器参数整定"><a href="#04-PID控制器参数整定" class="headerlink" title="04 PID控制器参数整定"></a>04 PID控制器参数整定</h2><h3 id="4-1-参数整定过程"><a href="#4-1-参数整定过程" class="headerlink" title="4.1 参数整定过程"></a>4.1 参数整定过程</h3><p>在进行参数整定之前，笔者利用Matlab的GUI模块建立了数字PID参数整定系统，便于观察PID控制器各个环节的参数对系统响应性能的影响，如设计布局和实际运行效果分别如下图所示<br><a href="https://pic.downk.cc/item/5ebbf972c2a9a83be5714732.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf972c2a9a83be5714732.jpg" alt></a></p>
+<p>下面采用扩充临界比例度法进行参数整定：</p>
+<p>扩充临界比例度法适用于有自衡特性的受控对象，是对连续时间PID控制器参数整定的临界比例度的扩充，其主要步骤如下：</p>
+<ol>
+<li><p>选择一足够短的采样周期T(一般应在被控对象纯时延时间的十分之一以下)，作纯比例控制。</p>
+</li>
+<li><p>逐渐加大比例系数Kp，直到系统达到临界等幅振荡，记下此时的振荡周期Ts，以及增益Ks。</p>
+</li>
+<li><p>选择控制度</p>
+</li>
+</ol>
+<blockquote>
+<p>所谓控制度，就是以模拟控制器为标准，将数字控制器的效果与模拟控制器的控制效果相比较，通常采用误差积分的比值形式进行定义，即</p>
+</blockquote>
+<p><a href="https://pic.downk.cc/item/5ebbfa24c2a9a83be57208a6.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbfa24c2a9a83be57208a6.jpg" alt></a></p>
+<ol start="4">
+<li><p>4)根据选定的控制度，查表，确定PID控制器的采样周期T和控制器参数Kp, TI, TI 。</p>
+</li>
+<li><p>5)按照求得的整定参数试运行，观察实际控制效果，并适当进行修正。</p>
+</li>
+</ol>
+<h3 id="4-2-参数整定结果"><a href="#4-2-参数整定结果" class="headerlink" title="4.2 参数整定结果"></a>4.2 参数整定结果</h3><p>经过多次参数调整分析，并利用Matlab的GUI模块综合考虑上升时间，超调量，稳态时间，稳态误差等因素，在下图的GUI中观察参数整定效果。<br><a href="https://pic.downk.cc/item/5ebbfa7dc2a9a83be5726f78.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbfa7dc2a9a83be5726f78.jpg" alt></a></p>
+<p>最终整定结果为</p>
+<center>K_P=0.65&emsp;&emsp;&emsp; K_I=0.6 &emsp;&emsp;&emsp;        K_D=0 </center>
+
+<p>整定后的输出响应曲线为</p>
+<p><a href="https://pic.downk.cc/item/5ebbfaf2c2a9a83be572f251.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbfaf2c2a9a83be572f251.jpg" alt></a></p>
+<p>可见，经过参数整定后系统的上升时间超调量以及稳态误差的整体控制效果有了巨大的改进。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://book.douban.com/subject/3194654/" target="_blank" rel="noopener">参考文献一</a></p>
+<p><a href="https://blog.csdn.net/lukelu1263/article/details/6847208?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">参考文献二</a></p>
+<p><a href="https://blog.csdn.net/qq_25352981/article/details/81007075" target="_blank" rel="noopener">参考文献三</a></p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://github.com/DecaprioTesla/Digital_PID_Controler" target="_blank" rel="noopener">PID调参界面源码已上传至我的GitHub</a></p>
 
     </div>
 
@@ -294,12 +383,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/">Git将本地文件上传至Github仓库</a></p>
+  <p><span>本文标题:</span><a href="/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/">讲讲PID控制</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Decaprio Lee 的个人博客">Decaprio Lee</a></p>
-  <p><span>发布时间:</span>2020年03月10日 - 14:03</p>
-  <p><span>最后更新:</span>2020年05月05日 - 20:05</p>
-  <p><span>原始链接:</span><a href="/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/" title="Git将本地文件上传至Github仓库">http://yoursite.com/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年05月13日 - 20:05</p>
+  <p><span>最后更新:</span>2020年05月13日 - 22:05</p>
+  <p><span>原始链接:</span><a href="/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/" title="讲讲PID控制">http://yoursite.com/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -369,10 +458,6 @@
 
 <footer class="post-footer">
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
-              <a href="/tags/%E4%BB%93%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 仓库</a>
-          </div>
 
         
   <div class="post-widgets">
@@ -385,13 +470,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/08/008%E8%83%A1%E9%80%82%E7%AC%94%E8%AE%B0/" rel="prev" title="胡适日记">
-      <i class="fa fa-chevron-left"></i> 胡适日记
+    <a href="/2020/05/13/018%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%BA%8C%EF%BC%89%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%8F%8F%E8%BF%B0%E4%B8%8E%E6%8E%A7%E5%88%B6/" rel="prev" title="操作系统（二）进程的描述与控制">
+      <i class="fa fa-chevron-left"></i> 操作系统（二）进程的描述与控制
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/" rel="next" title="Windows系统下基于putty+VNC与树莓派4B连接">
-      Windows系统下基于putty+VNC与树莓派4B连接 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -452,7 +534,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#📌git工具上传本地文件项目至github远程仓库"><span class="nav-number">1.</span> <span class="nav-text">📌git工具上传本地文件项目至github远程仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#📌本地项目做修改后重新上传至github远程仓库"><span class="nav-number">2.</span> <span class="nav-text">📌本地项目做修改后重新上传至github远程仓库</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#00什么是PID控制"><span class="nav-number">1.</span> <span class="nav-text">00什么是PID控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#01大白话PID控制"><span class="nav-number">2.</span> <span class="nav-text">01大白话PID控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1比例控制算法（比例因子Kp）"><span class="nav-number">2.1.</span> <span class="nav-text">1.1比例控制算法（比例因子Kp）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2积分控制算法（积分因子Ki）"><span class="nav-number">2.2.</span> <span class="nav-text">1.2积分控制算法（积分因子Ki）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3微分控制算法（微分因子Kd）"><span class="nav-number">2.3.</span> <span class="nav-text">1.3微分控制算法（微分因子Kd）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02照本宣科谈PID"><span class="nav-number">3.</span> <span class="nav-text">02照本宣科谈PID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-PID算法的前提"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 PID算法的前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-使用现状"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 使用现状</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3三个环节的作用"><span class="nav-number">3.3.</span> <span class="nav-text">2.3三个环节的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4常用的调参经验-使用规律"><span class="nav-number">3.4.</span> <span class="nav-text">2.4常用的调参经验(使用规律)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03PID-控制器的设计与实现"><span class="nav-number">4.</span> <span class="nav-text">03PID 控制器的设计与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1PID算法的推导"><span class="nav-number">4.1.</span> <span class="nav-text">3.1PID算法的推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2Matlab编程实现"><span class="nav-number">4.2.</span> <span class="nav-text">3.2Matlab编程实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-PID控制器参数整定"><span class="nav-number">5.</span> <span class="nav-text">04 PID控制器参数整定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-参数整定过程"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 参数整定过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-参数整定结果"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 参数整定结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">7.</span> <span class="nav-text">附录</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
