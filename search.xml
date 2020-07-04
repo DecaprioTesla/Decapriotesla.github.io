@@ -1,8 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>树莓派无显示器，无网线，远程ssh连接</title>
+    <url>/2020/07/04/022%E6%A0%91%E8%8E%93%E6%B4%BE%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9C%E7%A8%8Bssh%E8%BF%9E%E6%8E%A5/</url>
+    <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593863783890&di=0d4a3258f354b0a9dba6b65d49b95ab7&imgtype=0&src=http%3A%2F%2Fa.zdmimg.com%2F202006%2F13%2F5ee4d47faecaf2908.jpg_fo710.jpg" alt></p>
+<p>之前介绍过树莓派无显示器情况下的网线连接方式，现在介绍不使用网线情况下的远程的ssh连接教程。</p>
+<a id="more"></a>
+
+<h2 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ul>
+<li>树莓派3/4</li>
+<li>内存卡</li>
+<li>读卡器</li>
+<li>笔记本</li>
+<li>wifi(或者手机热点)</li>
+</ul>
+<h2 id="所用软件"><a href="#所用软件" class="headerlink" title="所用软件"></a>所用软件</h2><ul>
+<li><a href="https://www.raspberrypi.org/downloads/raspberry-pi-os/" target="_blank" rel="noopener"><font color="blue">树莓派系统镜像</font></a></li>
+<li><a href="https://www.balena.io/etcher/" target="_blank" rel="noopener"><font color="blue">U盘镜像烧写工具 Etcher</font></a></li>
+<li><a href="http://www.advanced-ip-scanner.com/cn/" target="_blank" rel="noopener"><font color="blue">IP地址查看工具 Advanced Ip Scanner</font></a></li>
+<li><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank" rel="noopener"><font color="blue">远程登陆工具 Etcher</font></a></li>
+</ul>
+<h2 id="镜像烧写"><a href="#镜像烧写" class="headerlink" title="镜像烧写"></a>镜像烧写</h2><ol>
+<li>lect image-&gt;你下的镜像</li>
+<li>Select drive-&gt;你的SD卡（注意不要错选为自己电脑的盘，但貌似这个软件会自动选中U盘）</li>
+<li>Flash(!注意，烧好后会有个提示BOOT什么的需要格式化，一定要选取消!)</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/1079276-2ecf5e9d553a306b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1004/format/webp" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1079276-103046f8bf34f47b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/442/format/webp" alt></p>
+<h2 id="设置WIFI开启SSH"><a href="#设置WIFI开启SSH" class="headerlink" title="设置WIFI开启SSH"></a>设置WIFI开启SSH</h2><ol>
+<li>此时可以打开刚才镜像完成后的TF卡，在BOOT盘下新增两个文件wpa_supplicant.conf和ssh</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/1079276-f0fc3e4ff22ea552.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/346/format/webp" alt></p>
+<ol start="2">
+<li>wpa_supplicant.conf中的内容(注意替换YOUR_WIFI_NAME和YOUR_WIFI_PASSWORD），（key_mgmt=WPA-PSK是wifi加密方式，priority=1是有多个wifi时本wifi的优先级，貌似不太用改):<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">country=CN</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=<span class="string">"YOUR_WIFI_NAME"</span></span><br><span class="line">    psk=<span class="string">"YOUR_WIFI_PASSWORD"</span></span><br><span class="line">    key_mgmt=WPA-PSK</span><br><span class="line">    priority=<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="查看树莓派的IP地址"><a href="#查看树莓派的IP地址" class="headerlink" title="查看树莓派的IP地址"></a>查看树莓派的IP地址</h2><ol>
+<li>将SD卡插入树莓派后连接树莓派的电源</li>
+<li>树莓派通电约一分钟后在Advanced Ip Scanner中点击Scan，Manufacturer中那个Raspberry就是你的树莓派，记下树莓派的IP</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/07/04/NxyURP.png" alt="NxyURP.png"></p>
+<h2 id="远程登陆树莓派"><a href="#远程登陆树莓派" class="headerlink" title="远程登陆树莓派"></a>远程登陆树莓派</h2><p>打开putty,输入你的树莓派IP地址（我这里是192.168.0.2），输入后提示登陆用户和密码，同样还是用户名：pi 密码：raspberry 登陆成功后的界面如下：<br><a href="https://imgchr.com/i/Nx2eeO" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/04/Nx2eeO.png" alt="Nx2eeO.png"></a></p>
+<p>此时ls命令一下，可以看到<br><a href="https://imgchr.com/i/Nx2akQ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/04/Nx2akQ.png" alt="Nx2akQ.png"></a></p>
+<h2 id="安装Xrdp"><a href="#安装Xrdp" class="headerlink" title="安装Xrdp"></a>安装Xrdp</h2><p>在命令窗口输入如下指令：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/NxRD4H" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/04/NxRD4H.png" alt="NxRD4H.png"></a></p>
+<h2 id="用电脑远程桌面连接工具登陆树莓派"><a href="#用电脑远程桌面连接工具登陆树莓派" class="headerlink" title="用电脑远程桌面连接工具登陆树莓派"></a>用电脑远程桌面连接工具登陆树莓派</h2><ol>
+<li><p>打开系统的远程桌面工具<br><img src="https://s1.ax1x.com/2020/07/04/NxfwfH.png" alt="NxfwfH.png"></p>
+</li>
+<li><p>输入树莓派的IP地址<br><img src="https://s1.ax1x.com/2020/07/04/NxWlsP.png" alt="NxWlsP.png"></p>
+</li>
+<li><p>同样地，输入用户名和密码<br><img src="https://s1.ax1x.com/2020/07/04/NxWhsx.png" alt="NxWhsx.png"></p>
+</li>
+<li><p>登陆成功后的界面<br><img src="https://s1.ax1x.com/2020/07/04/NxWzef.png" alt="NxWzef.png"></p>
+</li>
+</ol>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过远程的ssh连接，我们只需要保证在统一网络下，将树莓派接通电源，无需再通过网线将树莓派和自己的电脑相连接。可以解决因网线距离有限而带来的问题。</p>
+]]></content>
+      <categories>
+        <category>树莓派</category>
+      </categories>
+  </entry>
+  <entry>
     <title>C++学习笔记(updating)</title>
-    <url>/2020/07/01/013C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <url>/2020/07/02/013C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=296598590,3915271384&fm=26&gp=0.jpg" alt></p>
 <center><font size="4">记录学习过程中遇到的问题以及十分重要的知识点</font></center>
 <a id="more"></a>
