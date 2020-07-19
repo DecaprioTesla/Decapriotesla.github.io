@@ -20,18 +20,25 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Stay hungry Stay foolish">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Decaprio Lee">
-<meta property="og:url" content="http://yoursite.com/categories/%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/index.html">
+  <meta name="description" content="基础命令介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派&#x2F;Linux系统常用操作">
+<meta property="og:url" content="http://yoursite.com/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="Decaprio Lee">
-<meta property="og:description" content="Stay hungry Stay foolish">
+<meta property="og:description" content="基础命令介绍">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3841092341,682654896&fm=26&gp=0.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/05/U9udh9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181118081829654.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/05/U9lFUS.png">
+<meta property="article:published_time" content="2020-07-19T09:41:55.041Z">
+<meta property="article:modified_time" content="2020-07-19T09:41:43.670Z">
 <meta property="article:author" content="Decaprio Lee">
 <meta property="article:tag" content="Stay hungry Stay foolish">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3841092341,682654896&fm=26&gp=0.jpg">
 
-<link rel="canonical" href="http://yoursite.com/categories/%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/">
+<link rel="canonical" href="http://yoursite.com/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/">
 
 
 <script id="page-configurations">
@@ -39,11 +46,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false
+    isPost : true
   };
 </script>
 
-  <title>分类: 控制理论 | Decaprio Lee</title>
+  <title>树莓派/Linux系统常用操作 | Decaprio Lee</title>
   
 
 
@@ -178,94 +185,256 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">控制理论
-          <small>分类</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Decaprio Lee">
+      <meta itemprop="description" content="Stay hungry Stay foolish">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Decaprio Lee">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          树莓派/Linux系统常用操作
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-19 17:41:55 / 修改时间：17:41:43" itemprop="dateCreated datePublished" datetime="2020-07-19T17:41:55+08:00">2020-07-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/" class="post-meta-item leancloud_visitors" data-flag-title="树莓派/Linux系统常用操作" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3841092341,682654896&fm=26&gp=0.jpg" alt></p>
+<center>基础命令介绍</center>
+<a id="more"></a>
+
+<h2 id="1、文件操作"><a href="#1、文件操作" class="headerlink" title="1、文件操作"></a>1、文件操作</h2><p>树莓派的文件操作基本上是文件目录的切换，创建一个新文件，删除文件，编辑修改文件</p>
+<ol>
+<li><strong>文件目录</strong><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="comment">//回到Linux系统的根目录文件中</span></span><br><span class="line">cd 文件名 <span class="comment">//访问根目录文件下的某个文件名，提示：可以通过Tab键来自动补全文件</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>利用filezilla进行树莓派和电脑主机之间的文件交换</strong></li>
+</ol>
+<p>考虑到树莓派系统编程的流畅性问题，我们可以在主机上进行py、cpp等文件的书写，写完之后再发送至树莓派使其执行文件。文件filezilla软件中输入目标机的IP地址，可以实现文件在树莓派和电脑主机之间的共享，发送文件和接收文件的位置都可以自由改变。<br><img src="https://s1.ax1x.com/2020/07/05/U9udh9.png" alt="U9udh9.png"></p>
+<ol start="3">
+<li><strong>利用系统UI进行文件操作</strong></li>
+</ol>
+<p>LInux系统很多操作都是再命令行终端Terminal中执行，但同时系统也有不错的人机界面可供我们使用。入文件目录查找，创建、删除等</p>
+<h2 id="2、系统一些基本操作指令"><a href="#2、系统一些基本操作指令" class="headerlink" title="2、系统一些基本操作指令"></a>2、系统一些基本操作指令</h2><ol>
+<li><strong>查看CPU温度</strong> </li>
+</ol>
+<p>担心CPU温度过高影响寿命以及使用性能，可以通过下面指令进行进行CPU温度查看：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/vc/bin/vcgencmd measure_temp</span><br></pre></td></tr></table></figure>
+<p>某次显示的温度如下：<br><img src="https://img-blog.csdnimg.cn/20181118081829654.png" alt></p>
+<ol start="2">
+<li><strong>sudo apt-get 命令</strong></li>
+</ol>
+<p>sudo 表示 “superuser do”。 它允bai许已验证的用户du以其他用户的身份来运行命令。其zhi他用户可以是dao普通用户或者超级用户。然而，大部分时候我们用它来以提升的权限来运行命令。</p>
+<p>APT的使用（Ubuntu Linux软件包管理工具一）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search # ------(package 搜索包)</span><br><span class="line"></span><br><span class="line">sudo apt-get install # ------(package 安装包)sudo apt-get install # -----(package - - reinstall 重新安装包)</span><br><span class="line"></span><br><span class="line">sudo apt-get -f install # -----(强制安装?#<span class="string">"-f = --fix-missing"</span>当是修复安装吧...)</span><br><span class="line"></span><br><span class="line">sudo apt-get remove #-----(package 删除包)</span><br><span class="line"></span><br><span class="line">sudo apt-get remove - - purge # ------(package 删除包，包括删除配置文件等)</span><br><span class="line"></span><br><span class="line">sudo apt-get update #------更新源</span><br><span class="line"></span><br><span class="line">sudo apt-get upgrade #------更新已安装的包</span><br><span class="line"></span><br><span class="line">apt-get source #------(package 下载该包的源代码)</span><br><span class="line"></span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean # --------清理下载文件的存档 &amp;&amp; 只清理过时的包</span><br><span class="line"></span><br><span class="line">sudo apt-get check #-------检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>sudo raspi-config 命令</strong></li>
+</ol>
+<p>Raspi-config（Raspberry Pi Software Configuration Tool）是树莓派的官方配置工具，使用它可以对树莓派进行很多的系统配置。比如扩展树莓派的根分区，设置启动树莓派时进入的界面，修改树莓派的默认用户密码、更改语言、设置时区、超频等等。</p>
+<p><a href="https://imgchr.com/i/U9lFUS" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/05/U9lFUS.png" alt="U9lFUS.png"></a></p>
+<ol start="4">
+<li><p><strong>树莓派关机、重启指令</strong></p>
+<p>树莓派可以通过下面几个命令来实现安全关机：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -h now</span><br><span class="line"></span><br><span class="line">sudo halt</span><br><span class="line"></span><br><span class="line">sudo poweroff</span><br><span class="line"></span><br><span class="line">sudo init <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>上面四行代码都可以，执行一行都可以安全关机。</p>
+</li>
+</ol>
+<p>树莓派重启 定时重启方法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br><span class="line"></span><br><span class="line">shutdown -r now</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+<div>
+     
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/">树莓派/Linux系统常用操作</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Decaprio Lee 的个人博客">Decaprio Lee</a></p>
+  <p><span>发布时间:</span>2020年07月19日 - 17:07</p>
+  <p><span>最后更新:</span>2020年07月19日 - 17:07</p>
+  <p><span>原始链接:</span><a href="/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/" title="树莓派/Linux系统常用操作">http://yoursite.com/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+	  $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	    });
+    });  
+</script>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-07T20:55:51+08:00"
-              content="2020-03-07">
-          03-07
-        </time>
+
+      
+</div>
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+        <div class="reward-container">
+  <div>赞赏一杯咖啡</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    <i class="fa fa-qrcode fa-2x" style="line-height:35px;"></i>
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://pic.downk.cc/item/5eb1221cc2a9a83be5b664df.jpg" alt="Decaprio Lee 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://pic.downk.cc/item/5eb12155c2a9a83be5b58dc6.jpg" alt="Decaprio Lee 支付宝">
+        <p>支付宝</p>
       </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/07/007%E5%9F%BA%E4%BA%8E%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5%E8%87%AA%E6%A0%A1%E6%AD%A3%E6%8E%A7%E5%88%B6%E5%99%A8/" itemprop="url">
-            <span itemprop="name">自适应控制（二）</span>
-          </a>
-      </h2>
+  </div>
+</div>
 
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-05T20:55:51+08:00"
-              content="2020-03-05">
-          03-05
-        </time>
-      </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/05/006%E7%A5%9E%E7%BB%8F%E7%BD%91%E8%B7%AF/" itemprop="url">
-            <span itemprop="name">反向传播网络</span>
-          </a>
-      </h2>
+ <div>
+  
+    <div>
+    
+        <div class="read-over"><center>-------------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------------</center></div>
+    
+</div>
 
-    </header>
-  </article>
+  
+ </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<footer class="post-footer">
+      <footer class="post-footer">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-02T20:55:51+08:00"
-              content="2020-03-02">
-          03-02
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/02/005%E8%87%AA%E9%80%82%E5%BA%94%E6%8E%A7%E5%88%B6%E6%80%BB%E7%BB%93/" itemprop="url">
-            <span itemprop="name">自适应控制（一）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
     </div>
   </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/" rel="prev" title="嵌入式课程作业：流水灯+数码管+多线程">
+      <i class="fa fa-chevron-left"></i> 嵌入式课程作业：流水灯+数码管+多线程
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
-
+  </div>
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -312,6 +481,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、文件操作"><span class="nav-number">1.</span> <span class="nav-text">1、文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、系统一些基本操作指令"><span class="nav-number">2.</span> <span class="nav-text">2、系统一些基本操作指令</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

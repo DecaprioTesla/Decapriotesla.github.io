@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="2020春季学期《嵌入式系统设计》课程作业">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式课程作业：流水灯+数码管+多线程">
+<meta property="og:url" content="http://yoursite.com/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="Decaprio Lee">
+<meta property="og:description" content="2020春季学期《嵌入式系统设计》课程作业">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595161575126&di=8659ae9b94f025f9f815c06924256fb5&imgtype=0&src=http%253A%252F%252Ffile.elecfans.com%252Fweb1%252FM00%252F4E%252FAA%252FpIYBAFrEOy6AMgYGAACH13j4y7c721.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/13/UJfYMq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/13/UJozMd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/13/UJbySU.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/13/UJqdje.png">
+<meta property="og:image" content="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4134649023,1810018673&fm=26&gp=0.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/13/UtZ3jg.png">
+<meta property="og:image" content="https://shumeipai.nxez.com/wp-content/uploads/2016/06/74hc595.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/14/UtR8te.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/14/UtWeUS.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/14/UtxG4J.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/14/UNx4TU.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/14/UNwRSK.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/14/UUCtq1.png">
+<meta property="og:image" content="https://pic.downk.cc/item/5f14101014195aa594cf25cf.jpg">
+<meta property="article:published_time" content="2020-07-13T07:23:50.273Z">
+<meta property="article:modified_time" content="2020-07-19T09:59:45.784Z">
+<meta property="article:author" content="Decaprio Lee">
+<meta property="article:tag" content="Stay hungry Stay foolish">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595161575126&di=8659ae9b94f025f9f815c06924256fb5&imgtype=0&src=http%253A%252F%252Ffile.elecfans.com%252Fweb1%252FM00%252F4E%252FAA%252FpIYBAFrEOy6AMgYGAACH13j4y7c721.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>嵌入式课程作业：流水灯+数码管+多线程 | Decaprio Lee</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Decaprio Lee</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">每天进步一点点</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-主页">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-关于">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-生活">
+
+    <a href="/life/" rel="section"><i class="fa fa-fw fa-book"></i>生活</a>
+
+  </li>
+        <li class="menu-item menu-item-告白">
+
+    <a href="/love/" rel="section"><i class="fa fa-fw fa-heart"></i>告白</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-友链">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-map"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-日程">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Decaprio Lee">
+      <meta itemprop="description" content="Stay hungry Stay foolish">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Decaprio Lee">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          嵌入式课程作业：流水灯+数码管+多线程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-13 15:23:50" itemprop="dateCreated datePublished" datetime="2020-07-13T15:23:50+08:00">2020-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-19 17:59:45" itemprop="dateModified" datetime="2020-07-19T17:59:45+08:00">2020-07-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">作业</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/" class="post-meta-item leancloud_visitors" data-flag-title="嵌入式课程作业：流水灯+数码管+多线程" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>15 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595161575126&di=8659ae9b94f025f9f815c06924256fb5&imgtype=0&src=http%3A%2F%2Ffile.elecfans.com%2Fweb1%2FM00%2F4E%2FAA%2FpIYBAFrEOy6AMgYGAACH13j4y7c721.jpg" alt></p>
+<center>2020春季学期《嵌入式系统设计》课程作业</center>
+
+<a id="more"></a>
+
+
+<h2 id="一、八位流水灯设计"><a href="#一、八位流水灯设计" class="headerlink" title="一、八位流水灯设计"></a>一、八位流水灯设计</h2><h3 id="1-任务需求"><a href="#1-任务需求" class="headerlink" title="1. 任务需求"></a>1. 任务需求</h3><p>电路如图所示，GPIOA管脚低8位连接至LD。请循环依次点亮LD0~LD7，每个LD亮灭时间间隔200ms。（代码中无需初始化GPIOA，请直接写出流水亮灭逻辑伪代码，可直接给GPIOA赋值操作）</p>
+<p><img src="https://s1.ax1x.com/2020/07/13/UJfYMq.png" alt="UJfYMq.png"></p>
+<h3 id="2-问题分析"><a href="#2-问题分析" class="headerlink" title="2.问题分析"></a>2.问题分析</h3><p>由电路图和任务需求可知，八个LED灯采用共阴极接法分别，LED 0-7 的阳极分别与MCU的GPIO引脚的A0-A7相连，通过以此使能GPIOA的0-7八个引脚依次输出高低电平（GPIO_SetBits，GPIO_ResetBits）实现流水灯效果。</p>
+<h3 id="3-流水灯伪代码书写-主函数部分"><a href="#3-流水灯伪代码书写-主函数部分" class="headerlink" title="3.流水灯伪代码书写(主函数部分)"></a>3.流水灯伪代码书写(主函数部分)</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//初始化部分</span></span><br><span class="line"></span><br><span class="line">	LED_Init();                  <span class="comment">//LED初始化，在LED.c和LED.h中，同时保证开始时八个引脚为低电平</span></span><br><span class="line">	SysTick_Init(<span class="number">72</span>);            <span class="comment">//初始化时钟，调用delay_ms()函数实现精准延时。</span></span><br><span class="line">	u16 LED_PORTA[<span class="number">8</span>]= &#123;GPIO_Pin_0,GPIO_Pin_1,GPIO_Pin_2,GPIO_Pin_3,GPIO_Pin_4,GPIO_Pin_5,GPIO_Pin_6,GPIO_Pin_7&#125;;                 <span class="comment">//利用LED_PORTA数组存储8个引脚</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//主循环体部分</span></span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		u8 i;</span><br><span class="line">        <span class="comment">//for循环，实现八个引脚电压依次拉高拉低</span></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">				GPIO_SetBits(LED_PORT,LED_PORTA[i]);  	<span class="comment">//Ai(0-7)引脚高电平，点亮LED</span></span><br><span class="line">				delay_ms(<span class="number">200</span>);							<span class="comment">//延时200ms</span></span><br><span class="line">				GPIO_ResetBits(LED_PORT,LED_PORTA[i]);  <span class="comment">//Ai(0-7)引脚低电平，熄灭LED	</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-工程实现"><a href="#4-工程实现" class="headerlink" title="4.工程实现"></a>4.工程实现</h3><p>笔者在Keil上利用stm32F103库函数模板实现流水灯的工程文件编写，主要任务是对Led.c及其头文件的编写实现对stm32 GPIOA引脚的初始化。工程目录如下：</p>
+<p><a href="https://imgchr.com/i/UJozMd" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/13/UJozMd.png" alt="UJozMd.png"></a></p>
+<p>led.h头文件</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _led_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _led_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stm32f10x.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*LED端口与引脚定义*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LED_PORT 			GPIOA  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LED_PIN 			(GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_8)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LED_PORT_RCC	 RCC_APB2Periph_GPIOA</span></span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LED_Init</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+
+<p>led.c文件</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"led.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LED_Init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure; <span class="comment">//定义结构体变量</span></span><br><span class="line">	RCC_APB2PeriphClockCmd(LED_PORT_RCC,ENABLE);</span><br><span class="line">	GPIO_InitStructure.GPIO_Pin=LED_PIN; <span class="comment">//设置IO口</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP;<span class="comment">//设置推挽输出</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;<span class="comment">//设置传输速率</span></span><br><span class="line">	GPIO_Init(LED_PORT,&amp;GPIO_InitStructure); </span><br><span class="line">	GPIO_ResetBits(LED_PORT,LED_PIN);   <span class="comment">//根据共阴极解法，初始化低电平，全部熄灭</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-实验搭建及效果"><a href="#5-实验搭建及效果" class="headerlink" title="5.实验搭建及效果"></a>5.实验搭建及效果</h3><p>笔者手头上有一块stm32F103RCT6开发板以及LED小灯若干，所以索性搭建了流水灯实现的硬件电路，其中RCT6需要借助USB转TTL将hex文件烧录到板子中，根据实验原理在面包板上搭建电路，成功实现了LED流水灯效果</p>
+<p><a href="https://imgchr.com/i/UJbySU" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/13/UJbySU.png" alt="UJbySU.png"></a></p>
+<h2 id="二、SN74HC595-驱动led设计"><a href="#二、SN74HC595-驱动led设计" class="headerlink" title="二、SN74HC595 驱动led设计"></a>二、SN74HC595 驱动led设计</h2><h3 id="1-任务需求-1"><a href="#1-任务需求-1" class="headerlink" title="1.任务需求"></a>1.任务需求</h3><p>电路如图所示，一片SN74HC595DR串并转换芯片连接至8段数码管。请驱动LED，循环显示0<del>9数字，显示间隔时间1s。其中74HC595的三个GPIO选择PB0</del>PB3。</p>
+<p><img src="https://s1.ax1x.com/2020/07/13/UJqdje.png" alt="UJqdje.png"></p>
+<h3 id="2-问题分析-1"><a href="#2-问题分析-1" class="headerlink" title="2. 问题分析"></a>2. 问题分析</h3><p>本题主要是利用74HC595带锁存移位寄存器串入并处芯片实现将3个GPIO引脚的输入转化为8个并行输出来驱动数码管显示数字。</p>
+<h3 id="3-知识回顾"><a href="#3-知识回顾" class="headerlink" title="3. 知识回顾"></a>3. 知识回顾</h3><ul>
+<li><strong>74HC595工作原理</strong></li>
+</ul>
+<p>74HC595芯片管脚的实物图和接线图如图所示，左右各有8个引脚共有16个引脚，其中Q0-Q8用作并行输出，在本题中将连接数码管的八个引脚。一个电源引脚Vcc和一个接地GND。另外，在本题中将MR和OE分别连接电源和地。</p>
+<center>
+
+<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4134649023,1810018673&fm=26&gp=0.jpg" alt></p>
+</center>
+Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电平的高低将输入1和零；SHcp(SCLK)引脚为输入开关，连接GPIOB１，当该引脚遇到上升沿时将输入数据传送到寄存器中。STcp(RCLK）引脚为输出开关，连接GPIOB0，当该引脚遇到上升沿时使得寄存器中8路并行口输出。
+
+<p><img src="https://s1.ax1x.com/2020/07/13/UtZ3jg.png" alt="UtZ3jg.png"></p>
+<p>下面的动图更加形象地说明595芯片的工作过程</p>
+<p><img src="https://shumeipai.nxez.com/wp-content/uploads/2016/06/74hc595.gif" alt></p>
+<ul>
+<li><strong>八段数码管介绍</strong></li>
+</ul>
+<p>八段数码管的基本原理为：将八个LED灯采用共阳极（或共阴极）的接法，然后通过控制每个LED小灯另一端电平的高或低来实现每个灯的亮与灭进而实现显示不同的数字或者字母。</p>
+<p><a href="https://imgchr.com/i/UtR8te" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/14/UtR8te.png" alt="UtR8te.png"></a></p>
+<p>数码管的字母对应表：以共阴极数码管为例，下面介绍一下0-9数字的字母对应表，根据自己的数码管实际情况，若为共阳极连接方式，则将0与1分别替换即可。</p>
+<p><img src="https://s1.ax1x.com/2020/07/14/UtWeUS.png" alt="UtWeUS.png"></p>
+<h3 id="4-工程实现-1"><a href="#4-工程实现-1" class="headerlink" title="4.工程实现"></a>4.工程实现</h3><blockquote>
+<p><strong>A.基于Stm32+keil实现</strong></p>
+</blockquote>
+<p>在流水灯的实验基础之上，在App目录下新建一个smg.c文件用于实现数码管的显示，smg.c的编写与led.c相似，基本上就是GPIO引脚的初始化。</p>
+<p>smg.h头文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _smg_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _smg_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"system.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*数码管端口引脚的定义*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SMG_PORT 			GPIOB   </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SMG_PIN 			(GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SMG_PORT_RCC		RCC_APB2Periph_GPIOB</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SMG_Init</span><span class="params">(<span class="keyword">void</span>)</span></span>;<span class="comment">//数码管的初始化函数</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>smg.c文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* title            : SMG_Init函数</span></span><br><span class="line"><span class="comment">* Author		   : 李振宇</span></span><br><span class="line"><span class="comment">* date:            : 2020.07.13</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SMG_Init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;      <span class="comment">//声名结构体变量，初始化GPIO</span></span><br><span class="line">	<span class="comment">/*开启GPIO时钟*/</span></span><br><span class="line">	RCC_APB2PeriphClockCmd(SMG_PORT_RCC,ENABLE);</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 模式和输出方式配置 */</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin=SMG_PIN;	  <span class="comment">//GPIO端口</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_Out_PP;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(SMG_PORT,&amp;GPIO_InitStructure);  <span class="comment">/* 初始化GPIO*/</span></span><br><span class="line">	GPIO_SetBits(SMG_PORT,SMG_PIN);			  <span class="comment">//默认为高电平，共阳极数码管，初始熄灭	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编写主函的时候，首先定义一个10*9 的二维数组用于存放0-9 十个数字。在主循环体中按照一下步骤将数据逐位存入74HC595芯片</p>
+<ol>
+<li>判断输入的为1 or 0</li>
+<li>若为1 则将B2拉高，为0将B2拉低</li>
+<li>将B1拉高，将B2的输入存入寄存器</li>
+<li>再将B1拉低，等待下一次存入</li>
+</ol>
+<p>main.c 文件内容如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* title            : 数码管显示数字主函数</span></span><br><span class="line"><span class="comment">* Author		   : 李振宇</span></span><br><span class="line"><span class="comment">* date:            : 2020.07.13</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"system.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"SysTick.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"smg.h"</span></span></span><br><span class="line">u8 num1[<span class="number">10</span>][<span class="number">8</span>]=&#123;&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">								&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">								&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">								&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">								&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">								&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;,</span><br><span class="line">								&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;,</span><br><span class="line">								&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">								&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">								&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//变量，时钟，数码管初始化</span></span><br><span class="line">	u8 i=<span class="number">0</span>,j=<span class="number">0</span>;</span><br><span class="line">	SysTick_Init(<span class="number">72</span>);</span><br><span class="line">	SMG_Init();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">				<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">8</span>;j++)</span><br><span class="line">				&#123;</span><br><span class="line">						<span class="comment">//1拉高0拉低</span></span><br><span class="line">						<span class="keyword">if</span>(num1[i][j]==<span class="number">1</span>) GPIO_SetBits(SMG_PORT,GPIO_Pin_2);</span><br><span class="line">						<span class="keyword">else</span> GPIO_ResetBits(SMG_PORT,GPIO_Pin_2);</span><br><span class="line"></span><br><span class="line">						<span class="comment">//GPIOB1上升沿；然后置零复位，为下一位数据准备</span></span><br><span class="line">						GPIO_SetBits(SMG_PORT,GPIO_Pin_1);</span><br><span class="line">						GPIO_ResetBits(SMG_PORT,GPIO_Pin_1);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">//输出开关B0打开</span></span><br><span class="line">				GPIO_SetBits(SMG_PORT,GPIO_Pin_0);</span><br><span class="line">				<span class="comment">//保持一秒</span></span><br><span class="line">				delay_ms(<span class="number">1000</span>);</span><br><span class="line">				<span class="comment">//重置B0输出开关，为下一个数字输出准备</span></span><br><span class="line">				GPIO_ResetBits(SMG_PORT,GPIO_Pin_0);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>整个工程目录如下图所示：</p>
+<p><a href="https://imgchr.com/i/UtxG4J" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/14/UtxG4J.png" alt="UtxG4J.png"></a></p>
+<p>将工程生成的hex文件烧录到stm32F103RCT6中，笔者手头上现有一个八段数码管和一篇595芯片，根据上述接线方法连接电路，其中stm32的B0、B1、B2分别连接595芯片的数据发送端口Ds管脚,寄存器输入开关SHCP管脚以及并行输出开关STCP管脚，正常运行后可以看到如下显示效果：</p>
+<p><img src="https://s1.ax1x.com/2020/07/14/UNx4TU.png" alt="UNx4TU.png"></p>
+<blockquote>
+<p><strong>B.基于树莓派RPI.GPIO实现</strong><br>树莓派的GPIO使用起来非常方便，直接通过编写一个py文件调用RPI.GPIO库和时间库就可以实现本实验需求，基本原理再次不做赘述，smg.py文件编写如下：</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding: utf-8</span></span><br><span class="line"><span class="keyword">import</span> RPi.GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 串行数据输入引脚连接的GPIO口</span></span><br><span class="line">DS = <span class="number">16</span>       <span class="comment">#PIN 36</span></span><br><span class="line"><span class="comment"># 移位寄存器时钟控制引脚连接的GPIO口</span></span><br><span class="line">SHCP = <span class="number">20</span>     <span class="comment">#PIN 38</span></span><br><span class="line"><span class="comment"># 数据锁存器时钟控制引脚连接的GPIO口</span></span><br><span class="line">STCP = <span class="number">21</span>     <span class="comment">#PIN 40</span></span><br><span class="line"> </span><br><span class="line">RPi.GPIO.setmode(RPi.GPIO.BCM) <span class="comment"># 采用BCM编码</span></span><br><span class="line"><span class="comment">#设置GPIO输出模式</span></span><br><span class="line">RPi.GPIO.setup(DS, RPi.GPIO.OUT)</span><br><span class="line">RPi.GPIO.setup(STCP, RPi.GPIO.OUT)</span><br><span class="line">RPi.GPIO.setup(SHCP, RPi.GPIO.OUT)</span><br><span class="line"><span class="comment">#初始化低SHCP STCP低电平</span></span><br><span class="line">RPi.GPIO.output(STCP, <span class="literal">False</span>)</span><br><span class="line">RPi.GPIO.output(SHCP, <span class="literal">False</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 通过串行数据引脚向74HC595的传送一位数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setBitData</span><span class="params">(data)</span>:</span></span><br><span class="line">    RPi.GPIO.output(DS, data)</span><br><span class="line">    <span class="comment"># 制造一次移位寄存器时钟引脚的上升沿（先拉低电平再拉高电平）</span></span><br><span class="line">    <span class="comment"># 74HC595会在这个上升沿将DS引脚上的数据存入移位寄存器D0</span></span><br><span class="line">    RPi.GPIO.output(SHCP, <span class="literal">True</span>)</span><br><span class="line">    RPi.GPIO.output(SHCP, <span class="literal">False</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 指定数码管显示数字num(0-9)，第2个参数是显示不显示小数点（true/false）</span></span><br><span class="line"><span class="comment"># 由于我使用的数码管是共阳数码管，所以设置为低电平的段才会被点亮</span></span><br><span class="line"><span class="comment"># 如果是共阴数码管，那么要将下面的True和False全部颠倒过来，或者统一在前面加上not</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">showDigit</span><span class="params">(num, showDotPoint)</span>:</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span> (num == <span class="number">0</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint) <span class="comment"># DP</span></span><br><span class="line">        setBitData(<span class="literal">True</span>)  <span class="comment"># G</span></span><br><span class="line">        setBitData(<span class="literal">False</span>) <span class="comment"># F</span></span><br><span class="line">        setBitData(<span class="literal">False</span>) <span class="comment"># E</span></span><br><span class="line">        setBitData(<span class="literal">False</span>) <span class="comment"># D</span></span><br><span class="line">        setBitData(<span class="literal">False</span>) <span class="comment"># C</span></span><br><span class="line">        setBitData(<span class="literal">False</span>) <span class="comment"># B</span></span><br><span class="line">        setBitData(<span class="literal">False</span>) <span class="comment"># A</span></span><br><span class="line">    <span class="keyword">elif</span> (num == <span class="number">1</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">elif</span> (num == <span class="number">2</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">elif</span> (num == <span class="number">3</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">elif</span> (num == <span class="number">4</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">elif</span> (num == <span class="number">5</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">elif</span> (num == <span class="number">6</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">elif</span> (num == <span class="number">7</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">elif</span> (num == <span class="number">8</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">elif</span> (num == <span class="number">9</span>) :</span><br><span class="line">        setBitData(<span class="keyword">not</span> showDotPoint)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">True</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line">        setBitData(<span class="literal">False</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 拉高STCP并行发送数字</span></span><br><span class="line">    RPi.GPIO.output(STCP, <span class="literal">True</span>)</span><br><span class="line">    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">    RPi.GPIO.output(STCP, <span class="literal">False</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 从0显示到9，不显示小数点</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">            showDigit(x, <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 再从0显示到9，显示小数点</span></span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">            showDigit(y, <span class="literal">True</span>)</span><br><span class="line">                     </span><br><span class="line"><span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 最后清理GPIO口</span></span><br><span class="line">RPi.GPIO.cleanup()</span><br></pre></td></tr></table></figure>
+
+<p>编写完程序后，在文件目录下指令执行smg.py文件</p>
+<p><img src="https://s1.ax1x.com/2020/07/14/UNwRSK.png" alt="UNwRSK.png"></p>
+<p>笔者利用手上的树莓派4B的三个GPIO引脚连接595的DS、SHCP、STCP三个引脚，可以观察到如下实验现象：</p>
+<p><img src="https://s1.ax1x.com/2020/07/14/UUCtq1.png" alt="UUCtq1.png"></p>
+<h2 id="三、多线程设计"><a href="#三、多线程设计" class="headerlink" title="三、多线程设计"></a>三、多线程设计</h2><h3 id="1-任务需求-2"><a href="#1-任务需求-2" class="headerlink" title="1.任务需求"></a>1.任务需求</h3><p>多线程设计，每个线程各自打印一个字母，可以交替打印A, B, C字母。</p>
+<h3 id="2-解决思路"><a href="#2-解决思路" class="headerlink" title="2.解决思路"></a>2.解决思路</h3><ol>
+<li>让三个线程对应三个标志flag：0，1，2。同时使得三个线程共享一个锁。</li>
+<li>通过对状态标志进行判断，如果没有轮到当前线程打印时则通过wait()函数来阻塞当前线程，如果轮到当前状态标志，则执行打印操作。</li>
+<li>执行完成后将状态标志flag修改为下一状对应的态标志并将打印次数加1，最后执行notify_all()唤醒当前所有阻塞进程。</li>
+<li>三个线程打印次数达到设定值，三个子线程执行结束，跟随主线程一块儿退出<h3 id="3-程序实现"><a href="#3-程序实现" class="headerlink" title="3.程序实现"></a>3.程序实现</h3>笔者用C++编写程序如下：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;condition_variable&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">mutex mtx;                 <span class="comment">//互斥信号量</span></span><br><span class="line">condition_variable cv;     <span class="comment">//阻塞等待条件变量</span></span><br><span class="line"><span class="keyword">int</span> flag = <span class="number">0</span>;              <span class="comment">//状态标志</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintString_1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">unique_lock&lt;mutex&gt; <span class="title">lk</span><span class="params">(mtx)</span></span>;      <span class="comment">//获得一个锁</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;                   <span class="comment">//计数器</span></span><br><span class="line">    <span class="keyword">while</span> (count &lt; <span class="number">10</span>)               <span class="comment">//循环打印次数10</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (flag != <span class="number">0</span>)            <span class="comment">//判断打印标志，不为零，则使得线程等待，处于阻塞等待，为0，跳出阻塞，执行打印操作</span></span><br><span class="line">            cv.wait(lk);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; this_thread::get_id() &lt;&lt; <span class="string">" : "</span> &lt;&lt; <span class="string">"A"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        flag = <span class="number">1</span>;                    <span class="comment">//打印完成后，状态标志变为1</span></span><br><span class="line">        count++;                     <span class="comment">//循环次数加一</span></span><br><span class="line">        cv.notify_all();             <span class="comment">//唤醒当前所有的线程，因为此时其他两个线程在wait,而且下一步就要去执行其中一个</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintString_2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">unique_lock&lt;mutex&gt; <span class="title">lk</span><span class="params">(mtx)</span></span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (count &lt; <span class="number">10</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (flag != <span class="number">1</span>)</span><br><span class="line">            cv.wait(lk);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; this_thread::get_id() &lt;&lt; <span class="string">" : "</span> &lt;&lt; <span class="string">"B"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        flag = <span class="number">2</span>;</span><br><span class="line">        count++;</span><br><span class="line">        cv.notify_all();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintString_3</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">unique_lock&lt;mutex&gt; <span class="title">lk</span><span class="params">(mtx)</span></span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (count &lt; <span class="number">10</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (flag != <span class="number">2</span>)</span><br><span class="line">            cv.wait(lk);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; this_thread::get_id() &lt;&lt; <span class="string">" : "</span> &lt;&lt; <span class="string">"C"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        flag = <span class="number">0</span>;</span><br><span class="line">        count++;</span><br><span class="line">        cv.notify_all();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//创建三个线程，分别执行打印ABC</span></span><br><span class="line">    <span class="function"><span class="built_in">std</span>::thread  <span class="title">t1</span><span class="params">(PrintString_1)</span></span>;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::thread  <span class="title">t2</span><span class="params">(PrintString_2)</span></span>;</span><br><span class="line">    <span class="function"><span class="built_in">std</span>::thread  <span class="title">t3</span><span class="params">(PrintString_3)</span></span>;</span><br><span class="line">    t3.join();</span><br><span class="line">    t1.join();</span><br><span class="line">    t2.join();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+运行结果如下（循环打印5次）<br><img src="https://pic.downk.cc/item/5f14101014195aa594cf25cf.jpg" alt></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+<div>
+     
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/">嵌入式课程作业：流水灯+数码管+多线程</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Decaprio Lee 的个人博客">Decaprio Lee</a></p>
+  <p><span>发布时间:</span>2020年07月13日 - 15:07</p>
+  <p><span>最后更新:</span>2020年07月19日 - 17:07</p>
+  <p><span>原始链接:</span><a href="/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/" title="嵌入式课程作业：流水灯+数码管+多线程">http://yoursite.com/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+	  $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	    });
+    });  
+</script>
+
+
+      
+</div>
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+        <div class="reward-container">
+  <div>赞赏一杯咖啡</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    <i class="fa fa-qrcode fa-2x" style="line-height:35px;"></i>
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://pic.downk.cc/item/5eb1221cc2a9a83be5b664df.jpg" alt="Decaprio Lee 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://pic.downk.cc/item/5eb12155c2a9a83be5b58dc6.jpg" alt="Decaprio Lee 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+ <div>
+  
+    <div>
+    
+        <div class="read-over"><center>-------------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------------</center></div>
+    
+</div>
+
+  
+ </div>
+
+<footer class="post-footer">
+      <footer class="post-footer">
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/04/022%E6%A0%91%E8%8E%93%E6%B4%BE%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9C%E7%A8%8Bssh%E8%BF%9E%E6%8E%A5/" rel="prev" title="树莓派无显示器，无网线，远程ssh连接">
+      <i class="fa fa-chevron-left"></i> 树莓派无显示器，无网线，远程ssh连接
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/" rel="next" title="树莓派/Linux系统常用操作">
+      树莓派/Linux系统常用操作 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、八位流水灯设计"><span class="nav-number">1.</span> <span class="nav-text">一、八位流水灯设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-任务需求"><span class="nav-number">1.1.</span> <span class="nav-text">1. 任务需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-问题分析"><span class="nav-number">1.2.</span> <span class="nav-text">2.问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-流水灯伪代码书写-主函数部分"><span class="nav-number">1.3.</span> <span class="nav-text">3.流水灯伪代码书写(主函数部分)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-工程实现"><span class="nav-number">1.4.</span> <span class="nav-text">4.工程实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-实验搭建及效果"><span class="nav-number">1.5.</span> <span class="nav-text">5.实验搭建及效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、SN74HC595-驱动led设计"><span class="nav-number">2.</span> <span class="nav-text">二、SN74HC595 驱动led设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-任务需求-1"><span class="nav-number">2.1.</span> <span class="nav-text">1.任务需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-问题分析-1"><span class="nav-number">2.2.</span> <span class="nav-text">2. 问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-知识回顾"><span class="nav-number">2.3.</span> <span class="nav-text">3. 知识回顾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-工程实现-1"><span class="nav-number">2.4.</span> <span class="nav-text">4.工程实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、多线程设计"><span class="nav-number">3.</span> <span class="nav-text">三、多线程设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-任务需求-2"><span class="nav-number">3.1.</span> <span class="nav-text">1.任务需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-解决思路"><span class="nav-number">3.2.</span> <span class="nav-text">2.解决思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-程序实现"><span class="nav-number">3.3.</span> <span class="nav-text">3.程序实现</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Decaprio Lee"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">Decaprio Lee</p>
+  <div class="site-description" itemprop="description">Stay hungry Stay foolish</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/decapriotesla" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;decapriotesla" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:tesla1943110@gmail.com" title="E-Mail → mailto:tesla1943110@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/" title="Weibo → https:&#x2F;&#x2F;weibo.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/" title="QQ → https:&#x2F;&#x2F;weibo.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+      <div class="links-of-blogroll-title">
+        <!-- modify icon to fire by szw -->
+        <i class="fa fa-history fa-" aria-hidden="true"></i>
+        近期文章
+      </div>
+      <ul class="links-of-blogroll-list">
+-        
++        
+        
+          <li>
+            <a href="/2020/07/19/023%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB/" title="树莓派/Linux系统常用操作" target="_blank">树莓派/Linux系统常用操作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/13/024%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%BD%9C%E4%B8%9A/" title="嵌入式课程作业：流水灯+数码管+多线程" target="_blank">嵌入式课程作业：流水灯+数码管+多线程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/04/022%E6%A0%91%E8%8E%93%E6%B4%BE%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9C%E7%A8%8Bssh%E8%BF%9E%E6%8E%A5/" title="树莓派无显示器，无网线，远程ssh连接" target="_blank">树莓派无显示器，无网线，远程ssh连接</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/02/013C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C++学习笔记(updating)" target="_blank">C++学习笔记(updating)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/21/021%E5%9B%A0%E7%89%B9%E5%B0%9414nm%E5%B7%A5%E8%89%BA%E8%83%8C%E5%90%8E%E7%9A%84%E7%A5%9E%E9%A2%84%E8%A8%80%E5%AE%B6/" title="14nm工艺背后的神预言家" target="_blank">14nm工艺背后的神预言家</a>
+          </li>
+        
+      </ul>
+    </div>
+
+
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+      </div>
+
+      
+
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="250" height="250" id="resCanvas" style="width=100%">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next/" rel="tag">Next</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VNC/" rel="tag">VNC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/" rel="tag">云服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%93%E5%BA%93/" rel="tag">仓库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%92%E6%B0%B4/" rel="tag">划水</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" rel="tag">反向传播</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%90%8D/" rel="tag">域名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%95%E8%AE%BA/" rel="tag">引论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E4%BB%A3/" rel="tag">时代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E6%96%B9%E5%B7%AE/" rel="tag">最小方差</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE%E4%BA%91/" rel="tag">标签云</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A/" rel="tag">社会</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E6%A0%A1%E6%AD%A3/" rel="tag">自校正</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E9%80%82%E5%BA%94/" rel="tag">自适应</a><span class="tag-list-count">1</span></li></ul>
+        </canvas>
+    </div>
+</div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+      <!-- 此处为新加的代码 -->
+      <script src="https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    //暂时储存文章中的内容
+    var div = $('.post-body');
+    //暂时储存目录的内容
+    var toc=$('.post-toc')
+    function password() {
+        if(''){
+            //将文章内容删除
+            div.remove();
+            //将目录删除
+            toc.remove();
+            //将文章删除后，向原来文章的地方添加，应该出现的提示用户输入密码的样式
+            //下面这里的第一个用textarea是因为如果在手机端的时候只能显示一部分文字，
+            //只是拓展:input里面的字只能显示一行，不会自动换行，目前上网搜索没有发现好的办法，所以用了textarea，右下角的小三角通过resize:none 去掉。
+            $('.post-header').after(
+            '<span class="description" value="请输入密码，然后按 Enter 键阅读" style="font-style: oblique;font-weight: bold;border: none;display: block;'+
+            'width: 60%;margin: 0 auto;text-align: center;outline: none;margin-bottom: 40px;resize:none ">'+
+            '<i class="fa fa-heartbeat" id="myheartbeat"></i>'+
+            '请输入密码，然后按 Enter 键阅读' +
+            '<i class="fa fa-heartbeat" id="myheartbeat"></i>'+
+            '</span>' +
+            '<div class="qiang" style="height: 100px;width: 60%;margin:0 auto">' +
+            '<input class="password"  type="password" autocomplete="new-password" autofocus="autofocus" value="" style="border-radius: 5px;height: 30px;border: none;display: block;border-bottom: 1px solid #ccc;' +
+            'margin: 0 auto;outline: none;width:95%"/>' +
+            '</div>')
+            //绑定点击事件，如果是点击的.password 这个div就改变样式，如果是document中除了div之外的其他任何元素，就变回原来的样式。
+            document.onclick = function (event) {
+                var e = event || window.event;
+                var elem = e.srcElement || e.target;
+
+                while (elem) {
+                    if (elem != document) {
+                        if (elem.className == "password") {
+                            //$(".password").animate({paddingTop:"30px",width:"100%",borderWidth:"2px"},300)
+                            return;
+                        }
+                        elem = elem.parentNode;
+                    } else {
+                        //$(".password").animate({paddingTop:"0px",width:"95%",borderWidth:"1px"},300)
+                        return;
+                    }
+                }
+            }
+            //绑定enter键按下后离开的事件
+            $(document).keyup(function(event){
+                if(event.keyCode ==13&&$('.password').length>0){
+                    //console.log($('.password').val())
+                    //console.log('')
+                    if ($('.password').val() == '') {
+                        //恢复文章内容
+                        (div).appendTo($(".post-header"))
+                        //恢复目录
+                        toc.appendTo($(".sidebar-inner"))
+                        //删除本页面的输入密码组件
+                        $(".description").remove();
+                        $(".qiang").remove();
+                        $(".password").remove();
+
+                        //重新处理pjax事件,如果没有加pjax的从下面这行起到下面的else之间的代码需要去掉。
+                        //图片懒加载，没有加入此功能的这个函数需要去掉
+                        $('img').lazyload({
+                            placeholder: '/images/loading.gif',
+                            effect: 'fadeIn',
+                            threshold : 100,
+                            failure_limit : 20,
+                            skip_invisible : false
+                        });
+                        //pjax后出现文章不显示，没有pjax的下面四行需要去掉
+                        $(".post-block").css({opacity:1});
+                        $(".post-header").css({opacity:1});
+                        $(".post-body").css({opacity:1});
+                        $(".pagination").css({opacity:1});
+                    }else {
+                        alert("对不起，密码输入错误。")
+                    }
+                }
+                //将document的keyup移除，防止在pjax的情况下会重复绑定事件
+            });
+        }
+    }
+    password();
+</script>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Decaprio Lee</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">62k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:43</span>
+</div>
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<div class="busuanzi-count">
+  <script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <span class="site-uv">
+  <i class="fa fa-user"> 本站访客数</i>
+  <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+  人
+  </span>
+
+  <span class="site-pv">
+  <i class="fa fa-eye"> 本站总访问量</i>
+  <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+  次
+  </span>
+
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+              leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=hMR31B4dUCHLQGb9IwUwDrmY-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : 'hMR31B4dUCHLQGb9IwUwDrmY-gzGzoHsz',
+            'X-LC-Key'    : 'EroMMiVUySPNdS16R93AHEOv',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 23839,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'hMR31B4dUCHLQGb9IwUwDrmY-gzGzoHsz',
+      appKey     : 'EroMMiVUySPNdS16R93AHEOv',
+      placeholder: "",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+</body>
+</html>
