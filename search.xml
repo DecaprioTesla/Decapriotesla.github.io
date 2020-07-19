@@ -352,6 +352,60 @@
       </tags>
   </entry>
   <entry>
+    <title>Git将本地文件上传至Github仓库</title>
+    <url>/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/</url>
+    <content><![CDATA[<p>🖨️使用git工具将本地文件上传至项目托管平台，方便自己对项目进行日常的更新管理以及实现项目的共享，下面简要介绍一些步骤：</p>
+<a id="more"></a>
+<h1 id="📌git工具上传本地文件项目至github远程仓库"><a href="#📌git工具上传本地文件项目至github远程仓库" class="headerlink" title="📌git工具上传本地文件项目至github远程仓库"></a>📌git工具上传本地文件项目至github远程仓库</h1><ol>
+<li>📎在Github上新建一个仓库，并命名</li>
+<li>📎在本地文件下下右键，选择GitBash Here打开git工具</li>
+<li>📎命令行中首先输入：git init  (然后可以利用ls语句来检查一下项目文件下的所有文件)</li>
+<li>📎输入：git add .   然后回车</li>
+<li>📎输入：git commit -m’对项目的说明’</li>
+<li>📎然后输入：git remote add origin <a href="https://github.com/DecaprioTesla/Tempure_measure.git" target="_blank" rel="noopener">https://github.com/DecaprioTesla/Tempure_measure.git</a>  （网址为Github仓库分配的网页）</li>
+<li>📎最后输入： git push -u origin master (首次使用可能需要输入用户名和密码)</li>
+</ol>
+<h1 id="📌本地项目做修改后重新上传至github远程仓库"><a href="#📌本地项目做修改后重新上传至github远程仓库" class="headerlink" title="📌本地项目做修改后重新上传至github远程仓库"></a>📌本地项目做修改后重新上传至github远程仓库</h1><ol>
+<li>📎对本地文件做一定的修改，加入新的文件等等</li>
+<li>📎记住所作修改或添加的文件，然后：git add 修改的文件名称.格式</li>
+<li>📎输入：git commit -m’添加修改说明’</li>
+<li>📎输入：git pull –rebase origin master</li>
+<li>📎最后输入 git push -u origin master上传修改或添加的文件的文件</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术理论</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>仓库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++中argc与argv的作用</title>
+    <url>/2020/03/31/011C++%E4%B8%ADargc%E5%92%8Cargv%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>在研究别人写的代码时，经常会发现在main函数中加入了两个定义：int argc,int *argv</p>
+<a id="more"></a>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通常在旧版本的IDE中新建一个C/C++源文件，通常也会见到上述mian函数括号中的定义，下面就介绍一下这种使用方法的作用。</p>
+<h2 id="细节分析"><a href="#细节分析" class="headerlink" title="细节分析"></a>细节分析</h2><p>根据函数参数传递的特性和，main()函数中传递了两个形式参数，int类型的argc以及字符类型的数组指针argv。下面研究一下，两个形参的默认值：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"argc: "</span>&lt;&lt;argc&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"argv: "</span>&lt;&lt;argv[<span class="number">0</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后再输出窗口中看到如下结果：<br><img src="https://pic.downk.cc/item/5e834329504f4bcb04439dec.jpg" alt="110"></p>
+<p>可见，argc的默认值为1，argv首元素为程序的位置路径。 看到这里你肯定明白了，argc是argv中存放string的数量，有了这个我们就可以遍历这个数组了。</p>
+<h2 id="最后说明"><a href="#最后说明" class="headerlink" title="最后说明"></a>最后说明</h2><ol>
+<li><p>argc 是 argument count的缩写，表示传入main函数的参数个数；</p>
+</li>
+<li><p>argv 是 argument vector的缩写，表示传入main函数的参数序列或指针，并且第一个参数argv[0]一定是程序的名称，并且包含了程序所在的完整路径，所以确切的说需要我们输入的main函数的参数个数应该是argc-1个；</p>
+<ol start="3">
+<li>如果程序要读取某文件的信息，而该文件的名称不是在程序中给定，而是由用户确定，那么给main传参数就是一个很好的方法.</li>
+</ol>
+</li>
+<li><p>argc,argv可以使程序接受命令行参数，更方便的IO</p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>Windows系统下基于putty+VNC与树莓派4B连接</title>
     <url>/2020/03/16/010%E6%A0%91%E8%8E%93%E6%B4%BEpuutty/</url>
     <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584371094015&di=f0d8c4fd96aee78cbf386c55e872a9fe&imgtype=0&src=http%3A%2F%2Fmp.ofweek.com%2Fdata%2Fimages%2Fpchome%2F2020-02-28%2F7d77ace6438ab259e5c897ba265229f4.png" alt="image.png"></p>
@@ -400,211 +454,6 @@
       <tags>
         <tag>树莓派</tag>
         <tag>VNC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++中argc与argv的作用</title>
-    <url>/2020/03/31/011C++%E4%B8%ADargc%E5%92%8Cargv%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>在研究别人写的代码时，经常会发现在main函数中加入了两个定义：int argc,int *argv</p>
-<a id="more"></a>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通常在旧版本的IDE中新建一个C/C++源文件，通常也会见到上述mian函数括号中的定义，下面就介绍一下这种使用方法的作用。</p>
-<h2 id="细节分析"><a href="#细节分析" class="headerlink" title="细节分析"></a>细节分析</h2><p>根据函数参数传递的特性和，main()函数中传递了两个形式参数，int类型的argc以及字符类型的数组指针argv。下面研究一下，两个形参的默认值：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"argc: "</span>&lt;&lt;argc&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"argv: "</span>&lt;&lt;argv[<span class="number">0</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后再输出窗口中看到如下结果：<br><img src="https://pic.downk.cc/item/5e834329504f4bcb04439dec.jpg" alt="110"></p>
-<p>可见，argc的默认值为1，argv首元素为程序的位置路径。 看到这里你肯定明白了，argc是argv中存放string的数量，有了这个我们就可以遍历这个数组了。</p>
-<h2 id="最后说明"><a href="#最后说明" class="headerlink" title="最后说明"></a>最后说明</h2><ol>
-<li><p>argc 是 argument count的缩写，表示传入main函数的参数个数；</p>
-</li>
-<li><p>argv 是 argument vector的缩写，表示传入main函数的参数序列或指针，并且第一个参数argv[0]一定是程序的名称，并且包含了程序所在的完整路径，所以确切的说需要我们输入的main函数的参数个数应该是argc-1个；</p>
-<ol start="3">
-<li>如果程序要读取某文件的信息，而该文件的名称不是在程序中给定，而是由用户确定，那么给main传参数就是一个很好的方法.</li>
-</ol>
-</li>
-<li><p>argc,argv可以使程序接受命令行参数，更方便的IO</p>
-</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Git将本地文件上传至Github仓库</title>
-    <url>/2020/03/10/009git%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E8%87%B3github%E4%BB%93%E5%BA%93/</url>
-    <content><![CDATA[<p>🖨️使用git工具将本地文件上传至项目托管平台，方便自己对项目进行日常的更新管理以及实现项目的共享，下面简要介绍一些步骤：</p>
-<a id="more"></a>
-<h1 id="📌git工具上传本地文件项目至github远程仓库"><a href="#📌git工具上传本地文件项目至github远程仓库" class="headerlink" title="📌git工具上传本地文件项目至github远程仓库"></a>📌git工具上传本地文件项目至github远程仓库</h1><ol>
-<li>📎在Github上新建一个仓库，并命名</li>
-<li>📎在本地文件下下右键，选择GitBash Here打开git工具</li>
-<li>📎命令行中首先输入：git init  (然后可以利用ls语句来检查一下项目文件下的所有文件)</li>
-<li>📎输入：git add .   然后回车</li>
-<li>📎输入：git commit -m’对项目的说明’</li>
-<li>📎然后输入：git remote add origin <a href="https://github.com/DecaprioTesla/Tempure_measure.git" target="_blank" rel="noopener">https://github.com/DecaprioTesla/Tempure_measure.git</a>  （网址为Github仓库分配的网页）</li>
-<li>📎最后输入： git push -u origin master (首次使用可能需要输入用户名和密码)</li>
-</ol>
-<h1 id="📌本地项目做修改后重新上传至github远程仓库"><a href="#📌本地项目做修改后重新上传至github远程仓库" class="headerlink" title="📌本地项目做修改后重新上传至github远程仓库"></a>📌本地项目做修改后重新上传至github远程仓库</h1><ol>
-<li>📎对本地文件做一定的修改，加入新的文件等等</li>
-<li>📎记住所作修改或添加的文件，然后：git add 修改的文件名称.格式</li>
-<li>📎输入：git commit -m’添加修改说明’</li>
-<li>📎输入：git pull –rebase origin master</li>
-<li>📎最后输入 git push -u origin master上传修改或添加的文件的文件</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术理论</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>仓库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode做题总结(updating)</title>
-    <url>/2020/04/26/014LeetCode%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1128609435,2537138478&fm=26&gp=0.jpg" alt></p>
-<p> LeetCode刷题总结（Updating…）</p>
-<p>为了强化做题的效果，完成一些题目之后将题解进行总结回顾，加深印象，持续更新中…</p>
-<a id="more"></a>
-<p>目前已经完成的题目编号：1、7、9、13、14、27、28、35、53、58、66、67、69、70、83、88、100、101、104、111、121、122、141、461、728、942、1281、1295、1304、1309、1313、1342、1365、1385、LCP01</p>
-<h2 id="Chapt-00准备资料"><a href="#Chapt-00准备资料" class="headerlink" title="Chapt-00准备资料"></a><strong>Chapt-00准备资料</strong></h2><p><strong>0000资料</strong></p>
-<p><a herf="https://github.com/azl397985856/leetcode">LeetCode学习资料</a></p>
-<p><a herf="https://github.com/OUCMachineLearning/OUCML/tree/master/%E4%BB%A3%E7%A0%81%E9%80%9F%E6%9F%A5%E8%A1%A8">代码速查表</a></p>
-<p><a herf="https://github.com/MisterBooo/LeetCodeAnimation">图解LeetCode</a></p>
-<h2 id="Chapt-01链表"><a href="#Chapt-01链表" class="headerlink" title="Chapt-01链表"></a><strong>Chapt-01链表</strong></h2><p> <strong>0141 Link list Circle <a herf="https://leetcode-cn.com/problems/linked-list-cycle/">环形链表</a></strong></p>
-<ul>
-<li><p>当一个链表有环时，快慢指针都会陷入环中进行无限次移动，然后变成了追及问题。想象一下在操场跑步的场景，只要一直跑下去，快的总会追上慢的。当两个指针都进入环后，每轮移动使得慢指针到快指针的距离增加一，同时快指针到慢指针的距离也减少一，只要一直移动下去，快指针总会追上慢指针。</p>
-<center>
-
-<p><img src="https://pic.leetcode-cn.com/d1ac82780e5189d7d58406504c3b7b56c35165997bfbb4c325677af92ee2d483.gif" alt="avatar"></p>
-</center>
-根据上述表述得出，如果一个链表存在环，那么快慢指针必然会相遇。实现代码如下
-
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode *fast,*slow;</span><br><span class="line">        fast=head;</span><br><span class="line">        slow=head;</span><br><span class="line">        <span class="keyword">while</span>(fast!=<span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            fast=fast-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(fast!=<span class="literal">nullptr</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                fast=fast-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(fast==slow) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            slow=slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p><strong>面试0203 <a herf="https://leetcode-cn.com/problems/delete-middle-node-lcci/">删除中间节点</a></strong></p>
-<ul>
-<li>实现一种算法，删除单向链表中间的某个节点（除了第一个和最后一个节点，不一定是中间节点），假定你只能访问该节点。下面就是删除地址为node的节点。</li>
-</ul>
-<blockquote>
-<p>因为通过当前节点，我们只能知道后面节点的地址和内容，所以可以将当前要删除节点后面的那一个节点完全拷贝到当前节点，然后在将其删除。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode* node)</span> </span>&#123;</span><br><span class="line">        ListNode *p=node-&gt;next;<span class="comment">//定义一个node后面的节点</span></span><br><span class="line"></span><br><span class="line">        node-&gt;val=p-&gt;val;<span class="comment">//将node后面的节点的值赋给当前</span></span><br><span class="line">        node-&gt;next=p-&gt;next;<span class="comment">//将p节点指针区也拷给node</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">delete</span>(p);<span class="comment">//将p进行删除</span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>0021  Merge Two Sorted Lists <a herf="https://leetcode-cn.com/problems/merge-two-sorted-lists/">合并两个有序链表</a></strong></p>
-<h3 id="解法1（递归法）"><a href="#解法1（递归法）" class="headerlink" title="解法1（递归法）:"></a>解法1（递归法）:</h3><ul>
-<li>解决此道题目的有效方法为递归法，因为给出的函数的目的就是希望将两个链表进行合并。</li>
-<li>合并结束的标志为：其中一个链表到达最后一个节点，指针去指向NULL。<blockquote>
-<p>解决此题的主要思路：首先比较两个链表的第一个数据区域的大小，哪个小，哪个就保留住，然后其下一个，就是从两个链表中各在找出一个节点继续比较大小。<br>&emsp;递归法的程序实现：</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1==<span class="literal">NULL</span>) <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l2==<span class="literal">NULL</span>) <span class="keyword">return</span> l1;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l1-&gt;val&lt;l2-&gt;val)</span><br><span class="line">        &#123;</span><br><span class="line">            l1-&gt;next=mergeTwoLists(l1-&gt;next,l2);</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            l2-&gt;next=mergeTwoLists(l1,l2-&gt;next);</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="解法2（迭代法）："><a href="#解法2（迭代法）：" class="headerlink" title="解法2（迭代法）："></a>解法2（迭代法）：</h3></li>
-<li>定义一个新的头节点</li>
-<li>比较l1节点数值和l2节点数值的大小，将小的放在头节点的后面</li>
-<li>循环执行，直至二者其中一个为NULL</li>
-<li>最后，将l2或者l1中剩余的部分链接到头节点后面<blockquote>
-<p>程序如下：</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        ListNode* head = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">        ListNode* ret = head;</span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="literal">NULL</span> &amp;&amp; l2 != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1-&gt;val &lt; l2-&gt;val) &#123;</span><br><span class="line">                head-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                head-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = l1 == <span class="literal">NULL</span> ? l2 : l1;</span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>面试题.0202  Kth Node From End of List LCCI <a herf="https://leetcode-cn.com/problems/kth-node-from-end-of-list-lcci/">链表中倒数第K个节点的值</a></strong></p>
-<ul>
-<li>关键思想：快慢指针</li>
-<li>先让快指针走k次，然后一块走，当快指针走到NULL时，慢指针恰好处在倒数第K个位置<br><img src="https://pic.leetcode-cn.com/b6e913997ffa01167ac3c89fef7172a14fb46d22f20c8eb5db3c663b0523cc3e.png" alt="快慢指针实现图解"><center>快慢指针实现过程</center>
-
-</li>
-</ul>
-<blockquote>
-<p>编程代码如下：</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">kthToLast</span><span class="params">(ListNode* head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        ListNode *p=head;</span><br><span class="line">        ListNode *q=head;</span><br><span class="line">        <span class="keyword">while</span>(k--)</span><br><span class="line">        &#123;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">            q=q-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> q-&gt;val;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>0203 Remove ELement of a link <a herf="https://leetcode-cn.com/problems/remove-linked-list-elements/">移除链表中的元素</a></strong><br>示例:</p>
-<p>输入: 1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, val = 6</p>
-<p>输出: 1-&gt;2-&gt;3-&gt;4-&gt;5</p>
-<p>删除链表中等于给定值 val 的所有节点。</p>
-<ul>
-<li>若要移除的元素位于链表的中间，那么简单地通过删除链表中元素的方法就可以实现</li>
-<li>问题的关键在于要移除位于链表开头的元素</li>
-<li>可设置两个指针，一个指向当前的节点(current)，一个指向当前节点的前一个节点（previous)，找到要删除的指定元素时将就需要将前一个节点的指针指向当前节点的指针。否则只需要将前一个节点指向当前节点，当前节点变为下一个节点。</li>
-</ul>
-<p>实现的程序如下：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeElements</span><span class="params">(ListNode* head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode *pre=<span class="keyword">new</span> ListNode (<span class="number">0</span>);<span class="comment">//初始化一个值为0的节点。</span></span><br><span class="line">        pre-&gt;next=head;</span><br><span class="line">        ListNode *present=pre;</span><br><span class="line">        <span class="keyword">while</span>(present-&gt;next)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(present-&gt;next-&gt;val==val)</span><br><span class="line">            &#123;</span><br><span class="line">                ListNode *temp=present-&gt;next;</span><br><span class="line">                present-&gt;next=present-&gt;next-&gt;next;</span><br><span class="line">                <span class="keyword">delete</span> temp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                present=present-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre-&gt;next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>此题也可以使用递归的方法来实现：<br><img src="https://pic.leetcode-cn.com/29da586d62b192207c87aaad478f433e85c958102ce2841ceb2712fd8ebfa27b-image.png" alt></li>
-</ul>
-<p>终止条件是节点为null，</p>
-<p>然后一层一层的调用，到最后终止条件时返回，</p>
-<p>判断当前节点的直是否为要删除直，</p>
-<p>如果是，则返回当前节点的下一节点，不返回当前节点就是删除当前节点，如果不是，则返回当前节点。</p>
-<p>代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeElements</span><span class="params">(ListNode* head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">NULL</span>)<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        head-&gt;next = removeElements(head-&gt;next,val);</span><br><span class="line">        <span class="keyword">return</span> head-&gt;val == val?head-&gt;next:head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h2 id="Chapt-02数组"><a href="#Chapt-02数组" class="headerlink" title="Chapt-02数组"></a><strong>Chapt-02数组</strong></h2><p><strong>1010  song can be divided by 60 <a herf="https://leetcode-cn.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/">总持续时间可被60整除的歌曲</a></strong></p>
-<ul>
-<li>解决此题的关键之处在于算法的优化，当然使用暴力法当然可以，但数组长度过长时容易因为时间限制而不能通过，下面简单介绍一下优秀的遍历方法</li>
-<li>首先遍历一遍数组，将所有元素对60取余数，生成一个新的数组，并且将这些余数进行排序，sort()函数实现。</li>
-<li>通过一个新定义的数组来记录各个余数出现的次数，余数作为下标，下标对应的数值为该余数出现的次数。</li>
-<li>然后就是开启第二次循环，将0-30的之间的余数对应的30-60的数目加起来，最后在单独处理一些0与30这两种情况，根据两两结合的原理公式计算。<br>&emsp;&emsp;程序实现的方法如下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="keyword">int</span> count[<span class="number">61</span>],res = <span class="number">0</span>;<span class="comment">//用来存储各个余数出现的次数的数组</span></span><br><span class="line">     <span class="function"><span class="keyword">int</span> <span class="title">numPairsDivisibleBy60</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; time)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(time.empty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(count,<span class="number">0</span>,<span class="keyword">sizeof</span> count);<span class="comment">//将里面的元素初始化为0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; time.size(); i++)&#123;</span><br><span class="line">            time[i] %= <span class="number">60</span>;<span class="comment">//将时间转化为6o的余数</span></span><br><span class="line">            count[time[i]]++;<span class="comment">//记录各个余数出现的次数，没有出现则默认为0</span></span><br><span class="line">        &#125;</span><br><span class="line">        sort(time.begin(),time.end());<span class="comment">//将余数进行排序</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; time.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(time[i] &gt;= <span class="number">30</span>) <span class="keyword">break</span>;<span class="comment">//超过或者等于30就跳出循环</span></span><br><span class="line">            <span class="keyword">if</span>(time[i] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            res += count[<span class="number">60</span> - time[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        res += (count[<span class="number">0</span>]*(count[<span class="number">0</span>]<span class="number">-1</span>))/<span class="number">2</span>;</span><br><span class="line">        res += (count[<span class="number">30</span>]*(count[<span class="number">30</span>]<span class="number">-1</span>))/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Chapt-03递归"><a href="#Chapt-03递归" class="headerlink" title="Chapt-03递归"></a><strong>Chapt-03递归</strong></h2></li>
-</ul>
-<p><strong>783. <a herf="https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/">二叉搜索树节点最小距离</a></strong></p>
-<ul>
-<li>需要返回二叉树中任意两个节点差值的最小值，可以先通过中序遍历将二叉树所有节点放在数组v中，得到从小到大的排序。</li>
-<li>之后求得有序数组中任意相邻的两个元素差值的最小值即可。</li>
-</ul>
-<p>实现的代码如下，中间使用了递归函数f,中序遍历的递归形式。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minDiffInBST</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">        <span class="keyword">int</span> res=INT_MAX;</span><br><span class="line">        f(root,&amp;v);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v.size()<span class="number">-1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> k=v[i+<span class="number">1</span>]-v[i];</span><br><span class="line">            res=min(res,k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(TreeNode*root,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;*v)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        f(root-&gt;left,v);</span><br><span class="line">        v-&gt;push_back(root-&gt;val);</span><br><span class="line">        f(root-&gt;right,v);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Chapt-04树"><a href="#Chapt-04树" class="headerlink" title="Chapt-04树"></a><strong>Chapt-04树</strong></h2><ul>
-<li><strong>树的常见的遍历方式</strong></li>
-</ul>
-<p>通常而言，遍历中还夹杂着递归，因为往往遍历的结束标志为遇到了左子树或者右子树为空的情况。</p>
-<ol>
-<li>前序遍历</li>
-</ol>
-<blockquote>
-<p>先打印当前节点，再用前序遍历的方法遍历左右子树</p>
-</blockquote>
-<p>前序的规则就是根结点 —&gt; 左子树 —&gt; 右子树.我们在调用递归前进行节点操作。对于前序，就是先访问(输出)该节点。而递归左，递归右侧，会优先递归左侧。直到没有左节点。才会停止。访问次序大致为：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190820000853382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjkzMTcx,size_16,color_FFFFFF,t_70" alt></p>
-<p>程序实现为：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">qianxu</span><span class="params">(node t)</span><span class="comment">// 前序递归 前序遍历：根结点 ---&gt; 左子树 ---&gt; 右子树</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (t != null) &#123;</span><br><span class="line">		System.out.print(t.value + <span class="string">" "</span>);<span class="comment">// 当前节点</span></span><br><span class="line">		qianxu(t.left);</span><br><span class="line">		qianxu(t.right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>中序遍历</li>
-</ol>
-<blockquote>
-<p>用中序遍历的方法遍历左子树，打印当前节点，用中序遍历的方法遍历右子树</p>
-</blockquote>
-<p>有了前序的经验，我们就很好利用递归实现中序遍历。中序遍历的规则是：左子树—&gt; 根结点 —&gt; 右子树。所以我们访问节点的顺序需要变。</p>
-<p>(1) 递归是来回的过程，对于恰好有两个子节点(子节点无节点)的节点来说。只需要访问一次左节点，访问根，访问右节点。即可</p>
-<p>(2) 而如果两侧有节点来说。每个节点都要满足中序遍历的规则。我们从根先访问左节点。到了左节点这儿左节点又变成一颗子树，也要满足中序遍历要求。所以就要先访问左节点的左节点(如果存在)。那么如果你这样想，规则虽然懂了。但是也太复杂了。那么我们借助递归。因为它的子问题和根节点的问题一致，只是范围减小了。所以我们使用递归思想来解决。</p>
-<p>(3)那么递归的逻辑为：考虑特殊情况(特殊就直接访问)不进行递归否则递归的访问左子树(让左子树执行相同函数，特殊就停止递归输出，不特殊就一直找下去直到最左侧节点。)——&gt;输出该节点—&gt;递归的访问右子树.</p>
-<p>实现的代码为；</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">zhongxu</span><span class="params">(node t)</span><span class="comment">// 中序遍历 中序遍历：左子树---&gt; 根结点 ---&gt; 右子树</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (t != null) &#123;</span><br><span class="line">		zhongxu(t.left);</span><br><span class="line">		System.out.print(t.value + <span class="string">" "</span>);<span class="comment">// 访问完左节点访问当前节点</span></span><br><span class="line">		zhongxu(t.right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>后续遍历</li>
-</ol>
-<blockquote>
-<p>同理，用后序遍历的方法遍历左右子树，打印当前节点。</p>
-</blockquote>
-<p>实现代码为：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">houxu</span><span class="params">(node t)</span><span class="comment">// 后序遍历 后序遍历：左子树 ---&gt; 右子树 ---&gt; 根结点</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (t != null) &#123;</span><br><span class="line">		houxu(t.left);</span><br><span class="line">		houxu(t.right);</span><br><span class="line">		System.out.print(t.value + <span class="string">" "</span>); <span class="comment">// 访问玩左右访问当前节点</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Chapt-05栈和队列"><a href="#Chapt-05栈和队列" class="headerlink" title="Chapt-05栈和队列"></a><strong>Chapt-05栈和队列</strong></h2><h2 id="Chapt-06查找"><a href="#Chapt-06查找" class="headerlink" title="Chapt-06查找"></a><strong>Chapt-06查找</strong></h2><h2 id="Chapt-07排序"><a href="#Chapt-07排序" class="headerlink" title="Chapt-07排序"></a><strong>Chapt-07排序</strong></h2>]]></content>
-      <tags>
-        <tag>LeetCode</tag>
-        <tag>笔记</tag>
-        <tag>算法</tag>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -816,8 +665,386 @@
         <category>C++</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>C++</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统（一） 操作系统引论</title>
+    <url>/2020/05/10/016%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%B8%80)%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/</url>
+    <content><![CDATA[<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3621867659,1152751757&fm=26&gp=0.jpg" alt></p>
+<a id="more"></a>
+<h2 id="1-操作系统的目标和功能"><a href="#1-操作系统的目标和功能" class="headerlink" title="1.操作系统的目标和功能"></a>1.操作系统的目标和功能</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
+<li><p>方便性</p>
+</li>
+<li><p>有效性</p>
+<ul>
+<li>提高系统资源利用率</li>
+<li>提高系统吞吐量</li>
+</ul>
+</li>
+<li><p>可扩充性</p>
+</li>
+<li><p>开放性</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3></li>
+<li><p>OS作为用户与计算机硬件系统之间的接口</p>
+<ul>
+<li>命令方式</li>
+<li>系统调用方式</li>
+<li>图标–窗口方式</li>
+</ul>
+</li>
+<li><p>OS实现了对计算机资源的抽象</p>
+<h2 id="2-操作系统的发展过程"><a href="#2-操作系统的发展过程" class="headerlink" title="2.操作系统的发展过程"></a>2.操作系统的发展过程</h2><h3 id="未配置操作系统的计算机系统"><a href="#未配置操作系统的计算机系统" class="headerlink" title="未配置操作系统的计算机系统"></a>未配置操作系统的计算机系统</h3></li>
+<li><p>人工操作方式</p>
+</li>
+<li><blockquote>
+<p>用户独占全机 CPU等待人工操作 严重降低了计算机资源的利用率</p>
+</blockquote>
+</li>
+<li><p>脱机输入/输出(Off–Line I/O)方式</p>
+</li>
+<li><blockquote>
+<p>减少了CPU的空闲时间 提高了I/O速度 效率仍然不理想</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="单道批处理系统"><a href="#单道批处理系统" class="headerlink" title="单道批处理系统"></a>单道批处理系统</h3><h3 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a>多道批处理系统</h3><blockquote>
+<p>1.资源利用率高<br>2.系统吞吐量大<br>3.平均周转时间长<br>4.无交互能力</p>
+</blockquote>
+<ul>
+<li>(宏观并行，微观串行)<h3 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a>分时系统</h3><blockquote>
+<p>特征:<br>1.多路性<br>2.独立性<br>3.及时性<br>4.交互性</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="实时系统"><a href="#实时系统" class="headerlink" title="实时系统"></a>实时系统</h3><h3 id="集群系统–超算-云计算"><a href="#集群系统–超算-云计算" class="headerlink" title="集群系统–超算~云计算"></a>集群系统–超算~云计算</h3><h3 id="微机操作系统的发展"><a href="#微机操作系统的发展" class="headerlink" title="微机操作系统的发展"></a>微机操作系统的发展</h3><h2 id="3-操作系统的基本特征"><a href="#3-操作系统的基本特征" class="headerlink" title="3.操作系统的基本特征"></a>3.操作系统的基本特征</h2><h3 id="1-并发concurrence"><a href="#1-并发concurrence" class="headerlink" title="1.并发concurrence"></a>1.并发concurrence</h3><ul>
+<li><p>区别并行和并发</p>
+</li>
+<li><blockquote>
+<p>并行性是指两个或多个事件在同一时刻发生→宏观并行，微观并行</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>并发性是指两个或多个事件在同一时间间隔内发生→宏观并行，微观串行</p>
+</blockquote>
+<ul>
+<li>并发是进程宏观一起运行，微观上交替运行，而并行是指同时运行</li>
+</ul>
+</li>
+<li><p>引入进程</p>
+</li>
+<li><blockquote>
+<p>进程是指在系统中能独立运行并作为资源分配的基本单位，它是由一组机器指令，数据和堆栈等组成的，是一个能独立运行的活动实体</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-共享sharing"><a href="#2-共享sharing" class="headerlink" title="2.共享sharing"></a>2.共享sharing</h3><ul>
+<li>1.互斥共享方式</li>
+<li>2.同时访问方式</li>
+<li>并发和共享是多用户(多任务)OS的两个最基本的特征。它们又是互为存在的条件<h3 id="3-虚拟virtual"><a href="#3-虚拟virtual" class="headerlink" title="3.虚拟virtual"></a>3.虚拟virtual</h3></li>
+<li>时分复用技术</li>
+<li>空分复用技术<h3 id="4-异步asynchronism"><a href="#4-异步asynchronism" class="headerlink" title="4.异步asynchronism"></a>4.异步asynchronism</h3><h2 id="4-操作系统的主要功能"><a href="#4-操作系统的主要功能" class="headerlink" title="4.操作系统的主要功能"></a>4.操作系统的主要功能</h2><h3 id="1-处理机管理功能"><a href="#1-处理机管理功能" class="headerlink" title="1.处理机管理功能"></a>1.处理机管理功能</h3></li>
+<li>进程控制</li>
+<li>进程同步<ul>
+<li>进程互斥方式</li>
+<li>进程同步方式(协同)</li>
+</ul>
+</li>
+<li>进程通信</li>
+<li>调度<ul>
+<li>作业调度</li>
+<li>进程调度<h3 id="2-存储器管理功能"><a href="#2-存储器管理功能" class="headerlink" title="2.存储器管理功能"></a>2.存储器管理功能</h3></li>
+</ul>
+</li>
+<li>内存分配<ul>
+<li>静态分配</li>
+<li>动态分配</li>
+</ul>
+</li>
+<li>内存保护</li>
+<li>地址映射</li>
+<li>内存扩充<h3 id="3-设备管理功能"><a href="#3-设备管理功能" class="headerlink" title="3.设备管理功能"></a>3.设备管理功能</h3></li>
+<li>缓冲管理</li>
+<li>设备分配</li>
+<li>设备处理<ul>
+<li>设备处理程序又称设备驱动程序<h3 id="4-文件管理功能"><a href="#4-文件管理功能" class="headerlink" title="4.文件管理功能"></a>4.文件管理功能</h3></li>
+</ul>
+</li>
+<li>文件存储空间的管理</li>
+<li>目录管理</li>
+<li>文件的读写管理和保护<h3 id="5-操作系统与用户之间的接口"><a href="#5-操作系统与用户之间的接口" class="headerlink" title="5.操作系统与用户之间的接口"></a>5.操作系统与用户之间的接口</h3></li>
+<li>用户接口</li>
+<li>程序接口<h3 id="6-现代操作系统的新功能"><a href="#6-现代操作系统的新功能" class="headerlink" title="6.现代操作系统的新功能"></a>6.现代操作系统的新功能</h3></li>
+<li>系统安全</li>
+<li>网络的功能和服务</li>
+<li>支持多媒体<h2 id="5-OS结构设计"><a href="#5-OS结构设计" class="headerlink" title="5.OS结构设计"></a>5.OS结构设计</h2><h3 id="传统操作系统结构"><a href="#传统操作系统结构" class="headerlink" title="传统操作系统结构"></a>传统操作系统结构</h3></li>
+<li>无结构操作系统</li>
+<li>模块化OS</li>
+<li>分层式结构OS<h3 id="微内核os结构"><a href="#微内核os结构" class="headerlink" title="微内核os结构"></a>微内核os结构</h3></li>
+<li>客户/服务器模式</li>
+<li>面对对象的程序设计</li>
+</ul>
+<p><em>XMind: ZEN - Trial Version</em></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+        <tag>引论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode做题总结(updating)</title>
+    <url>/2020/04/26/014LeetCode%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1128609435,2537138478&fm=26&gp=0.jpg" alt></p>
+<p> LeetCode刷题总结（Updating…）</p>
+<p>为了强化做题的效果，完成一些题目之后将题解进行总结回顾，加深印象，持续更新中…</p>
+<a id="more"></a>
+<p>目前已经完成的题目编号：1、7、9、13、14、27、28、35、53、58、66、67、69、70、83、88、100、101、104、111、121、122、141、461、728、942、1281、1295、1304、1309、1313、1342、1365、1385、LCP01</p>
+<h2 id="Chapt-00准备资料"><a href="#Chapt-00准备资料" class="headerlink" title="Chapt-00准备资料"></a><strong>Chapt-00准备资料</strong></h2><p><strong>0000资料</strong></p>
+<p><a herf="https://github.com/azl397985856/leetcode">LeetCode学习资料</a></p>
+<p><a herf="https://github.com/OUCMachineLearning/OUCML/tree/master/%E4%BB%A3%E7%A0%81%E9%80%9F%E6%9F%A5%E8%A1%A8">代码速查表</a></p>
+<p><a herf="https://github.com/MisterBooo/LeetCodeAnimation">图解LeetCode</a></p>
+<h2 id="Chapt-01链表"><a href="#Chapt-01链表" class="headerlink" title="Chapt-01链表"></a><strong>Chapt-01链表</strong></h2><p> <strong>0141 Link list Circle <a herf="https://leetcode-cn.com/problems/linked-list-cycle/">环形链表</a></strong></p>
+<ul>
+<li><p>当一个链表有环时，快慢指针都会陷入环中进行无限次移动，然后变成了追及问题。想象一下在操场跑步的场景，只要一直跑下去，快的总会追上慢的。当两个指针都进入环后，每轮移动使得慢指针到快指针的距离增加一，同时快指针到慢指针的距离也减少一，只要一直移动下去，快指针总会追上慢指针。</p>
+<center>
+
+<p><img src="https://pic.leetcode-cn.com/d1ac82780e5189d7d58406504c3b7b56c35165997bfbb4c325677af92ee2d483.gif" alt="avatar"></p>
+</center>
+根据上述表述得出，如果一个链表存在环，那么快慢指针必然会相遇。实现代码如下
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode *fast,*slow;</span><br><span class="line">        fast=head;</span><br><span class="line">        slow=head;</span><br><span class="line">        <span class="keyword">while</span>(fast!=<span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            fast=fast-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(fast!=<span class="literal">nullptr</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                fast=fast-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(fast==slow) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            slow=slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>面试0203 <a herf="https://leetcode-cn.com/problems/delete-middle-node-lcci/">删除中间节点</a></strong></p>
+<ul>
+<li>实现一种算法，删除单向链表中间的某个节点（除了第一个和最后一个节点，不一定是中间节点），假定你只能访问该节点。下面就是删除地址为node的节点。</li>
+</ul>
+<blockquote>
+<p>因为通过当前节点，我们只能知道后面节点的地址和内容，所以可以将当前要删除节点后面的那一个节点完全拷贝到当前节点，然后在将其删除。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode* node)</span> </span>&#123;</span><br><span class="line">        ListNode *p=node-&gt;next;<span class="comment">//定义一个node后面的节点</span></span><br><span class="line"></span><br><span class="line">        node-&gt;val=p-&gt;val;<span class="comment">//将node后面的节点的值赋给当前</span></span><br><span class="line">        node-&gt;next=p-&gt;next;<span class="comment">//将p节点指针区也拷给node</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">delete</span>(p);<span class="comment">//将p进行删除</span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>0021  Merge Two Sorted Lists <a herf="https://leetcode-cn.com/problems/merge-two-sorted-lists/">合并两个有序链表</a></strong></p>
+<h3 id="解法1（递归法）"><a href="#解法1（递归法）" class="headerlink" title="解法1（递归法）:"></a>解法1（递归法）:</h3><ul>
+<li>解决此道题目的有效方法为递归法，因为给出的函数的目的就是希望将两个链表进行合并。</li>
+<li>合并结束的标志为：其中一个链表到达最后一个节点，指针去指向NULL。<blockquote>
+<p>解决此题的主要思路：首先比较两个链表的第一个数据区域的大小，哪个小，哪个就保留住，然后其下一个，就是从两个链表中各在找出一个节点继续比较大小。<br>&emsp;递归法的程序实现：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1==<span class="literal">NULL</span>) <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l2==<span class="literal">NULL</span>) <span class="keyword">return</span> l1;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(l1-&gt;val&lt;l2-&gt;val)</span><br><span class="line">        &#123;</span><br><span class="line">            l1-&gt;next=mergeTwoLists(l1-&gt;next,l2);</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            l2-&gt;next=mergeTwoLists(l1,l2-&gt;next);</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="解法2（迭代法）："><a href="#解法2（迭代法）：" class="headerlink" title="解法2（迭代法）："></a>解法2（迭代法）：</h3></li>
+<li>定义一个新的头节点</li>
+<li>比较l1节点数值和l2节点数值的大小，将小的放在头节点的后面</li>
+<li>循环执行，直至二者其中一个为NULL</li>
+<li>最后，将l2或者l1中剩余的部分链接到头节点后面<blockquote>
+<p>程序如下：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        ListNode* head = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">        ListNode* ret = head;</span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="literal">NULL</span> &amp;&amp; l2 != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1-&gt;val &lt; l2-&gt;val) &#123;</span><br><span class="line">                head-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                head-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = l1 == <span class="literal">NULL</span> ? l2 : l1;</span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>面试题.0202  Kth Node From End of List LCCI <a herf="https://leetcode-cn.com/problems/kth-node-from-end-of-list-lcci/">链表中倒数第K个节点的值</a></strong></p>
+<ul>
+<li>关键思想：快慢指针</li>
+<li>先让快指针走k次，然后一块走，当快指针走到NULL时，慢指针恰好处在倒数第K个位置<br><img src="https://pic.leetcode-cn.com/b6e913997ffa01167ac3c89fef7172a14fb46d22f20c8eb5db3c663b0523cc3e.png" alt="快慢指针实现图解"><center>快慢指针实现过程</center>
+
+</li>
+</ul>
+<blockquote>
+<p>编程代码如下：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">kthToLast</span><span class="params">(ListNode* head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        ListNode *p=head;</span><br><span class="line">        ListNode *q=head;</span><br><span class="line">        <span class="keyword">while</span>(k--)</span><br><span class="line">        &#123;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">            q=q-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> q-&gt;val;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>0203 Remove ELement of a link <a herf="https://leetcode-cn.com/problems/remove-linked-list-elements/">移除链表中的元素</a></strong><br>示例:</p>
+<p>输入: 1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, val = 6</p>
+<p>输出: 1-&gt;2-&gt;3-&gt;4-&gt;5</p>
+<p>删除链表中等于给定值 val 的所有节点。</p>
+<ul>
+<li>若要移除的元素位于链表的中间，那么简单地通过删除链表中元素的方法就可以实现</li>
+<li>问题的关键在于要移除位于链表开头的元素</li>
+<li>可设置两个指针，一个指向当前的节点(current)，一个指向当前节点的前一个节点（previous)，找到要删除的指定元素时将就需要将前一个节点的指针指向当前节点的指针。否则只需要将前一个节点指向当前节点，当前节点变为下一个节点。</li>
+</ul>
+<p>实现的程序如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeElements</span><span class="params">(ListNode* head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode *pre=<span class="keyword">new</span> ListNode (<span class="number">0</span>);<span class="comment">//初始化一个值为0的节点。</span></span><br><span class="line">        pre-&gt;next=head;</span><br><span class="line">        ListNode *present=pre;</span><br><span class="line">        <span class="keyword">while</span>(present-&gt;next)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(present-&gt;next-&gt;val==val)</span><br><span class="line">            &#123;</span><br><span class="line">                ListNode *temp=present-&gt;next;</span><br><span class="line">                present-&gt;next=present-&gt;next-&gt;next;</span><br><span class="line">                <span class="keyword">delete</span> temp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                present=present-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre-&gt;next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此题也可以使用递归的方法来实现：<br><img src="https://pic.leetcode-cn.com/29da586d62b192207c87aaad478f433e85c958102ce2841ceb2712fd8ebfa27b-image.png" alt></li>
+</ul>
+<p>终止条件是节点为null，</p>
+<p>然后一层一层的调用，到最后终止条件时返回，</p>
+<p>判断当前节点的直是否为要删除直，</p>
+<p>如果是，则返回当前节点的下一节点，不返回当前节点就是删除当前节点，如果不是，则返回当前节点。</p>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeElements</span><span class="params">(ListNode* head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">NULL</span>)<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        head-&gt;next = removeElements(head-&gt;next,val);</span><br><span class="line">        <span class="keyword">return</span> head-&gt;val == val?head-&gt;next:head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="Chapt-02数组"><a href="#Chapt-02数组" class="headerlink" title="Chapt-02数组"></a><strong>Chapt-02数组</strong></h2><p><strong>1010  song can be divided by 60 <a herf="https://leetcode-cn.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/">总持续时间可被60整除的歌曲</a></strong></p>
+<ul>
+<li>解决此题的关键之处在于算法的优化，当然使用暴力法当然可以，但数组长度过长时容易因为时间限制而不能通过，下面简单介绍一下优秀的遍历方法</li>
+<li>首先遍历一遍数组，将所有元素对60取余数，生成一个新的数组，并且将这些余数进行排序，sort()函数实现。</li>
+<li>通过一个新定义的数组来记录各个余数出现的次数，余数作为下标，下标对应的数值为该余数出现的次数。</li>
+<li>然后就是开启第二次循环，将0-30的之间的余数对应的30-60的数目加起来，最后在单独处理一些0与30这两种情况，根据两两结合的原理公式计算。<br>&emsp;&emsp;程序实现的方法如下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="keyword">int</span> count[<span class="number">61</span>],res = <span class="number">0</span>;<span class="comment">//用来存储各个余数出现的次数的数组</span></span><br><span class="line">     <span class="function"><span class="keyword">int</span> <span class="title">numPairsDivisibleBy60</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; time)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(time.empty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(count,<span class="number">0</span>,<span class="keyword">sizeof</span> count);<span class="comment">//将里面的元素初始化为0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; time.size(); i++)&#123;</span><br><span class="line">            time[i] %= <span class="number">60</span>;<span class="comment">//将时间转化为6o的余数</span></span><br><span class="line">            count[time[i]]++;<span class="comment">//记录各个余数出现的次数，没有出现则默认为0</span></span><br><span class="line">        &#125;</span><br><span class="line">        sort(time.begin(),time.end());<span class="comment">//将余数进行排序</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; time.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(time[i] &gt;= <span class="number">30</span>) <span class="keyword">break</span>;<span class="comment">//超过或者等于30就跳出循环</span></span><br><span class="line">            <span class="keyword">if</span>(time[i] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            res += count[<span class="number">60</span> - time[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        res += (count[<span class="number">0</span>]*(count[<span class="number">0</span>]<span class="number">-1</span>))/<span class="number">2</span>;</span><br><span class="line">        res += (count[<span class="number">30</span>]*(count[<span class="number">30</span>]<span class="number">-1</span>))/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Chapt-03递归"><a href="#Chapt-03递归" class="headerlink" title="Chapt-03递归"></a><strong>Chapt-03递归</strong></h2></li>
+</ul>
+<p><strong>783. <a herf="https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/">二叉搜索树节点最小距离</a></strong></p>
+<ul>
+<li>需要返回二叉树中任意两个节点差值的最小值，可以先通过中序遍历将二叉树所有节点放在数组v中，得到从小到大的排序。</li>
+<li>之后求得有序数组中任意相邻的两个元素差值的最小值即可。</li>
+</ul>
+<p>实现的代码如下，中间使用了递归函数f,中序遍历的递归形式。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minDiffInBST</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">        <span class="keyword">int</span> res=INT_MAX;</span><br><span class="line">        f(root,&amp;v);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v.size()<span class="number">-1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> k=v[i+<span class="number">1</span>]-v[i];</span><br><span class="line">            res=min(res,k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(TreeNode*root,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;*v)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        f(root-&gt;left,v);</span><br><span class="line">        v-&gt;push_back(root-&gt;val);</span><br><span class="line">        f(root-&gt;right,v);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Chapt-04树"><a href="#Chapt-04树" class="headerlink" title="Chapt-04树"></a><strong>Chapt-04树</strong></h2><ul>
+<li><strong>树的常见的遍历方式</strong></li>
+</ul>
+<p>通常而言，遍历中还夹杂着递归，因为往往遍历的结束标志为遇到了左子树或者右子树为空的情况。</p>
+<ol>
+<li>前序遍历</li>
+</ol>
+<blockquote>
+<p>先打印当前节点，再用前序遍历的方法遍历左右子树</p>
+</blockquote>
+<p>前序的规则就是根结点 —&gt; 左子树 —&gt; 右子树.我们在调用递归前进行节点操作。对于前序，就是先访问(输出)该节点。而递归左，递归右侧，会优先递归左侧。直到没有左节点。才会停止。访问次序大致为：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190820000853382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjkzMTcx,size_16,color_FFFFFF,t_70" alt></p>
+<p>程序实现为：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">qianxu</span><span class="params">(node t)</span><span class="comment">// 前序递归 前序遍历：根结点 ---&gt; 左子树 ---&gt; 右子树</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (t != null) &#123;</span><br><span class="line">		System.out.print(t.value + <span class="string">" "</span>);<span class="comment">// 当前节点</span></span><br><span class="line">		qianxu(t.left);</span><br><span class="line">		qianxu(t.right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>中序遍历</li>
+</ol>
+<blockquote>
+<p>用中序遍历的方法遍历左子树，打印当前节点，用中序遍历的方法遍历右子树</p>
+</blockquote>
+<p>有了前序的经验，我们就很好利用递归实现中序遍历。中序遍历的规则是：左子树—&gt; 根结点 —&gt; 右子树。所以我们访问节点的顺序需要变。</p>
+<p>(1) 递归是来回的过程，对于恰好有两个子节点(子节点无节点)的节点来说。只需要访问一次左节点，访问根，访问右节点。即可</p>
+<p>(2) 而如果两侧有节点来说。每个节点都要满足中序遍历的规则。我们从根先访问左节点。到了左节点这儿左节点又变成一颗子树，也要满足中序遍历要求。所以就要先访问左节点的左节点(如果存在)。那么如果你这样想，规则虽然懂了。但是也太复杂了。那么我们借助递归。因为它的子问题和根节点的问题一致，只是范围减小了。所以我们使用递归思想来解决。</p>
+<p>(3)那么递归的逻辑为：考虑特殊情况(特殊就直接访问)不进行递归否则递归的访问左子树(让左子树执行相同函数，特殊就停止递归输出，不特殊就一直找下去直到最左侧节点。)——&gt;输出该节点—&gt;递归的访问右子树.</p>
+<p>实现的代码为；</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">zhongxu</span><span class="params">(node t)</span><span class="comment">// 中序遍历 中序遍历：左子树---&gt; 根结点 ---&gt; 右子树</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (t != null) &#123;</span><br><span class="line">		zhongxu(t.left);</span><br><span class="line">		System.out.print(t.value + <span class="string">" "</span>);<span class="comment">// 访问完左节点访问当前节点</span></span><br><span class="line">		zhongxu(t.right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>后续遍历</li>
+</ol>
+<blockquote>
+<p>同理，用后序遍历的方法遍历左右子树，打印当前节点。</p>
+</blockquote>
+<p>实现代码为：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">houxu</span><span class="params">(node t)</span><span class="comment">// 后序遍历 后序遍历：左子树 ---&gt; 右子树 ---&gt; 根结点</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (t != null) &#123;</span><br><span class="line">		houxu(t.left);</span><br><span class="line">		houxu(t.right);</span><br><span class="line">		System.out.print(t.value + <span class="string">" "</span>); <span class="comment">// 访问玩左右访问当前节点</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Chapt-05栈和队列"><a href="#Chapt-05栈和队列" class="headerlink" title="Chapt-05栈和队列"></a><strong>Chapt-05栈和队列</strong></h2><h2 id="Chapt-06查找"><a href="#Chapt-06查找" class="headerlink" title="Chapt-06查找"></a><strong>Chapt-06查找</strong></h2><h2 id="Chapt-07排序"><a href="#Chapt-07排序" class="headerlink" title="Chapt-07排序"></a><strong>Chapt-07排序</strong></h2>]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>LeetCode</tag>
+        <tag>算法</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Next主题添加标签云</title>
+    <url>/2020/05/05/015Next%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE%E4%BA%91/</url>
+    <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588684105534&di=85bd6c3c479d903c274f9efa39e2d754&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181112%2F086d7399d6f847b29d9af111aca77a68.jpeg" alt></p>
+<center>在Next主题下添加标签云</center>
+
+<a id="more"></a>
+<h2 id="一、Hexo-Tag-Cloud标签云介绍"><a href="#一、Hexo-Tag-Cloud标签云介绍" class="headerlink" title="一、Hexo-Tag-Cloud标签云介绍"></a>一、Hexo-Tag-Cloud标签云介绍</h2><p>hexo-tag-cloud插件是github上某位大佬写的一个Hexo博客的标签云插件，旨在直观的展示标签的种类，美观大方且非常优雅。</p>
+<ul>
+<li>插件地址：<br><a href="https://github.com/MikeCoder/hexo-tag-cloud" target="_blank" rel="noopener">插件的Github地址</a></li>
+<li>插件的说明:<br><a href="https://github.com/MikeCoder/hexo-tag-cloud/blob/master/README.ZH.md" target="_blank" rel="noopener">插件介绍</a></li>
+</ul>
+<h2 id="二、插件安装方法"><a href="#二、插件安装方法" class="headerlink" title="二、插件安装方法"></a>二、插件安装方法</h2><p>进入到 hexo 的根目录，在 package.json 中添加依赖: </p>
+<p>“hexo-tag-cloud”: “2.0.*” 操作如下：</p>
+<h3 id="1、使用如下命令安装插件："><a href="#1、使用如下命令安装插件：" class="headerlink" title="1、使用如下命令安装插件："></a>1、使用如下命令安装插件：</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">npm install hexo-tag-cloud@^<span class="number">2.0</span>.* --save</span><br></pre></td></tr></table></figure>
+<p>插件的配置需要对应的环境，可以在主题文件夹里找一下，有没有对应的渲染文件，然后根据渲染文件的类型，选择对应的插件配置方法。</p>
+<h3 id="2、配置插件"><a href="#2、配置插件" class="headerlink" title="2、配置插件"></a>2、配置插件</h3><p>(1) 在主题文件夹找到文件 <code>theme/next/layout/_macro/sidebar.swig</code>, 然后添加如下代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span> site.tags.length &gt; <span class="number">1</span> %&#125;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span> src=<span class="string">"/js/tagcloud.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span> src=<span class="string">"/js/tagcanvas.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;div class=<span class="string">"widget-wrap"</span>&gt;</span><br><span class="line">    &lt;h3 class=<span class="string">"widget-title"</span>&gt;Tag Cloud&lt;/h3&gt;</span><br><span class="line">    &lt;div id=<span class="string">"myCanvasContainer"</span> class=<span class="string">"widget tagcloud"</span>&gt;</span><br><span class="line">        &lt;canvas width=<span class="string">"250"</span> height=<span class="string">"250"</span> id=<span class="string">"resCanvas"</span> style=<span class="string">"width=100%"</span>&gt;</span><br><span class="line">            &#123;&#123; list_tags() &#125;&#125;</span><br><span class="line">        &lt;/canvas&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>代码添加到后面即可，添加示意图如下:<br><img src="https://img-blog.nos-eastchina1.126.net/blog/hexo_tag_cloud_code.jpg" alt></p>
+<h3 id="3、主题配置"><a href="#3、主题配置" class="headerlink" title="3、主题配置"></a>3、主题配置</h3><p>在博客根目录，找到 _config.yml配置文件然后在最后添加如下的配置项，可以自定义标签云的字体和颜色，还有突出高亮:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta"># hexo-tag-cloud</span></span><br><span class="line">tag_cloud:</span><br><span class="line">    textFont: Trebuchet MS, Helvetica</span><br><span class="line">    textColor: '#333'</span><br><span class="line">    textHeight: <span class="number">25</span></span><br><span class="line">    outlineColor: '#E2E1D1'</span><br><span class="line">    maxSpeed: <span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>textColor: ‘#333’ 字体颜色</li>
+<li>textHeight: 25 字体高度，根据部署的效果调整</li>
+<li>maxSpeed: 0.1 文字滚动速度，根据自己喜好调整</li>
+</ul>
+<h2 id="三、效果语言"><a href="#三、效果语言" class="headerlink" title="三、效果语言"></a>三、效果语言</h2><p>在git中输入：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<h2 id="四、博客部署"><a href="#四、博客部署" class="headerlink" title="四、博客部署"></a>四、博客部署</h2><p>博客部署，在git中输入：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<p>推荐使用 &amp;&amp; 作为组合命令的串联符号</p>
+<p>注：一定要严格清理缓存，这样不容易出现问题，即需要执行hexo clean</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://github.com/MikeCoder/hexo-tag-cloud/blob/master/README.ZH.md" target="_blank" rel="noopener">参考文献一</a></p>
+<p><a href="https://blog.csdn.net/DreamHome_S/article/details/78250692" target="_blank" rel="noopener">参考文献二</a></p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>标签云</tag>
+        <tag>Next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>转知乎：历史上的七次机会</title>
+    <url>/2020/05/10/017%E8%BD%AC%E8%87%AA%E7%9F%A5%E4%B9%8E%EF%BC%9A%E5%8E%86%E5%8F%B2%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/</url>
+    <content><![CDATA[<p>&emsp;&emsp;最近在看赵皓阳的《生而贫穷》，作者在书中鲜明地提出了社会层次的本质以及发展到一定程度后将达到的现状：贫者难以脱贫，富者愈发积累，也就是所谓的阶级固化这一现象，同时也用一个金字塔模型来反映社会的分层。<br><img src="https://s1.ax1x.com/2020/05/12/YNAxmj.png" alt="YNAxmj.png"><br>&emsp;&emsp;书中还提到一种观点：一个人的人生高度，或者所谓的世俗意义上的成功，宏观上是由多个因素决定的，相关性最大的是家族、传承、基因等；其次是时势，也就是我们所处的历史进程；最后才是个人的奋斗与拼搏。恰巧今天又在知乎上看到一篇关于时势的文章，非常呼应解释第二点，原文的标题为《历史上七次机会没有留给普通人》。</p>
+<a id="more"></a>
+<center>
+
+<h2 id="历史上七次机会没有留给普通人"><a href="#历史上七次机会没有留给普通人" class="headerlink" title="历史上七次机会没有留给普通人"></a>历史上七次机会没有留给普通人</h2></center>
+
+<ul>
+<li>第一次是78年的高考；</li>
+</ul>
+<p>1977年到79年，100万考生步入大学的殿堂，从此改变命运，但也仅仅是100万。而且这100万人当中又有多少是出身贫寒，真正改变阶级的呢？更多的学位还是留给了拥有政治资本的官二代。当年的高考顶替上大学的事情层出不穷，沦为炮灰的不过是那些没背景没钱的普通子弟吧。</p>
+<ul>
+<li>第二次是80年乡镇企业；</li>
+</ul>
+<p>乡镇企业兴起是所谓改革开放的意外收获，国家也没想到偏远的农村会是改革开放最有活力的地区。新希望集团的刘永好兄弟、华西村的吴仁宝、横店集团的徐文荣、福耀玻璃的曹德旺、温氏集团的温北英······我们耳熟能详的名字是那个时代企业家的代表。这是中国历史上，唯一一次农民群体大规模“由农入商”，可能也是最后一次。</p>
+<ul>
+<li>第三次是价格双轨制的套利，就是倒买倒卖；</li>
+</ul>
+<p>那些倒爷们利用手中的关系，用计划内的低价购买商品，再用计划外的市场价卖出</p>
+<ul>
+<li><p>第四次是92年的官员下海，就是潘石屹那一代；</p>
+</li>
+<li><p>第五次叫做资源狂潮，就是WTO的红利，煤老板和钢老板发财；</p>
+</li>
+</ul>
+<p>那些处于体制内的官员“春江水暖鸭先知”，利用手中关系下海经商积累财富改变阶级。此时此刻，中国大地数以亿计的农民和即将下岗的国企工人还没看到这些机会，就算看到了，不具备政治资本和知识资本也没成功的希望。</p>
+<p>资源狂潮中我们认识了那些煤老板，他们是做生意最真诚的一批人，除了女明星他们什么也不在乎。</p>
+<ul>
+<li>第六次是地产泡沫，05年以后房价的暴涨；</li>
+</ul>
+<p>房地产泡沫应该是离我们最近的一次机会了，这是最普惠的一次机会，就算是普通家庭也能贷款买套房，但是离改变命运还差的远。那些没来的及上车的普通家庭，就彻底沦为贫困阶级，现在一套房可以压垮一个家庭。能在这次房地产泡沫中赚的盆满钵满的还是那些温州炒房团和煤老板们，他们分别受益于上世纪80年代乡镇企业崛起和本世纪初的资源狂潮。房地产催生了一批富豪，却摧毁了更多的家庭，80后、90后成为房奴艰苦度日，透支未来的潜力。</p>
+<p>改变命运的机会永远都在，作为普通人我们却抓不住。我知道尽管过去四十年中国人的生活得到了翻天覆地的变化，但大多数人在社会中的相对位置其实并没有改变。</p>
+<ul>
+<li>第七次是网络福利，也就是腾讯和阿里的故事。</li>
+</ul>
+<p>这七次机会每一次都很给力，每一次都波澜壮阔，但是我没觉得这七次机会哪一次是留给普通人的。</p>
+<p>我庆幸受到高等教育，能坐在廉价的写字楼里办公，不受风吹雨打。但是与我那些在车间做普工的小学同学对比，其实我们还是一类人。人改善生活际遇不难，但要改变在社会里的相对位置，几千年来都是一项艰巨的修行。</p>
+<p>机会还很多，没来的及上车的已经上不了车，因为座位已经被上一次上车的人占据了。</p>
+<p>普通人改善生活际遇不难，但要改变在社会里的相对位置，需要借助时代的力量。阶级向上的通道永远都是敞开的，但只对少数人敞开，这些人一定要有勇于做关键选择的睿智，敢于告别舒适的魄力，面对失败不言弃的毅力。 </p>
+<blockquote>
+<p>以上内容转自知乎</p>
+</blockquote>
+<hr>
+<p>再回到《生而贫穷》这本书，开头说了个人发展的三个因素，真正看清这些的人恰恰反而不会消极接受命运的安排，因为他们知道第一条几乎没法选择，第二条需要宏大的战略眼光甚至更多的是运气，能够努力改变的只有第三条。</p>
+<p>但现实中，大多数人最开始都盲目信任第三条的力量，碰壁后又掉头完全信仰第一、第二条——他们最终变成了自己曾经讨厌的那类人。</p>
+<p>真正看清楚并做出选择，需要五味杂陈的生活的磨练和自身的改变。</p>
+<p>社会就是这样，需要我们每个人努力将自己和他人变得更好，生命对每个人来说都是最大的奢侈品。</p>
+<p>我们都是后浪，有些后浪有海风相伴，有些后浪面前尽是礁石暗滩…但不论怎样，别忘记奔涌。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>社会</tag>
+        <tag>时代</tag>
       </tags>
   </entry>
   <entry>
@@ -1140,341 +1367,6 @@
 ]]></content>
       <categories>
         <category>操作系统</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Next主题添加标签云</title>
-    <url>/2020/05/05/015Next%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE%E4%BA%91/</url>
-    <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588684105534&di=85bd6c3c479d903c274f9efa39e2d754&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181112%2F086d7399d6f847b29d9af111aca77a68.jpeg" alt></p>
-<center>在Next主题下添加标签云</center>
-
-<a id="more"></a>
-<h2 id="一、Hexo-Tag-Cloud标签云介绍"><a href="#一、Hexo-Tag-Cloud标签云介绍" class="headerlink" title="一、Hexo-Tag-Cloud标签云介绍"></a>一、Hexo-Tag-Cloud标签云介绍</h2><p>hexo-tag-cloud插件是github上某位大佬写的一个Hexo博客的标签云插件，旨在直观的展示标签的种类，美观大方且非常优雅。</p>
-<ul>
-<li>插件地址：<br><a href="https://github.com/MikeCoder/hexo-tag-cloud" target="_blank" rel="noopener">插件的Github地址</a></li>
-<li>插件的说明:<br><a href="https://github.com/MikeCoder/hexo-tag-cloud/blob/master/README.ZH.md" target="_blank" rel="noopener">插件介绍</a></li>
-</ul>
-<h2 id="二、插件安装方法"><a href="#二、插件安装方法" class="headerlink" title="二、插件安装方法"></a>二、插件安装方法</h2><p>进入到 hexo 的根目录，在 package.json 中添加依赖: </p>
-<p>“hexo-tag-cloud”: “2.0.*” 操作如下：</p>
-<h3 id="1、使用如下命令安装插件："><a href="#1、使用如下命令安装插件：" class="headerlink" title="1、使用如下命令安装插件："></a>1、使用如下命令安装插件：</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">npm install hexo-tag-cloud@^<span class="number">2.0</span>.* --save</span><br></pre></td></tr></table></figure>
-<p>插件的配置需要对应的环境，可以在主题文件夹里找一下，有没有对应的渲染文件，然后根据渲染文件的类型，选择对应的插件配置方法。</p>
-<h3 id="2、配置插件"><a href="#2、配置插件" class="headerlink" title="2、配置插件"></a>2、配置插件</h3><p>(1) 在主题文件夹找到文件 <code>theme/next/layout/_macro/sidebar.swig</code>, 然后添加如下代码：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span> site.tags.length &gt; <span class="number">1</span> %&#125;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span> src=<span class="string">"/js/tagcloud.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> charset=<span class="string">"utf-8"</span> src=<span class="string">"/js/tagcanvas.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;div class=<span class="string">"widget-wrap"</span>&gt;</span><br><span class="line">    &lt;h3 class=<span class="string">"widget-title"</span>&gt;Tag Cloud&lt;/h3&gt;</span><br><span class="line">    &lt;div id=<span class="string">"myCanvasContainer"</span> class=<span class="string">"widget tagcloud"</span>&gt;</span><br><span class="line">        &lt;canvas width=<span class="string">"250"</span> height=<span class="string">"250"</span> id=<span class="string">"resCanvas"</span> style=<span class="string">"width=100%"</span>&gt;</span><br><span class="line">            &#123;&#123; list_tags() &#125;&#125;</span><br><span class="line">        &lt;/canvas&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-<p>代码添加到后面即可，添加示意图如下:<br><img src="https://img-blog.nos-eastchina1.126.net/blog/hexo_tag_cloud_code.jpg" alt></p>
-<h3 id="3、主题配置"><a href="#3、主题配置" class="headerlink" title="3、主题配置"></a>3、主题配置</h3><p>在博客根目录，找到 _config.yml配置文件然后在最后添加如下的配置项，可以自定义标签云的字体和颜色，还有突出高亮:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta"># hexo-tag-cloud</span></span><br><span class="line">tag_cloud:</span><br><span class="line">    textFont: Trebuchet MS, Helvetica</span><br><span class="line">    textColor: '#333'</span><br><span class="line">    textHeight: <span class="number">25</span></span><br><span class="line">    outlineColor: '#E2E1D1'</span><br><span class="line">    maxSpeed: <span class="number">0.1</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>textColor: ‘#333’ 字体颜色</li>
-<li>textHeight: 25 字体高度，根据部署的效果调整</li>
-<li>maxSpeed: 0.1 文字滚动速度，根据自己喜好调整</li>
-</ul>
-<h2 id="三、效果语言"><a href="#三、效果语言" class="headerlink" title="三、效果语言"></a>三、效果语言</h2><p>在git中输入：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
-<h2 id="四、博客部署"><a href="#四、博客部署" class="headerlink" title="四、博客部署"></a>四、博客部署</h2><p>博客部署，在git中输入：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-<p>推荐使用 &amp;&amp; 作为组合命令的串联符号</p>
-<p>注：一定要严格清理缓存，这样不容易出现问题，即需要执行hexo clean</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://github.com/MikeCoder/hexo-tag-cloud/blob/master/README.ZH.md" target="_blank" rel="noopener">参考文献一</a></p>
-<p><a href="https://blog.csdn.net/DreamHome_S/article/details/78250692" target="_blank" rel="noopener">参考文献二</a></p>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>标签云</tag>
-        <tag>Next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>转知乎：历史上的七次机会</title>
-    <url>/2020/05/10/017%E8%BD%AC%E8%87%AA%E7%9F%A5%E4%B9%8E%EF%BC%9A%E5%8E%86%E5%8F%B2%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/</url>
-    <content><![CDATA[<p>&emsp;&emsp;最近在看赵皓阳的《生而贫穷》，作者在书中鲜明地提出了社会层次的本质以及发展到一定程度后将达到的现状：贫者难以脱贫，富者愈发积累，也就是所谓的阶级固化这一现象，同时也用一个金字塔模型来反映社会的分层。<br><img src="https://s1.ax1x.com/2020/05/12/YNAxmj.png" alt="YNAxmj.png"><br>&emsp;&emsp;书中还提到一种观点：一个人的人生高度，或者所谓的世俗意义上的成功，宏观上是由多个因素决定的，相关性最大的是家族、传承、基因等；其次是时势，也就是我们所处的历史进程；最后才是个人的奋斗与拼搏。恰巧今天又在知乎上看到一篇关于时势的文章，非常呼应解释第二点，原文的标题为《历史上七次机会没有留给普通人》。</p>
-<a id="more"></a>
-<center>
-
-<h2 id="历史上七次机会没有留给普通人"><a href="#历史上七次机会没有留给普通人" class="headerlink" title="历史上七次机会没有留给普通人"></a>历史上七次机会没有留给普通人</h2></center>
-
-<ul>
-<li>第一次是78年的高考；</li>
-</ul>
-<p>1977年到79年，100万考生步入大学的殿堂，从此改变命运，但也仅仅是100万。而且这100万人当中又有多少是出身贫寒，真正改变阶级的呢？更多的学位还是留给了拥有政治资本的官二代。当年的高考顶替上大学的事情层出不穷，沦为炮灰的不过是那些没背景没钱的普通子弟吧。</p>
-<ul>
-<li>第二次是80年乡镇企业；</li>
-</ul>
-<p>乡镇企业兴起是所谓改革开放的意外收获，国家也没想到偏远的农村会是改革开放最有活力的地区。新希望集团的刘永好兄弟、华西村的吴仁宝、横店集团的徐文荣、福耀玻璃的曹德旺、温氏集团的温北英······我们耳熟能详的名字是那个时代企业家的代表。这是中国历史上，唯一一次农民群体大规模“由农入商”，可能也是最后一次。</p>
-<ul>
-<li>第三次是价格双轨制的套利，就是倒买倒卖；</li>
-</ul>
-<p>那些倒爷们利用手中的关系，用计划内的低价购买商品，再用计划外的市场价卖出</p>
-<ul>
-<li><p>第四次是92年的官员下海，就是潘石屹那一代；</p>
-</li>
-<li><p>第五次叫做资源狂潮，就是WTO的红利，煤老板和钢老板发财；</p>
-</li>
-</ul>
-<p>那些处于体制内的官员“春江水暖鸭先知”，利用手中关系下海经商积累财富改变阶级。此时此刻，中国大地数以亿计的农民和即将下岗的国企工人还没看到这些机会，就算看到了，不具备政治资本和知识资本也没成功的希望。</p>
-<p>资源狂潮中我们认识了那些煤老板，他们是做生意最真诚的一批人，除了女明星他们什么也不在乎。</p>
-<ul>
-<li>第六次是地产泡沫，05年以后房价的暴涨；</li>
-</ul>
-<p>房地产泡沫应该是离我们最近的一次机会了，这是最普惠的一次机会，就算是普通家庭也能贷款买套房，但是离改变命运还差的远。那些没来的及上车的普通家庭，就彻底沦为贫困阶级，现在一套房可以压垮一个家庭。能在这次房地产泡沫中赚的盆满钵满的还是那些温州炒房团和煤老板们，他们分别受益于上世纪80年代乡镇企业崛起和本世纪初的资源狂潮。房地产催生了一批富豪，却摧毁了更多的家庭，80后、90后成为房奴艰苦度日，透支未来的潜力。</p>
-<p>改变命运的机会永远都在，作为普通人我们却抓不住。我知道尽管过去四十年中国人的生活得到了翻天覆地的变化，但大多数人在社会中的相对位置其实并没有改变。</p>
-<ul>
-<li>第七次是网络福利，也就是腾讯和阿里的故事。</li>
-</ul>
-<p>这七次机会每一次都很给力，每一次都波澜壮阔，但是我没觉得这七次机会哪一次是留给普通人的。</p>
-<p>我庆幸受到高等教育，能坐在廉价的写字楼里办公，不受风吹雨打。但是与我那些在车间做普工的小学同学对比，其实我们还是一类人。人改善生活际遇不难，但要改变在社会里的相对位置，几千年来都是一项艰巨的修行。</p>
-<p>机会还很多，没来的及上车的已经上不了车，因为座位已经被上一次上车的人占据了。</p>
-<p>普通人改善生活际遇不难，但要改变在社会里的相对位置，需要借助时代的力量。阶级向上的通道永远都是敞开的，但只对少数人敞开，这些人一定要有勇于做关键选择的睿智，敢于告别舒适的魄力，面对失败不言弃的毅力。 </p>
-<blockquote>
-<p>以上内容转自知乎</p>
-</blockquote>
-<hr>
-<p>再回到《生而贫穷》这本书，开头说了个人发展的三个因素，真正看清这些的人恰恰反而不会消极接受命运的安排，因为他们知道第一条几乎没法选择，第二条需要宏大的战略眼光甚至更多的是运气，能够努力改变的只有第三条。</p>
-<p>但现实中，大多数人最开始都盲目信任第三条的力量，碰壁后又掉头完全信仰第一、第二条——他们最终变成了自己曾经讨厌的那类人。</p>
-<p>真正看清楚并做出选择，需要五味杂陈的生活的磨练和自身的改变。</p>
-<p>社会就是这样，需要我们每个人努力将自己和他人变得更好，生命对每个人来说都是最大的奢侈品。</p>
-<p>我们都是后浪，有些后浪有海风相伴，有些后浪面前尽是礁石暗滩…但不论怎样，别忘记奔涌。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>社会</tag>
-        <tag>时代</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统（一） 操作系统引论</title>
-    <url>/2020/05/10/016%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%B8%80)%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/</url>
-    <content><![CDATA[<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3621867659,1152751757&fm=26&gp=0.jpg" alt></p>
-<a id="more"></a>
-<h2 id="1-操作系统的目标和功能"><a href="#1-操作系统的目标和功能" class="headerlink" title="1.操作系统的目标和功能"></a>1.操作系统的目标和功能</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
-<li><p>方便性</p>
-</li>
-<li><p>有效性</p>
-<ul>
-<li>提高系统资源利用率</li>
-<li>提高系统吞吐量</li>
-</ul>
-</li>
-<li><p>可扩充性</p>
-</li>
-<li><p>开放性</p>
-<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3></li>
-<li><p>OS作为用户与计算机硬件系统之间的接口</p>
-<ul>
-<li>命令方式</li>
-<li>系统调用方式</li>
-<li>图标–窗口方式</li>
-</ul>
-</li>
-<li><p>OS实现了对计算机资源的抽象</p>
-<h2 id="2-操作系统的发展过程"><a href="#2-操作系统的发展过程" class="headerlink" title="2.操作系统的发展过程"></a>2.操作系统的发展过程</h2><h3 id="未配置操作系统的计算机系统"><a href="#未配置操作系统的计算机系统" class="headerlink" title="未配置操作系统的计算机系统"></a>未配置操作系统的计算机系统</h3></li>
-<li><p>人工操作方式</p>
-</li>
-<li><blockquote>
-<p>用户独占全机 CPU等待人工操作 严重降低了计算机资源的利用率</p>
-</blockquote>
-</li>
-<li><p>脱机输入/输出(Off–Line I/O)方式</p>
-</li>
-<li><blockquote>
-<p>减少了CPU的空闲时间 提高了I/O速度 效率仍然不理想</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="单道批处理系统"><a href="#单道批处理系统" class="headerlink" title="单道批处理系统"></a>单道批处理系统</h3><h3 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a>多道批处理系统</h3><blockquote>
-<p>1.资源利用率高<br>2.系统吞吐量大<br>3.平均周转时间长<br>4.无交互能力</p>
-</blockquote>
-<ul>
-<li>(宏观并行，微观串行)<h3 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a>分时系统</h3><blockquote>
-<p>特征:<br>1.多路性<br>2.独立性<br>3.及时性<br>4.交互性</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="实时系统"><a href="#实时系统" class="headerlink" title="实时系统"></a>实时系统</h3><h3 id="集群系统–超算-云计算"><a href="#集群系统–超算-云计算" class="headerlink" title="集群系统–超算~云计算"></a>集群系统–超算~云计算</h3><h3 id="微机操作系统的发展"><a href="#微机操作系统的发展" class="headerlink" title="微机操作系统的发展"></a>微机操作系统的发展</h3><h2 id="3-操作系统的基本特征"><a href="#3-操作系统的基本特征" class="headerlink" title="3.操作系统的基本特征"></a>3.操作系统的基本特征</h2><h3 id="1-并发concurrence"><a href="#1-并发concurrence" class="headerlink" title="1.并发concurrence"></a>1.并发concurrence</h3><ul>
-<li><p>区别并行和并发</p>
-</li>
-<li><blockquote>
-<p>并行性是指两个或多个事件在同一时刻发生→宏观并行，微观并行</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>并发性是指两个或多个事件在同一时间间隔内发生→宏观并行，微观串行</p>
-</blockquote>
-<ul>
-<li>并发是进程宏观一起运行，微观上交替运行，而并行是指同时运行</li>
-</ul>
-</li>
-<li><p>引入进程</p>
-</li>
-<li><blockquote>
-<p>进程是指在系统中能独立运行并作为资源分配的基本单位，它是由一组机器指令，数据和堆栈等组成的，是一个能独立运行的活动实体</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="2-共享sharing"><a href="#2-共享sharing" class="headerlink" title="2.共享sharing"></a>2.共享sharing</h3><ul>
-<li>1.互斥共享方式</li>
-<li>2.同时访问方式</li>
-<li>并发和共享是多用户(多任务)OS的两个最基本的特征。它们又是互为存在的条件<h3 id="3-虚拟virtual"><a href="#3-虚拟virtual" class="headerlink" title="3.虚拟virtual"></a>3.虚拟virtual</h3></li>
-<li>时分复用技术</li>
-<li>空分复用技术<h3 id="4-异步asynchronism"><a href="#4-异步asynchronism" class="headerlink" title="4.异步asynchronism"></a>4.异步asynchronism</h3><h2 id="4-操作系统的主要功能"><a href="#4-操作系统的主要功能" class="headerlink" title="4.操作系统的主要功能"></a>4.操作系统的主要功能</h2><h3 id="1-处理机管理功能"><a href="#1-处理机管理功能" class="headerlink" title="1.处理机管理功能"></a>1.处理机管理功能</h3></li>
-<li>进程控制</li>
-<li>进程同步<ul>
-<li>进程互斥方式</li>
-<li>进程同步方式(协同)</li>
-</ul>
-</li>
-<li>进程通信</li>
-<li>调度<ul>
-<li>作业调度</li>
-<li>进程调度<h3 id="2-存储器管理功能"><a href="#2-存储器管理功能" class="headerlink" title="2.存储器管理功能"></a>2.存储器管理功能</h3></li>
-</ul>
-</li>
-<li>内存分配<ul>
-<li>静态分配</li>
-<li>动态分配</li>
-</ul>
-</li>
-<li>内存保护</li>
-<li>地址映射</li>
-<li>内存扩充<h3 id="3-设备管理功能"><a href="#3-设备管理功能" class="headerlink" title="3.设备管理功能"></a>3.设备管理功能</h3></li>
-<li>缓冲管理</li>
-<li>设备分配</li>
-<li>设备处理<ul>
-<li>设备处理程序又称设备驱动程序<h3 id="4-文件管理功能"><a href="#4-文件管理功能" class="headerlink" title="4.文件管理功能"></a>4.文件管理功能</h3></li>
-</ul>
-</li>
-<li>文件存储空间的管理</li>
-<li>目录管理</li>
-<li>文件的读写管理和保护<h3 id="5-操作系统与用户之间的接口"><a href="#5-操作系统与用户之间的接口" class="headerlink" title="5.操作系统与用户之间的接口"></a>5.操作系统与用户之间的接口</h3></li>
-<li>用户接口</li>
-<li>程序接口<h3 id="6-现代操作系统的新功能"><a href="#6-现代操作系统的新功能" class="headerlink" title="6.现代操作系统的新功能"></a>6.现代操作系统的新功能</h3></li>
-<li>系统安全</li>
-<li>网络的功能和服务</li>
-<li>支持多媒体<h2 id="5-OS结构设计"><a href="#5-OS结构设计" class="headerlink" title="5.OS结构设计"></a>5.OS结构设计</h2><h3 id="传统操作系统结构"><a href="#传统操作系统结构" class="headerlink" title="传统操作系统结构"></a>传统操作系统结构</h3></li>
-<li>无结构操作系统</li>
-<li>模块化OS</li>
-<li>分层式结构OS<h3 id="微内核os结构"><a href="#微内核os结构" class="headerlink" title="微内核os结构"></a>微内核os结构</h3></li>
-<li>客户/服务器模式</li>
-<li>面对对象的程序设计</li>
-</ul>
-<p><em>XMind: ZEN - Trial Version</em></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-        <tag>引论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>讲讲PID控制</title>
-    <url>/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/</url>
-    <content><![CDATA[<p>PID控制应该算是应用非常广泛的控制算法了。小到控制一个元件的温度，大到控制无人机的飞行姿态和飞行速度等等，都可以使用PID控制。这里我们从原理上来理解PID控制。<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388237123&di=5d1be6f7217713811f8b5edaffe08aea&imgtype=0&src=http%3A%2F%2Feeskill.com%2FUploads%2F2014_06%2Farticle%2Fc53875ec9a.jpg" alt></p>
-<a id="more"></a>
-<h2 id="00什么是PID控制"><a href="#00什么是PID控制" class="headerlink" title="00什么是PID控制"></a>00什么是PID控制</h2><p>PID是proportion integration differentiation三个英文单词的简称，也即是我们翻译过来的比例、积分、微分控制。控制的原理图如开头的封面图片所示。我们都知道控制系统的最理想效果为是系统的实际输出与期望达到的输出完全相同，但实际情况来说输入与输出之间总存在一定的偏差，所以我们就要采用控制方法来实现更优的控制</p>
-<h2 id="01大白话PID控制"><a href="#01大白话PID控制" class="headerlink" title="01大白话PID控制"></a>01大白话PID控制</h2><h3 id="1-1比例控制算法（比例因子Kp）"><a href="#1-1比例控制算法（比例因子Kp）" class="headerlink" title="1.1比例控制算法（比例因子Kp）"></a>1.1比例控制算法（比例因子Kp）</h3><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388473322&di=3738c6b03b14e6b9606957fcedd105e4&imgtype=0&src=http%3A%2F%2Fimg002.hc360.cn%2Fk3%2FM03%2F6C%2F7A%2FwKhQv1eQo5iEQGXRAAAAAIKey-s745.jpg" alt><br>我们先说PID中最简单的比例控制，抛开其他两个不谈，用一个经典的例子吧。假设我有一个水缸，最终的控制目的是要保证水缸里的水位永远的维持在1米的高度。假设初试时刻，水缸里的水位是0.2米，那么当前时刻的水位和目标水位之间是存在一个误差的error，且error为0.8.这个时候，假设旁边站着一个人，这个人通过往缸里加水的方式来控制水位。如果单纯的用比例控制算法，就是指加入的水量u和误差error是成正比的。即</p>
-<center>u=kp*error</center>
-
-<p><strong>假设kp取0.5</strong></p>
-<ol>
-<li>那么t=1时（表示第1次加水，也就是第一次对系统施加控制），那么u=0.5*0.8=0.4，所以这一次加入的水量会使水位在0.2的基础上上升0.4，达到0.6.</li>
-<li>接着，t=2时刻（第2次施加控制），当前水位是0.6，所以error是0.4。u=0.5*0.4=0.2，会使水位再次上升0.2，达到0.8.</li>
-<li>如此这么循环下去，水位最终会达到一米。就是比例控制算法的运行方法。</li>
-</ol>
-<p>但是，单单的比例控制存在着一些不足，其中一点就是 –稳态误差！像上述的例子，根据kp取值不同，系统最后都会达到1米，不会有稳态误差。但是，考虑另外一种情况，假设这个水缸在加水的过程中，存在漏水的情况，假设每次加水的过程，都会漏掉0.1米高度的水。仍然假设kp取0.5，那么会存在着某种情况，假设经过几次加水，水缸中的水位到0.8时，水位将不会再变换！！！因为，水位为0.8，则误差error=0.2. 所以每次往水缸中加水的量为u=0.5*0.2=0.1.同时，每次加水缸里又会流出去0.1米的水！！！加入的水和流出的水相抵消，水位将不再变化！！</p>
-<p>也就是说，我的目标是1米，但是最后系统达到0.8米的水位就不在变化了，且系统已经达到稳定。由此产生的误差就是稳态误差了。（在实际情况中，这种类似水缸漏水的情况往往更加常见，比如控制汽车运动，摩擦阻力就相当于是“漏水”，控制机械臂、无人机的飞行，各类阻力和消耗都可以理解为本例中的“漏水”）</p>
-<p>所以，单独的比例控制，在很多时候并不能满足要求。</p>
-<h3 id="1-2积分控制算法（积分因子Ki）"><a href="#1-2积分控制算法（积分因子Ki）" class="headerlink" title="1.2积分控制算法（积分因子Ki）"></a>1.2积分控制算法（积分因子Ki）</h3><p>还是用上面的例子，如果仅仅用比例，可以发现存在暂态误差，最后的水位就卡在0.8了。于是，在控制中，我们再引入一个分量，该分量和误差的积分是正比关系。所以，比例+积分控制算法为：</p>
-<center>u=kp*error+ ki∗∫ error</center>
-
-<p>还是用上面的例子来说明，第一次的误差error是0.8，第二次的误差是0.4，至此，误差的积分（离散情况下积分其实就是做累加），∫∫error=0.8+0.4=1.2. 这个时候的控制量，除了比例的那一部分，还有一部分就是一个系数ki乘以这个积分项。由于这个积分项会将前面若干次的误差进行累计，所以可以很好的消除稳态误差（假设在仅有比例项的情况下，系统卡在稳态误差了，即上例中的0.8，由于加入了积分项的存在，会让输入增大，从而使得水缸的水位可以大于0.8，渐渐到达目标的1.0.）这就是积分项的作用。</p>
-<h3 id="1-3微分控制算法（微分因子Kd）"><a href="#1-3微分控制算法（微分因子Kd）" class="headerlink" title="1.3微分控制算法（微分因子Kd）"></a>1.3微分控制算法（微分因子Kd）</h3><p>换一个另外的例子，考虑刹车情况。平稳的驾驶车辆，当发现前面有红灯时，为了使得行车平稳，基本上提前几十米就放松油门并踩刹车了。当车辆离停车线非常近的时候，则使劲踩刹车，使车辆停下来。整个过程可以看做一个加入微分的控制策略。<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388560122&di=22500c1b177219cba812c89f8e96df07&imgtype=0&src=http%3A%2F%2Fimage.bitautoimg.com%2Fappimage-630-w0%2Fappimage%2Fmedia%2F20160819%2Fw507_h203_4f1fb584594948aab81c2f3c55fabde2.jpeg" alt><br>微分，说白了在离散情况下，就是error的差值，就是t时刻和t-1时刻error的差,即：</p>
-<center>u=kd*（error（t）-error（t-1））</center>
-
-<p>其中的kd是一个系数项。可以看到，在刹车过程中，因为error是越来越小的，所以这个微分控制项一定是负数，在控制中加入一个负数项，他存在的作用就是为了防止汽车由于刹车不及时而闯过了线。从常识上可以理解，越是靠近停车线，越是应该注意踩刹车，不能让车过线，所以这个微分项的作用，就可以理解为刹车，当车离停车线很近并且车速还很快时，这个微分项的绝对值（实际上是一个负数）就会很大，从而表示应该用力踩刹车才能让车停下来。</p>
-<p>切换到上面给水缸加水的例子，就是当发现水缸里的水快要接近1的时候，加入微分项，可以防止给水缸里的水加到超过1米的高度，说白了就是减少控制过程中的震荡。</p>
-<h2 id="02照本宣科谈PID"><a href="#02照本宣科谈PID" class="headerlink" title="02照本宣科谈PID"></a>02照本宣科谈PID</h2><h3 id="2-1-PID算法的前提"><a href="#2-1-PID算法的前提" class="headerlink" title="2.1 PID算法的前提"></a>2.1 PID算法的前提</h3><p>PID是一个闭环控制算法。因此要实现PID算法，必须在硬件上具有闭环控制，就是得有反馈。</p>
-<h3 id="2-2-使用现状"><a href="#2-2-使用现状" class="headerlink" title="2.2 使用现状"></a>2.2 使用现状</h3><p>PID是比例(P)、积分(I)、微分(D)控制算法。但并不是必须同时具备这三种算法，也可以是PD,PI,甚至只有P算法控制。我以前对于闭环控制的一个最朴素的想法就只有P控制，将当前结果反馈回来，再与目标相减，为正的话，就减速，为负的话就加速。现在知道这只是最简单的闭环控制算法。</p>
-<h3 id="2-3三个环节的作用"><a href="#2-3三个环节的作用" class="headerlink" title="2.3三个环节的作用"></a>2.3三个环节的作用</h3><ol>
-<li><p>比例，反应系统的基本（当前）偏差e(t)，系数大，可以加快调节，减小误差，但过大的比例使系统稳定性下降，甚至造成系统不稳定；</p>
-</li>
-<li><p>积分，反应系统的累计偏差，使系统消除稳态误差，提高无差度，因为有误差，积分调节就进行，直至无误差。</p>
-</li>
-<li><p>微分，反映系统偏差信号的变化率e(t)-e(t-1)，具有预见性，能预见偏差变化的趋势，产生超前的控制作用，在偏差还没有形成之前，已被微分调节作用消除，因此可以改善系统的动态性能。但是微分对噪声干扰有放大作用，加强微分对系统抗干扰不利。</p>
-<h3 id="2-4常用的调参经验-使用规律"><a href="#2-4常用的调参经验-使用规律" class="headerlink" title="2.4常用的调参经验(使用规律)"></a>2.4常用的调参经验(使用规律)</h3></li>
-<li><p>比例控制规律P：采用P控制规律能较快地克服扰动的影响，它的作用于输出值较快，但不能很好稳定在一个理想的数值，不良的结果是虽较能有效的克服扰动的影响，但有余差出现。它适用于控制通道滞后较小、负荷变化不大、控制要求不高、被控参数允许在一定范围内有余差的场合。</p>
-</li>
-</ol>
-<ol start="2">
-<li><p>比例积分控制规律(PI)：在工程中比例积分控制规律是应用最广泛的一种控制规律。积分能在比例的基础上消除余差，它适用于控制通道滞后较小、负荷变化不大、被控参数不允许有余差的场合。</p>
-</li>
-<li><p>比例微分控制规律(PD)：微分具有超前作用，对于具有容量滞后的控制通道，引入微分参与控制，在微分项设置得当的情况下，对于提高系统的动态性能指标，有着显著效果。因此，对于控制通道的时间常数或容量滞后较大的场合，为了提高系统的稳定性，减小动态偏差等可选用比例微分控制规律。如：加热型温度控制、成分控制。需要说明一点，对于那些纯滞后较大的区域里，微分项是无能为力，而在测量信号有噪声或周期性振动的系统，则也不宜采用微分控制。</p>
-</li>
-<li><p>例积分微分控制规律(PID)：PID控制规律是一种较理想的控制规律，它在比例的基础上引入积分，可以消除余差，再加入微分作用，又能提高系统的稳定性。</p>
-</li>
-</ol>
-<p>总之，控制规律的选用要根据过程特性和工艺要求来选取，决不是说PID控制规律在任何情况下都具有较好的控制性能，不分场合都采用是不明智的。如果这样做，只会给其它工作增加复杂性，并给参数整定带来困难。当采用PID控制器还达不到工艺要求，则需要考虑其它的控制方案。如串级控制、前馈控制、大滞后控制等。</p>
-<h2 id="03PID-控制器的设计与实现"><a href="#03PID-控制器的设计与实现" class="headerlink" title="03PID 控制器的设计与实现"></a>03PID 控制器的设计与实现</h2><h3 id="3-1PID算法的推导"><a href="#3-1PID算法的推导" class="headerlink" title="3.1PID算法的推导"></a>3.1PID算法的推导</h3><p>连续时间PID控制系统图如下图所示。其中D(s)为PID控制器部分，其输入与输出的的关系可按照下面的微分方程表示：</p>
-<p><a href="https://pic.downk.cc/item/5ebbf661c2a9a83be56e20e8.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf661c2a9a83be56e20e8.jpg" alt></a></p>
-<p><a href="https://pic.downk.cc/item/5ebbf5d4c2a9a83be56da35a.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf5d4c2a9a83be56da35a.jpg" alt></a></p>
-<p>在数字控制器中，当采样周期足够短时，以求和代替积分，以差分代替微分。则k时刻与k-1时刻的微分方程可分别表达为下面形式</p>
-<p><a href="https://pic.downk.cc/item/5ebbf690c2a9a83be56e4d32.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf690c2a9a83be56e4d32.jpg" alt></a></p>
-<p>两式相减</p>
-<p><a href="https://pic.downk.cc/item/5ebbf6bac2a9a83be56e7ab8.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf6bac2a9a83be56e7ab8.jpg" alt></a></p>
-<p><strong>这就是数字PID控制器的增量式算法。</strong></p>
-<p>假设需要辨识的被控对象模型为</p>
-<p><a href="https://pic.downk.cc/item/5ebbf6fcc2a9a83be56ec39f.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf6fcc2a9a83be56ec39f.jpg" alt></a></p>
-<h3 id="3-2Matlab编程实现"><a href="#3-2Matlab编程实现" class="headerlink" title="3.2Matlab编程实现"></a>3.2Matlab编程实现</h3><ol>
-<li>因为要建立起系统离散差分模型，先用matlab确定系统的离散模型<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="built_in">clear</span>;</span><br><span class="line">clc;</span><br><span class="line">ts=<span class="number">0.5</span>; </span><br><span class="line">sys=tf(<span class="number">4</span>,[<span class="number">1</span> <span class="number">2</span> <span class="number">0</span>]);%系统的传递函数</span><br><span class="line">dsys=c2d(sys,ts,<span class="string">'z'</span>);%离散化</span><br><span class="line">[num,den]=tfdata(dsys,<span class="string">'v'</span>);%得到离散化后的z传递函数分子分母系数</span><br></pre></td></tr></table></figure></li>
-<li>程序运行的结果如下：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">sys =</span><br><span class="line">      <span class="number">4</span></span><br><span class="line">  ---------</span><br><span class="line">  s^<span class="number">2</span> + <span class="number">2</span> s</span><br><span class="line">Continuous-time <span class="built_in">transfer</span> function.</span><br><span class="line">dsys =</span><br><span class="line">    <span class="number">0.3679</span> z + <span class="number">0.2642</span></span><br><span class="line">  ----------------------</span><br><span class="line">  z^<span class="number">2</span> - <span class="number">1.368</span> z + <span class="number">0.3679</span></span><br><span class="line">Sample time: <span class="number">0.5</span> seconds</span><br><span class="line">Discrete-time <span class="built_in">transfer</span> function.</span><br></pre></td></tr></table></figure></li>
-<li>系统的差分方程如下</li>
-</ol>
-<center>y(k)=-1*den(3)*y_2-den(2)*y_1+num(3)*u_2+num(2)*u_1+num(1)*u(k)</center>
-
-<ol start="4">
-<li>完整的程序实现<figure class="highlight"><table><tr><td class="code"><pre><span class="line">%&#123;</span><br><span class="line">title:PID 控制算法实现</span><br><span class="line">date: <span class="number">2020.05</span><span class="number">.10</span></span><br><span class="line">author:Decaplee</span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">clear</span>;</span><br><span class="line">clc;</span><br><span class="line">ts=<span class="number">0.5</span>;  %采样时间=<span class="number">0.5</span>s</span><br><span class="line">sys=tf(<span class="number">4</span>,[<span class="number">1</span> <span class="number">2</span> <span class="number">0</span>]);%建立被控对象传递函数</span><br><span class="line">dsys=c2d(sys,ts,<span class="string">'z'</span>);%离散化,表示为z传递函数的形式</span><br><span class="line">[num,den]=tfdata(dsys,<span class="string">'v'</span>);%输出num和den，分别代表差分方程分子与分母的系数</span><br><span class="line">e_1=<span class="number">0</span>;      %初始化k<span class="number">-1</span>、k<span class="number">-2</span>时刻的偏差</span><br><span class="line">e_2=<span class="number">0</span>;</span><br><span class="line">u_1=<span class="number">0.0</span>;    %初始化k<span class="number">-1</span>、k<span class="number">-2</span>时刻时刻的输入量</span><br><span class="line">u_2=<span class="number">0.0</span>;</span><br><span class="line">y_1=<span class="number">0</span>;      %初始化k<span class="number">-1</span>、k<span class="number">-2</span>时刻时刻的输出量</span><br><span class="line">y_2=<span class="number">0</span>;</span><br><span class="line">Esum=<span class="number">0</span>;</span><br><span class="line">%PID参数</span><br><span class="line">kp=<span class="number">2.1</span>;    </span><br><span class="line">ki=<span class="number">0.3</span></span><br><span class="line">kd=<span class="number">0.12</span>;</span><br><span class="line">u=zeros(<span class="number">1</span>,<span class="number">100</span>);%数组的大小</span><br><span class="line">time=zeros(<span class="number">1</span>,<span class="number">100</span>);%初始化数组的大小</span><br><span class="line">ts=<span class="number">0.5</span>;</span><br><span class="line"><span class="keyword">for</span> k=<span class="number">1</span>:<span class="number">1</span>:<span class="number">100</span></span><br><span class="line">    time(k)=k*ts;   %时间参数由 <span class="number">1</span> 时刻开始</span><br><span class="line">    r(k)=<span class="number">1</span>;      %期望值</span><br><span class="line">    y(k)=<span class="number">-1</span>*den(<span class="number">3</span>)*y_2-den(<span class="number">2</span>)*y_1+num(<span class="number">3</span>)*u_2+num(<span class="number">2</span>)*u_1+num(<span class="number">1</span>)*u(k);% 初始化系统响应输出序列，与前一时刻的输出有关（这就是差分方程）</span><br><span class="line">    e(k)=r(k)-y(k);   %期望输出与实际输出之间的差值，代表误差信号</span><br><span class="line">    u(k)=kp*(e(k)-e_1)+ki*e(k)+kd*(e(k)<span class="number">-2</span>*e_1+e_2); %系统PID控制器输出序列</span><br><span class="line">    u_2=u_1;</span><br><span class="line">    y_2=y_1;</span><br><span class="line">    e_2=e_1;</span><br><span class="line">    u_1=u(k);    	%前一个的控制器输出值</span><br><span class="line">    y_1=y(k);    	%前一个的系统响应输出值</span><br><span class="line">    e_1=e(k);      %前一个误差信号的值</span><br><span class="line"><span class="built_in">end</span></span><br><span class="line">p1=plot(time,r,'-.');xlim([0,50]);hold on;%指令信号的曲线（即期望输入）</span><br><span class="line">p2=plot(time,y,'b--');xlim([0,50]);hold on;%</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>当Kp=2.1、Ki=0.3、Kd=0.12时，输出的控制曲线如下<br><a href="https://pic.downk.cc/item/5ebbf8f5c2a9a83be570c528.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf8f5c2a9a83be570c528.jpg" alt></a></p>
-<h2 id="04-PID控制器参数整定"><a href="#04-PID控制器参数整定" class="headerlink" title="04 PID控制器参数整定"></a>04 PID控制器参数整定</h2><h3 id="4-1-参数整定过程"><a href="#4-1-参数整定过程" class="headerlink" title="4.1 参数整定过程"></a>4.1 参数整定过程</h3><p>在进行参数整定之前，笔者利用Matlab的GUI模块建立了数字PID参数整定系统，便于观察PID控制器各个环节的参数对系统响应性能的影响，如设计布局和实际运行效果分别如下图所示<br><a href="https://pic.downk.cc/item/5ebbf972c2a9a83be5714732.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf972c2a9a83be5714732.jpg" alt></a></p>
-<p>下面采用扩充临界比例度法进行参数整定：</p>
-<p>扩充临界比例度法适用于有自衡特性的受控对象，是对连续时间PID控制器参数整定的临界比例度的扩充，其主要步骤如下：</p>
-<ol>
-<li><p>选择一足够短的采样周期T(一般应在被控对象纯时延时间的十分之一以下)，作纯比例控制。</p>
-</li>
-<li><p>逐渐加大比例系数Kp，直到系统达到临界等幅振荡，记下此时的振荡周期Ts，以及增益Ks。</p>
-</li>
-<li><p>选择控制度</p>
-</li>
-</ol>
-<blockquote>
-<p>所谓控制度，就是以模拟控制器为标准，将数字控制器的效果与模拟控制器的控制效果相比较，通常采用误差积分的比值形式进行定义，即</p>
-</blockquote>
-<p><a href="https://pic.downk.cc/item/5ebbfa24c2a9a83be57208a6.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbfa24c2a9a83be57208a6.jpg" alt></a></p>
-<ol start="4">
-<li><p>4)根据选定的控制度，查表，确定PID控制器的采样周期T和控制器参数Kp, TI, TI 。</p>
-</li>
-<li><p>5)按照求得的整定参数试运行，观察实际控制效果，并适当进行修正。</p>
-</li>
-</ol>
-<h3 id="4-2-参数整定结果"><a href="#4-2-参数整定结果" class="headerlink" title="4.2 参数整定结果"></a>4.2 参数整定结果</h3><p>经过多次参数调整分析，并利用Matlab的GUI模块综合考虑上升时间，超调量，稳态时间，稳态误差等因素，在下图的GUI中观察参数整定效果。<br><a href="https://pic.downk.cc/item/5ebbfa7dc2a9a83be5726f78.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbfa7dc2a9a83be5726f78.jpg" alt></a></p>
-<p>最终整定结果为</p>
-<center>K_P=0.65&emsp;&emsp;&emsp; K_I=0.6 &emsp;&emsp;&emsp;        K_D=0 </center>
-
-<p>整定后的输出响应曲线为</p>
-<p><a href="https://pic.downk.cc/item/5ebbfaf2c2a9a83be572f251.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbfaf2c2a9a83be572f251.jpg" alt></a></p>
-<p>可见，经过参数整定后系统的上升时间超调量以及稳态误差的整体控制效果有了巨大的改进。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://book.douban.com/subject/3194654/" target="_blank" rel="noopener">参考文献一</a></p>
-<p><a href="https://blog.csdn.net/lukelu1263/article/details/6847208?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">参考文献二</a></p>
-<p><a href="https://blog.csdn.net/qq_25352981/article/details/81007075" target="_blank" rel="noopener">参考文献三</a></p>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://github.com/DecaprioTesla/Digital_PID_Controler" target="_blank" rel="noopener">PID调参界面源码已上传至我的GitHub</a></p>
-]]></content>
-      <categories>
-        <category>控制</category>
       </categories>
   </entry>
   <entry>
@@ -1844,65 +1736,111 @@
       </categories>
   </entry>
   <entry>
-    <title>树莓派无显示器，无网线，远程ssh连接</title>
-    <url>/2020/07/04/022%E6%A0%91%E8%8E%93%E6%B4%BE%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9C%E7%A8%8Bssh%E8%BF%9E%E6%8E%A5/</url>
-    <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593863783890&di=0d4a3258f354b0a9dba6b65d49b95ab7&imgtype=0&src=http%3A%2F%2Fa.zdmimg.com%2F202006%2F13%2F5ee4d47faecaf2908.jpg_fo710.jpg" alt></p>
-<p>之前介绍过树莓派无显示器情况下的网线连接方式，现在介绍不使用网线情况下的远程的ssh连接教程。</p>
+    <title>讲讲PID控制</title>
+    <url>/2020/05/13/019%E8%AE%B2%E8%AE%B2PID/</url>
+    <content><![CDATA[<p>PID控制应该算是应用非常广泛的控制算法了。小到控制一个元件的温度，大到控制无人机的飞行姿态和飞行速度等等，都可以使用PID控制。这里我们从原理上来理解PID控制。<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388237123&di=5d1be6f7217713811f8b5edaffe08aea&imgtype=0&src=http%3A%2F%2Feeskill.com%2FUploads%2F2014_06%2Farticle%2Fc53875ec9a.jpg" alt></p>
 <a id="more"></a>
+<h2 id="00什么是PID控制"><a href="#00什么是PID控制" class="headerlink" title="00什么是PID控制"></a>00什么是PID控制</h2><p>PID是proportion integration differentiation三个英文单词的简称，也即是我们翻译过来的比例、积分、微分控制。控制的原理图如开头的封面图片所示。我们都知道控制系统的最理想效果为是系统的实际输出与期望达到的输出完全相同，但实际情况来说输入与输出之间总存在一定的偏差，所以我们就要采用控制方法来实现更优的控制</p>
+<h2 id="01大白话PID控制"><a href="#01大白话PID控制" class="headerlink" title="01大白话PID控制"></a>01大白话PID控制</h2><h3 id="1-1比例控制算法（比例因子Kp）"><a href="#1-1比例控制算法（比例因子Kp）" class="headerlink" title="1.1比例控制算法（比例因子Kp）"></a>1.1比例控制算法（比例因子Kp）</h3><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388473322&di=3738c6b03b14e6b9606957fcedd105e4&imgtype=0&src=http%3A%2F%2Fimg002.hc360.cn%2Fk3%2FM03%2F6C%2F7A%2FwKhQv1eQo5iEQGXRAAAAAIKey-s745.jpg" alt><br>我们先说PID中最简单的比例控制，抛开其他两个不谈，用一个经典的例子吧。假设我有一个水缸，最终的控制目的是要保证水缸里的水位永远的维持在1米的高度。假设初试时刻，水缸里的水位是0.2米，那么当前时刻的水位和目标水位之间是存在一个误差的error，且error为0.8.这个时候，假设旁边站着一个人，这个人通过往缸里加水的方式来控制水位。如果单纯的用比例控制算法，就是指加入的水量u和误差error是成正比的。即</p>
+<center>u=kp*error</center>
 
-<h2 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ul>
-<li>树莓派3/4</li>
-<li>内存卡</li>
-<li>读卡器</li>
-<li>笔记本</li>
-<li>wifi(或者手机热点)</li>
-</ul>
-<h2 id="所用软件"><a href="#所用软件" class="headerlink" title="所用软件"></a>所用软件</h2><ul>
-<li><a href="https://www.raspberrypi.org/downloads/raspberry-pi-os/" target="_blank" rel="noopener"><font color="blue">树莓派系统镜像</font></a></li>
-<li><a href="https://www.balena.io/etcher/" target="_blank" rel="noopener"><font color="blue">U盘镜像烧写工具 Etcher</font></a></li>
-<li><a href="http://www.advanced-ip-scanner.com/cn/" target="_blank" rel="noopener"><font color="blue">IP地址查看工具 Advanced Ip Scanner</font></a></li>
-<li><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank" rel="noopener"><font color="blue">远程登陆工具 Etcher</font></a></li>
-</ul>
-<h2 id="镜像烧写"><a href="#镜像烧写" class="headerlink" title="镜像烧写"></a>镜像烧写</h2><ol>
-<li>lect image-&gt;你下的镜像</li>
-<li>Select drive-&gt;你的SD卡（注意不要错选为自己电脑的盘，但貌似这个软件会自动选中U盘）</li>
-<li>Flash(!注意，烧好后会有个提示BOOT什么的需要格式化，一定要选取消!)</li>
+<p><strong>假设kp取0.5</strong></p>
+<ol>
+<li>那么t=1时（表示第1次加水，也就是第一次对系统施加控制），那么u=0.5*0.8=0.4，所以这一次加入的水量会使水位在0.2的基础上上升0.4，达到0.6.</li>
+<li>接着，t=2时刻（第2次施加控制），当前水位是0.6，所以error是0.4。u=0.5*0.4=0.2，会使水位再次上升0.2，达到0.8.</li>
+<li>如此这么循环下去，水位最终会达到一米。就是比例控制算法的运行方法。</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/1079276-2ecf5e9d553a306b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1004/format/webp" alt></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1079276-103046f8bf34f47b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/442/format/webp" alt></p>
-<h2 id="设置WIFI开启SSH"><a href="#设置WIFI开启SSH" class="headerlink" title="设置WIFI开启SSH"></a>设置WIFI开启SSH</h2><ol>
-<li>此时可以打开刚才镜像完成后的TF卡，在BOOT盘下新增两个文件wpa_supplicant.conf和ssh</li>
+<p>但是，单单的比例控制存在着一些不足，其中一点就是 –稳态误差！像上述的例子，根据kp取值不同，系统最后都会达到1米，不会有稳态误差。但是，考虑另外一种情况，假设这个水缸在加水的过程中，存在漏水的情况，假设每次加水的过程，都会漏掉0.1米高度的水。仍然假设kp取0.5，那么会存在着某种情况，假设经过几次加水，水缸中的水位到0.8时，水位将不会再变换！！！因为，水位为0.8，则误差error=0.2. 所以每次往水缸中加水的量为u=0.5*0.2=0.1.同时，每次加水缸里又会流出去0.1米的水！！！加入的水和流出的水相抵消，水位将不再变化！！</p>
+<p>也就是说，我的目标是1米，但是最后系统达到0.8米的水位就不在变化了，且系统已经达到稳定。由此产生的误差就是稳态误差了。（在实际情况中，这种类似水缸漏水的情况往往更加常见，比如控制汽车运动，摩擦阻力就相当于是“漏水”，控制机械臂、无人机的飞行，各类阻力和消耗都可以理解为本例中的“漏水”）</p>
+<p>所以，单独的比例控制，在很多时候并不能满足要求。</p>
+<h3 id="1-2积分控制算法（积分因子Ki）"><a href="#1-2积分控制算法（积分因子Ki）" class="headerlink" title="1.2积分控制算法（积分因子Ki）"></a>1.2积分控制算法（积分因子Ki）</h3><p>还是用上面的例子，如果仅仅用比例，可以发现存在暂态误差，最后的水位就卡在0.8了。于是，在控制中，我们再引入一个分量，该分量和误差的积分是正比关系。所以，比例+积分控制算法为：</p>
+<center>u=kp*error+ ki∗∫ error</center>
+
+<p>还是用上面的例子来说明，第一次的误差error是0.8，第二次的误差是0.4，至此，误差的积分（离散情况下积分其实就是做累加），∫∫error=0.8+0.4=1.2. 这个时候的控制量，除了比例的那一部分，还有一部分就是一个系数ki乘以这个积分项。由于这个积分项会将前面若干次的误差进行累计，所以可以很好的消除稳态误差（假设在仅有比例项的情况下，系统卡在稳态误差了，即上例中的0.8，由于加入了积分项的存在，会让输入增大，从而使得水缸的水位可以大于0.8，渐渐到达目标的1.0.）这就是积分项的作用。</p>
+<h3 id="1-3微分控制算法（微分因子Kd）"><a href="#1-3微分控制算法（微分因子Kd）" class="headerlink" title="1.3微分控制算法（微分因子Kd）"></a>1.3微分控制算法（微分因子Kd）</h3><p>换一个另外的例子，考虑刹车情况。平稳的驾驶车辆，当发现前面有红灯时，为了使得行车平稳，基本上提前几十米就放松油门并踩刹车了。当车辆离停车线非常近的时候，则使劲踩刹车，使车辆停下来。整个过程可以看做一个加入微分的控制策略。<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589388560122&di=22500c1b177219cba812c89f8e96df07&imgtype=0&src=http%3A%2F%2Fimage.bitautoimg.com%2Fappimage-630-w0%2Fappimage%2Fmedia%2F20160819%2Fw507_h203_4f1fb584594948aab81c2f3c55fabde2.jpeg" alt><br>微分，说白了在离散情况下，就是error的差值，就是t时刻和t-1时刻error的差,即：</p>
+<center>u=kd*（error（t）-error（t-1））</center>
+
+<p>其中的kd是一个系数项。可以看到，在刹车过程中，因为error是越来越小的，所以这个微分控制项一定是负数，在控制中加入一个负数项，他存在的作用就是为了防止汽车由于刹车不及时而闯过了线。从常识上可以理解，越是靠近停车线，越是应该注意踩刹车，不能让车过线，所以这个微分项的作用，就可以理解为刹车，当车离停车线很近并且车速还很快时，这个微分项的绝对值（实际上是一个负数）就会很大，从而表示应该用力踩刹车才能让车停下来。</p>
+<p>切换到上面给水缸加水的例子，就是当发现水缸里的水快要接近1的时候，加入微分项，可以防止给水缸里的水加到超过1米的高度，说白了就是减少控制过程中的震荡。</p>
+<h2 id="02照本宣科谈PID"><a href="#02照本宣科谈PID" class="headerlink" title="02照本宣科谈PID"></a>02照本宣科谈PID</h2><h3 id="2-1-PID算法的前提"><a href="#2-1-PID算法的前提" class="headerlink" title="2.1 PID算法的前提"></a>2.1 PID算法的前提</h3><p>PID是一个闭环控制算法。因此要实现PID算法，必须在硬件上具有闭环控制，就是得有反馈。</p>
+<h3 id="2-2-使用现状"><a href="#2-2-使用现状" class="headerlink" title="2.2 使用现状"></a>2.2 使用现状</h3><p>PID是比例(P)、积分(I)、微分(D)控制算法。但并不是必须同时具备这三种算法，也可以是PD,PI,甚至只有P算法控制。我以前对于闭环控制的一个最朴素的想法就只有P控制，将当前结果反馈回来，再与目标相减，为正的话，就减速，为负的话就加速。现在知道这只是最简单的闭环控制算法。</p>
+<h3 id="2-3三个环节的作用"><a href="#2-3三个环节的作用" class="headerlink" title="2.3三个环节的作用"></a>2.3三个环节的作用</h3><ol>
+<li><p>比例，反应系统的基本（当前）偏差e(t)，系数大，可以加快调节，减小误差，但过大的比例使系统稳定性下降，甚至造成系统不稳定；</p>
+</li>
+<li><p>积分，反应系统的累计偏差，使系统消除稳态误差，提高无差度，因为有误差，积分调节就进行，直至无误差。</p>
+</li>
+<li><p>微分，反映系统偏差信号的变化率e(t)-e(t-1)，具有预见性，能预见偏差变化的趋势，产生超前的控制作用，在偏差还没有形成之前，已被微分调节作用消除，因此可以改善系统的动态性能。但是微分对噪声干扰有放大作用，加强微分对系统抗干扰不利。</p>
+<h3 id="2-4常用的调参经验-使用规律"><a href="#2-4常用的调参经验-使用规律" class="headerlink" title="2.4常用的调参经验(使用规律)"></a>2.4常用的调参经验(使用规律)</h3></li>
+<li><p>比例控制规律P：采用P控制规律能较快地克服扰动的影响，它的作用于输出值较快，但不能很好稳定在一个理想的数值，不良的结果是虽较能有效的克服扰动的影响，但有余差出现。它适用于控制通道滞后较小、负荷变化不大、控制要求不高、被控参数允许在一定范围内有余差的场合。</p>
+</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/1079276-f0fc3e4ff22ea552.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/346/format/webp" alt></p>
 <ol start="2">
-<li>wpa_supplicant.conf中的内容(注意替换YOUR_WIFI_NAME和YOUR_WIFI_PASSWORD），（key_mgmt=WPA-PSK是wifi加密方式，priority=1是有多个wifi时本wifi的优先级，貌似不太用改):<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">country=CN</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=<span class="string">"YOUR_WIFI_NAME"</span></span><br><span class="line">    psk=<span class="string">"YOUR_WIFI_PASSWORD"</span></span><br><span class="line">    key_mgmt=WPA-PSK</span><br><span class="line">    priority=<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>比例积分控制规律(PI)：在工程中比例积分控制规律是应用最广泛的一种控制规律。积分能在比例的基础上消除余差，它适用于控制通道滞后较小、负荷变化不大、被控参数不允许有余差的场合。</p>
+</li>
+<li><p>比例微分控制规律(PD)：微分具有超前作用，对于具有容量滞后的控制通道，引入微分参与控制，在微分项设置得当的情况下，对于提高系统的动态性能指标，有着显著效果。因此，对于控制通道的时间常数或容量滞后较大的场合，为了提高系统的稳定性，减小动态偏差等可选用比例微分控制规律。如：加热型温度控制、成分控制。需要说明一点，对于那些纯滞后较大的区域里，微分项是无能为力，而在测量信号有噪声或周期性振动的系统，则也不宜采用微分控制。</p>
+</li>
+<li><p>例积分微分控制规律(PID)：PID控制规律是一种较理想的控制规律，它在比例的基础上引入积分，可以消除余差，再加入微分作用，又能提高系统的稳定性。</p>
+</li>
+</ol>
+<p>总之，控制规律的选用要根据过程特性和工艺要求来选取，决不是说PID控制规律在任何情况下都具有较好的控制性能，不分场合都采用是不明智的。如果这样做，只会给其它工作增加复杂性，并给参数整定带来困难。当采用PID控制器还达不到工艺要求，则需要考虑其它的控制方案。如串级控制、前馈控制、大滞后控制等。</p>
+<h2 id="03PID-控制器的设计与实现"><a href="#03PID-控制器的设计与实现" class="headerlink" title="03PID 控制器的设计与实现"></a>03PID 控制器的设计与实现</h2><h3 id="3-1PID算法的推导"><a href="#3-1PID算法的推导" class="headerlink" title="3.1PID算法的推导"></a>3.1PID算法的推导</h3><p>连续时间PID控制系统图如下图所示。其中D(s)为PID控制器部分，其输入与输出的的关系可按照下面的微分方程表示：</p>
+<p><a href="https://pic.downk.cc/item/5ebbf661c2a9a83be56e20e8.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf661c2a9a83be56e20e8.jpg" alt></a></p>
+<p><a href="https://pic.downk.cc/item/5ebbf5d4c2a9a83be56da35a.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf5d4c2a9a83be56da35a.jpg" alt></a></p>
+<p>在数字控制器中，当采样周期足够短时，以求和代替积分，以差分代替微分。则k时刻与k-1时刻的微分方程可分别表达为下面形式</p>
+<p><a href="https://pic.downk.cc/item/5ebbf690c2a9a83be56e4d32.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf690c2a9a83be56e4d32.jpg" alt></a></p>
+<p>两式相减</p>
+<p><a href="https://pic.downk.cc/item/5ebbf6bac2a9a83be56e7ab8.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf6bac2a9a83be56e7ab8.jpg" alt></a></p>
+<p><strong>这就是数字PID控制器的增量式算法。</strong></p>
+<p>假设需要辨识的被控对象模型为</p>
+<p><a href="https://pic.downk.cc/item/5ebbf6fcc2a9a83be56ec39f.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf6fcc2a9a83be56ec39f.jpg" alt></a></p>
+<h3 id="3-2Matlab编程实现"><a href="#3-2Matlab编程实现" class="headerlink" title="3.2Matlab编程实现"></a>3.2Matlab编程实现</h3><ol>
+<li>因为要建立起系统离散差分模型，先用matlab确定系统的离散模型<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="built_in">clear</span>;</span><br><span class="line">clc;</span><br><span class="line">ts=<span class="number">0.5</span>; </span><br><span class="line">sys=tf(<span class="number">4</span>,[<span class="number">1</span> <span class="number">2</span> <span class="number">0</span>]);%系统的传递函数</span><br><span class="line">dsys=c2d(sys,ts,<span class="string">'z'</span>);%离散化</span><br><span class="line">[num,den]=tfdata(dsys,<span class="string">'v'</span>);%得到离散化后的z传递函数分子分母系数</span><br></pre></td></tr></table></figure></li>
+<li>程序运行的结果如下：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">sys =</span><br><span class="line">      <span class="number">4</span></span><br><span class="line">  ---------</span><br><span class="line">  s^<span class="number">2</span> + <span class="number">2</span> s</span><br><span class="line">Continuous-time <span class="built_in">transfer</span> function.</span><br><span class="line">dsys =</span><br><span class="line">    <span class="number">0.3679</span> z + <span class="number">0.2642</span></span><br><span class="line">  ----------------------</span><br><span class="line">  z^<span class="number">2</span> - <span class="number">1.368</span> z + <span class="number">0.3679</span></span><br><span class="line">Sample time: <span class="number">0.5</span> seconds</span><br><span class="line">Discrete-time <span class="built_in">transfer</span> function.</span><br></pre></td></tr></table></figure></li>
+<li>系统的差分方程如下</li>
+</ol>
+<center>y(k)=-1*den(3)*y_2-den(2)*y_1+num(3)*u_2+num(2)*u_1+num(1)*u(k)</center>
+
+<ol start="4">
+<li>完整的程序实现<figure class="highlight"><table><tr><td class="code"><pre><span class="line">%&#123;</span><br><span class="line">title:PID 控制算法实现</span><br><span class="line">date: <span class="number">2020.05</span><span class="number">.10</span></span><br><span class="line">author:Decaplee</span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">clear</span>;</span><br><span class="line">clc;</span><br><span class="line">ts=<span class="number">0.5</span>;  %采样时间=<span class="number">0.5</span>s</span><br><span class="line">sys=tf(<span class="number">4</span>,[<span class="number">1</span> <span class="number">2</span> <span class="number">0</span>]);%建立被控对象传递函数</span><br><span class="line">dsys=c2d(sys,ts,<span class="string">'z'</span>);%离散化,表示为z传递函数的形式</span><br><span class="line">[num,den]=tfdata(dsys,<span class="string">'v'</span>);%输出num和den，分别代表差分方程分子与分母的系数</span><br><span class="line">e_1=<span class="number">0</span>;      %初始化k<span class="number">-1</span>、k<span class="number">-2</span>时刻的偏差</span><br><span class="line">e_2=<span class="number">0</span>;</span><br><span class="line">u_1=<span class="number">0.0</span>;    %初始化k<span class="number">-1</span>、k<span class="number">-2</span>时刻时刻的输入量</span><br><span class="line">u_2=<span class="number">0.0</span>;</span><br><span class="line">y_1=<span class="number">0</span>;      %初始化k<span class="number">-1</span>、k<span class="number">-2</span>时刻时刻的输出量</span><br><span class="line">y_2=<span class="number">0</span>;</span><br><span class="line">Esum=<span class="number">0</span>;</span><br><span class="line">%PID参数</span><br><span class="line">kp=<span class="number">2.1</span>;    </span><br><span class="line">ki=<span class="number">0.3</span></span><br><span class="line">kd=<span class="number">0.12</span>;</span><br><span class="line">u=zeros(<span class="number">1</span>,<span class="number">100</span>);%数组的大小</span><br><span class="line">time=zeros(<span class="number">1</span>,<span class="number">100</span>);%初始化数组的大小</span><br><span class="line">ts=<span class="number">0.5</span>;</span><br><span class="line"><span class="keyword">for</span> k=<span class="number">1</span>:<span class="number">1</span>:<span class="number">100</span></span><br><span class="line">    time(k)=k*ts;   %时间参数由 <span class="number">1</span> 时刻开始</span><br><span class="line">    r(k)=<span class="number">1</span>;      %期望值</span><br><span class="line">    y(k)=<span class="number">-1</span>*den(<span class="number">3</span>)*y_2-den(<span class="number">2</span>)*y_1+num(<span class="number">3</span>)*u_2+num(<span class="number">2</span>)*u_1+num(<span class="number">1</span>)*u(k);% 初始化系统响应输出序列，与前一时刻的输出有关（这就是差分方程）</span><br><span class="line">    e(k)=r(k)-y(k);   %期望输出与实际输出之间的差值，代表误差信号</span><br><span class="line">    u(k)=kp*(e(k)-e_1)+ki*e(k)+kd*(e(k)<span class="number">-2</span>*e_1+e_2); %系统PID控制器输出序列</span><br><span class="line">    u_2=u_1;</span><br><span class="line">    y_2=y_1;</span><br><span class="line">    e_2=e_1;</span><br><span class="line">    u_1=u(k);    	%前一个的控制器输出值</span><br><span class="line">    y_1=y(k);    	%前一个的系统响应输出值</span><br><span class="line">    e_1=e(k);      %前一个误差信号的值</span><br><span class="line"><span class="built_in">end</span></span><br><span class="line">p1=plot(time,r,'-.');xlim([0,50]);hold on;%指令信号的曲线（即期望输入）</span><br><span class="line">p2=plot(time,y,'b--');xlim([0,50]);hold on;%</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<h2 id="查看树莓派的IP地址"><a href="#查看树莓派的IP地址" class="headerlink" title="查看树莓派的IP地址"></a>查看树莓派的IP地址</h2><ol>
-<li>将SD卡插入树莓派后连接树莓派的电源</li>
-<li>树莓派通电约一分钟后在Advanced Ip Scanner中点击Scan，Manufacturer中那个Raspberry就是你的树莓派，记下树莓派的IP</li>
-</ol>
-<p><img src="https://s1.ax1x.com/2020/07/04/NxyURP.png" alt="NxyURP.png"></p>
-<h2 id="远程登陆树莓派"><a href="#远程登陆树莓派" class="headerlink" title="远程登陆树莓派"></a>远程登陆树莓派</h2><p>打开putty,输入你的树莓派IP地址（我这里是192.168.0.2），输入后提示登陆用户和密码，同样还是用户名：pi 密码：raspberry 登陆成功后的界面如下：<br><a href="https://imgchr.com/i/Nx2eeO" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/04/Nx2eeO.png" alt="Nx2eeO.png"></a></p>
-<p>此时ls命令一下，可以看到<br><a href="https://imgchr.com/i/Nx2akQ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/04/Nx2akQ.png" alt="Nx2akQ.png"></a></p>
-<h2 id="安装Xrdp"><a href="#安装Xrdp" class="headerlink" title="安装Xrdp"></a>安装Xrdp</h2><p>在命令窗口输入如下指令：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
-<p><a href="https://imgchr.com/i/NxRD4H" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/04/NxRD4H.png" alt="NxRD4H.png"></a></p>
-<h2 id="用电脑远程桌面连接工具登陆树莓派"><a href="#用电脑远程桌面连接工具登陆树莓派" class="headerlink" title="用电脑远程桌面连接工具登陆树莓派"></a>用电脑远程桌面连接工具登陆树莓派</h2><ol>
-<li><p>打开系统的远程桌面工具<br><img src="https://s1.ax1x.com/2020/07/04/NxfwfH.png" alt="NxfwfH.png"></p>
+<p>当Kp=2.1、Ki=0.3、Kd=0.12时，输出的控制曲线如下<br><a href="https://pic.downk.cc/item/5ebbf8f5c2a9a83be570c528.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf8f5c2a9a83be570c528.jpg" alt></a></p>
+<h2 id="04-PID控制器参数整定"><a href="#04-PID控制器参数整定" class="headerlink" title="04 PID控制器参数整定"></a>04 PID控制器参数整定</h2><h3 id="4-1-参数整定过程"><a href="#4-1-参数整定过程" class="headerlink" title="4.1 参数整定过程"></a>4.1 参数整定过程</h3><p>在进行参数整定之前，笔者利用Matlab的GUI模块建立了数字PID参数整定系统，便于观察PID控制器各个环节的参数对系统响应性能的影响，如设计布局和实际运行效果分别如下图所示<br><a href="https://pic.downk.cc/item/5ebbf972c2a9a83be5714732.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbf972c2a9a83be5714732.jpg" alt></a></p>
+<p>下面采用扩充临界比例度法进行参数整定：</p>
+<p>扩充临界比例度法适用于有自衡特性的受控对象，是对连续时间PID控制器参数整定的临界比例度的扩充，其主要步骤如下：</p>
+<ol>
+<li><p>选择一足够短的采样周期T(一般应在被控对象纯时延时间的十分之一以下)，作纯比例控制。</p>
 </li>
-<li><p>输入树莓派的IP地址<br><img src="https://s1.ax1x.com/2020/07/04/NxWlsP.png" alt="NxWlsP.png"></p>
+<li><p>逐渐加大比例系数Kp，直到系统达到临界等幅振荡，记下此时的振荡周期Ts，以及增益Ks。</p>
 </li>
-<li><p>同样地，输入用户名和密码<br><img src="https://s1.ax1x.com/2020/07/04/NxWhsx.png" alt="NxWhsx.png"></p>
-</li>
-<li><p>登陆成功后的界面<br><img src="https://s1.ax1x.com/2020/07/04/NxWzef.png" alt="NxWzef.png"></p>
+<li><p>选择控制度</p>
 </li>
 </ol>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过远程的ssh连接，我们只需要保证在统一网络下，将树莓派接通电源，无需再通过网线将树莓派和自己的电脑相连接。可以解决因网线距离有限而带来的问题。</p>
+<blockquote>
+<p>所谓控制度，就是以模拟控制器为标准，将数字控制器的效果与模拟控制器的控制效果相比较，通常采用误差积分的比值形式进行定义，即</p>
+</blockquote>
+<p><a href="https://pic.downk.cc/item/5ebbfa24c2a9a83be57208a6.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbfa24c2a9a83be57208a6.jpg" alt></a></p>
+<ol start="4">
+<li><p>4)根据选定的控制度，查表，确定PID控制器的采样周期T和控制器参数Kp, TI, TI 。</p>
+</li>
+<li><p>5)按照求得的整定参数试运行，观察实际控制效果，并适当进行修正。</p>
+</li>
+</ol>
+<h3 id="4-2-参数整定结果"><a href="#4-2-参数整定结果" class="headerlink" title="4.2 参数整定结果"></a>4.2 参数整定结果</h3><p>经过多次参数调整分析，并利用Matlab的GUI模块综合考虑上升时间，超调量，稳态时间，稳态误差等因素，在下图的GUI中观察参数整定效果。<br><a href="https://pic.downk.cc/item/5ebbfa7dc2a9a83be5726f78.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbfa7dc2a9a83be5726f78.jpg" alt></a></p>
+<p>最终整定结果为</p>
+<center>K_P=0.65&emsp;&emsp;&emsp; K_I=0.6 &emsp;&emsp;&emsp;        K_D=0 </center>
+
+<p>整定后的输出响应曲线为</p>
+<p><a href="https://pic.downk.cc/item/5ebbfaf2c2a9a83be572f251.jpg" target="_blank" rel="noopener"><img src="https://pic.downk.cc/item/5ebbfaf2c2a9a83be572f251.jpg" alt></a></p>
+<p>可见，经过参数整定后系统的上升时间超调量以及稳态误差的整体控制效果有了巨大的改进。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://book.douban.com/subject/3194654/" target="_blank" rel="noopener">参考文献一</a></p>
+<p><a href="https://blog.csdn.net/lukelu1263/article/details/6847208?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">参考文献二</a></p>
+<p><a href="https://blog.csdn.net/qq_25352981/article/details/81007075" target="_blank" rel="noopener">参考文献三</a></p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://github.com/DecaprioTesla/Digital_PID_Controler" target="_blank" rel="noopener">PID调参界面源码已上传至我的GitHub</a></p>
 ]]></content>
       <categories>
-        <category>树莓派</category>
+        <category>控制</category>
       </categories>
   </entry>
   <entry>
@@ -2004,6 +1942,68 @@
 ]]></content>
       <categories>
         <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>树莓派无显示器，无网线，远程ssh连接</title>
+    <url>/2020/07/04/022%E6%A0%91%E8%8E%93%E6%B4%BE%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9C%E7%A8%8Bssh%E8%BF%9E%E6%8E%A5/</url>
+    <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593863783890&di=0d4a3258f354b0a9dba6b65d49b95ab7&imgtype=0&src=http%3A%2F%2Fa.zdmimg.com%2F202006%2F13%2F5ee4d47faecaf2908.jpg_fo710.jpg" alt></p>
+<p>之前介绍过树莓派无显示器情况下的网线连接方式，现在介绍不使用网线情况下的远程的ssh连接教程。</p>
+<a id="more"></a>
+
+<h2 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ul>
+<li>树莓派3/4</li>
+<li>内存卡</li>
+<li>读卡器</li>
+<li>笔记本</li>
+<li>wifi(或者手机热点)</li>
+</ul>
+<h2 id="所用软件"><a href="#所用软件" class="headerlink" title="所用软件"></a>所用软件</h2><ul>
+<li><a href="https://www.raspberrypi.org/downloads/raspberry-pi-os/" target="_blank" rel="noopener"><font color="blue">树莓派系统镜像</font></a></li>
+<li><a href="https://www.balena.io/etcher/" target="_blank" rel="noopener"><font color="blue">U盘镜像烧写工具 Etcher</font></a></li>
+<li><a href="http://www.advanced-ip-scanner.com/cn/" target="_blank" rel="noopener"><font color="blue">IP地址查看工具 Advanced Ip Scanner</font></a></li>
+<li><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank" rel="noopener"><font color="blue">远程登陆工具 Etcher</font></a></li>
+</ul>
+<h2 id="镜像烧写"><a href="#镜像烧写" class="headerlink" title="镜像烧写"></a>镜像烧写</h2><ol>
+<li>lect image-&gt;你下的镜像</li>
+<li>Select drive-&gt;你的SD卡（注意不要错选为自己电脑的盘，但貌似这个软件会自动选中U盘）</li>
+<li>Flash(!注意，烧好后会有个提示BOOT什么的需要格式化，一定要选取消!)</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/1079276-2ecf5e9d553a306b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1004/format/webp" alt></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1079276-103046f8bf34f47b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/442/format/webp" alt></p>
+<h2 id="设置WIFI开启SSH"><a href="#设置WIFI开启SSH" class="headerlink" title="设置WIFI开启SSH"></a>设置WIFI开启SSH</h2><ol>
+<li>此时可以打开刚才镜像完成后的TF卡，在BOOT盘下新增两个文件wpa_supplicant.conf和ssh</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/1079276-f0fc3e4ff22ea552.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/346/format/webp" alt></p>
+<ol start="2">
+<li>wpa_supplicant.conf中的内容(注意替换YOUR_WIFI_NAME和YOUR_WIFI_PASSWORD），（key_mgmt=WPA-PSK是wifi加密方式，priority=1是有多个wifi时本wifi的优先级，貌似不太用改):<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">country=CN</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=<span class="string">"YOUR_WIFI_NAME"</span></span><br><span class="line">    psk=<span class="string">"YOUR_WIFI_PASSWORD"</span></span><br><span class="line">    key_mgmt=WPA-PSK</span><br><span class="line">    priority=<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="查看树莓派的IP地址"><a href="#查看树莓派的IP地址" class="headerlink" title="查看树莓派的IP地址"></a>查看树莓派的IP地址</h2><ol>
+<li>将SD卡插入树莓派后连接树莓派的电源</li>
+<li>树莓派通电约一分钟后在Advanced Ip Scanner中点击Scan，Manufacturer中那个Raspberry就是你的树莓派，记下树莓派的IP</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/07/04/NxyURP.png" alt="NxyURP.png"></p>
+<h2 id="远程登陆树莓派"><a href="#远程登陆树莓派" class="headerlink" title="远程登陆树莓派"></a>远程登陆树莓派</h2><p>打开putty,输入你的树莓派IP地址（我这里是192.168.0.2），输入后提示登陆用户和密码，同样还是用户名：pi 密码：raspberry 登陆成功后的界面如下：<br><a href="https://imgchr.com/i/Nx2eeO" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/04/Nx2eeO.png" alt="Nx2eeO.png"></a></p>
+<p>此时ls命令一下，可以看到<br><a href="https://imgchr.com/i/Nx2akQ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/04/Nx2akQ.png" alt="Nx2akQ.png"></a></p>
+<h2 id="安装Xrdp"><a href="#安装Xrdp" class="headerlink" title="安装Xrdp"></a>安装Xrdp</h2><p>在命令窗口输入如下指令：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
+<p><a href="https://imgchr.com/i/NxRD4H" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/07/04/NxRD4H.png" alt="NxRD4H.png"></a></p>
+<h2 id="用电脑远程桌面连接工具登陆树莓派"><a href="#用电脑远程桌面连接工具登陆树莓派" class="headerlink" title="用电脑远程桌面连接工具登陆树莓派"></a>用电脑远程桌面连接工具登陆树莓派</h2><ol>
+<li><p>打开系统的远程桌面工具<br><img src="https://s1.ax1x.com/2020/07/04/NxfwfH.png" alt="NxfwfH.png"></p>
+</li>
+<li><p>输入树莓派的IP地址<br><img src="https://s1.ax1x.com/2020/07/04/NxWlsP.png" alt="NxWlsP.png"></p>
+</li>
+<li><p>同样地，输入用户名和密码<br><img src="https://s1.ax1x.com/2020/07/04/NxWhsx.png" alt="NxWhsx.png"></p>
+</li>
+<li><p>登陆成功后的界面<br><img src="https://s1.ax1x.com/2020/07/04/NxWzef.png" alt="NxWzef.png"></p>
+</li>
+</ol>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过远程的ssh连接，我们只需要保证在统一网络下，将树莓派接通电源，无需再通过网线将树莓派和自己的电脑相连接。可以解决因网线距离有限而带来的问题。</p>
+]]></content>
+      <categories>
+        <category>树莓派</category>
       </categories>
   </entry>
   <entry>
