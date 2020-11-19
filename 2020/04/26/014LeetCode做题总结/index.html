@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://pic.leetcode-cn.com/29da586d62b192207c87aaad478f433e85c958102ce2841ceb2712fd8ebfa27b-image.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190820000853382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjkzMTcx,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-04-25T17:59:59.000Z">
-<meta property="article:modified_time" content="2020-05-12T08:25:27.185Z">
+<meta property="article:modified_time" content="2020-09-07T14:04:18.181Z">
 <meta property="article:author" content="Decaprio Lee">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="LeetCode">
@@ -224,7 +224,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-12 16:25:27" itemprop="dateModified" datetime="2020-05-12T16:25:27+08:00">2020-05-12</time>
+                <time title="修改时间：2020-09-07 22:04:18" itemprop="dateModified" datetime="2020-09-07T22:04:18+08:00">2020-09-07</time>
               </span>
 
           
@@ -255,14 +255,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.1k</span>
+              <span>7.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
+              <span>13 分钟</span>
             </span>
 
         </div>
@@ -414,7 +414,14 @@
 
 
 
-<h2 id="Chapt-05栈和队列"><a href="#Chapt-05栈和队列" class="headerlink" title="Chapt-05栈和队列"></a><strong>Chapt-05栈和队列</strong></h2><h2 id="Chapt-06查找"><a href="#Chapt-06查找" class="headerlink" title="Chapt-06查找"></a><strong>Chapt-06查找</strong></h2><h2 id="Chapt-07排序"><a href="#Chapt-07排序" class="headerlink" title="Chapt-07排序"></a><strong>Chapt-07排序</strong></h2>
+<h2 id="Chapt-05栈和队列"><a href="#Chapt-05栈和队列" class="headerlink" title="Chapt-05栈和队列"></a><strong>Chapt-05栈和队列</strong></h2><h2 id="Chapt-06查找"><a href="#Chapt-06查找" class="headerlink" title="Chapt-06查找"></a><strong>Chapt-06查找</strong></h2><h2 id="Chapt-07排序"><a href="#Chapt-07排序" class="headerlink" title="Chapt-07排序"></a><strong>Chapt-07排序</strong></h2><h2 id="Chapt-08迭代与递归思想"><a href="#Chapt-08迭代与递归思想" class="headerlink" title="Chapt-08迭代与递归思想"></a><strong>Chapt-08迭代与递归思想</strong></h2><p>递归思想经常再算法中使用和体现，利用递归思想解决问题时，我们可以将大的问题差分为若干的小问题，而这些若干小问题的解决思想和大问题的解决方案又完全一致，一层一层地将问题分解下去，最终总会得到我们已知的最初级问题，这也是判断递归结束的条件。</p>
+<p>但是利用递归来解决问题存在最为致命的缺点为：当递归深度过大时，程序的空间复杂度和数据的运算量过大。一般我们利用递归解决递归深度不会特别大的场景。</p>
+<p>当递归深度过大时，此时我们通常考虑另外一种解决方案：迭代，迭代只需要不断地更新中间变量的值，而不需要开销特别大的内存空间。</p>
+<p><strong>783. <a herf="https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/">青蛙跳台问题</a></strong></p>
+<p>描述：青蛙每次可以跳一个或者两个台阶，那么青蛙要跳至第N个台阶，一共有多少种跳法：</p>
+<h2 id="Chapt-09深度优先搜索"><a href="#Chapt-09深度优先搜索" class="headerlink" title="Chapt-09深度优先搜索"></a><strong>Chapt-09深度优先搜索</strong></h2><p>深度优先搜索DFS（deep first search)是数据结构和算法图的一种遍历方法，它的最核心的思想为：<strong>先一直走下去，直至走到尽头不能再往下面继续走为止（也就是无路可走了），然后再退回到上一步看看有没有其他的路可走。</strong></p>
+<p>上面一段话中包含着两种思想，一个是逐渐递归地往下走，走到可以判断终点的标志，</p>
+
     </div>
 
     
@@ -432,7 +439,7 @@
   <p><span>本文标题:</span><a href="/2020/04/26/014LeetCode%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/">LeetCode做题总结(updating)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Decaprio Lee 的个人博客">Decaprio Lee</a></p>
   <p><span>发布时间:</span>2020年04月26日 - 01:04</p>
-  <p><span>最后更新:</span>2020年05月12日 - 16:05</p>
+  <p><span>最后更新:</span>2020年09月07日 - 22:09</p>
   <p><span>原始链接:</span><a href="/2020/04/26/014LeetCode%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/" title="LeetCode做题总结(updating)">http://yoursite.com/2020/04/26/014LeetCode%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2020/04/26/014LeetCode%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/"  aria-label="复制成功！"></i></span>
   </p>
@@ -589,7 +596,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-00准备资料"><span class="nav-number">1.</span> <span class="nav-text">Chapt-00准备资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-01链表"><span class="nav-number">2.</span> <span class="nav-text">Chapt-01链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解法1（递归法）"><span class="nav-number">2.1.</span> <span class="nav-text">解法1（递归法）:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法2（迭代法）："><span class="nav-number">2.2.</span> <span class="nav-text">解法2（迭代法）：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-02数组"><span class="nav-number">3.</span> <span class="nav-text">Chapt-02数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-03递归"><span class="nav-number">4.</span> <span class="nav-text">Chapt-03递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-04树"><span class="nav-number">5.</span> <span class="nav-text">Chapt-04树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-05栈和队列"><span class="nav-number">6.</span> <span class="nav-text">Chapt-05栈和队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-06查找"><span class="nav-number">7.</span> <span class="nav-text">Chapt-06查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-07排序"><span class="nav-number">8.</span> <span class="nav-text">Chapt-07排序</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-00准备资料"><span class="nav-number">1.</span> <span class="nav-text">Chapt-00准备资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-01链表"><span class="nav-number">2.</span> <span class="nav-text">Chapt-01链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解法1（递归法）"><span class="nav-number">2.1.</span> <span class="nav-text">解法1（递归法）:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法2（迭代法）："><span class="nav-number">2.2.</span> <span class="nav-text">解法2（迭代法）：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-02数组"><span class="nav-number">3.</span> <span class="nav-text">Chapt-02数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-03递归"><span class="nav-number">4.</span> <span class="nav-text">Chapt-03递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-04树"><span class="nav-number">5.</span> <span class="nav-text">Chapt-04树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-05栈和队列"><span class="nav-number">6.</span> <span class="nav-text">Chapt-05栈和队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-06查找"><span class="nav-number">7.</span> <span class="nav-text">Chapt-06查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-07排序"><span class="nav-number">8.</span> <span class="nav-text">Chapt-07排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-08迭代与递归思想"><span class="nav-number">9.</span> <span class="nav-text">Chapt-08迭代与递归思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapt-09深度优先搜索"><span class="nav-number">10.</span> <span class="nav-text">Chapt-09深度优先搜索</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -604,7 +611,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

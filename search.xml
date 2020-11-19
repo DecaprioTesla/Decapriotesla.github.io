@@ -304,6 +304,11 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> b=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"整形数据"</span>&lt;&lt;a&lt;&lt;<span class="string">"的地址为："</span>&lt;&lt;&amp;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"整形数据"</span>&lt;&lt;b&lt;&lt;<span class="string">"的地址为："</span>&lt;&lt;&amp;b&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">int</span> *p1=&amp;a;<span class="comment">//定义了默认指向整型变量a的地址的指针变量p1</span></span><br><span class="line"><span class="keyword">int</span> *p2=&amp;b;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p1中存放的地址为："</span>&lt;&lt;p1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p2中存放的地址为："</span>&lt;&lt;p2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//指针变量本身也具有地址：</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p1本身的地址为："</span>&lt;&lt;&amp;p1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p2本身的地址为："</span>&lt;&lt;&amp;p2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> **q=&amp;p1;<span class="comment">//q是一个指向（指向int数据类型指针）变量p1的指针，注意括号里面的描述，p1本身又是一个指向int数据类型的指针。也就是说，q里面存放的其实是p1的地址，那么*q表示的就是p1本身。所以有**q=*p1=a=1。</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;程序的输出为：</p>
 <p><img src="https://s1.ax1x.com/2020/05/04/YCPQW8.png" alt="YCPQW8.png"></p>
+<h2 id="异或操作（-）"><a href="#异或操作（-）" class="headerlink" title="异或操作（^）"></a><strong>异或操作（^）</strong></h2><p>&emsp;&emsp;位运算是C++中比较基础的知识点，常见的位运算操作：</p>
+<ol>
+<li>左移与右移 &lt;&lt;(左移)，&gt;&gt;(右移)，左右移动主要是参照箭头的朝向</li>
+<li>与(&amp;)&emsp;或(|)&emsp;取反(~)&emsp;异或(^)</li>
+</ol>
 <h2 id="关于C-中map和unordered-map的使用"><a href="#关于C-中map和unordered-map的使用" class="headerlink" title="关于C++中map和unordered_map的使用"></a><strong>关于C++中map和unordered_map的使用</strong></h2><p>map是一种以键值对的形式来存储元素的结构，并且也提供相应的成员函数来协助高效的插入，查询和删除键值对，除了map之外，还有一个名为unordered_map的结构，下面研究一下这两者的区别：</p>
 <ul>
 <li>1、引用的头文件<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">map</span> : <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="built_in">unordered_map</span> : <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unordered_map&gt;</span></span></span><br></pre></td></tr></table></figure></li>
@@ -410,6 +415,15 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
 <h3 id="2-指针函数"><a href="#2-指针函数" class="headerlink" title="2.指针函数"></a>2.指针函数</h3><p>指针函数重点强调函数，函数都具有类型，类似于整形函数的返回值类型为整型，指针函数的返回值类型为指针。</p>
 <p>下面的范例实现了返回一个类型为指针的指针函数</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">                A(<span class="keyword">int</span> a) &#123;</span><br><span class="line">                        <span class="keyword">this</span>-&gt;a = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="function"><span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> a;</span><br><span class="line">                &#125;</span><br><span class="line">        <span class="keyword">private</span>:</span><br><span class="line">                <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回值为指向类型A的指针的函数</span></span><br><span class="line"><span class="function">A *<span class="title">createA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> A(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//创建一个指向A类型的指针，并调用createA创建一个A类型的对象</span></span><br><span class="line">        A* b = createA();</span><br><span class="line">        <span class="comment">//通过指针调用类的方法</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"b-&gt;a = "</span> &lt;&lt; b-&gt;getA() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="循环表达式：for-auto-c-temp"><a href="#循环表达式：for-auto-c-temp" class="headerlink" title="循环表达式：for(auto c:temp)"></a><strong>循环表达式：for(auto c:temp)</strong></h2><p>此种用法可以不考虑数组的长度来对数组进行遍历，尤其经常使用在map结构中，可以实现map第一个元素的跳动。下面的例程中，map中存放了数组元nums中每个元素出现的次数，我们需要找出元素数目小于2的，可以通过for(auto c:temp)来开启循环语句。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//剑指offer 56题，找出数组中不重复的两个数字</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">singleNumbers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//出现次数统计</span></span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; temp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.size();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            temp[nums[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c:temp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(c.second&lt;<span class="number">2</span>) ans.push_back(c.first); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二进制位操作"><a href="#二进制位操作" class="headerlink" title="二进制位操作"></a><strong>二进制位操作</strong></h2><p>有时候需要对数据进行按位操作，在C++中，可以直接对整形数据进行按位逻辑操作，移位操作</p>
+<ul>
+<li><strong>（&amp;）</strong> a&amp;b，a,b均为int类型，表示将整形数字a和b将</li>
+</ul>
 ]]></content>
       <categories>
         <category>C++</category>
@@ -1253,65 +1267,6 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
       </categories>
   </entry>
   <entry>
-    <title>转知乎：历史上的七次机会</title>
-    <url>/2020/05/10/017%E8%BD%AC%E8%87%AA%E7%9F%A5%E4%B9%8E%EF%BC%9A%E5%8E%86%E5%8F%B2%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/</url>
-    <content><![CDATA[<p>&emsp;&emsp;最近在看赵皓阳的《生而贫穷》，作者在书中鲜明地提出了社会层次的本质以及发展到一定程度后将达到的现状：贫者难以脱贫，富者愈发积累，也就是所谓的阶级固化这一现象，同时也用一个金字塔模型来反映社会的分层。<br><img src="https://s1.ax1x.com/2020/05/12/YNAxmj.png" alt="YNAxmj.png"><br>&emsp;&emsp;书中还提到一种观点：一个人的人生高度，或者所谓的世俗意义上的成功，宏观上是由多个因素决定的，相关性最大的是家族、传承、基因等；其次是时势，也就是我们所处的历史进程；最后才是个人的奋斗与拼搏。恰巧今天又在知乎上看到一篇关于时势的文章，非常呼应解释第二点，原文的标题为《历史上七次机会没有留给普通人》。</p>
-<a id="more"></a>
-<center>
-
-<h2 id="历史上七次机会没有留给普通人"><a href="#历史上七次机会没有留给普通人" class="headerlink" title="历史上七次机会没有留给普通人"></a>历史上七次机会没有留给普通人</h2></center>
-
-<ul>
-<li>第一次是78年的高考；</li>
-</ul>
-<p>1977年到79年，100万考生步入大学的殿堂，从此改变命运，但也仅仅是100万。而且这100万人当中又有多少是出身贫寒，真正改变阶级的呢？更多的学位还是留给了拥有政治资本的官二代。当年的高考顶替上大学的事情层出不穷，沦为炮灰的不过是那些没背景没钱的普通子弟吧。</p>
-<ul>
-<li>第二次是80年乡镇企业；</li>
-</ul>
-<p>乡镇企业兴起是所谓改革开放的意外收获，国家也没想到偏远的农村会是改革开放最有活力的地区。新希望集团的刘永好兄弟、华西村的吴仁宝、横店集团的徐文荣、福耀玻璃的曹德旺、温氏集团的温北英······我们耳熟能详的名字是那个时代企业家的代表。这是中国历史上，唯一一次农民群体大规模“由农入商”，可能也是最后一次。</p>
-<ul>
-<li>第三次是价格双轨制的套利，就是倒买倒卖；</li>
-</ul>
-<p>那些倒爷们利用手中的关系，用计划内的低价购买商品，再用计划外的市场价卖出</p>
-<ul>
-<li><p>第四次是92年的官员下海，就是潘石屹那一代；</p>
-</li>
-<li><p>第五次叫做资源狂潮，就是WTO的红利，煤老板和钢老板发财；</p>
-</li>
-</ul>
-<p>那些处于体制内的官员“春江水暖鸭先知”，利用手中关系下海经商积累财富改变阶级。此时此刻，中国大地数以亿计的农民和即将下岗的国企工人还没看到这些机会，就算看到了，不具备政治资本和知识资本也没成功的希望。</p>
-<p>资源狂潮中我们认识了那些煤老板，他们是做生意最真诚的一批人，除了女明星他们什么也不在乎。</p>
-<ul>
-<li>第六次是地产泡沫，05年以后房价的暴涨；</li>
-</ul>
-<p>房地产泡沫应该是离我们最近的一次机会了，这是最普惠的一次机会，就算是普通家庭也能贷款买套房，但是离改变命运还差的远。那些没来的及上车的普通家庭，就彻底沦为贫困阶级，现在一套房可以压垮一个家庭。能在这次房地产泡沫中赚的盆满钵满的还是那些温州炒房团和煤老板们，他们分别受益于上世纪80年代乡镇企业崛起和本世纪初的资源狂潮。房地产催生了一批富豪，却摧毁了更多的家庭，80后、90后成为房奴艰苦度日，透支未来的潜力。</p>
-<p>改变命运的机会永远都在，作为普通人我们却抓不住。我知道尽管过去四十年中国人的生活得到了翻天覆地的变化，但大多数人在社会中的相对位置其实并没有改变。</p>
-<ul>
-<li>第七次是网络福利，也就是腾讯和阿里的故事。</li>
-</ul>
-<p>这七次机会每一次都很给力，每一次都波澜壮阔，但是我没觉得这七次机会哪一次是留给普通人的。</p>
-<p>我庆幸受到高等教育，能坐在廉价的写字楼里办公，不受风吹雨打。但是与我那些在车间做普工的小学同学对比，其实我们还是一类人。人改善生活际遇不难，但要改变在社会里的相对位置，几千年来都是一项艰巨的修行。</p>
-<p>机会还很多，没来的及上车的已经上不了车，因为座位已经被上一次上车的人占据了。</p>
-<p>普通人改善生活际遇不难，但要改变在社会里的相对位置，需要借助时代的力量。阶级向上的通道永远都是敞开的，但只对少数人敞开，这些人一定要有勇于做关键选择的睿智，敢于告别舒适的魄力，面对失败不言弃的毅力。 </p>
-<blockquote>
-<p>以上内容转自知乎</p>
-</blockquote>
-<hr>
-<p>再回到《生而贫穷》这本书，开头说了个人发展的三个因素，真正看清这些的人恰恰反而不会消极接受命运的安排，因为他们知道第一条几乎没法选择，第二条需要宏大的战略眼光甚至更多的是运气，能够努力改变的只有第三条。</p>
-<p>但现实中，大多数人最开始都盲目信任第三条的力量，碰壁后又掉头完全信仰第一、第二条——他们最终变成了自己曾经讨厌的那类人。</p>
-<p>真正看清楚并做出选择，需要五味杂陈的生活的磨练和自身的改变。</p>
-<p>社会就是这样，需要我们每个人努力将自己和他人变得更好，生命对每个人来说都是最大的奢侈品。</p>
-<p>我们都是后浪，有些后浪有海风相伴，有些后浪面前尽是礁石暗滩…但不论怎样，别忘记奔涌。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>社会</tag>
-        <tag>时代</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>操作系统（一） 操作系统引论</title>
     <url>/2020/05/10/016%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%B8%80)%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/</url>
     <content><![CDATA[<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3621867659,1152751757&fm=26&gp=0.jpg" alt></p>
@@ -1435,6 +1390,65 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
       <tags>
         <tag>操作系统</tag>
         <tag>引论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>转知乎：历史上的七次机会</title>
+    <url>/2020/05/10/017%E8%BD%AC%E8%87%AA%E7%9F%A5%E4%B9%8E%EF%BC%9A%E5%8E%86%E5%8F%B2%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/</url>
+    <content><![CDATA[<p>&emsp;&emsp;最近在看赵皓阳的《生而贫穷》，作者在书中鲜明地提出了社会层次的本质以及发展到一定程度后将达到的现状：贫者难以脱贫，富者愈发积累，也就是所谓的阶级固化这一现象，同时也用一个金字塔模型来反映社会的分层。<br><img src="https://s1.ax1x.com/2020/05/12/YNAxmj.png" alt="YNAxmj.png"><br>&emsp;&emsp;书中还提到一种观点：一个人的人生高度，或者所谓的世俗意义上的成功，宏观上是由多个因素决定的，相关性最大的是家族、传承、基因等；其次是时势，也就是我们所处的历史进程；最后才是个人的奋斗与拼搏。恰巧今天又在知乎上看到一篇关于时势的文章，非常呼应解释第二点，原文的标题为《历史上七次机会没有留给普通人》。</p>
+<a id="more"></a>
+<center>
+
+<h2 id="历史上七次机会没有留给普通人"><a href="#历史上七次机会没有留给普通人" class="headerlink" title="历史上七次机会没有留给普通人"></a>历史上七次机会没有留给普通人</h2></center>
+
+<ul>
+<li>第一次是78年的高考；</li>
+</ul>
+<p>1977年到79年，100万考生步入大学的殿堂，从此改变命运，但也仅仅是100万。而且这100万人当中又有多少是出身贫寒，真正改变阶级的呢？更多的学位还是留给了拥有政治资本的官二代。当年的高考顶替上大学的事情层出不穷，沦为炮灰的不过是那些没背景没钱的普通子弟吧。</p>
+<ul>
+<li>第二次是80年乡镇企业；</li>
+</ul>
+<p>乡镇企业兴起是所谓改革开放的意外收获，国家也没想到偏远的农村会是改革开放最有活力的地区。新希望集团的刘永好兄弟、华西村的吴仁宝、横店集团的徐文荣、福耀玻璃的曹德旺、温氏集团的温北英······我们耳熟能详的名字是那个时代企业家的代表。这是中国历史上，唯一一次农民群体大规模“由农入商”，可能也是最后一次。</p>
+<ul>
+<li>第三次是价格双轨制的套利，就是倒买倒卖；</li>
+</ul>
+<p>那些倒爷们利用手中的关系，用计划内的低价购买商品，再用计划外的市场价卖出</p>
+<ul>
+<li><p>第四次是92年的官员下海，就是潘石屹那一代；</p>
+</li>
+<li><p>第五次叫做资源狂潮，就是WTO的红利，煤老板和钢老板发财；</p>
+</li>
+</ul>
+<p>那些处于体制内的官员“春江水暖鸭先知”，利用手中关系下海经商积累财富改变阶级。此时此刻，中国大地数以亿计的农民和即将下岗的国企工人还没看到这些机会，就算看到了，不具备政治资本和知识资本也没成功的希望。</p>
+<p>资源狂潮中我们认识了那些煤老板，他们是做生意最真诚的一批人，除了女明星他们什么也不在乎。</p>
+<ul>
+<li>第六次是地产泡沫，05年以后房价的暴涨；</li>
+</ul>
+<p>房地产泡沫应该是离我们最近的一次机会了，这是最普惠的一次机会，就算是普通家庭也能贷款买套房，但是离改变命运还差的远。那些没来的及上车的普通家庭，就彻底沦为贫困阶级，现在一套房可以压垮一个家庭。能在这次房地产泡沫中赚的盆满钵满的还是那些温州炒房团和煤老板们，他们分别受益于上世纪80年代乡镇企业崛起和本世纪初的资源狂潮。房地产催生了一批富豪，却摧毁了更多的家庭，80后、90后成为房奴艰苦度日，透支未来的潜力。</p>
+<p>改变命运的机会永远都在，作为普通人我们却抓不住。我知道尽管过去四十年中国人的生活得到了翻天覆地的变化，但大多数人在社会中的相对位置其实并没有改变。</p>
+<ul>
+<li>第七次是网络福利，也就是腾讯和阿里的故事。</li>
+</ul>
+<p>这七次机会每一次都很给力，每一次都波澜壮阔，但是我没觉得这七次机会哪一次是留给普通人的。</p>
+<p>我庆幸受到高等教育，能坐在廉价的写字楼里办公，不受风吹雨打。但是与我那些在车间做普工的小学同学对比，其实我们还是一类人。人改善生活际遇不难，但要改变在社会里的相对位置，几千年来都是一项艰巨的修行。</p>
+<p>机会还很多，没来的及上车的已经上不了车，因为座位已经被上一次上车的人占据了。</p>
+<p>普通人改善生活际遇不难，但要改变在社会里的相对位置，需要借助时代的力量。阶级向上的通道永远都是敞开的，但只对少数人敞开，这些人一定要有勇于做关键选择的睿智，敢于告别舒适的魄力，面对失败不言弃的毅力。 </p>
+<blockquote>
+<p>以上内容转自知乎</p>
+</blockquote>
+<hr>
+<p>再回到《生而贫穷》这本书，开头说了个人发展的三个因素，真正看清这些的人恰恰反而不会消极接受命运的安排，因为他们知道第一条几乎没法选择，第二条需要宏大的战略眼光甚至更多的是运气，能够努力改变的只有第三条。</p>
+<p>但现实中，大多数人最开始都盲目信任第三条的力量，碰壁后又掉头完全信仰第一、第二条——他们最终变成了自己曾经讨厌的那类人。</p>
+<p>真正看清楚并做出选择，需要五味杂陈的生活的磨练和自身的改变。</p>
+<p>社会就是这样，需要我们每个人努力将自己和他人变得更好，生命对每个人来说都是最大的奢侈品。</p>
+<p>我们都是后浪，有些后浪有海风相伴，有些后浪面前尽是礁石暗滩…但不论怎样，别忘记奔涌。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>社会</tag>
+        <tag>时代</tag>
       </tags>
   </entry>
   <entry>
@@ -1622,7 +1636,14 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
 
 
 
-<h2 id="Chapt-05栈和队列"><a href="#Chapt-05栈和队列" class="headerlink" title="Chapt-05栈和队列"></a><strong>Chapt-05栈和队列</strong></h2><h2 id="Chapt-06查找"><a href="#Chapt-06查找" class="headerlink" title="Chapt-06查找"></a><strong>Chapt-06查找</strong></h2><h2 id="Chapt-07排序"><a href="#Chapt-07排序" class="headerlink" title="Chapt-07排序"></a><strong>Chapt-07排序</strong></h2>]]></content>
+<h2 id="Chapt-05栈和队列"><a href="#Chapt-05栈和队列" class="headerlink" title="Chapt-05栈和队列"></a><strong>Chapt-05栈和队列</strong></h2><h2 id="Chapt-06查找"><a href="#Chapt-06查找" class="headerlink" title="Chapt-06查找"></a><strong>Chapt-06查找</strong></h2><h2 id="Chapt-07排序"><a href="#Chapt-07排序" class="headerlink" title="Chapt-07排序"></a><strong>Chapt-07排序</strong></h2><h2 id="Chapt-08迭代与递归思想"><a href="#Chapt-08迭代与递归思想" class="headerlink" title="Chapt-08迭代与递归思想"></a><strong>Chapt-08迭代与递归思想</strong></h2><p>递归思想经常再算法中使用和体现，利用递归思想解决问题时，我们可以将大的问题差分为若干的小问题，而这些若干小问题的解决思想和大问题的解决方案又完全一致，一层一层地将问题分解下去，最终总会得到我们已知的最初级问题，这也是判断递归结束的条件。</p>
+<p>但是利用递归来解决问题存在最为致命的缺点为：当递归深度过大时，程序的空间复杂度和数据的运算量过大。一般我们利用递归解决递归深度不会特别大的场景。</p>
+<p>当递归深度过大时，此时我们通常考虑另外一种解决方案：迭代，迭代只需要不断地更新中间变量的值，而不需要开销特别大的内存空间。</p>
+<p><strong>783. <a herf="https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/">青蛙跳台问题</a></strong></p>
+<p>描述：青蛙每次可以跳一个或者两个台阶，那么青蛙要跳至第N个台阶，一共有多少种跳法：</p>
+<h2 id="Chapt-09深度优先搜索"><a href="#Chapt-09深度优先搜索" class="headerlink" title="Chapt-09深度优先搜索"></a><strong>Chapt-09深度优先搜索</strong></h2><p>深度优先搜索DFS（deep first search)是数据结构和算法图的一种遍历方法，它的最核心的思想为：<strong>先一直走下去，直至走到尽头不能再往下面继续走为止（也就是无路可走了），然后再退回到上一步看看有没有其他的路可走。</strong></p>
+<p>上面一段话中包含着两种思想，一个是逐渐递归地往下走，走到可以判断终点的标志，</p>
+]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>LeetCode</tag>
@@ -1981,20 +2002,6 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
       <tags>
         <tag>自适应</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>上海1943</title>
-    <url>/2020/03/01/%E9%9A%8F%E7%AC%941/</url>
-    <content><![CDATA[<p>&emsp;&emsp;一场突如其来的疫情，给流动的人类社会按下了暂停键。《人类简史》中就曾提到过人类在过去百年面临的三大问题：饥荒、传染病、战争，现在看来其中两个仍然与我们息息相关：战争随时可能会卷土重来，传染病正在爆发。</p>
-<a id="more"></a>
-<h1 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h1><h2 id="01-世间万物发展之道"><a href="#01-世间万物发展之道" class="headerlink" title="01 世间万物发展之道"></a>01 世间万物发展之道</h2><p>&emsp;&emsp;水溢则慢，月盈而亏，事物的发展也是如此，人类社会不可能始终处于发展前进的阶段，总会在前进的道路上出现一些差错。这次疫情的爆发可以说是事物发展过程中的必然事件，这不仅与病毒本身有关，诚然也与人类的社会结构与性质相联系。对当下生活的人而言其可谓一场灾难，但就事件发展之道或历史进程而言，其可能就是“2020年，新冠病毒在中国爆发并在全球蔓延”一句话这么简单。</p>
-<h2 id="02-人类生存之本"><a href="#02-人类生存之本" class="headerlink" title="02 人类生存之本"></a>02 人类生存之本</h2><p>&emsp;&emsp;直立行走加上制造和使用工具完成了对人类的定义，直立行走改变了大脑结构，制造和使用工具促使人类改造和探索自然，前后两者亦即想法的诞生和行为的执行，也就是理论和时间相结合。不得不说人类的进步不得不依赖于提出那些拥有里程碑意义想法的人：神秘东方的孔子、老子，西方的亚里士多德、柏拉图、康德等，当然还有我们的马克思。也有一些诸如牛顿，达尔文，爱因斯坦之类。思想本身是一种抽象化的东西，但大思想家就能将抽象的思想转化成人们心中潜在的意识，可能这就是神奇的所在之处。同时有些思想抽象成理论并能在现实中体现出来并发挥出功用，使得人类足以生存甚至去挑战自然。</p>
-<h2 id="03-全局与整体"><a href="#03-全局与整体" class="headerlink" title="03 全局与整体"></a>03 全局与整体</h2><p>&emsp;&emsp;个体与周围的个体加上生活空间可谓社会，所以个体与个体，个体与生活空间的关系是社会的关键，上述两者之间的交集是思想和行为。</p>
-<h2 id="04-结语"><a href="#04-结语" class="headerlink" title="04 结语"></a>04 结语</h2><p>&emsp;&emsp;说人话：就是盼着：疫情尽快结束，万物长新！</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
   </entry>
   <entry>
     <title>博客域名更改</title>
