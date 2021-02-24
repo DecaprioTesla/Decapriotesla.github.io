@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/11/19/025%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2020-11-20T15:17:14.058Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/04/26/014LeetCode%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2020-09-07T14:04:18.181Z</lastmod>
@@ -268,13 +275,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/life/album02/index.html</loc>
-    
-    <lastmod>2020-03-05T09:22:09.061Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/life/album03/index.html</loc>
     
     <lastmod>2020-03-05T09:22:09.061Z</lastmod>
@@ -282,7 +282,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/life/index/album03/index.html</loc>
+    <loc>http://yoursite.com/life/album02/index.html</loc>
     
     <lastmod>2020-03-05T09:22:09.061Z</lastmod>
     
@@ -290,6 +290,13 @@
   
   <url>
     <loc>http://yoursite.com/life/index/album02/index.html</loc>
+    
+    <lastmod>2020-03-05T09:22:09.061Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/life/index/album03/index.html</loc>
     
     <lastmod>2020-03-05T09:22:09.061Z</lastmod>
     
