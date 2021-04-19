@@ -1,6 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>To Do Lists</title>
+    <url>/2020/07/02/031%E6%AF%8F%E6%97%A5%E5%BF%85%E5%81%9A%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p><img src="https://img.imgdb.cn/item/607d8b4a8322e6675cc3f2dd.png" alt></p>
+<center><font size="4">Live the life you want to live</font></center>
+<a id="more"></a>
+
+<h3 id="1、打开电脑，打开CS-Note、打开力扣每日一题、打开剑指offer"><a href="#1、打开电脑，打开CS-Note、打开力扣每日一题、打开剑指offer" class="headerlink" title="1、打开电脑，打开CS Note、打开力扣每日一题、打开剑指offer"></a><strong>1、打开电脑，打开CS Note、打开力扣每日一题、打开剑指offer</strong></h3><h3 id="2、谷歌高畅pdf"><a href="#2、谷歌高畅pdf" class="headerlink" title="2、谷歌高畅pdf"></a><strong>2、谷歌高畅pdf</strong></h3><h3 id="3、打开《王道考研》计算机网络，操作系统，打开兄弟连Linux"><a href="#3、打开《王道考研》计算机网络，操作系统，打开兄弟连Linux" class="headerlink" title="3、打开《王道考研》计算机网络，操作系统，打开兄弟连Linux"></a><strong>3、打开《王道考研》计算机网络，操作系统，打开兄弟连Linux</strong></h3><h3 id="4、打开VSCODE，打开C-笔记，新发现的博客地址，打开剑指offer笔记"><a href="#4、打开VSCODE，打开C-笔记，新发现的博客地址，打开剑指offer笔记" class="headerlink" title="4、打开VSCODE，打开C++笔记，新发现的博客地址，打开剑指offer笔记"></a><strong>4、打开VSCODE，打开C++笔记，新发现的博客地址，打开剑指offer笔记</strong></h3><p>调整一下座椅和坐姿，准备出发。</p>
+<p><img src="https://img.imgdb.cn/item/607d9bb88322e6675ced0844.jpg" alt></p>
+]]></content>
+      <tags>
+        <tag>刷题</tag>
+        <tag>工作</tag>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>剑指offer学习笔记(updating)</title>
+    <url>/2021/04/02/030%E5%89%91%E6%8C%87offer%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F16549283-92484a07a9b89a4f.jpg&refer=http%3A%2F%2Fupload-images.jianshu.io&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620828152&t=85b957b4a0f85f281b5cb3d414f17b68" alt></p>
+<center><font size="4">记录学习过程中遇到的问题以及十分重要的知识点</font></center>
+<a id="more"></a>
+
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h3><ol>
+<li>前言</li>
+<li>正文</li>
+<li>数据结构类题目</li>
+<li>具体算法类题目</li>
+<li>结语</li>
+</ol>
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a><strong>1.前言</strong></h3><p>《剑指offer》买回来好久了，一直没有真正地去钻研，前一段时间投了一家大厂的实习，结果笔试做起来不很顺手，感觉自己虽然也刷了一定的题量，但是奈何效率不是很高。很多类型的题目没有形成自己的总结，而且不少题目是看了答案解析才完成的，做完并没有形成自己真正的反思和总结。</p>
+<p>现在已接近四月中旬，时间比较紧张，小论文的结果还不好说，课题进展也不是很快，总体来说现在的形势是留给自己专心学习刷题找工作的时间不多了。所以这段时间的学习效率是十分关键的。</p>
+<p>《剑指offer》题量不大，但是题目涵盖知识范围是很广的，我相信，只要认认真真地刷完其中的每一道题，而且形成一定的总结，即使有自己的方法，但可能不是最优的方法，所以应认真地对待每一道题目和每一个知识点。</p>
+<p>下一阶段，将在leetcode上进行刷题，力扣的题测试集是很全的，而且里面的题解要比牛课多些。</p>
+<h3 id="2-正文"><a href="#2-正文" class="headerlink" title="2.正文"></a><strong>2.正文</strong></h3>]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>刷题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排序算法总结</title>
+    <url>/2021/03/17/027%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<center>常使用的排序方法总结</center>
+
+<a id="more"></a>
+<p>&emsp;数据结构中常用的排序方法主要有以下几种：</p>
+<ul>
+<li><p>冒泡排序</p>
+</li>
+<li><p>快速排序</p>
+</li>
+<li><p>希尔排序</p>
+</li>
+<li><p>堆排序</p>
+</li>
+<li><p>直接选择排序</p>
+</li>
+<li><p>直接插入排序</p>
+</li>
+<li><p>归并排序</p>
+</li>
+</ul>
+<p>下面分别对其介绍。</p>
+<h3 id="1、冒泡排序"><a href="#1、冒泡排序" class="headerlink" title="1、冒泡排序"></a>1、冒泡排序</h3><p>&emsp;冒泡排序是接触排序算法以来最经常使用的排序算法，两两比较相邻数据，如果反序则交换，知道没有反序记录为止。</p>
+<h4 id="a-程序"><a href="#a-程序" class="headerlink" title="a.程序"></a>a.程序</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BobuleSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;<span class="built_in">array</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">array</span>.size() - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="built_in">array</span>.size() - <span class="number">1</span> - i; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">array</span>[j+<span class="number">1</span>] &lt; <span class="built_in">array</span>[j])</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">int</span> temp = <span class="built_in">array</span>[j+<span class="number">1</span>];</span><br><span class="line">				<span class="built_in">array</span>[j+<span class="number">1</span>] = <span class="built_in">array</span>[j];</span><br><span class="line">				<span class="built_in">array</span>[j] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="b-复杂度分析"><a href="#b-复杂度分析" class="headerlink" title="b.复杂度分析"></a>b.复杂度分析</h4><p>&emsp;冒泡排序的时间复杂度最简单的情况是原本就是一个递增的数组，比较（n-1）次。最复杂的情况为逆序数组，比较次数为1+2+…+(n-1)+n次，所以时间复杂度为n*(n-1)/2。</p>
+<h3 id="2、快速排序"><a href="#2、快速排序" class="headerlink" title="2、快速排序"></a>2、快速排序</h3><p>&emsp;快速排序最核心的地方在于找到中轴值，小于中轴在左边，大于中轴在右边，右左交替判断，满足继续移动，不满足换左右，排完然后递归进行。</p>
+<h4 id="a-程序-1"><a href="#a-程序-1" class="headerlink" title="a.程序"></a>a.程序</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//快速排序算法研究：中心轴数据，小于中心轴在左侧，大于中心轴在右侧，递归执行</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Quick_Sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;Array, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (L &gt;= R) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> left = L, right = R;</span><br><span class="line">	<span class="keyword">int</span> pivot = Array[left];</span><br><span class="line">	<span class="keyword">while</span> (left &lt; right)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//先看最右边，最右边大于中心轴数据则继续往次右边移动</span></span><br><span class="line">		<span class="keyword">while</span> (left &lt; right&amp;&amp;Array[right]&gt;=pivot)</span><br><span class="line">		&#123;</span><br><span class="line">			right--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//右边数据小于了中心轴数据，将右边数据给中心轴位置</span></span><br><span class="line">		<span class="keyword">if</span> (left &lt; right)</span><br><span class="line">		&#123;</span><br><span class="line">			Array[left] = Array[right];</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//左边数据一定要小于中心轴数据</span></span><br><span class="line">		<span class="keyword">while</span> (left &lt; right &amp;&amp; Array[left] &lt;= pivot)</span><br><span class="line">		&#123;</span><br><span class="line">			left++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//左边数据大于了中心轴数据</span></span><br><span class="line">		<span class="keyword">if</span> (left &lt; right)</span><br><span class="line">		&#123;</span><br><span class="line">			Array[right] = Array[left];<span class="comment">//刚才此位置数据已经小于中心轴数了，现在给他找了一个大于中心轴数的人</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//左右在这里相遇了，中轴数据已经被提溜出来了，现在只需要把中心轴数据放在相遇位置</span></span><br><span class="line">		<span class="keyword">if</span> (left &gt;= right)</span><br><span class="line">		&#123;</span><br><span class="line">			Array[left] = pivot;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//此时左变全部小于中轴，右边全部大于中轴，左右使用同样的方法再次进行排序</span></span><br><span class="line">		Quick_Sort(Array, L, right - <span class="number">1</span>);</span><br><span class="line">		Quick_Sort(Array, right + <span class="number">1</span>, R);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="b-复杂度分析-1"><a href="#b-复杂度分析-1" class="headerlink" title="b.复杂度分析"></a>b.复杂度分析</h4><p>快速排序的时间复杂度为nlongn,空间复杂度的话，主要是递归造成的栈空间的使用，最好的情况递归深度为log2N其空间复杂度为logn</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>回溯算法总结</title>
+    <url>/2021/03/11/026%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<center>leetcode算法题之回溯算法</center>
+
+<a id="more"></a>
+
+
+<h2 id="回溯算法的定义"><a href="#回溯算法的定义" class="headerlink" title="回溯算法的定义"></a>回溯算法的定义</h2><p>到达一个节点之后有一些选择，选择一个路径往下走，发现没有不能实现预期结果或者不是最优结果在退回至上一步，选择另外一条路径。（在枚举的过程寻找最优解）</p>
+<h3 id="1-八皇后问题"><a href="#1-八皇后问题" class="headerlink" title="1. 八皇后问题"></a>1. 八皇后问题</h3><ul>
+<li>题目描述</li>
+</ul>
+<p>给定一个数值N，在N X N 的棋盘上然后满足八皇后的条件：任意两个皇后不在同一个行，不在同一个列，也不在任何一个对角线位置上。请你打印出N皇后的所有解法，其中用Q表示位置上是皇后，用“·”表示位置上没有放皇后。</p>
+<ul>
+<li>解题思路<br>下面放出一张图，通过这张图片来说明白解题目的思路</li>
+</ul>
+<p><img src="https://pic.leetcode-cn.com/1605603220-baYPtU-file_1605603220485" alt></p>
+<p>看到上面这张图，必然离不开递归的思想在里面：从一个节点下到下面的一个子节点有N中选择，每个子节点处又要执行同样的操作。</p>
+<p>所以回溯类问题解体的思路如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Backtracking</span><span class="params">(函数参数表)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(终止条件)</span><br><span class="line">    &#123;</span><br><span class="line">        存放结果</span><br><span class="line">        <span class="keyword">return</span>；</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(选择：本层集和中的元素也就是当前节点子节点数目)</span><br><span class="line">    &#123;</span><br><span class="line">        处理操作</span><br><span class="line">    &#125;</span><br><span class="line">    Backtrack(新的函数列表)；<span class="comment">//递归思想</span></span><br><span class="line">    回溯撤销处理结果</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的描述是N皇后进行回溯的过程，主要是先初始化定义一个棋盘结果vector,这个容器可以用来存放N个字符串，每个字符串又有N个字符，而且初始化这个字符串容器的每个内容存放的字符为&ensp;‘·’ </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化目标棋盘</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">chessboard</span><span class="params">(n,<span class="built_in">string</span>(n,<span class="string">'.'</span>))</span></span>;</span><br></pre></td></tr></table></figure>
+<p>总体的求解问题的思路大致如下：</p>
+<ol>
+<li><p>首先定义目标返回数组 result，中间棋盘数组：chessboard，backtrack()函数声明，重点是内部中传递的参数。</p>
+</li>
+<li><p>按照回溯算法的核心思想backtrack函数（①判断结束条件②做选择并在选择内判断是否继续往下面一项进行，是否进行继续操作③更新选择与条件，继续backtrack④撤销结果）</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; <span class="title">solveNQueens</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; result;</span><br><span class="line">        result.clear();</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">chessboard</span><span class="params">(n, <span class="built_in">string</span>(n, <span class="string">'.'</span>))</span></span>;</span><br><span class="line">        Backtrack(n, <span class="number">0</span>, chessboard,result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">//从第一行开始往后面去判断</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Backtrack</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> row,<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;chessboard,<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; &amp;result)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//是否走到了最后一行了（0-n-1,但是最后一个row+1正好为n）,能成立说明前面都满足放皇后的条件</span></span><br><span class="line">        <span class="keyword">if</span>(row==n)</span><br><span class="line">        &#123;</span><br><span class="line">            result.push_back(chessboard);</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//在第row行，对尝试在每一列放置皇后</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> col=<span class="number">0</span>;col&lt;n;col++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//验证每一列放置后的合法性，如果合法，更新一下位置“Q”，就可以继续研究下一行下一行</span></span><br><span class="line">            <span class="keyword">if</span>(IsValid(row,col,chessboard,n))</span><br><span class="line">            &#123;</span><br><span class="line">                chessboard[row][col]=<span class="string">'Q'</span>;</span><br><span class="line">                Backtrack(n,row+<span class="number">1</span>,chessboard,result);<span class="comment">//如果一直成功，就一直执行道最后，放在result中。</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">//跳出来Backtack说明目前选择的那一列可以放弃了，换下一列研究，因此将原本的Q改回来。</span></span><br><span class="line">                chessboard[row][col]=<span class="string">'.'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">IsValid</span><span class="params">(<span class="keyword">int</span> row,<span class="keyword">int</span> col,<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;chessboard,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//检查列</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;row;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][col]==<span class="string">'Q'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//检查行</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=row<span class="number">-1</span>,j=col<span class="number">-1</span>;i&gt;=<span class="number">0</span>&amp;&amp;j&gt;=<span class="number">0</span>;i--,j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][j]==<span class="string">'Q'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//检查列</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=row<span class="number">-1</span>,j=col+<span class="number">1</span>;i&gt;=<span class="number">0</span>&amp;&amp;j&gt;=<span class="number">0</span>;i--,j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][j]==<span class="string">'Q'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-计算各个位不同数字的个数"><a href="#2-计算各个位不同数字的个数" class="headerlink" title="2.计算各个位不同数字的个数"></a>2.计算各个位不同数字的个数</h3><ul>
+<li><p>题目描述：给定一个非负整数n,然后给出从0&lt;&lt;=x&lt;&lt;=10^n中各个位数字都不相同的个数。</p>
+</li>
+<li><p>自我感觉：这道题目像是动态规划的问题：</p>
+</li>
+</ul>
+<p>当n=0时，答案就是1，当n&gt;10时，没有必要进行研究，相当于研究到n=10即可</p>
+<p>第n个的答案为第n-1个答案再加上那N位的答案</p>
+]]></content>
+      <categories>
+        <category>刷题</category>
+      </categories>
+  </entry>
+  <entry>
     <title>科学研究表明，电动牙刷使女生更爱笑，而且笑起来更可爱</title>
     <url>/2021/03/04/miaomiao/</url>
     <content><![CDATA[<p><img src="https://img.imgdb.cn/item/6040517d360785be542b1423.jpg" alt></p>
@@ -488,13 +608,253 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
 <ul>
 <li><strong>（&amp;）</strong> a&amp;b，a,b均为int类型，表示将整形数字a和b将</li>
 </ul>
+<h2 id="C-C-内存四区"><a href="#C-C-内存四区" class="headerlink" title="C/C++内存四区"></a><strong>C/C++内存四区</strong></h2><ul>
+<li>代码区：存放函数体的二进制代码，由操作系统管理</li>
+<li>全局区：存放全局变量，静态变量与常量</li>
+<li>栈区：存放局部变量，函数的形参值，函数的返回值</li>
+<li>堆区：由程序员手动创建（new malloc等），使用后需要手动释放（free,delete等）。</li>
+</ul>
 ]]></content>
       <categories>
         <category>C++</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>C++</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习笔记(updating)</title>
+    <url>/2020/07/02/029C++%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=296598590,3915271384&fm=26&gp=0.jpg" alt></p>
+<center><font size="4">记录学习过程中遇到的问题以及十分重要的知识点</font></center>
+<a id="more"></a>
+
+<h2 id="宏定义与条件编译"><a href="#宏定义与条件编译" class="headerlink" title="宏定义与条件编译"></a><strong>宏定义与条件编译</strong></h2><blockquote>
+<p><strong>宏定义：</strong></p>
+</blockquote>
+<ul>
+<li>定义形式：</li>
+</ul>
+<p>用一个指定的标志符来代表一个字符串，其定义为：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415926</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>功能用途：</li>
+</ul>
+<ol>
+<li>可以减少程序中重复性输入某些重用字符串的工作量。</li>
+<li>一改全改<blockquote>
+<p><strong>条件编译</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>定义：</li>
+</ul>
+<p>一般情况下，源程序中所有的行都要参加编译，但有时候需要对程序中某一部分在满足一定的情况下才进行编译，也就是对部分程序限定编译条件；另外，我们希望当满足某一条件时对一组程序进行编译，当满足另外一种情况时则编译另外一组程序。</p>
+<ul>
+<li>使用方法：</li>
+</ul>
+<p>主要由两种形式，类似于判断语句，宏定义相当于编译的开关：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> COMPUTER</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LANGUAGE</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    ''''</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> COMPUTER</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 16</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 32</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// </span></span></span><br><span class="line">	<span class="keyword">int</span> size = SIZE;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"size="</span> &lt;&lt; size &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"这是一个条件编译指令的测试"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// DEBUG</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//与ifdef相反的因素是ifndef,理解起来方法是完全相同的</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LANGUAGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CHINA <span class="meta-string">"Chinese"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// !LANGUAGE</span></span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"添加CHINA的定义后："</span> &lt;&lt; CHINA &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结构体与类的定义与区别"><a href="#结构体与类的定义与区别" class="headerlink" title="结构体与类的定义与区别"></a><strong>结构体与类的定义与区别</strong></h2><blockquote>
+<p> C结构体、C++结构体基本相同，C++类主要是方法的实现。</p>
+</blockquote>
+<p><strong>结构体是数据类型的集合</strong></p>
+<p><strong>类是数据类型加方法的集合，基本如此，更注重方法。</strong></p>
+<h2 id="malloc"><a href="#malloc" class="headerlink" title="malloc"></a><strong>malloc</strong></h2><ul>
+<li><strong>在链表中插入新的结点时可能会用的到</strong></li>
+<li>头文件#include&lt;malloc.h&gt;</li>
+<li>功能：分配长度为num_bytes字节的内存块 </li>
+<li>说明：如果分配成功则返回指向被分配内存的指针，否则返回空指针NULL。 </li>
+<li>当内存不再使用时，应使用free()函数将内存块释放</li>
+<li>malloc()函数其实就在内存中找一片指定大小的空间，然后将这个空间的首地址范围给一个指针变量，这里的指针变量可以是一个单独的指针，也可以是一个数组的首地址，这要看malloc()函数中参数size的具体内容。我们这里malloc分配的内存空间在逻辑上连续的，而在物理上可以连续也可以不连续。对于我们程序员来说，我们关注的是逻辑上的连续，因为操作系统会帮我们安排内存分配，所以我们使用起来就可以当做是连续的。</li>
+<li>注意的地方：由于malloc函数返回的是void 类型。对于C++，如果你写成：p = malloc (sizeof(int));则程序无法通过编译，报错：“不能将void*赋值给int *类型变量”。所以必须通过(int *)来将强制转换。而对于C，没有这个要求，但为了使C程序更方便的移植到C++中来，建议养成强制转换的习惯<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* p;</span><br><span class="line"><span class="comment">//分配128个（可根据实际需要替换该数值）整型存储单元，并将这128个连续的整型存储单元的首地址存储到指针变量p中</span></span><br><span class="line">p = (<span class="keyword">int</span> *) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">128</span>);</span><br><span class="line"><span class="comment">//分配12个double型存储单元，并将首地址存储到指针变量pd中</span></span><br><span class="line"><span class="keyword">double</span> *pd=(<span class="keyword">double</span> *) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(<span class="keyword">double</span>)*<span class="number">12</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">char</span> *p;  </span><br><span class="line"> </span><br><span class="line">    p=(<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">100</span>);  </span><br><span class="line">    <span class="keyword">if</span>(p)  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Memory Allocated at: %x/n"</span>,p);  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Not Enough Memory!/n"</span>);  </span><br><span class="line">    <span class="built_in">free</span>(p);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="typedef的用法"><a href="#typedef的用法" class="headerlink" title="typedef的用法"></a><strong>typedef的用法</strong></h2><ul>
+<li>typedef主要是用来自定义数据类型，可以对所有现存的数据类型进行个性化的重新定义，增加所对应类型变量的个性化程度与单一性，便于在众多变量中将某一大类具有相似关系的变量统一定义。</li>
+<li>用在旧的C的代码中（具体多旧没有查），帮助struct。以前的代码中，声明struct新对象时，必须要带上struct，即形式为： struct 结构名 对象名，如：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tagPOINT1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tagPOINT1</span> <span class="title">p1</span>;</span></span><br></pre></td></tr></table></figure></li>
+<li>可能现在在C++中没有那么明显，可以直接写 结构名 对象名，或许，在C++中，typedef的这种用途二不是很大，但是理解了它，对掌握以前的旧代码还是有帮助的，毕竟我们在项目中有可能会遇到较早些年代遗留下来的代码。</li>
+<li>但在C中估计某人觉得经常多写一个struct太麻烦了，于是就发明了：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagPOINT</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line">&#125;POINT;</span><br><span class="line"></span><br><span class="line">POINT p1; <span class="comment">// 这样就比原来的方式少写了一个struct，比较省事，尤其在大量使用的时候</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="z-x-gt-y-x-y"><a href="#z-x-gt-y-x-y" class="headerlink" title="z=x&gt;y? x : y"></a><strong>z=x&gt;y? x : y</strong></h2><p>&emsp;其实，这是一个非常基本的知识点，但是有些时候突然见到会想不起来，翻译一下就相当于：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(x&gt;y)</span><br><span class="line">&#123;</span><br><span class="line">    z=x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    z=y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;也就是可以理解为<strong>result=条件 ? 结果1 : 结果2</strong> 里面的？号是格式要求。也可以理解为条件是否成立，条件成立为结果1，否则为结果2。</p>
+<h2 id="memset-函数"><a href="#memset-函数" class="headerlink" title="memset()函数"></a><strong>memset()函数</strong></h2><p> &emsp;&emsp;这个函数在socket中多用于清空数组.如:原型是memset(buffer, 0, sizeof(buffer))。简言之，就是用来将数组进行初始化的函数。</p>
+<ul>
+<li>这个函数有三个参数，前两个为初始化数组对象及其初始化的值，最后一个通常使用sizeof()函数来写，也可以直接写具体大小n。</li>
+<li>注意，如果是对指针变量所指向的内存单元进行清零初始化，那么一定要先对这个指针变量进行初始化，即一定要先让它指向某个有效的地址。而且用memset给指针变量如p所指向的内存单元进行初始化时，n 千万别写成 sizeof(p)，这是新手经常会犯的错误。因为 p 是指针变量，不管 p 指向什么类型的变量，sizeof(p) 的值都是 4。<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"> <span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;  <span class="comment">//循环变量</span></span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">10</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> *p = str;</span><br><span class="line">    <span class="built_in">memset</span>(str, <span class="number">0</span>, <span class="keyword">sizeof</span>(str));  <span class="comment">//只能写sizeof(str), 不能写sizeof(p)</span></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\x20"</span>, str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="vector的使用"><a href="#vector的使用" class="headerlink" title="vector的使用"></a><strong>vector的使用</strong></h2>&emsp;&emsp;vector在C++的功能与数组类似，不过其优点在于其大小长度为动态的，在进行初始化定义的时候并不需要像数组那样去初始化其长度。同时，其特殊之处又决定了vector具体在使用时需要注意的细节：<ul>
+<li>往其中加入新元素时需要用 数组名.push_back(加入的元素)&emsp;来实现，<strong>而不能直接访问为初始化或者未定义的下标</strong>。</li>
+<li>同时也可以对其进行初始化n个元素。<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums;<span class="comment">//定义动态数组nums</span></span><br><span class="line"><span class="comment">//nums.[0]=0     //不可以对未定义下标直接赋值</span></span><br><span class="line">nums.psuh_back(<span class="number">1</span>)<span class="comment">//相当于数组中的nums[0]=1;</span></span><br><span class="line">nums[<span class="number">0</span>]=<span class="number">100</span>;     <span class="comment">//可以修改已定义的下标</span></span><br></pre></td></tr></table></figure>
+<h2 id="getchar-和system-“puse”-函数"><a href="#getchar-和system-“puse”-函数" class="headerlink" title="getchar()和system(“puse”)函数"></a><strong>getchar()和system(“puse”)函数</strong></h2>这两个可以用在VScode的最后面，用于终端窗口的保持，防止其弹出瞬间就突然消失。</li>
+<li>有时，我们不希望终端窗口弹出，因为只需要在下面的终端栏中也可现实。关闭窗口的弹出可以修改.vscode文件下的lanunch.json，将下面的 “externalConsole” 初始设置为false即可。(可根据个人喜好更改)<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="string">"externalConsole"</span>: <span class="literal">false</span>,</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="枚举类型menu的用法"><a href="#枚举类型menu的用法" class="headerlink" title="枚举类型menu的用法"></a><strong>枚举类型menu的用法</strong></h2><p>众所周知，C/C++语言可以使用#define和const创建符号常量，而使用enum工具不仅能够创建符号常量，还能定义新的数据类型，但是必须按照一定的规则进行，下面我们一起看下enum的使用方法</p>
+<ul>
+<li>(1)以下代码定义了这种新的数据类型 - 枚举型<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=<span class="number">1</span>, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+(1) 枚举型是一个集合，集合中的元素(枚举成员)是一些命名的整型常量，元素之间用逗号,隔开。</li>
+</ul>
+<p>(2) DAY是一个标识符，可以看成这个集合的名字，是一个可选项，即是可有可无的项。</p>
+<p>(3) 第一个枚举成员的默认值为整型的0，后续枚举成员的值在前一个成员上加1。</p>
+<p>(4) 可以人为设定枚举成员的值，从而自定义某个范围内的整数。</p>
+<p>(5) 枚举型是预处理指令#define的替代。</p>
+<p>(6) 类型定义以分号;结束。</p>
+<ul>
+<li>(2)用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = <span class="number">0</span>,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; <span class="comment">//此处的workday为枚举型enum workday的别名</span></span><br></pre></td></tr></table></figure>
+后面就可以直接使用workday来定义枚举类型了，比如<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">workday today, tomorrow; <span class="comment">//变量today和tomorrow的类型为枚举型workday，也即enum workday</span></span><br></pre></td></tr></table></figure>
+具体使用参考示例（C语言）：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> Season</span><br><span class="line">&#123;</span><br><span class="line">    spring, summer=<span class="number">100</span>, fall=<span class="number">96</span>, winter</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span></span><br><span class="line">&#123;</span><br><span class="line">    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</span><br><span class="line">&#125;</span><br><span class="line">Weekday;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* Season */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, spring); <span class="comment">// 0</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %c \n"</span>, summer, summer); <span class="comment">// 100, d</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, fall+winter); <span class="comment">// 193</span></span><br><span class="line"></span><br><span class="line">    Season mySeason=winter;</span><br><span class="line">    <span class="keyword">if</span>(winter==mySeason)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"mySeason is winter \n"</span>); <span class="comment">// mySeason is winter</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==summer)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x is equal to summer\n"</span>); <span class="comment">// x is equal to summer</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes\n"</span>, <span class="keyword">sizeof</span>(spring)); <span class="comment">// 4 bytes</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Weekday */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof Weekday is: %d \n"</span>, <span class="keyword">sizeof</span>(Weekday)); <span class="comment">//sizeof Weekday is: 4</span></span><br><span class="line"></span><br><span class="line">    Weekday today = Saturday;</span><br><span class="line">    Weekday tomorrow;</span><br><span class="line">    <span class="keyword">if</span>(today == Monday)</span><br><span class="line">        tomorrow = Tuesday;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        tomorrow = (Weekday) (today + <span class="number">1</span>); <span class="comment">//remember to convert from int to Weekday</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="二重指针"><a href="#二重指针" class="headerlink" title="二重指针"></a><strong>二重指针</strong></h2><p>&emsp;&emsp;所谓的二重指针，就是一种指向指针变量类型的指针。首先对于一个指针变量而言，它需要占用内存空间，即它本身是具有地址的，只不过对应内存空间中存放的是指针变量所指向变量的地址。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> b=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"整形数据"</span>&lt;&lt;a&lt;&lt;<span class="string">"的地址为："</span>&lt;&lt;&amp;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"整形数据"</span>&lt;&lt;b&lt;&lt;<span class="string">"的地址为："</span>&lt;&lt;&amp;b&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">int</span> *p1=&amp;a;<span class="comment">//定义了默认指向整型变量a的地址的指针变量p1</span></span><br><span class="line"><span class="keyword">int</span> *p2=&amp;b;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p1中存放的地址为："</span>&lt;&lt;p1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p2中存放的地址为："</span>&lt;&lt;p2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//指针变量本身也具有地址：</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p1本身的地址为："</span>&lt;&lt;&amp;p1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"指针变量p2本身的地址为："</span>&lt;&lt;&amp;p2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> **q=&amp;p1;<span class="comment">//q是一个指向（指向int数据类型指针）变量p1的指针，注意括号里面的描述，p1本身又是一个指向int数据类型的指针。也就是说，q里面存放的其实是p1的地址，那么*q表示的就是p1本身。所以有**q=*p1=a=1。</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;程序的输出为：</p>
+<p><img src="https://s1.ax1x.com/2020/05/04/YCPQW8.png" alt="YCPQW8.png"></p>
+<h2 id="异或操作（-）"><a href="#异或操作（-）" class="headerlink" title="异或操作（^）"></a><strong>异或操作（^）</strong></h2><p>&emsp;&emsp;位运算是C++中比较基础的知识点，常见的位运算操作：</p>
+<ol>
+<li>左移与右移 &lt;&lt;(左移)，&gt;&gt;(右移)，左右移动主要是参照箭头的朝向</li>
+<li>与(&amp;)&emsp;或(|)&emsp;取反(~)&emsp;异或(^)</li>
+</ol>
+<h2 id="关于C-中map和unordered-map的使用"><a href="#关于C-中map和unordered-map的使用" class="headerlink" title="关于C++中map和unordered_map的使用"></a><strong>关于C++中map和unordered_map的使用</strong></h2><p>map是一种以键值对的形式来存储元素的结构，并且也提供相应的成员函数来协助高效的插入，查询和删除键值对，除了map之外，还有一个名为unordered_map的结构，下面研究一下这两者的区别：</p>
+<ul>
+<li>1、引用的头文件<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">map</span> : <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="built_in">unordered_map</span> : <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unordered_map&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+<li>2、存储结构</li>
+</ul>
+<p>map是将元素存储在一个平衡二叉树中，因此元素是有序存储的</p>
+<p>unordered_map是将元素存储在一个哈希表中，正如其名字一样，他并不是有序存储的</p>
+<ul>
+<li>3、内存使用</li>
+</ul>
+<p>因为需要额外的内存来存储哈希表，因此unordered_map比map更占用内存</p>
+<ul>
+<li>4、优缺点分析及其适用处</li>
+</ul>
+<p><strong>map</strong></p>
+<ul>
+<li><p>map的存储形式就是以键值对形式存在的，map只要定义完成后，就可以像数组那样去访问键值对以及对键值对进行赋值操作。</p>
+</li>
+<li><p>map在使用时候需要在头文件中加入#include&lt;map.h&gt;,下面看一个简单的例程。</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; hashmap;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec=&#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">7</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        hashmap[vec[i]]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//打印map中的元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"map中若访问不存在的键，则返回 0 "</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;hashmap[<span class="number">90000</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优点：</p>
+<p>有序性，这是map结构最大的优点，其元素的有序性在很多 应用中都会简化很多的操作树，内部实现一个树使得map的很多操作在logn的时间复杂度下就可以实现，因此效率非常的高</p>
+<p>缺点：</p>
+<p>空间占用率高，因为map内部实现了树，虽然提高了运行效率，但是因为每一个节点都需要额外保存父节点，使得每一个节点都占用大量的空间</p>
+<p>适用处：</p>
+<p>对于那些有顺序要求的问题，用map会更高效一些</p>
+<p><strong>unordered_map</strong></p>
+<p>优点：</p>
+<p>因为内部实现了哈希表，因此其查找速度非常的快</p>
+<p>缺点：</p>
+<p>哈希表的建立比较耗费时间</p>
+<p>适用处：</p>
+<p>对于查找问题，unordered_map会更加高效一些，因此遇到查找问题，常会考虑一下用unordered_map</p>
+<ul>
+<li>举例分析:(罗马数字与阿拉伯数字转换，巧用map):</li>
+</ul>
+<p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
+<p>Symbol Value<br>I 1<br>V 5<br>X 10<br>L 50<br>C 100<br>D 500<br>M 1000<br>For example, two is written as II in Roman numeral, just two one’s added together. Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, which is XX + V + II.</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
+<p>I can be placed before V (5) and X (10) to make 4 and 9.<br>X can be placed before L (50) and C (100) to make 40 and 90.<br>C can be placed before D (500) and M (1000) to make 400 and 900.<br>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
+<p>Example 1:<br>Input: “III”<br>Output: 3</p>
+<p>Example 2:<br>Input: “IV”<br>Output: 4</p>
+<p>Example 3:<br>Input: “IX”<br>Output: 9</p>
+<p>Example 4:<br>Input: “LVIII”<br>Output: 58<br>Explanation: L = 50, V= 5, III = 3.</p>
+<p>Example 5:<br>Input: “MCMXCIV”<br>Output: 1994<br>Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</p>
+<p>这道题我们就可以借助map来进行实现，具体代码实现如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; romanumber;</span><br><span class="line">        romanumber[<span class="string">'I'</span>] = <span class="number">1</span>;</span><br><span class="line">        romanumber[<span class="string">'V'</span>] = <span class="number">5</span>;</span><br><span class="line">        romanumber[<span class="string">'X'</span>] = <span class="number">10</span>;</span><br><span class="line">        romanumber[<span class="string">'L'</span>] = <span class="number">50</span>;</span><br><span class="line">        romanumber[<span class="string">'C'</span>] = <span class="number">100</span>;</span><br><span class="line">        romanumber[<span class="string">'D'</span>] = <span class="number">500</span>;</span><br><span class="line">        romanumber[<span class="string">'M'</span>] = <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">int</span> rlt = romanumber[s[s.size() - <span class="number">1</span>]];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = s.size() - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(romanumber[s[i]] &gt;= romanumber[s[i+<span class="number">1</span>]])</span><br><span class="line">            &#123;</span><br><span class="line">                rlt += romanumber[s[i]];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                rlt -= romanumber[s[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> rlt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="sort-函数的用法"><a href="#sort-函数的用法" class="headerlink" title="sort()函数的用法"></a><strong>sort()函数的用法</strong></h2><p>在进行程序书写过程中，有时候要对向量或者数组按照一定的顺序排列，当然可以通过排序算法进行排序，但是熟练到一定程度之后，我们可以通过直接使用sort()函数来对数组按照自己的需求意愿进行简单的排序。</p>
+<ol>
+<li>关于sort()函数<br>sort()函数位于C++的标准库#include<algorithm>中，调用标准库里面的排序方法可以实现对数据的排序</algorithm></li>
+<li>sort()函数的三个参数<br>void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);</li>
+</ol>
+<p>（1）第一个参数first：是要排序的数组的起始地址。</p>
+<p>（2）第二个参数last：是结束的地址（最后一个数据的后一个数据的地址）</p>
+<p>（3）第三个参数comp是排序的方法：可以是从升序也可是降序。如果第三个参数不写，则默认的排序方法是从小到大排序。</p>
+<ol start="3">
+<li>实例<br>（1）默认情况下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">main()</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="comment">//sort函数第三个参数采用默认从小到大</span></span><br><span class="line">　　<span class="keyword">int</span> a[]=&#123;<span class="number">45</span>,<span class="number">12</span>,<span class="number">34</span>,<span class="number">77</span>,<span class="number">90</span>,<span class="number">11</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">55</span>&#125;;</span><br><span class="line">    <span class="comment">//没有对cmp进行定义</span></span><br><span class="line">　　sort(a,a+<span class="number">10</span>);</span><br><span class="line">　　<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">　　<span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+（2）声名情况下<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br><span class="line">main()&#123;</span><br><span class="line">　　<span class="comment">//sort函数第三个参数自己定义，实现从大到小</span></span><br><span class="line">　　<span class="keyword">int</span> a[]=&#123;<span class="number">45</span>,<span class="number">12</span>,<span class="number">34</span>,<span class="number">77</span>,<span class="number">90</span>,<span class="number">11</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">55</span>&#125;;</span><br><span class="line">　　sort(a,a+<span class="number">10</span>,cmp);</span><br><span class="line">　　<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">　　　　<span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//自定义函数</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">　　<span class="keyword">return</span> a&gt;b;<span class="comment">//按照自己希望的的方式来定义大小关系</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="栈stack的使用"><a href="#栈stack的使用" class="headerlink" title="栈stack的使用"></a><strong>栈stack的使用</strong></h2><p>C++中提供了栈的标准模板库，在使用栈时需要在头文件中加入：include <stack>。下面简单介绍栈在使用过程中的一些常用的指令操作：</stack></p>
+<ol>
+<li>stack 可以看作一种新的容器类型，但是它的特殊之处就在于栈的存取操作是先进后出。</li>
+<li>入栈操作：s.push() 将括号里面的内容压入栈内</li>
+<li>打印，取出，获得栈顶元素： s.top() </li>
+<li>出栈操作：s.pop() 将栈里面的元素出栈</li>
+<li>判断栈是否为空栈：s.empty()</li>
+</ol>
+<p>上面描述的一些操作如下</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//栈的实现</span></span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; zhan;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; element.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		zhan.push(element[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"栈的大小为（栈中的元素个数为）："</span> &lt;&lt; zhan.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">while</span> (!zhan.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; zhan.top() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		zhan.pop();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-中队列的使用"><a href="#C-中队列的使用" class="headerlink" title="C++中队列的使用"></a><strong>C++中队列的使用</strong></h2><p>队列也是C++中的一种标准容器类，其最大的特点就是先进先出。在头文件中要加入 #include <queue>头文件，下面介绍一些其常用的指令操作：</queue></p>
+<ol>
+<li><strong>push()</strong> 向队列中插入新的元素，由于队列是基于先进先出，在执行push()操作时，新插入的元素放在队尾</li>
+<li><strong>pop()</strong> 将位于队列中最靠前的值拿掉</li>
+<li><strong>size()</strong> 返回队列的长度，队列中元素的个数</li>
+<li><strong>empty()</strong> 判断队列是否为一个空队列，若是队列为空，则返回true</li>
+<li><strong>front()</strong> 返回当前队列的第一个元素<br>使用案例如下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//队列的操作</span></span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="built_in">string</span>&gt; my_queue;</span><br><span class="line">	my_queue.push(<span class="string">"Hello World"</span>);</span><br><span class="line">	my_queue.push(<span class="string">"I love China"</span>);</span><br><span class="line">	my_queue.push(<span class="string">"Nice to meet you"</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"队头的元素为："</span> &lt;&lt; my_queue.front() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"队的长度为"</span> &lt;&lt; my_queue.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (!my_queue.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"队中第"</span> &lt;&lt; i &lt;&lt; <span class="string">"个元素为："</span> &lt;&lt; my_queue.front() &lt;&lt; <span class="built_in">endl</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		i++;</span><br><span class="line">		my_queue.pop();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="利用数组创建一个链式结构"><a href="#利用数组创建一个链式结构" class="headerlink" title="利用数组创建一个链式结构"></a><strong>利用数组创建一个链式结构</strong></h2><p>有时候我们已经获得链表中的数据元素项目，将链表中的元素已经顺序存入了一个vector中，现在需要将vector中的元素构造出一个链表，可以通过下面描述的方法进行操作：</p>
+<ol>
+<li>首先我们新建一个节点,并将节点指向为NULL listNOde *head=nullptr;</li>
+<li>对容器进行遍历，每次遍历时，都新建一个新的节点，并且节点的储值赋值为 当前容器中的元素</li>
+<li>令当前新建的节点的下一节点指向 head；</li>
+<li>最后再将当前节点指向head<br>所以，以上四步操作就实现了不断将新元素放在链表的头部，若是向不改变顺序，应将容器进行逆序遍历，代码如下：<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">listNode *head=<span class="literal">nullptr</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=nums.size()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">&#123;</span><br><span class="line">    listNode *current=<span class="keyword">new</span> listNode(nums[i]);</span><br><span class="line">    current-&gt;next=head;</span><br><span class="line">    head=current;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="指针中函数指针-amp-amp-指针函数"><a href="#指针中函数指针-amp-amp-指针函数" class="headerlink" title="指针中函数指针&amp;&amp;指针函数"></a><strong>指针中函数指针&amp;&amp;指针函数</strong></h2><h3 id="1-函数指针"><a href="#1-函数指针" class="headerlink" title="1.函数指针"></a>1.函数指针</h3><p>说实话，函数指针就是一个特殊的<strong>指针</strong>，指针都使用来指向一种类型的地址的，函数指针也不例外。函数在执行时，内存会为函数开辟一块专用的内存地址使用，所谓函数指针，就是专门指向函数入口的指针。</p>
+<p>其定义同其他类型指针定义有相似之处</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">指针类型+指针名</span></span><br><span class="line"><span class="comment">int *p;</span></span><br><span class="line"><span class="comment">char *c;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义了一个函数指针add，用于指向返回值为int，并且有两个int参数的函数</span></span><br><span class="line"><span class="keyword">int</span> (*add)(<span class="keyword">int</span>,<span class="keyword">int</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>下面附上一段完整的程序代码，定义了一个函数指针（*add）,用来指向求和函数addFunc</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">addfunc</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> (*add)(<span class="keyword">int</span>, <span class="keyword">int</span>) = addfunc;</span><br><span class="line">        <span class="comment">//两种方法都可以</span></span><br><span class="line">        <span class="comment">//int (*add)(int, int) = &amp;addfunc;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> result = (*add)(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">        <span class="comment">//两种方法都可以，建议使用第一种</span></span><br><span class="line">        <span class="comment">//int result = add(1, 2);</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"通过函数指针调用函数进行计算结果："</span> &lt;&lt; result &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        result = addfunc(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"通过直接调用函数进行计算结果："</span> &lt;&lt; result &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-指针函数"><a href="#2-指针函数" class="headerlink" title="2.指针函数"></a>2.指针函数</h3><p>指针函数重点强调函数，函数都具有类型，类似于整形函数的返回值类型为整型，指针函数的返回值类型为指针。</p>
+<p>下面的范例实现了返回一个类型为指针的指针函数</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">                A(<span class="keyword">int</span> a) &#123;</span><br><span class="line">                        <span class="keyword">this</span>-&gt;a = a;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="function"><span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> a;</span><br><span class="line">                &#125;</span><br><span class="line">        <span class="keyword">private</span>:</span><br><span class="line">                <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回值为指向类型A的指针的函数</span></span><br><span class="line"><span class="function">A *<span class="title">createA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> A(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//创建一个指向A类型的指针，并调用createA创建一个A类型的对象</span></span><br><span class="line">        A* b = createA();</span><br><span class="line">        <span class="comment">//通过指针调用类的方法</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"b-&gt;a = "</span> &lt;&lt; b-&gt;getA() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="循环表达式：for-auto-c-temp"><a href="#循环表达式：for-auto-c-temp" class="headerlink" title="循环表达式：for(auto c:temp)"></a><strong>循环表达式：for(auto c:temp)</strong></h2><p>此种用法可以不考虑数组的长度来对数组进行遍历，尤其经常使用在map结构中，可以实现map第一个元素的跳动。下面的例程中，map中存放了数组元nums中每个元素出现的次数，我们需要找出元素数目小于2的，可以通过for(auto c:temp)来开启循环语句。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//剑指offer 56题，找出数组中不重复的两个数字</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">singleNumbers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//出现次数统计</span></span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; temp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.size();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            temp[nums[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c:temp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(c.second&lt;<span class="number">2</span>) ans.push_back(c.first); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二进制位操作"><a href="#二进制位操作" class="headerlink" title="二进制位操作"></a><strong>二进制位操作</strong></h2><p>有时候需要对数据进行按位操作，在C++中，可以直接对整形数据进行按位逻辑操作，移位操作</p>
+<ul>
+<li><strong>（&amp;）</strong> a&amp;b，a,b均为int类型，表示将整形数字a和b将</li>
+</ul>
+<h2 id="C-C-内存四区"><a href="#C-C-内存四区" class="headerlink" title="C/C++内存四区"></a><strong>C/C++内存四区</strong></h2><ul>
+<li>代码区：存放函数体的二进制代码，由操作系统管理</li>
+<li>全局区：存放全局变量，静态变量与常量</li>
+<li>栈区：存放局部变量，函数的形参值，函数的返回值</li>
+<li>堆区：由程序员手动创建（new malloc等），使用后需要手动释放（free,delete等）。</li>
+</ul>
+<h2 id="C-sort的时间复杂度"><a href="#C-sort的时间复杂度" class="headerlink" title="C++ sort的时间复杂度"></a><strong>C++ sort</strong>的时间复杂度</h2><p>C++中sort的时间复杂度为nlogn,有些题目中对时间复杂度有要求，二分查找logn 肯定要好于直接遍历n;</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1709,8 +2069,8 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
 <p>上面一段话中包含着两种思想，一个是逐渐递归地往下走，走到可以判断终点的标志，</p>
 ]]></content>
       <tags>
-        <tag>LeetCode</tag>
         <tag>笔记</tag>
+        <tag>LeetCode</tag>
         <tag>算法</tag>
         <tag>数据结构</tag>
       </tags>
