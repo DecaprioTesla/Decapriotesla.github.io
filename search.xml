@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>算法做题笔记</title>
+    <url>/2020/07/02/032%E7%AE%97%E6%B3%95%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F2cd59b961dcd8657fee653bce8877f68f9b590be1fdad-6l57jO_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623463673&t=b71f3d0f1a627330428c323952cb5b2b" alt></p>
+<center><font size="4">Live the life you want to live</font></center>
+<a id="more"></a>
+
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a><strong>动态规划</strong></h2><p>动态规划的最核心关键在于对递推公式的发掘，初始边界条件的判断和分析。动态规划的入门题目有青蛙跳台问题。这种题目最为直接的解答方式就是寻找当前节点与前面节点之间的计算关系。</p>
+<h4 id="题1：解码方法"><a href="#题1：解码方法" class="headerlink" title="题1：解码方法"></a><strong>题1：解码方法</strong></h4>]]></content>
+      <tags>
+        <tag>刷题</tag>
+        <tag>工作</tag>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>To Do Lists</title>
     <url>/2020/07/02/031%E6%AF%8F%E6%97%A5%E5%BF%85%E5%81%9A%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p><img src="https://img.imgdb.cn/item/607d8b4a8322e6675cc3f2dd.png" alt></p>
@@ -14,6 +29,72 @@
         <tag>刷题</tag>
         <tag>工作</tag>
         <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode每日一题(updating)</title>
+    <url>/2021/05/09/033Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/</url>
+    <content><![CDATA[<p><img src="https://pic.rmb.bdstatic.com/5da751880d6acc39c36604bcb09da63f.jpeg" alt></p>
+<center><font size="4">每日一刷，每日一结</font></center>
+
+<a id="more"></a>
+
+<h3 id="五月每日一题"><a href="#五月每日一题" class="headerlink" title="五月每日一题"></a>五月每日一题</h3><h4 id="5-09-母亲节，制作m束花所需要的最少天数"><a href="#5-09-母亲节，制作m束花所需要的最少天数" class="headerlink" title="5.09 母亲节，制作m束花所需要的最少天数"></a><strong>5.09</strong> 母亲节，制作m束花所需要的最少天数</h4><p>这一题主要是先对题目做一个概览性的分析：</p>
+<ul>
+<li><p>1、只要花的数量小于总数，必然无返回，只要花的数量大于或等于总数，则必然有结果</p>
+</li>
+<li><p>2、存在那么一个days，当大于days必然有连续数组满足，小于days必然不满足，是一个关于days的递增函数，我们就是要找到这个突变点</p>
+</li>
+<li><p>关于days满不满足，这就是判断不超过days限定条件的最多长度为k的连续子数组的数量</p>
+</li>
+</ul>
+<p>下面给出代码分析：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkDays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; bloomDay,<span class="keyword">int</span> days,<span class="keyword">int</span> m,<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//先定义花的捆数，以及每捆花初始花朵数</span></span><br><span class="line">        <span class="keyword">int</span> kun=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> flowers=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> length=bloomDay.size();</span><br><span class="line">        <span class="comment">//遍历整个数组,以不超过天数为界线，然后去找连续子数组的长度，实时更新长度与比较长度。</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length&amp;&amp;kun&lt;m;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(bloomDay[i]&lt;=days)</span><br><span class="line">            &#123;</span><br><span class="line">                flowers++;</span><br><span class="line">                <span class="keyword">if</span>(flowers==k)</span><br><span class="line">                &#123;</span><br><span class="line">                    kun++;</span><br><span class="line">                    flowers=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> flowers=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> kun&gt;=m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minDays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; bloomDay, <span class="keyword">int</span> m, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length=bloomDay.size();</span><br><span class="line">        <span class="comment">//花的数目本来就不够</span></span><br><span class="line">        <span class="keyword">if</span>(m*k&gt;length) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">//找到开放天数的最大值</span></span><br><span class="line">        <span class="keyword">int</span> largestday=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(bloomDay[i]&gt;=largestday) largestday=bloomDay[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right=largestday;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> days=(left+right)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(checkDays(bloomDay,days,m,k)) right=days;</span><br><span class="line">            <span class="keyword">else</span> left=days+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="05-10-二叉树的叶子的遍历：叶子相似的树"><a href="#05-10-二叉树的叶子的遍历：叶子相似的树" class="headerlink" title="05.10 二叉树的叶子的遍历：叶子相似的树"></a><strong>05.10</strong> 二叉树的叶子的遍历：叶子相似的树</h4><p>给定两棵二叉树，首先通过递归方法遍历得到叶子节点，然后比较两颗树的叶子节点是否完全一样</p>
+<ul>
+<li>首先定义两个vector对叶子节点进行存储</li>
+<li>然后写一个dfs进行二叉树叶子节点遍历存储<ul>
+<li>1、注意通过引用进行vector的地址传递‘</li>
+<li>2、如果为空，结束标志</li>
+<li>3、否则如果左右孩子均为空，则说明为叶子，放入vector</li>
+<li>4、用dfs继续操作左右孩子</li>
+</ul>
+</li>
+<li>判断两个vector是否相同</li>
+</ul>
+<p>给出代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode* root,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;temp)</span><span class="comment">//一定要进行引用传递</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//root为空，结束标志</span></span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">nullptr</span>) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="comment">//左右孩子均为空，叶子标志</span></span><br><span class="line">        <span class="keyword">if</span>(root-&gt;left==<span class="literal">nullptr</span>&amp;&amp;root-&gt;right==<span class="literal">nullptr</span>) temp.push_back(root-&gt;val);</span><br><span class="line">        <span class="comment">//然后分别对左孩子，右孩子执行相同操作</span></span><br><span class="line">        dfs(root-&gt;left,temp);</span><br><span class="line">        dfs(root-&gt;right,temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">leafSimilar</span><span class="params">(TreeNode* root1, TreeNode* root2)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp1;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp2;</span><br><span class="line">        dfs(root1,temp1);</span><br><span class="line">        dfs(root2,temp2);</span><br><span class="line">        <span class="keyword">return</span> (temp1==temp2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="05-11位操作，根据异或的加密结果求原码值"><a href="#05-11位操作，根据异或的加密结果求原码值" class="headerlink" title="05.11位操作，根据异或的加密结果求原码值"></a><strong>05.11</strong>位操作，根据异或的加密结果求原码值</h4><p>描述一种加密方式：pre有奇数个元素（元素为1-n），相邻两个异或操作可以得到encoded数组，现在给出encoded数组，需要求出原本的pre数组</p>
+<ul>
+<li>这道题目最关键的要点在于：若是知道pre第一个数字，其他的结果可以立刻求得。而pre第一个元素的获取方法比较特殊：由于，pre_all=pre_0异或pre_剩余，pre_all可以知道，pre_剩余可以知道(为encode中所有奇数位上元素的异或)。因此pre_0可以知道。</li>
+<li>然后即可通过pre_0和encode求得pre所有元素。</li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">decode</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; encoded)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//最关键的一点：per的除了第一个元素以外的另外偶数个两两之间操作，即为encoded的奇数项的结果；</span></span><br><span class="line">        <span class="comment">//异或交换定律： per全部元素的异或=   除去per[0]异或结果与per[0]异或结果</span></span><br><span class="line">        <span class="comment">//所以：per[0]=per全部元素异或 与除去per[0]之外元素异或（也是encoded的奇数元素下标项异或结果）</span></span><br><span class="line">        <span class="keyword">int</span> n=encoded.size()+<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//初始化除去第一个，全部</span></span><br><span class="line">        <span class="keyword">int</span> without_first=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> all=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;encoded.size();i+=<span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            without_first=without_first^encoded[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            all=all^i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//获得目标数组</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;per;</span><br><span class="line">        <span class="keyword">int</span> per_first=without_first^all;</span><br><span class="line">        per.push_back(per_first);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            per.push_back(per[i<span class="number">-1</span>]^encoded[i<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> per;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="05-13停留在原地的方案数目（动态规划大法）"><a href="#05-13停留在原地的方案数目（动态规划大法）" class="headerlink" title="05.13停留在原地的方案数目（动态规划大法）"></a><strong>05.13</strong>停留在原地的方案数目（动态规划大法）</h4><p>给定步数step，给定移动数组长度len;每次可以选择不动，向左移动一次，向右移动一次，原地保持不动。求最终回到原点的方案数目</p>
+<ul>
+<li>刚接触到这道题目，自己感觉应该是动态规划，但是没有想到状态转移方程怎么去写，其实对于这类题目，状态转移方程是比较容易定义的。dp数组定义dp[i] [j] 表示在i步操作到达 j位置的方案数，有了这个定义就可以往下面去一步步推理了。</li>
+<li>dp[i] [j]中首先将能到达位置范围缩小一下：j的最大值是选择len和step中较小的那一个 int maxcolumm=min( len-1,steps ) 所以dp的定义 vector&lt;vector<int>&gt;dp( steps+1,vector<int>( maxcolumn+1,0];</int></int></li>
+<li>然后就是初始条件和状态转移矩阵的定义：A：都可以为原地保持不动操作；B：向右走得到；C：向左走得到。</li>
+<li>然后就是初始条件</li>
+</ul>
+<p>这里给出代码</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> MODULO = <span class="number">1000000007</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numWays</span><span class="params">(<span class="keyword">int</span> steps, <span class="keyword">int</span> arrLen)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//能够到达最远的下标数字。len太大了，步数没那么多也是白瞎。</span></span><br><span class="line">        <span class="keyword">int</span> maxColumn = min(arrLen - <span class="number">1</span>, steps);</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">dp</span><span class="params">(steps + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(maxColumn + <span class="number">1</span>))</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= steps; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= maxColumn; j++) &#123;</span><br><span class="line">                <span class="comment">//首先，都可以是原地不动而来。</span></span><br><span class="line">                dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">                <span class="comment">//j&gt;0，它可以除了原地不动，也可以是从左边向右移动</span></span><br><span class="line">                <span class="keyword">if</span> (j - <span class="number">1</span> &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                    dp[i][j] = (dp[i][j] + dp[i - <span class="number">1</span>][j - <span class="number">1</span>]) % MODULO;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//j不是最右边下标，那么它除了原地不动和右边移动，也可以是从右边向左边而来</span></span><br><span class="line">                <span class="keyword">if</span> (j + <span class="number">1</span> &lt;= maxColumn) &#123;</span><br><span class="line">                    dp[i][j] = (dp[i][j] + dp[i - <span class="number">1</span>][j + <span class="number">1</span>]) % MODULO;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[steps][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -34,7 +115,39 @@
 <p>现在已接近四月中旬，时间比较紧张，小论文的结果还不好说，课题进展也不是很快，总体来说现在的形势是留给自己专心学习刷题找工作的时间不多了。所以这段时间的学习效率是十分关键的。</p>
 <p>《剑指offer》题量不大，但是题目涵盖知识范围是很广的，我相信，只要认认真真地刷完其中的每一道题，而且形成一定的总结，即使有自己的方法，但可能不是最优的方法，所以应认真地对待每一道题目和每一个知识点。</p>
 <p>下一阶段，将在leetcode上进行刷题，力扣的题测试集是很全的，而且里面的题解要比牛课多些。</p>
-<h3 id="2-正文"><a href="#2-正文" class="headerlink" title="2.正文"></a><strong>2.正文</strong></h3>]]></content>
+<h3 id="2-正文"><a href="#2-正文" class="headerlink" title="2.正文"></a><strong>2.正文</strong></h3><blockquote>
+<p><strong>剑指offer03</strong>数组中重复的数字</p>
+</blockquote>
+<p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
+<ul>
+<li><p><strong>题目分析</strong>：本题数组中数字均为下标范围内，所以这个找重复数字就比较简单了</p>
+</li>
+<li><p><strong>解决思路</strong></p>
+</li>
+</ul>
+<p>&emsp;方法一：利用map，通过键值对来判断哪一个键值出现的次数超过了两次</p>
+<p>&emsp;方法二：巧用下表规律,每个下标都在索引范围内，先全部初始化为false,然后在进行赋值为true,当其中某一个下标突然被赋值为true一次后，那么他就是出现过一次的。</p>
+<ul>
+<li><strong>code</strong><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">bool</span> flag[nums.size()];</span><br><span class="line">       <span class="built_in">memset</span>(flag, <span class="literal">false</span>, <span class="keyword">sizeof</span>(flag));<span class="comment">//给bool数组中每个元素附上一个false初值。</span></span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++)</span><br><span class="line">           <span class="keyword">if</span>(flag[nums[i]])</span><br><span class="line">               <span class="keyword">return</span> nums[i];</span><br><span class="line">           <span class="keyword">else</span></span><br><span class="line">               flag[nums[i]] = <span class="literal">true</span>;</span><br><span class="line">       <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// map&lt;int,int&gt; m;</span></span><br><span class="line">       <span class="comment">// for(int i=0;i&lt;nums.size();i++)</span></span><br><span class="line">       <span class="comment">// &#123;</span></span><br><span class="line">       <span class="comment">//     m[nums[i]]++;</span></span><br><span class="line">       <span class="comment">// &#125;</span></span><br><span class="line">       <span class="comment">// for(auto c in m)</span></span><br><span class="line">       <span class="comment">// &#123;</span></span><br><span class="line">       <span class="comment">//     if(c.second&gt;1) return c.first;</span></span><br><span class="line">       <span class="comment">// &#125;</span></span><br><span class="line">       <span class="comment">// return -1;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p><strong>剑指offer03</strong>数组中重复的数字</p>
+</blockquote>
+<p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
+<ul>
+<li><p><strong>题目分析</strong>：本题数组中数字均为下标范围内，所以这个找重复数字就比较简单了</p>
+</li>
+<li><p><strong>解决思路</strong></p>
+</li>
+</ul>
+<p>&emsp;方法一：利用map，通过键值对来判断哪一个键值出现的次数超过了两次</p>
+<p>&emsp;方法二：巧用下表规律,每个下标都在索引范围内，先全部初始化为false,然后在进行赋值为true,当其中某一个下标突然被赋值为true一次后，那么他就是出现过一次的。</p>
+<ul>
+<li><strong>code</strong></li>
+</ul>
+]]></content>
       <categories>
         <category>C++</category>
       </categories>
@@ -619,8 +732,8 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
         <category>C++</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>笔记</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -848,13 +961,20 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
 <li>堆区：由程序员手动创建（new malloc等），使用后需要手动释放（free,delete等）。</li>
 </ul>
 <h2 id="C-sort的时间复杂度"><a href="#C-sort的时间复杂度" class="headerlink" title="C++ sort的时间复杂度"></a><strong>C++ sort</strong>的时间复杂度</h2><p>C++中sort的时间复杂度为nlogn,有些题目中对时间复杂度有要求，二分查找logn 肯定要好于直接遍历n;</p>
+<h2 id="String-中-find-与substr-的用法"><a href="#String-中-find-与substr-的用法" class="headerlink" title="String 中 find()与substr()的用法"></a><strong>String 中 find()与substr()的用法</strong></h2><p>C++中find函数用于寻找子字符串，substr()用于分割字符串，find函数返回EOF 表示不是子字符串，是字符串则返回第一次出现时的下标，</p>
+<p>C++中substr用于分割，s.substr(star起始位置下表，<strong>len往后寻找元素个数</strong>),注意第二个元素的意义为向后寻找的元素的个数。</p>
+<p>程序实例</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s = <span class="string">"hello"</span>;</span><br><span class="line">	<span class="built_in">string</span> t = <span class="string">"ll"</span>;</span><br><span class="line">	<span class="built_in">string</span> m = <span class="string">"all"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s.find(t) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s.find(m) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">if</span> (s.find(m) == EOF)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"返回EOF，m不为s的子字符串"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">string</span> temp = s.substr(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; temp &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二维数组vector定义"><a href="#二维数组vector定义" class="headerlink" title="二维数组vector定义"></a><strong>二维数组vector定义</strong></h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">dp</span><span class="params">(rows,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(coloumns,<span class="number">0</span>))</span></span>;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>C++</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>笔记</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -2069,8 +2189,8 @@ Ds（SER）引脚是串行数据输入引脚，连接GPIOB2，根据B2引脚电�
 <p>上面一段话中包含着两种思想，一个是逐渐递归地往下走，走到可以判断终点的标志，</p>
 ]]></content>
       <tags>
-        <tag>笔记</tag>
         <tag>LeetCode</tag>
+        <tag>笔记</tag>
         <tag>算法</tag>
         <tag>数据结构</tag>
       </tags>
