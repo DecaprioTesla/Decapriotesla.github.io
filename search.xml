@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>算法做题笔记</title>
-    <url>/2020/07/02/032%E7%AE%97%E6%B3%95%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F2cd59b961dcd8657fee653bce8877f68f9b590be1fdad-6l57jO_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623463673&t=b71f3d0f1a627330428c323952cb5b2b" alt></p>
-<center><font size="4">Live the life you want to live</font></center>
-<a id="more"></a>
-
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a><strong>动态规划</strong></h2><p>动态规划的最核心关键在于对递推公式的发掘，初始边界条件的判断和分析。动态规划的入门题目有青蛙跳台问题。这种题目最为直接的解答方式就是寻找当前节点与前面节点之间的计算关系。</p>
-<h4 id="题1：解码方法"><a href="#题1：解码方法" class="headerlink" title="题1：解码方法"></a><strong>题1：解码方法</strong></h4>]]></content>
-      <tags>
-        <tag>刷题</tag>
-        <tag>工作</tag>
-        <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>To Do Lists</title>
     <url>/2020/07/02/031%E6%AF%8F%E6%97%A5%E5%BF%85%E5%81%9A%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p><img src="https://img.imgdb.cn/item/607d8b4a8322e6675cc3f2dd.png" alt></p>
@@ -25,6 +10,21 @@
 <h3 id="1、打开电脑，打开CS-Note、打开力扣每日一题、打开剑指offer"><a href="#1、打开电脑，打开CS-Note、打开力扣每日一题、打开剑指offer" class="headerlink" title="1、打开电脑，打开CS Note、打开力扣每日一题、打开剑指offer"></a><strong>1、打开电脑，打开CS Note、打开力扣每日一题、打开剑指offer</strong></h3><h3 id="2、谷歌高畅pdf"><a href="#2、谷歌高畅pdf" class="headerlink" title="2、谷歌高畅pdf"></a><strong>2、谷歌高畅pdf</strong></h3><h3 id="3、打开《王道考研》计算机网络，操作系统，打开兄弟连Linux"><a href="#3、打开《王道考研》计算机网络，操作系统，打开兄弟连Linux" class="headerlink" title="3、打开《王道考研》计算机网络，操作系统，打开兄弟连Linux"></a><strong>3、打开《王道考研》计算机网络，操作系统，打开兄弟连Linux</strong></h3><h3 id="4、打开VSCODE，打开C-笔记，新发现的博客地址，打开剑指offer笔记"><a href="#4、打开VSCODE，打开C-笔记，新发现的博客地址，打开剑指offer笔记" class="headerlink" title="4、打开VSCODE，打开C++笔记，新发现的博客地址，打开剑指offer笔记"></a><strong>4、打开VSCODE，打开C++笔记，新发现的博客地址，打开剑指offer笔记</strong></h3><p>调整一下座椅和坐姿，准备出发。</p>
 <p><img src="https://img.imgdb.cn/item/607d9bb88322e6675ced0844.jpg" alt></p>
 ]]></content>
+      <tags>
+        <tag>刷题</tag>
+        <tag>工作</tag>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法做题笔记</title>
+    <url>/2020/07/02/032%E7%AE%97%E6%B3%95%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F2cd59b961dcd8657fee653bce8877f68f9b590be1fdad-6l57jO_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623463673&t=b71f3d0f1a627330428c323952cb5b2b" alt></p>
+<center><font size="4">Live the life you want to live</font></center>
+<a id="more"></a>
+
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a><strong>动态规划</strong></h2><p>动态规划的最核心关键在于对递推公式的发掘，初始边界条件的判断和分析。动态规划的入门题目有青蛙跳台问题。这种题目最为直接的解答方式就是寻找当前节点与前面节点之间的计算关系。</p>
+<h4 id="题1：解码方法"><a href="#题1：解码方法" class="headerlink" title="题1：解码方法"></a><strong>题1：解码方法</strong></h4>]]></content>
       <tags>
         <tag>刷题</tag>
         <tag>工作</tag>
@@ -87,6 +87,20 @@
 </ul>
 <p>这里给出代码</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> MODULO = <span class="number">1000000007</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numWays</span><span class="params">(<span class="keyword">int</span> steps, <span class="keyword">int</span> arrLen)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//能够到达最远的下标数字。len太大了，步数没那么多也是白瞎。</span></span><br><span class="line">        <span class="keyword">int</span> maxColumn = min(arrLen - <span class="number">1</span>, steps);</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">dp</span><span class="params">(steps + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(maxColumn + <span class="number">1</span>))</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= steps; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= maxColumn; j++) &#123;</span><br><span class="line">                <span class="comment">//首先，都可以是原地不动而来。</span></span><br><span class="line">                dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">                <span class="comment">//j&gt;0，它可以除了原地不动，也可以是从左边向右移动</span></span><br><span class="line">                <span class="keyword">if</span> (j - <span class="number">1</span> &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                    dp[i][j] = (dp[i][j] + dp[i - <span class="number">1</span>][j - <span class="number">1</span>]) % MODULO;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//j不是最右边下标，那么它除了原地不动和右边移动，也可以是从右边向左边而来</span></span><br><span class="line">                <span class="keyword">if</span> (j + <span class="number">1</span> &lt;= maxColumn) &#123;</span><br><span class="line">                    dp[i][j] = (dp[i][j] + dp[i - <span class="number">1</span>][j + <span class="number">1</span>]) % MODULO;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[steps][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="05-14整数转罗马数字（类似一种贪心算法）"><a href="#05-14整数转罗马数字（类似一种贪心算法）" class="headerlink" title="05.14整数转罗马数字（类似一种贪心算法）"></a><strong>05.14</strong>整数转罗马数字（类似一种贪心算法）</h4><ul>
+<li><p>这题的关键思路在于能够把罗马数字的所有子序列找出来</p>
+</li>
+<li><p>所有子序列：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">son_nums[]=&#123;<span class="number">1000</span>,<span class="number">900</span>,<span class="number">500</span>,<span class="number">400</span>,<span class="number">100</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">40</span>,<span class="number">10</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="built_in">string</span> son_str[]=&#123;<span class="string">"M"</span>,<span class="string">"CM"</span>,<span class="string">"D"</span>,<span class="string">"CD"</span>,<span class="string">"C"</span>,<span class="string">"XC"</span>,<span class="string">"L"</span>,<span class="string">"XL"</span>,<span class="string">"X"</span>,<span class="string">"IX"</span>,<span class="string">"V"</span>,<span class="string">"IV"</span>,<span class="string">"I"</span>&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后通过数组的遍历便可以得到</p>
+<p>如果num大于某一个元素，那么就在结果中加上其对应的罗马数字，并且自身减去这个元素，直至不大于这个元素的时候才切换到下一个元素</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//所有子数</span></span><br><span class="line">        <span class="keyword">int</span> son_nums[]=&#123;<span class="number">1000</span>,<span class="number">900</span>,<span class="number">500</span>,<span class="number">400</span>,<span class="number">100</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">40</span>,<span class="number">10</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="comment">//所有字数对应的罗马字符</span></span><br><span class="line">        <span class="built_in">string</span> son_str[]=&#123;<span class="string">"M"</span>,<span class="string">"CM"</span>,<span class="string">"D"</span>,<span class="string">"CD"</span>,<span class="string">"C"</span>,<span class="string">"XC"</span>,<span class="string">"L"</span>,<span class="string">"XL"</span>,<span class="string">"X"</span>,<span class="string">"IX"</span>,<span class="string">"V"</span>,<span class="string">"IV"</span>,<span class="string">"I"</span>&#125;;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line">        <span class="comment">//从大到小，如果大于当前，就减去，并且加上一个罗马字符，直至不大于当前，才切换到下一个，直至为零</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">13</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(num&gt;=son_nums[i])</span><br><span class="line">            &#123;</span><br><span class="line">                num=num-son_nums[i];</span><br><span class="line">                ans+=son_str[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
